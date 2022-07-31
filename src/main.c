@@ -6,6 +6,7 @@
 #include "../lib/rvgs.h"
 #include <stdio.h>
 #include<stdlib.h>
+#include<math.h>
 
 typedef struct __event_list{
     arrival *arrivals;
@@ -124,12 +125,12 @@ int nextEvent(event_list ev){
     return 1;
 }
 void handleDigestArrival(arrival* arrival,digestCenter digestCenter,event_list ev);
-void handleNormalArrival(arrival* arrival);
-void handlePremiumArrival(arrival* arrival);
+void handleNormalArrival(normalAnalysisCenter center, event_list ev);
+void handlePremiumArrival(premiumAnalysisCenter center, event_list ev);
 void handleReliableArrival(arrival* arrival);
 void handleDigestTermination(termination* termination,digestCenter digestCenter, event_list ev);
-void handleNormalTermination(termination* termination);
-void handlePremiumTermination(termination* termination);
+void handleNormalTermination(normalAnalysisCenter center, event_list ev);
+void handlePremiumTermination(premiumAnalysisCenter center, event_list ev);
 void handleReliableTermination(termination* termination);
 
 int main(){
@@ -138,14 +139,34 @@ int main(){
     normalAnalysisCenter normalAnalysisCenter;
     premiumAnalysisCenter premiumAnalysisCenter;
     reliableAnalysisCenter reliableAnalysisCenter;
+    //Digest center initialization
     digestCenter.area=0.0;
     digestCenter.digestMatching=0;
-    digestCenter.lastEventTime=0;
+    digestCenter.lastEventTime=0.0;
     digestCenter.index=0;
     digestCenter.jobs=0;
     digestCenter.service_time=0.0;
     digestCenter.queue=NULL;
     digestCenter.probabilityOfMatching=INITIAL_DIGEST_MATCHING_PROB;
+
+    //Normal center initialization
+    normalAnalysisCenter.area=0.0;
+    normalAnalysisCenter.numberOfTimeouts=0;
+    normalAnalysisCenter.lastEventTime=0.0;
+    normalAnalysisCenter.index=0;
+    normalAnalysisCenter.jobs=0;
+    initializeServerArray(normalAnalysisCenter.service_time,normalAnalysisCenter.servers,N_NORMAL);
+    normalAnalysisCenter.queue = NULL;
+
+    //Premoium center initialization
+    premiumAnalysisCenter.area = 0.0;
+    premiumAnalysisCenter.numberOfTimeouts=0;
+    premiumAnalysisCenter.lastEventTime=0.0;
+    premiumAnalysisCenter.index=0;
+    premiumAnalysisCenter.jobs=0;
+    initializeServerArray(premiumAnalysisCenter.service_time,premiumAnalysisCenter.servers,N_PREMIUM);
+    premiumAnalysisCenter.queue=NULL;
+
     events.arrivals = NULL;
     events.terminations = NULL;
     PlantSeeds(123456789);
@@ -154,13 +175,13 @@ int main(){
         if(nextEvent(events)==0){
             switch(events.arrivals->center){
                 case DIGEST:
-                    handleDigestArrival(events.arrivals);
+                    handleDigestArrival(events.arrivals,digestCenter,events);
                     break;
                 case NORMAL:
-                    handleNormalArrival(events.arrivals);
+                    handleNormalArrival(normalAnalysisCenter,events);
                     break;
                 case PREMIUM:
-                    handlePremiumArrival(events.arrivals);
+                    handlePremiumArrival(premiumAnalysisCenter,events);
                     break;
                 case RELIABLE:
                     handleReliableArrival(events.arrivals);
@@ -171,13 +192,13 @@ int main(){
             //Termination
             switch(events.terminations->center){
                 case DIGEST:
-                    handleDigestTermination(events.terminations);
+                    handleDigestTermination(events.terminations,digestCenter,events);
                     break;
                 case NORMAL:
-                    handleNormalTermination(events.terminations);
+                    handleNormalTermination(normalAnalysisCenter,events);
                     break;
                 case PREMIUM:
-                    handlePremiumTermination(events.terminations);
+                    handlePremiumTermination(premiumAnalysisCenter,events);
                     break;
                 case RELIABLE:
                     handleReliableTermination(events.terminations);
@@ -188,8 +209,8 @@ int main(){
 }
 
 void handleDigestArrival(arrival* arrival,digestCenter digestCenter, event_list ev){
-    digestCenter.jobs++;
     digestCenter.area += (arrival->time - digestCenter.lastEventTime)*digestCenter.jobs;
+    digestCenter.jobs++;
     simulationTime = arrival->time;
     digestCenter.lastEventTime = arrival->time;
     ev.arrivals= arrival->next;
@@ -214,6 +235,7 @@ void handleDigestArrival(arrival* arrival,digestCenter digestCenter, event_list 
 }
 
 void handleDigestTermination(termination* termination, digestCenter digestCenter, event_list ev){
+    digestCenter.area += (termination->time - digestCenter.lastEventTime)*digestCenter.jobs;
     digestCenter.jobs--;
     digestCenter.index++;
     simulationTime = termination->time;
@@ -257,4 +279,132 @@ void handleDigestTermination(termination* termination, digestCenter digestCenter
         insertList(ev,ter,1);
     }
     free(termination);
+}
+
+void handleNormalArrival(normalAnalysisCenter center, event_list ev){
+    arrival *ar = ev.arrivals;
+    center.area+=(ar->time-center.lastEventTime)*center.jobs;
+    center.jobs++;
+    simulationTime = ar->time;
+    center.lastEventTime = simulationTime;
+    ev.arrivals = ar->next;
+    if(center.jobs<=N_NORMAL){
+        int server_index = findFreeServer(center.servers,N_NORMAL);
+        center.servers[server_index] = 1;
+        //The actual service time can be less than the generated service time due to timeout expiration
+        center.service_time[server_index]+=min(ar->job.serviceTime,TIMEOUT);
+        termination* termination = malloc(sizeof(termination));
+        termination->time = ar->job.serviceTime + simulationTime;
+        termination->center=NORMAL;
+        termination->job = ar->job;
+        termination->server_index = server_index;
+        insertList(ev,termination,1);
+    }
+    else{
+        job_queue *node = malloc(sizeof(job_queue));
+        node->job = ar->job;
+        insertQueue(&center.queue,node);
+    }
+    free(ar);
+}
+
+void handleNormalTermination(normalAnalysisCenter center, event_list ev){
+    termination* ter = ev.terminations;
+    center.area+=(ter->time-center.lastEventTime)*center.jobs;
+    center.jobs--;
+    center.index++;
+    simulationTime = ter->time;
+    center.lastEventTime=simulationTime;
+    ev.terminations = ter->next;
+    if(ter->job.serviceTime > TIMEOUT){
+        center.numberOfTimeouts++;
+        arrival* ar = malloc(sizeof(arrival));
+        ar->center = RELIABLE;
+        ar->time =simulationTime;
+        ar->job = ter->job;
+        //Service time is half because reliable machines are 2x faster than normal machines
+        ar->job.serviceTime = ar->job.serviceTime/2;
+        insertList(ev,ar,0);
+    }
+    center.servers[ter->server_index] = 0;
+    if(center.jobs>=N_NORMAL){
+        int server_index = findFreeServer(center.servers,N_NORMAL);
+        center.servers[server_index] = 1;
+        job_queue *j_q = popQueue(&center.queue);
+        job job = j_q->job;
+        free(j_q);
+        //The actual service time can be less than the generated service time due to timeout expiration
+        center.service_time[server_index]+=min(job.serviceTime,TIMEOUT);
+        termination* termi = malloc(sizeof(termination));
+        termi->time = job.serviceTime + simulationTime;
+        termi->center=NORMAL;
+        termi->job = job;
+        termi->server_index = server_index;
+        insertList(ev,termi,1);
+    }
+    free(ter);
+}
+
+void handlePremiumArrival(premiumAnalysisCenter center, event_list ev){
+    arrival *ar = ev.arrivals;
+    center.area+=(ar->time-center.lastEventTime)*center.jobs;
+    center.jobs++;
+    simulationTime = ar->time;
+    center.lastEventTime = simulationTime;
+    ev.arrivals = ar->next;
+    if(center.jobs<=N_PREMIUM){
+        int server_index = findFreeServer(center.servers,N_PREMIUM);
+        center.servers[server_index] = 1;
+        //The actual service time can be less than the generated service time due to timeout expiration
+        center.service_time[server_index]+=min(ar->job.serviceTime,TIMEOUT);
+        termination* termination = malloc(sizeof(termination));
+        termination->time = ar->job.serviceTime + simulationTime;
+        termination->center=PREMIUM;
+        termination->job = ar->job;
+        termination->server_index = server_index;
+        insertList(ev,termination,1);
+    }
+    else{
+        job_queue *node = malloc(sizeof(job_queue));
+        node->job = ar->job;
+        insertQueue(&center.queue,node);
+    }
+    free(ar);
+}
+
+void handlePremiumTermination(normalAnalysisCenter center, event_list ev){
+    termination* ter = ev.terminations;
+    center.area+=(ter->time-center.lastEventTime)*center.jobs;
+    center.jobs--;
+    center.index++;
+    simulationTime = ter->time;
+    center.lastEventTime=simulationTime;
+    ev.terminations = ter->next;
+    if(ter->job.serviceTime > TIMEOUT){
+        center.numberOfTimeouts++;
+        arrival* ar = malloc(sizeof(arrival));
+        ar->center = RELIABLE;
+        ar->time =simulationTime;
+        ar->job = ter->job;
+        //Service time is the same because the machines are the same.
+        ar->job.serviceTime = ar->job.serviceTime;
+        insertList(ev,ar,0);
+    }
+    center.servers[ter->server_index] = 0;
+    if(center.jobs>=N_PREMIUM){
+        int server_index = findFreeServer(center.servers,N_PREMIUM);
+        center.servers[server_index] = 1;
+        job_queue *j_q = popQueue(&center.queue);
+        job job = j_q->job;
+        free(j_q);
+        //The actual service time can be less than the generated service time due to timeout expiration
+        center.service_time[server_index]+=min(job.serviceTime,TIMEOUT);
+        termination* termi = malloc(sizeof(termination));
+        termi->time = job.serviceTime + simulationTime;
+        termi->center=PREMIUM;
+        termi->job = job;
+        termi->server_index = server_index;
+        insertList(ev,termi,1);
+    }
+    free(ter);
 }

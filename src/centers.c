@@ -34,6 +34,8 @@ typedef struct __normalAnalysisCenter
     double service_time[N_NORMAL]; // service time of the jobs in service in each server
     int index; // number of completely processed jobs
     int numberOfTimeouts; // number of jobs terminated with expiration of timeout
+    double lastEventTime;
+    job_queue *queue;
 }normalAnalysisCenter;
 
 typedef struct __premiumAnalysisCenter
@@ -45,6 +47,8 @@ typedef struct __premiumAnalysisCenter
     double service_time[N_PREMIUM]; // service time of the jobs in service in each server
     int index; // number of completely processed jobs
     int numberOfTimeouts; // number of jobs terminated with expiration of timeout
+    double lastEventTime;
+    job_queue *queue;
 }premiumAnalysisCenter;
 
 typedef struct __reliableAnalysisCenter
@@ -65,3 +69,11 @@ typedef enum __center{
     PREMIUM = 2,
     RELIABLE = 3
 }center;
+
+void initializeServerArray(double *service_time,int *servers, int n){
+    int i=0;
+    for (i=0;i<n;i++){
+        service_time[i]=0.0;
+        servers[i]=0;
+    }
+}

@@ -22,5 +22,6 @@ typedef struct __termination{
     double time;    // time of the termination of the job
     job job;        // job associated to the event
     center center;  // ID of the center that processed the job
+    int server_index; // Index of the server that becomes idle. This value is not set for digest calculation node
     struct __termination *next; // Pointer to next node of the queue
 }termination;
