@@ -11,6 +11,7 @@
  */
 
 #include "config.h"
+#include "job.c"
 
 typedef struct __digestCenter{
     // This is a SSQ center
@@ -19,6 +20,9 @@ typedef struct __digestCenter{
     double service_time; // service time of the job in service
     int index; // number of completely processed jobs
     int digestMatching; // number of jobs whose digest matches with digest of already analyzed jobs
+    double lastEventTime;
+    double probabilityOfMatching;
+    job_queue *queue;
 }digestCenter;
 
 typedef struct __normalAnalysisCenter
