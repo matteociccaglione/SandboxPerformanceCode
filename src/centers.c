@@ -55,11 +55,17 @@ typedef struct __reliableAnalysisCenter
 {
     // This is a MSQ center
     int jobs; // number of job in the center (queue + single server)
+    int premiumJobs; // number of premium job in the center (queue + single server)
     int servers[N_RELIABLE]; // status of single server of the MSQ center (busy=1, idle=0)
     double area; // time integrated number of jobs in the center
+    double areaPremium; // time integrated number of premium jobs in the center
     double service_time[N_RELIABLE]; // service time of the jobs in service in each server
     int index; // number of completely processed jobs
+    int premiumIndex; // number of completely processed premium jobs
     int numberOfTimeouts; // number of jobs terminated with expiration of timeout
+    double lastEventTime;
+    job_queue *queueNormal;
+    job_queue *queuePremium;
 }reliableAnalysisCenter;
 
 
