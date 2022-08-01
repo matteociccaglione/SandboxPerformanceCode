@@ -19,6 +19,7 @@ typedef struct __digestCenter{
     double area; // time integrated number of jobs in the center
     double service_time; // service time of the job in service
     int index; // number of completely processed jobs
+    int indexPremium; // number of completely processed PREMIUM jobs
     int digestMatching; // number of jobs whose digest matches with digest of already analyzed jobs
     double lastEventTime;
     double probabilityOfMatching;
