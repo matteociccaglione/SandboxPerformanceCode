@@ -1,0 +1,15926 @@
+inter =   0.05
+  0.00
+digest arrival
+inter =   0.12
+  0.05
+digest arrival
+inter =   1.07
+  0.17
+digest term
+Free j_q
+0
+Free trucebaldazzi
+  0.39
+normal arrival
+  0.39
+digest arrival
+inter =   0.31
+  1.24
+digest arrival
+inter =   1.70
+  1.55
+digest arrival
+inter =   0.13
+  3.25
+digest arrival
+inter =   0.94
+  3.37
+digest arrival
+inter =   0.79
+  4.31
+digest arrival
+inter =   4.54
+  5.11
+digest arrival
+inter =   1.62
+  9.65
+digest arrival
+inter =   0.10
+ 11.28
+digest arrival
+inter =   0.13
+ 11.37
+digest arrival
+inter =   0.60
+ 11.50
+digest arrival
+inter =   0.58
+ 12.10
+digest arrival
+inter =   0.91
+ 12.68
+digest arrival
+inter =   0.92
+ 13.60
+digest arrival
+inter =   0.96
+ 14.51
+digest arrival
+inter =   0.06
+ 15.48
+digest arrival
+inter =   1.45
+ 15.54
+digest arrival
+inter =   0.08
+ 16.98
+digest arrival
+inter =   0.35
+ 17.06
+digest arrival
+inter =   0.11
+ 17.41
+digest arrival
+inter =   0.66
+ 17.52
+digest arrival
+inter =   0.01
+ 18.18
+digest arrival
+inter =   0.15
+ 18.19
+digest arrival
+inter =   0.17
+ 18.34
+digest arrival
+inter =   1.44
+ 18.51
+digest arrival
+inter =   1.87
+ 19.95
+digest arrival
+inter =   0.18
+ 21.82
+digest arrival
+inter =   0.25
+ 22.00
+digest arrival
+inter =   0.13
+ 22.25
+digest arrival
+inter =   0.26
+ 22.38
+digest arrival
+inter =   0.87
+ 22.64
+digest arrival
+inter =   1.24
+ 23.51
+digest arrival
+inter =   0.03
+ 24.75
+digest arrival
+inter =   0.33
+ 24.78
+digest arrival
+inter =   1.31
+ 25.10
+digest arrival
+inter =   0.48
+ 26.41
+digest arrival
+inter =   0.21
+ 26.90
+digest arrival
+inter =   0.30
+ 27.11
+digest arrival
+inter =   0.71
+ 27.41
+digest arrival
+inter =   0.02
+ 28.12
+digest arrival
+inter =   0.12
+ 28.13
+digest arrival
+inter =   0.58
+ 28.25
+digest arrival
+inter =   0.06
+ 28.84
+digest arrival
+inter =   1.53
+ 28.90
+digest arrival
+inter =   1.37
+ 30.43
+digest arrival
+inter =   0.60
+ 31.80
+digest arrival
+inter =   0.08
+ 32.40
+digest arrival
+inter =   0.97
+ 32.48
+digest arrival
+inter =   0.62
+ 33.46
+digest arrival
+inter =   1.64
+ 34.07
+digest arrival
+inter =   2.46
+ 35.72
+digest arrival
+inter =   1.81
+ 38.17
+digest arrival
+inter =   0.14
+ 39.99
+digest arrival
+inter =   0.16
+ 40.13
+digest arrival
+inter =   1.11
+ 40.29
+digest arrival
+inter =   0.61
+ 41.40
+digest arrival
+inter =   0.83
+ 42.01
+digest arrival
+inter =   0.32
+ 42.84
+digest arrival
+inter =   0.78
+ 43.16
+digest arrival
+inter =   0.04
+ 43.94
+digest arrival
+inter =   0.51
+ 43.99
+digest arrival
+inter =   0.28
+ 44.49
+digest arrival
+inter =   1.33
+ 44.78
+digest arrival
+inter =   0.44
+ 46.11
+digest arrival
+inter =   0.23
+ 46.55
+digest arrival
+inter =   1.10
+ 46.78
+digest arrival
+inter =   0.36
+ 47.87
+digest arrival
+inter =   0.91
+ 48.24
+digest arrival
+inter =   0.09
+ 49.14
+digest arrival
+inter =   0.32
+ 49.23
+digest arrival
+inter =   0.95
+ 49.54
+digest arrival
+inter =   0.60
+ 50.49
+digest arrival
+inter =   0.34
+ 51.09
+digest arrival
+inter =   0.40
+ 51.42
+digest arrival
+inter =   1.31
+ 51.83
+digest arrival
+inter =   0.39
+ 53.14
+digest arrival
+inter =   2.46
+ 53.53
+digest arrival
+inter =   0.03
+ 55.99
+digest arrival
+inter =   0.35
+ 56.02
+digest arrival
+inter =   0.38
+ 56.37
+digest arrival
+inter =   0.08
+ 56.75
+digest arrival
+inter =   0.49
+ 56.83
+digest arrival
+inter =   0.99
+ 57.32
+digest arrival
+inter =   0.10
+ 58.31
+digest arrival
+inter =   0.02
+ 58.40
+digest arrival
+inter =   1.26
+ 58.42
+digest arrival
+inter =   0.64
+ 59.68
+digest arrival
+inter =   5.26
+ 60.32
+digest arrival
+inter =   0.57
+ 65.58
+digest arrival
+inter =   0.32
+ 66.15
+digest arrival
+inter =   0.39
+ 66.47
+digest arrival
+inter =   0.43
+ 66.86
+digest arrival
+inter =   2.77
+ 67.28
+digest arrival
+inter =   0.25
+ 70.05
+digest arrival
+inter =   3.42
+ 70.30
+digest arrival
+inter =   0.03
+ 73.71
+digest arrival
+inter =   0.42
+ 73.74
+digest arrival
+inter =   0.57
+ 74.16
+digest arrival
+inter =   0.64
+ 74.73
+digest arrival
+inter =   2.30
+ 75.37
+digest arrival
+inter =   0.04
+ 77.67
+digest arrival
+inter =   0.87
+ 77.71
+digest arrival
+inter =   0.34
+ 78.58
+digest arrival
+inter =   0.55
+ 78.92
+digest arrival
+inter =   2.88
+ 79.47
+digest arrival
+inter =   0.35
+ 82.35
+digest arrival
+inter =   3.16
+ 82.70
+digest arrival
+inter =   2.19
+ 85.86
+digest arrival
+inter =   0.03
+ 88.04
+digest arrival
+inter =   0.14
+ 88.08
+digest arrival
+inter =   1.31
+ 88.22
+digest arrival
+inter =   0.36
+ 89.53
+digest arrival
+inter =   2.96
+ 89.89
+digest arrival
+inter =   0.54
+ 92.85
+digest arrival
+inter =   1.21
+ 93.39
+digest arrival
+inter =   1.22
+ 94.60
+digest arrival
+inter =   2.40
+ 95.82
+digest arrival
+inter =   2.17
+ 98.22
+digest arrival
+inter =   0.43
+100.39
+digest arrival
+inter =   0.30
+100.82
+digest arrival
+inter =   0.53
+101.12
+digest arrival
+inter =   3.51
+101.64
+digest arrival
+inter =   1.33
+105.15
+digest arrival
+inter =   0.15
+106.49
+digest arrival
+inter =   0.07
+106.63
+digest arrival
+inter =   0.95
+106.71
+digest arrival
+inter =   0.07
+107.65
+digest arrival
+inter =   0.29
+107.72
+digest arrival
+inter =   0.10
+108.01
+digest arrival
+inter =   1.38
+108.11
+digest arrival
+inter =   0.53
+109.49
+digest arrival
+inter =   2.06
+110.02
+digest arrival
+inter =   1.03
+112.08
+digest arrival
+inter =   1.11
+113.12
+digest arrival
+inter =   4.22
+114.23
+digest arrival
+inter =   0.50
+118.45
+digest arrival
+inter =   0.16
+118.95
+digest arrival
+inter =   2.21
+119.11
+digest arrival
+inter =   0.46
+121.32
+digest arrival
+inter =   2.79
+121.77
+digest arrival
+inter =   1.20
+124.56
+digest arrival
+inter =   0.62
+125.76
+digest arrival
+inter =   1.06
+126.39
+digest arrival
+inter =   1.50
+127.45
+digest arrival
+inter =   0.27
+128.95
+digest arrival
+inter =   0.38
+129.22
+digest arrival
+inter =   1.33
+129.60
+digest arrival
+inter =   1.14
+130.93
+digest arrival
+inter =   0.12
+132.07
+digest arrival
+inter =   0.43
+132.19
+digest arrival
+inter =   0.55
+132.63
+digest arrival
+inter =   1.01
+133.18
+digest arrival
+inter =   3.22
+134.18
+digest arrival
+inter =   0.72
+137.41
+digest arrival
+inter =   1.55
+138.12
+digest arrival
+inter =   0.40
+139.68
+digest arrival
+inter =   0.25
+140.08
+digest arrival
+inter =   0.36
+140.33
+digest arrival
+inter =   0.27
+140.69
+digest arrival
+inter =   0.52
+140.96
+digest arrival
+inter =   1.06
+141.48
+digest arrival
+inter =   1.29
+142.54
+digest arrival
+inter =   0.48
+143.83
+digest arrival
+inter =   1.44
+144.31
+digest arrival
+inter =   0.16
+145.75
+digest arrival
+inter =   0.97
+145.91
+digest arrival
+inter =   0.21
+146.88
+digest arrival
+inter =   1.15
+147.09
+digest arrival
+inter =   1.09
+148.23
+digest arrival
+inter =   1.74
+149.32
+digest arrival
+inter =   0.04
+151.07
+digest arrival
+inter =   2.36
+151.11
+digest arrival
+inter =   0.83
+153.47
+digest arrival
+inter =   0.88
+154.30
+digest arrival
+inter =   0.84
+155.18
+digest arrival
+inter =   0.88
+156.02
+digest arrival
+inter =   0.81
+156.90
+digest arrival
+inter =   0.18
+157.71
+digest arrival
+inter =   0.44
+157.89
+digest arrival
+inter =   2.80
+158.32
+digest arrival
+inter =   0.47
+161.12
+digest arrival
+inter =   2.75
+161.59
+digest arrival
+inter =   1.02
+164.34
+digest arrival
+inter =   0.05
+165.36
+digest arrival
+inter =   1.35
+165.41
+digest arrival
+inter =   0.71
+166.76
+digest arrival
+inter =   0.18
+167.47
+digest arrival
+inter =   0.04
+167.65
+digest arrival
+inter =   0.84
+167.69
+digest arrival
+inter =   0.68
+168.53
+digest arrival
+inter =   0.11
+169.21
+digest arrival
+inter =   0.00
+169.31
+digest arrival
+inter =   1.70
+169.31
+digest arrival
+inter =   0.25
+171.01
+digest arrival
+inter =   0.02
+171.26
+digest arrival
+inter =   0.35
+171.28
+digest arrival
+inter =   0.32
+171.63
+digest arrival
+inter =   0.22
+171.95
+digest arrival
+inter =   0.13
+172.17
+digest arrival
+inter =   1.54
+172.29
+digest arrival
+inter =   2.53
+173.83
+digest arrival
+inter =   1.04
+176.37
+digest arrival
+inter =   0.47
+177.41
+digest arrival
+inter =   0.26
+177.88
+digest arrival
+inter =   1.48
+178.14
+digest arrival
+inter =   0.02
+179.62
+digest arrival
+inter =   0.62
+179.64
+digest arrival
+inter =   0.90
+180.27
+digest arrival
+inter =   0.39
+181.17
+digest arrival
+inter =   0.34
+181.56
+digest arrival
+inter =   0.50
+181.89
+digest arrival
+inter =   0.98
+182.40
+digest arrival
+inter =   1.62
+183.37
+digest arrival
+inter =   0.38
+185.00
+digest arrival
+inter =   0.31
+185.38
+digest arrival
+inter =   0.51
+185.69
+digest arrival
+inter =   0.79
+186.20
+digest arrival
+inter =   1.41
+186.99
+digest arrival
+inter =   0.52
+188.40
+digest arrival
+inter =   0.13
+188.92
+digest arrival
+inter =   0.87
+189.06
+digest arrival
+inter =   1.42
+189.92
+digest arrival
+inter =   0.50
+191.35
+digest arrival
+inter =   0.48
+191.85
+digest arrival
+inter =   0.73
+192.32
+digest arrival
+inter =   0.21
+193.05
+digest arrival
+inter =   0.38
+193.26
+digest arrival
+inter =   0.32
+193.64
+digest arrival
+inter =   0.16
+193.95
+digest arrival
+inter =   1.84
+194.11
+digest arrival
+inter =   0.12
+195.95
+digest arrival
+inter =   2.50
+196.07
+digest arrival
+inter =   0.08
+198.57
+digest arrival
+inter =   0.83
+198.65
+digest arrival
+inter =   0.16
+199.49
+digest arrival
+inter =   1.06
+199.64
+digest arrival
+inter =   0.72
+200.70
+digest arrival
+inter =   0.52
+201.42
+digest arrival
+inter =   0.93
+201.94
+digest arrival
+inter =   0.17
+202.87
+digest arrival
+inter =   0.03
+203.04
+digest arrival
+inter =   0.27
+203.06
+digest arrival
+inter =   2.69
+203.34
+digest arrival
+inter =   1.25
+206.03
+digest arrival
+inter =   0.35
+207.28
+digest arrival
+inter =   0.17
+207.63
+digest arrival
+inter =   0.66
+207.80
+digest arrival
+inter =   0.43
+208.45
+digest arrival
+inter =   0.00
+208.88
+digest arrival
+inter =   0.39
+208.88
+digest arrival
+inter =   0.97
+209.28
+digest arrival
+inter =   0.62
+210.24
+digest arrival
+inter =   1.14
+210.86
+digest arrival
+inter =   0.69
+212.00
+digest arrival
+inter =   0.07
+212.69
+digest arrival
+inter =   0.15
+212.76
+digest arrival
+inter =   0.06
+212.91
+digest arrival
+inter =   1.01
+212.97
+digest arrival
+inter =   1.47
+213.98
+digest arrival
+inter =   0.58
+215.45
+digest arrival
+inter =   0.31
+216.03
+digest arrival
+inter =   2.04
+216.34
+digest arrival
+inter =   0.73
+218.38
+digest arrival
+inter =   1.76
+219.11
+normal term
+219.52
+digest term
+Free j_q
+0
+Free trucebaldazzi
+  0.80
+normal arrival
+  0.80
+reliable arrival
+219.52
+digest arrival
+inter =   0.01
+220.87
+digest arrival
+inter =   0.09
+220.89
+digest arrival
+inter =   1.12
+220.97
+digest arrival
+inter =   0.89
+222.09
+digest arrival
+inter =   1.48
+222.98
+digest arrival
+inter =   0.54
+224.46
+digest arrival
+inter =   2.45
+225.01
+digest arrival
+inter =   1.04
+227.46
+digest arrival
+inter =   0.09
+228.50
+digest arrival
+inter =   3.00
+228.58
+digest arrival
+inter =   0.83
+231.58
+digest arrival
+inter =   0.37
+232.41
+digest arrival
+inter =   0.04
+232.78
+digest arrival
+inter =   0.50
+232.82
+digest arrival
+inter =   0.09
+233.32
+digest arrival
+inter =   1.11
+233.41
+digest arrival
+inter =   2.48
+234.52
+digest arrival
+inter =   1.45
+237.00
+digest arrival
+inter =   0.53
+238.45
+digest arrival
+inter =   0.08
+238.98
+digest arrival
+inter =   0.01
+239.06
+digest arrival
+inter =   0.48
+239.07
+digest arrival
+inter =   0.12
+239.55
+digest arrival
+inter =   0.78
+239.67
+digest arrival
+inter =   0.27
+240.45
+digest arrival
+inter =   0.25
+240.72
+digest arrival
+inter =   1.36
+240.97
+digest arrival
+inter =   3.33
+242.33
+digest arrival
+inter =   0.02
+245.65
+digest arrival
+inter =   1.46
+245.68
+digest arrival
+inter =   1.88
+247.14
+normal term
+247.51
+reliable arrival
+247.51
+digest arrival
+inter =   0.65
+249.02
+digest arrival
+inter =   0.90
+249.67
+digest arrival
+inter =   0.92
+250.57
+digest arrival
+inter =   0.15
+251.49
+digest arrival
+inter =   0.89
+251.64
+digest arrival
+inter =   0.24
+252.53
+digest arrival
+inter =   0.27
+252.76
+digest arrival
+inter =   0.67
+253.04
+digest arrival
+inter =   0.04
+253.71
+digest arrival
+inter =   0.62
+253.75
+digest arrival
+inter =   1.18
+254.37
+digest arrival
+inter =   2.34
+255.55
+digest arrival
+inter =   0.54
+257.90
+digest arrival
+inter =   0.15
+258.44
+digest arrival
+inter =   1.05
+258.59
+digest arrival
+inter =   0.61
+259.64
+digest arrival
+inter =   0.05
+260.24
+digest arrival
+inter =   0.25
+260.29
+digest arrival
+inter =   0.04
+260.54
+digest arrival
+inter =   0.81
+260.58
+digest arrival
+inter =   0.38
+261.39
+digest arrival
+inter =   0.11
+261.77
+digest arrival
+inter =   0.81
+261.89
+digest arrival
+inter =   0.37
+262.70
+digest arrival
+inter =   0.70
+263.07
+digest arrival
+inter =   0.09
+263.77
+digest arrival
+inter =   0.76
+263.86
+digest arrival
+inter =   1.63
+264.63
+digest arrival
+inter =   1.32
+266.25
+digest arrival
+inter =   0.62
+267.57
+digest arrival
+inter =   1.79
+268.19
+digest arrival
+inter =   0.69
+269.99
+digest arrival
+inter =   0.06
+270.67
+digest arrival
+inter =   0.65
+270.73
+digest arrival
+inter =   3.84
+271.38
+digest arrival
+inter =   0.81
+275.22
+digest arrival
+inter =   0.05
+276.03
+digest arrival
+inter =   0.97
+276.08
+digest arrival
+inter =   0.01
+277.05
+digest arrival
+inter =   0.63
+277.06
+digest arrival
+inter =   1.56
+277.69
+digest arrival
+inter =   0.36
+279.26
+digest arrival
+inter =   1.01
+279.62
+digest arrival
+inter =   2.29
+280.63
+digest arrival
+inter =   0.49
+282.91
+digest arrival
+inter =   0.60
+283.41
+digest arrival
+inter =   0.71
+284.01
+digest arrival
+inter =   3.19
+284.72
+digest arrival
+inter =   1.10
+287.91
+digest arrival
+inter =   1.53
+289.00
+digest arrival
+inter =   1.05
+290.53
+digest arrival
+inter =   0.42
+291.58
+digest arrival
+inter =   0.70
+292.00
+digest arrival
+inter =   0.55
+292.71
+digest arrival
+inter =   0.46
+293.26
+digest arrival
+inter =   0.07
+293.72
+digest arrival
+inter =   2.88
+293.80
+digest arrival
+inter =   0.93
+296.68
+digest arrival
+inter =   1.20
+297.61
+digest arrival
+inter =   1.73
+298.82
+digest arrival
+inter =   1.01
+300.54
+digest arrival
+inter =   0.89
+301.55
+digest arrival
+inter =   0.46
+302.44
+digest arrival
+inter =   0.49
+302.90
+digest arrival
+inter =   0.27
+303.39
+digest arrival
+inter =   3.67
+303.66
+digest arrival
+inter =   0.37
+307.33
+digest arrival
+inter =   0.55
+307.70
+digest arrival
+inter =   0.08
+308.25
+digest arrival
+inter =   1.26
+308.33
+digest arrival
+inter =   0.27
+309.59
+digest arrival
+inter =   3.34
+309.86
+digest arrival
+inter =   0.58
+313.19
+digest arrival
+inter =   0.55
+313.78
+digest arrival
+inter =   0.78
+314.33
+digest arrival
+inter =   1.31
+315.11
+digest arrival
+inter =   0.59
+316.43
+digest arrival
+inter =   2.92
+317.01
+digest arrival
+inter =   0.18
+319.93
+digest arrival
+inter =   1.83
+320.11
+digest arrival
+inter =   0.08
+321.93
+digest arrival
+inter =   2.70
+322.02
+digest arrival
+inter =   0.38
+324.72
+digest arrival
+inter =   0.68
+325.10
+digest arrival
+inter =   0.75
+325.78
+digest arrival
+inter =   0.38
+326.53
+digest arrival
+inter =   0.71
+326.91
+digest arrival
+inter =   0.60
+327.63
+digest arrival
+inter =   0.23
+328.23
+digest arrival
+inter =   0.06
+328.45
+digest arrival
+inter =   1.29
+328.51
+digest arrival
+inter =   1.77
+329.81
+digest arrival
+inter =   0.30
+331.58
+digest arrival
+inter =   0.54
+331.87
+digest arrival
+inter =   0.46
+332.42
+digest arrival
+inter =   0.62
+332.88
+digest arrival
+inter =   0.48
+333.50
+digest arrival
+inter =   0.24
+333.98
+digest arrival
+inter =   0.23
+334.22
+digest arrival
+inter =   0.70
+334.45
+digest arrival
+inter =   0.29
+335.15
+digest arrival
+inter =   0.46
+335.44
+digest arrival
+inter =   0.45
+335.90
+digest arrival
+inter =   0.88
+336.35
+digest arrival
+inter =   0.30
+337.23
+digest arrival
+inter =   3.80
+337.53
+digest arrival
+inter =   0.05
+341.33
+digest arrival
+inter =   0.56
+341.38
+digest arrival
+inter =   0.51
+341.94
+digest arrival
+inter =   0.47
+342.45
+digest arrival
+inter =   2.31
+342.92
+digest arrival
+inter =   0.90
+345.23
+digest arrival
+inter =   0.37
+346.13
+digest arrival
+inter =   0.77
+346.50
+digest arrival
+inter =   2.76
+347.26
+digest arrival
+inter =   6.84
+350.02
+digest arrival
+inter =   0.33
+356.86
+digest arrival
+inter =   0.40
+357.19
+digest arrival
+inter =   2.77
+357.59
+digest arrival
+inter =   0.07
+360.36
+digest arrival
+inter =   2.96
+360.43
+digest arrival
+inter =   0.89
+363.39
+digest arrival
+inter =   0.11
+364.28
+digest arrival
+inter =   1.10
+364.39
+digest arrival
+inter =   0.23
+365.49
+digest arrival
+inter =   0.59
+365.72
+digest arrival
+inter =   0.37
+366.31
+digest arrival
+inter =   0.93
+366.69
+digest arrival
+inter =   0.18
+367.62
+digest arrival
+inter =   0.30
+367.80
+digest arrival
+inter =   0.16
+368.10
+digest arrival
+inter =   0.20
+368.26
+digest arrival
+inter =   0.17
+368.46
+digest arrival
+inter =   1.35
+368.62
+digest arrival
+inter =   0.28
+369.97
+digest arrival
+inter =   0.61
+370.25
+digest arrival
+inter =   0.58
+370.86
+reliable term
+Before new arrival 
+370.86
+reliable term
+Before new arrival 
+329.08
+digest term
+Free j_q
+0
+Free trucebaldazzi
+  0.85
+premium arrival
+  0.85
+premium term
+  4.07
+digest term
+Free j_q
+0
+Free trucebaldazzi
+  0.88
+premium arrival
+  0.88
+premium term
+ 20.72
+digest term
+Free j_q
+0
+Free trucebaldazzi
+  1.75
+normal arrival
+  1.75
+normal term
+ 38.78
+digest term
+Free j_q
+0
+Free trucebaldazzi
+  2.09
+premium arrival
+  2.09
+premium term
+ 33.98
+digest term
+Free j_q
+0
+Free trucebaldazzi
+  2.16
+premium arrival
+  2.16
+premium term
+ 82.94
+digest term
+Free j_q
+0
+Free trucebaldazzi
+  4.09
+premium arrival
+  4.09
+premium term
+ 27.75
+digest term
+Free j_q
+0
+Free trucebaldazzi
+  4.86
+digest term
+Free j_q
+0
+Free trucebaldazzi
+  6.08
+normal arrival
+  6.08
+normal term
+115.71
+digest term
+Free j_q
+0
+Free trucebaldazzi
+  6.21
+normal arrival
+  6.21
+normal term
+ 13.84
+digest term
+Free j_q
+0
+Free trucebaldazzi
+  6.24
+normal arrival
+  6.24
+normal term
+ 38.16
+digest term
+Free j_q
+0
+Free trucebaldazzi
+  6.37
+normal arrival
+  6.37
+normal term
+ 31.76
+digest term
+Free j_q
+0
+Free trucebaldazzi
+  6.63
+normal arrival
+  6.63
+normal term
+105.32
+digest term
+Free j_q
+0
+Free trucebaldazzi
+  6.83
+premium arrival
+  6.83
+premium term
+ 27.13
+digest term
+Free j_q
+0
+Free trucebaldazzi
+  8.46
+normal arrival
+  8.46
+normal term
+118.92
+digest term
+Free j_q
+0
+Free trucebaldazzi
+  8.62
+premium arrival
+  8.62
+premium term
+ 28.66
+digest term
+Free j_q
+0
+Free trucebaldazzi
+  9.70
+normal arrival
+  9.70
+normal term
+119.24
+digest term
+Free j_q
+0
+Free trucebaldazzi
+  9.83
+normal arrival
+  9.83
+normal term
+ 95.18
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 10.00
+premium arrival
+ 10.00
+premium term
+ 59.92
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 11.18
+premium arrival
+ 11.18
+premium term
+ 94.13
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 11.89
+normal arrival
+ 11.89
+normal term
+193.82
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 15.69
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 16.07
+premium arrival
+ 16.07
+premium term
+108.65
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 16.66
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 16.72
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 17.27
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 18.09
+normal arrival
+ 18.09
+normal term
+135.77
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 18.65
+premium arrival
+ 18.65
+premium term
+137.21
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 18.89
+premium arrival
+ 18.89
+premium term
+186.84
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 19.56
+premium arrival
+ 19.56
+premium term
+152.55
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 20.37
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 20.85
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 21.19
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 21.25
+premium arrival
+ 21.25
+premium term
+146.92
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 21.66
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 22.38
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 22.77
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 24.22
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 24.38
+normal arrival
+ 24.38
+normal term
+154.40
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 24.74
+normal arrival
+ 24.74
+reliable arrival
+193.82
+premium arrival
+ 24.22
+normal arrival
+ 21.19
+normal arrival
+ 21.66
+premium arrival
+ 15.69
+normal arrival
+ 22.38
+premium arrival
+ 20.85
+normal arrival
+ 16.66
+normal arrival
+ 16.72
+normal arrival
+ 20.37
+premium arrival
+ 17.27
+normal term
+275.78
+reliable arrival
+275.78
+digest arrival
+inter =   1.67
+371.44
+digest arrival
+inter =   0.14
+373.11
+digest arrival
+inter =   0.02
+373.25
+digest arrival
+inter =   0.03
+373.27
+digest arrival
+inter =   0.39
+373.30
+digest arrival
+inter =   2.23
+373.70
+digest arrival
+inter =   0.98
+375.92
+digest arrival
+inter =   0.92
+376.91
+digest arrival
+inter =   0.43
+377.82
+digest arrival
+inter =   0.82
+378.25
+digest arrival
+inter =   1.03
+379.07
+premium arrival
+  4.86
+digest arrival
+inter =   0.48
+380.10
+digest arrival
+inter =   0.37
+380.58
+digest arrival
+inter =   0.22
+380.95
+digest arrival
+inter =   0.09
+381.17
+digest arrival
+inter =   0.03
+381.26
+digest arrival
+inter =   0.38
+381.29
+digest arrival
+inter =   1.70
+381.67
+digest arrival
+inter =   0.08
+383.37
+digest arrival
+inter =   1.51
+383.45
+digest arrival
+inter =   1.11
+384.96
+digest arrival
+inter =   0.66
+386.07
+digest arrival
+inter =   0.41
+386.73
+digest arrival
+inter =   1.21
+387.15
+digest arrival
+inter =   0.79
+388.36
+digest arrival
+inter =   0.51
+389.15
+digest arrival
+inter =   0.23
+389.66
+digest arrival
+inter =   0.70
+389.89
+digest arrival
+inter =   0.99
+390.59
+digest arrival
+inter =   0.38
+391.58
+digest arrival
+inter =   0.74
+391.96
+digest arrival
+inter =   0.16
+392.69
+digest arrival
+inter =   0.69
+392.85
+digest arrival
+inter =   0.07
+393.54
+digest arrival
+inter =   0.39
+393.60
+digest arrival
+inter =   0.46
+393.99
+digest arrival
+inter =   0.18
+394.45
+digest arrival
+inter =   0.19
+394.63
+digest arrival
+inter =   3.55
+394.82
+digest arrival
+inter =   0.79
+398.37
+digest arrival
+inter =   1.39
+399.16
+digest arrival
+inter =   0.02
+400.55
+digest arrival
+inter =   0.36
+400.57
+digest arrival
+inter =   0.14
+400.93
+digest arrival
+inter =   0.18
+401.07
+digest arrival
+inter =   0.33
+401.25
+reliable term
+Before new arrival 
+401.29
+reliable term
+Before new arrival 
+284.78
+premium term
+ 93.42
+normal term
+ 83.66
+normal term
+ 79.75
+premium term
+ 71.87
+normal term
+ 77.84
+premium term
+ 68.30
+normal term
+ 57.93
+normal term
+ 53.25
+normal term
+ 49.51
+premium term
+ 21.75
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 25.32
+normal arrival
+ 25.32
+normal term
+ 59.75
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 25.90
+premium arrival
+ 25.90
+premium term
+132.57
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 26.59
+premium arrival
+ 26.59
+premium term
+ 37.97
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 27.16
+normal arrival
+ 27.16
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 28.07
+normal term
+ 27.63
+normal arrival
+ 28.07
+normal term
+ 50.41
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 28.44
+premium arrival
+ 28.44
+premium term
+ 31.04
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 28.53
+normal arrival
+ 28.53
+normal term
+ 39.26
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 29.38
+premium term
+  4.91
+premium arrival
+ 29.38
+premium term
+ 40.81
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 29.38
+normal arrival
+ 29.38
+normal term
+ 64.84
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 31.75
+normal arrival
+ 31.75
+normal term
+ 56.39
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 32.90
+premium arrival
+ 32.90
+premium term
+126.27
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 32.92
+premium arrival
+ 32.92
+premium term
+ 96.02
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 33.76
+premium arrival
+ 33.76
+premium term
+ 63.19
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 34.34
+premium arrival
+ 34.34
+premium term
+ 44.66
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 34.48
+premium arrival
+ 34.48
+premium term
+168.57
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 34.92
+normal arrival
+ 34.92
+normal term
+143.87
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 35.92
+premium arrival
+ 35.92
+premium term
+ 42.32
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 36.54
+premium arrival
+ 36.54
+premium term
+236.64
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 36.98
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 37.02
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 38.66
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 39.39
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 40.57
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 42.56
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 43.21
+normal arrival
+ 43.21
+reliable arrival
+236.64
+premium arrival
+ 37.02
+normal arrival
+ 38.66
+premium arrival
+ 40.57
+premium arrival
+ 39.39
+normal arrival
+ 36.98
+premium arrival
+ 42.56
+digest arrival
+inter =   0.05
+401.58
+digest arrival
+inter =   0.42
+401.62
+digest arrival
+inter =   0.91
+402.04
+digest arrival
+inter =   1.88
+402.95
+digest arrival
+inter =   0.58
+404.82
+digest arrival
+inter =   0.43
+405.40
+digest arrival
+inter =   0.63
+405.83
+digest arrival
+inter =   2.05
+406.46
+digest arrival
+inter =   0.21
+408.50
+digest arrival
+inter =   0.12
+408.72
+digest arrival
+inter =   1.05
+408.84
+digest arrival
+inter =   0.48
+409.88
+digest arrival
+inter =   0.59
+410.36
+digest arrival
+inter =   2.29
+410.95
+digest arrival
+inter =   2.01
+413.24
+digest arrival
+inter =   0.40
+415.25
+digest arrival
+inter =   0.01
+415.65
+digest arrival
+inter =   0.11
+415.66
+digest arrival
+inter =   0.09
+415.76
+digest arrival
+inter =   0.01
+415.85
+digest arrival
+inter =   0.29
+415.86
+digest arrival
+inter =   0.41
+416.15
+digest arrival
+inter =   0.43
+416.57
+digest arrival
+inter =   0.61
+417.00
+digest arrival
+inter =   1.77
+417.61
+digest arrival
+inter =   0.01
+419.37
+digest arrival
+inter =   1.08
+419.39
+digest arrival
+inter =   0.22
+420.47
+digest arrival
+inter =   0.29
+420.70
+digest arrival
+inter =   1.87
+420.99
+digest arrival
+inter =   0.65
+422.86
+digest arrival
+inter =   1.14
+423.50
+digest arrival
+inter =   0.26
+424.64
+digest arrival
+inter =   1.44
+424.90
+digest arrival
+inter =   1.19
+426.34
+digest arrival
+inter =   0.10
+427.53
+digest arrival
+inter =   1.60
+427.63
+digest arrival
+inter =   0.25
+429.23
+digest arrival
+inter =   2.39
+429.48
+digest arrival
+inter =   0.48
+431.87
+digest arrival
+inter =   1.54
+432.35
+digest arrival
+inter =   2.31
+433.89
+digest arrival
+inter =   0.10
+436.20
+digest arrival
+inter =   0.62
+436.30
+digest arrival
+inter =   0.04
+436.92
+digest arrival
+inter =   0.63
+436.96
+digest arrival
+inter =   0.21
+437.59
+digest arrival
+inter =   2.38
+437.81
+digest arrival
+inter =   0.48
+440.19
+digest arrival
+inter =   1.33
+440.67
+digest arrival
+inter =   2.16
+441.99
+digest arrival
+inter =   1.65
+444.16
+digest arrival
+inter =   0.41
+445.80
+digest arrival
+inter =   1.79
+446.22
+digest arrival
+inter =   1.21
+448.01
+digest arrival
+inter =   0.79
+449.22
+digest arrival
+inter =   0.31
+450.00
+digest arrival
+inter =   0.03
+450.31
+digest arrival
+inter =   1.79
+450.34
+digest arrival
+inter =   0.93
+452.13
+digest arrival
+inter =   0.73
+453.07
+digest arrival
+inter =   0.14
+453.80
+digest arrival
+inter =   0.99
+453.94
+digest arrival
+inter =   2.33
+454.93
+digest arrival
+inter =   0.25
+457.26
+digest arrival
+inter =   0.05
+457.51
+digest arrival
+inter =   0.06
+457.56
+digest arrival
+inter =   2.65
+457.62
+digest arrival
+inter =   0.15
+460.27
+digest arrival
+inter =   1.18
+460.42
+digest arrival
+inter =   0.40
+461.59
+digest arrival
+inter =   0.63
+461.99
+digest arrival
+inter =   0.12
+462.62
+digest arrival
+inter =   0.86
+462.74
+digest arrival
+inter =   1.34
+463.60
+digest arrival
+inter =   0.50
+464.94
+digest arrival
+inter =   1.49
+465.44
+digest arrival
+inter =   0.66
+466.94
+digest arrival
+inter =   0.30
+467.59
+digest arrival
+inter =   1.84
+467.89
+digest arrival
+inter =   0.16
+469.73
+digest arrival
+inter =   1.15
+469.89
+digest arrival
+inter =   0.91
+471.04
+digest arrival
+inter =   0.63
+471.94
+digest arrival
+inter =   0.86
+472.57
+digest arrival
+inter =   0.60
+473.44
+digest arrival
+inter =   0.64
+474.03
+digest arrival
+inter =   3.97
+474.67
+digest arrival
+inter =   0.76
+478.64
+digest arrival
+inter =   1.60
+479.41
+digest arrival
+inter =   2.67
+481.01
+digest arrival
+inter =   0.20
+483.67
+digest arrival
+inter =   1.34
+483.87
+digest arrival
+inter =   0.79
+485.21
+digest arrival
+inter =   0.09
+485.99
+digest arrival
+inter =   0.52
+486.08
+digest arrival
+inter =   0.35
+486.60
+digest arrival
+inter =   0.00
+486.95
+digest arrival
+inter =   0.04
+486.95
+digest arrival
+inter =   0.02
+486.99
+digest arrival
+inter =   0.10
+487.01
+digest arrival
+inter =   3.23
+487.11
+digest arrival
+inter =   0.21
+490.34
+digest arrival
+inter =   1.25
+490.55
+digest arrival
+inter =   0.09
+491.80
+digest arrival
+inter =   0.97
+491.89
+digest arrival
+inter =   1.07
+492.86
+digest arrival
+inter =   2.20
+493.93
+digest arrival
+inter =   0.00
+496.13
+digest arrival
+inter =   0.19
+496.14
+digest arrival
+inter =   0.35
+496.33
+digest arrival
+inter =   1.65
+496.68
+digest arrival
+inter =   1.56
+498.32
+digest arrival
+inter =   0.33
+499.88
+digest arrival
+inter =   2.04
+500.21
+digest arrival
+inter =   0.55
+502.25
+digest arrival
+inter =   1.52
+502.81
+digest arrival
+inter =   0.19
+504.33
+digest arrival
+inter =   1.62
+504.52
+digest arrival
+inter =   0.28
+506.14
+digest arrival
+inter =   0.36
+506.42
+digest arrival
+inter =   1.15
+506.78
+digest arrival
+inter =   0.26
+507.93
+digest arrival
+inter =   1.61
+508.19
+digest arrival
+inter =   0.38
+509.79
+digest arrival
+inter =   2.92
+510.17
+digest arrival
+inter =   0.34
+513.09
+digest arrival
+inter =   1.31
+513.43
+digest arrival
+inter =   0.21
+514.74
+digest arrival
+inter =   1.22
+514.95
+digest arrival
+inter =   0.21
+516.17
+digest arrival
+inter =   0.33
+516.37
+digest arrival
+inter =   0.40
+516.71
+digest arrival
+inter =   0.09
+517.11
+digest arrival
+inter =   0.04
+517.20
+digest arrival
+inter =   1.81
+517.24
+digest arrival
+inter =   1.13
+519.05
+digest arrival
+inter =   0.63
+520.18
+digest arrival
+inter =   1.10
+520.81
+digest arrival
+inter =   0.04
+521.91
+digest arrival
+inter =   0.01
+521.96
+digest arrival
+inter =   3.83
+521.97
+digest arrival
+inter =   0.06
+525.79
+digest arrival
+inter =   0.45
+525.85
+digest arrival
+inter =   0.35
+526.31
+digest arrival
+inter =   0.93
+526.66
+digest arrival
+inter =   3.06
+527.59
+digest arrival
+inter =   0.27
+530.65
+digest arrival
+inter =   0.82
+530.92
+digest arrival
+inter =   0.42
+531.73
+digest arrival
+inter =   0.56
+532.16
+digest arrival
+inter =   1.11
+532.72
+digest arrival
+inter =   0.16
+533.83
+digest arrival
+inter =   0.44
+533.98
+digest arrival
+inter =   0.65
+534.42
+digest arrival
+inter =   1.12
+535.07
+digest arrival
+inter =   0.11
+536.20
+digest arrival
+inter =   0.93
+536.31
+digest arrival
+inter =   0.29
+537.23
+digest arrival
+inter =   0.56
+537.52
+digest arrival
+inter =   0.43
+538.08
+digest arrival
+inter =   1.55
+538.51
+digest arrival
+inter =   0.34
+540.05
+digest arrival
+inter =   0.93
+540.39
+digest arrival
+inter =   1.24
+541.32
+digest arrival
+inter =   0.46
+542.56
+digest arrival
+inter =   1.30
+543.02
+digest arrival
+inter =   0.88
+544.32
+digest arrival
+inter =   1.04
+545.20
+digest arrival
+inter =   0.46
+546.25
+digest arrival
+inter =   3.35
+546.70
+digest arrival
+inter =   0.49
+550.05
+digest arrival
+inter =   0.52
+550.54
+digest arrival
+inter =   0.35
+551.06
+digest arrival
+inter =   1.44
+551.42
+digest arrival
+inter =   0.16
+552.86
+digest arrival
+inter =   0.57
+553.02
+digest arrival
+inter =   0.32
+553.59
+digest arrival
+inter =   0.39
+553.91
+digest arrival
+inter =   2.12
+554.30
+digest arrival
+inter =   1.86
+556.42
+digest arrival
+inter =   1.84
+558.28
+digest arrival
+inter =   0.61
+560.12
+digest arrival
+inter =   0.50
+560.73
+digest arrival
+inter =   0.69
+561.24
+digest arrival
+inter =   0.20
+561.93
+digest arrival
+inter =   0.40
+562.13
+digest arrival
+inter =   0.10
+562.53
+digest arrival
+inter =   0.67
+562.63
+digest arrival
+inter =   0.11
+563.30
+digest arrival
+inter =   2.07
+563.42
+digest arrival
+inter =   1.75
+565.48
+digest arrival
+inter =   0.05
+567.23
+digest arrival
+inter =   2.03
+567.28
+digest arrival
+inter =   1.41
+569.31
+digest arrival
+inter =   1.16
+570.72
+digest arrival
+inter =   0.65
+571.88
+digest arrival
+inter =   0.60
+572.52
+digest arrival
+inter =   0.20
+573.12
+digest arrival
+inter =   0.75
+573.32
+digest arrival
+inter =   0.11
+574.07
+digest arrival
+inter =   0.77
+574.18
+digest arrival
+inter =   2.87
+574.96
+digest arrival
+inter =   0.97
+577.83
+digest arrival
+inter =   3.74
+578.79
+digest arrival
+inter =   0.46
+582.53
+digest arrival
+inter =   0.76
+582.99
+digest arrival
+inter =   0.49
+583.75
+digest arrival
+inter =   0.76
+584.24
+digest arrival
+inter =   0.34
+585.00
+digest arrival
+inter =   1.22
+585.34
+digest arrival
+inter =   1.45
+586.56
+digest arrival
+inter =   0.41
+588.01
+digest arrival
+inter =   2.95
+588.42
+digest arrival
+inter =   0.12
+591.37
+digest arrival
+inter =   0.31
+591.50
+digest arrival
+inter =   3.00
+591.81
+digest arrival
+inter =   2.24
+594.81
+digest arrival
+inter =   0.68
+597.05
+digest arrival
+inter =   0.55
+597.73
+digest arrival
+inter =   0.34
+598.28
+digest arrival
+inter =   3.77
+598.62
+digest arrival
+inter =   1.80
+602.39
+digest arrival
+inter =   0.07
+604.19
+digest arrival
+inter =   0.58
+604.26
+digest arrival
+inter =   1.55
+604.84
+digest arrival
+inter =   0.28
+606.39
+digest arrival
+inter =   0.82
+606.67
+digest arrival
+inter =   0.46
+607.50
+digest arrival
+inter =   0.91
+607.96
+digest arrival
+inter =   0.30
+608.87
+digest arrival
+inter =   0.12
+609.17
+digest arrival
+inter =   0.70
+609.29
+digest arrival
+inter =   1.04
+609.99
+digest arrival
+inter =   0.57
+611.03
+digest arrival
+inter =   0.06
+611.60
+digest arrival
+inter =   0.79
+611.66
+digest arrival
+inter =   0.88
+612.45
+digest arrival
+inter =   0.06
+613.33
+digest arrival
+inter =   1.41
+613.39
+digest arrival
+inter =   0.35
+614.80
+digest arrival
+inter =   0.55
+615.15
+digest arrival
+inter =   1.34
+615.70
+digest arrival
+inter =   0.11
+617.04
+digest arrival
+inter =   0.09
+617.15
+digest arrival
+inter =   0.66
+617.24
+digest arrival
+inter =   0.46
+617.91
+digest arrival
+inter =   0.18
+618.37
+digest arrival
+inter =   1.05
+618.55
+digest arrival
+inter =   1.87
+619.60
+digest arrival
+inter =   0.19
+621.46
+digest arrival
+inter =   1.84
+621.65
+digest arrival
+inter =   0.67
+623.49
+digest arrival
+inter =   0.42
+624.17
+digest arrival
+inter =   3.55
+624.59
+digest arrival
+inter =   0.83
+628.14
+digest arrival
+inter =   1.65
+628.97
+digest arrival
+inter =   1.35
+630.62
+digest arrival
+inter =   0.63
+631.97
+digest arrival
+inter =   0.13
+632.61
+digest arrival
+inter =   0.42
+632.74
+digest arrival
+inter =   0.06
+633.16
+digest arrival
+inter =   1.49
+633.23
+digest arrival
+inter =   0.14
+634.71
+digest arrival
+inter =   0.58
+634.86
+digest arrival
+inter =   0.17
+635.44
+digest arrival
+inter =   1.62
+635.61
+digest arrival
+inter =   0.49
+637.23
+digest arrival
+inter =   1.32
+637.72
+digest arrival
+inter =   2.03
+639.04
+digest arrival
+inter =   0.86
+641.07
+digest arrival
+inter =   0.70
+641.93
+digest arrival
+inter =   0.16
+642.62
+digest arrival
+inter =   1.62
+642.79
+normal term
+643.94
+reliable term
+Before new arrival 
+436.74
+premium term
+154.87
+normal term
+132.11
+premium term
+108.23
+premium term
+ 66.11
+normal term
+ 61.04
+premium term
+ 62.35
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 43.66
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 44.06
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 44.85
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 46.64
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 47.18
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 47.60
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 47.76
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 47.84
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 48.88
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 49.87
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 49.95
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 51.50
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 51.56
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 53.22
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 54.47
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 54.56
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 54.70
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 55.17
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 55.19
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 55.79
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 56.21
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 56.28
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 56.30
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 58.92
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 60.75
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 63.88
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 64.16
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 65.15
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 66.90
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 67.89
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 68.76
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 69.10
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 69.83
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 70.13
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 70.32
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 70.33
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 70.62
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 72.30
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 73.35
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 75.35
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 75.60
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 76.20
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 76.30
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 76.73
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 77.19
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 77.51
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 77.68
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 79.13
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 79.60
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 79.80
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 80.70
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 81.55
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 82.21
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 83.40
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 84.80
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 85.25
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 85.36
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 85.52
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 85.69
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 86.62
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 87.80
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 88.04
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 89.83
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 90.68
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 90.95
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 91.66
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 91.72
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 92.05
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 92.27
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 93.63
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 95.09
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 95.10
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 95.39
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 95.82
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 96.24
+digest term
+Free j_q
+0
+Free trucebaldazzi
+ 97.83
+digest term
+Free j_q
+0
+Free trucebaldazzi
+101.13
+digest term
+Free j_q
+0
+Free trucebaldazzi
+101.80
+digest term
+Free j_q
+0
+Free trucebaldazzi
+102.02
+digest term
+Free j_q
+0
+Free trucebaldazzi
+102.06
+digest term
+Free j_q
+0
+Free trucebaldazzi
+102.37
+digest term
+Free j_q
+0
+Free trucebaldazzi
+103.31
+digest term
+Free j_q
+0
+Free trucebaldazzi
+104.14
+digest term
+Free j_q
+0
+Free trucebaldazzi
+104.48
+digest term
+Free j_q
+0
+Free trucebaldazzi
+104.59
+digest term
+Free j_q
+0
+Free trucebaldazzi
+104.60
+digest term
+Free j_q
+0
+Free trucebaldazzi
+104.90
+digest term
+Free j_q
+0
+Free trucebaldazzi
+105.35
+digest term
+Free j_q
+0
+Free trucebaldazzi
+106.63
+digest term
+Free j_q
+0
+Free trucebaldazzi
+107.30
+digest term
+Free j_q
+0
+Free trucebaldazzi
+108.25
+digest term
+Free j_q
+0
+Free trucebaldazzi
+108.29
+digest term
+Free j_q
+0
+Free trucebaldazzi
+108.76
+digest term
+Free j_q
+0
+Free trucebaldazzi
+108.78
+digest term
+Free j_q
+0
+Free trucebaldazzi
+109.35
+digest term
+Free j_q
+0
+Free trucebaldazzi
+109.87
+digest term
+Free j_q
+0
+Free trucebaldazzi
+110.33
+digest term
+Free j_q
+0
+Free trucebaldazzi
+110.71
+digest term
+Free j_q
+0
+Free trucebaldazzi
+111.09
+digest term
+Free j_q
+0
+Free trucebaldazzi
+112.00
+digest term
+Free j_q
+0
+Free trucebaldazzi
+112.78
+digest term
+Free j_q
+0
+Free trucebaldazzi
+113.53
+digest term
+Free j_q
+0
+Free trucebaldazzi
+113.59
+digest term
+Free j_q
+0
+Free trucebaldazzi
+114.66
+digest term
+Free j_q
+0
+Free trucebaldazzi
+114.73
+digest term
+Free j_q
+0
+Free trucebaldazzi
+115.27
+digest term
+Free j_q
+0
+Free trucebaldazzi
+115.57
+digest term
+Free j_q
+0
+Free trucebaldazzi
+115.66
+digest term
+Free j_q
+0
+Free trucebaldazzi
+115.72
+digest term
+Free j_q
+0
+Free trucebaldazzi
+116.25
+digest term
+Free j_q
+0
+Free trucebaldazzi
+116.91
+digest term
+Free j_q
+0
+Free trucebaldazzi
+117.31
+digest term
+Free j_q
+0
+Free trucebaldazzi
+117.37
+digest term
+Free j_q
+0
+Free trucebaldazzi
+118.70
+normal arrival
+118.70
+normal term
+511.44
+digest term
+Free j_q
+0
+Free trucebaldazzi
+118.94
+digest term
+Free j_q
+0
+Free trucebaldazzi
+119.02
+digest term
+Free j_q
+0
+Free trucebaldazzi
+119.17
+digest term
+Free j_q
+0
+Free trucebaldazzi
+119.35
+normal arrival
+119.35
+normal term
+464.95
+digest term
+Free j_q
+0
+Free trucebaldazzi
+119.62
+digest term
+Free j_q
+0
+Free trucebaldazzi
+119.92
+digest term
+Free j_q
+0
+Free trucebaldazzi
+119.98
+digest term
+Free j_q
+0
+Free trucebaldazzi
+120.41
+digest term
+Free j_q
+0
+Free trucebaldazzi
+121.44
+digest term
+Free j_q
+0
+Free trucebaldazzi
+121.87
+digest term
+Free j_q
+0
+Free trucebaldazzi
+122.48
+digest term
+Free j_q
+0
+Free trucebaldazzi
+123.90
+digest term
+Free j_q
+0
+Free trucebaldazzi
+125.43
+digest term
+Free j_q
+0
+Free trucebaldazzi
+125.65
+digest term
+Free j_q
+0
+Free trucebaldazzi
+126.31
+digest term
+Free j_q
+0
+Free trucebaldazzi
+126.39
+digest term
+Free j_q
+0
+Free trucebaldazzi
+126.99
+digest term
+Free j_q
+0
+Free trucebaldazzi
+128.05
+digest term
+Free j_q
+0
+Free trucebaldazzi
+128.40
+digest term
+Free j_q
+0
+Free trucebaldazzi
+131.22
+digest term
+Free j_q
+0
+Free trucebaldazzi
+132.49
+digest term
+Free j_q
+0
+Free trucebaldazzi
+132.49
+digest term
+Free j_q
+0
+Free trucebaldazzi
+133.28
+digest term
+Free j_q
+0
+Free trucebaldazzi
+134.48
+digest term
+Free j_q
+0
+Free trucebaldazzi
+134.84
+digest term
+Free j_q
+0
+Free trucebaldazzi
+135.15
+digest term
+Free j_q
+0
+Free trucebaldazzi
+135.24
+digest term
+Free j_q
+0
+Free trucebaldazzi
+136.21
+digest term
+Free j_q
+0
+Free trucebaldazzi
+137.32
+digest term
+Free j_q
+0
+Free trucebaldazzi
+138.01
+digest term
+Free j_q
+0
+Free trucebaldazzi
+140.66
+digest term
+Free j_q
+0
+Free trucebaldazzi
+140.74
+digest term
+Free j_q
+0
+Free trucebaldazzi
+141.19
+digest term
+Free j_q
+0
+Free trucebaldazzi
+141.33
+digest term
+Free j_q
+0
+Free trucebaldazzi
+142.26
+digest term
+Free j_q
+0
+Free trucebaldazzi
+142.30
+digest term
+Free j_q
+0
+Free trucebaldazzi
+143.56
+digest term
+Free j_q
+0
+Free trucebaldazzi
+144.66
+digest term
+Free j_q
+0
+Free trucebaldazzi
+145.02
+digest term
+Free j_q
+0
+Free trucebaldazzi
+148.10
+digest term
+Free j_q
+0
+Free trucebaldazzi
+149.36
+digest term
+Free j_q
+0
+Free trucebaldazzi
+149.62
+digest term
+Free j_q
+0
+Free trucebaldazzi
+150.13
+digest term
+Free j_q
+0
+Free trucebaldazzi
+150.19
+digest term
+Free j_q
+0
+Free trucebaldazzi
+150.47
+digest term
+Free j_q
+0
+Free trucebaldazzi
+150.86
+digest term
+Free j_q
+0
+Free trucebaldazzi
+151.29
+digest term
+Free j_q
+0
+Free trucebaldazzi
+153.13
+digest term
+Free j_q
+0
+Free trucebaldazzi
+153.54
+digest term
+Free j_q
+0
+Free trucebaldazzi
+153.58
+digest term
+Free j_q
+0
+Free trucebaldazzi
+153.91
+digest term
+Free j_q
+0
+Free trucebaldazzi
+154.88
+digest term
+Free j_q
+0
+Free trucebaldazzi
+155.45
+digest term
+Free j_q
+0
+Free trucebaldazzi
+155.81
+digest term
+Free j_q
+0
+Free trucebaldazzi
+156.34
+digest term
+Free j_q
+0
+Free trucebaldazzi
+157.11
+digest term
+Free j_q
+0
+Free trucebaldazzi
+157.99
+digest term
+Free j_q
+0
+Free trucebaldazzi
+158.32
+digest term
+Free j_q
+0
+Free trucebaldazzi
+158.57
+digest term
+Free j_q
+0
+Free trucebaldazzi
+159.38
+digest term
+Free j_q
+0
+Free trucebaldazzi
+160.22
+digest term
+Free j_q
+0
+Free trucebaldazzi
+160.60
+normal arrival
+160.60
+reliable arrival
+643.94
+normal arrival
+ 66.90
+premium arrival
+108.29
+premium arrival
+115.57
+normal arrival
+ 86.62
+normal arrival
+150.19
+normal arrival
+ 79.13
+normal arrival
+ 87.80
+reliable arrival
+511.44
+premium arrival
+ 68.76
+premium arrival
+ 81.55
+reliable arrival
+464.95
+premium arrival
+ 93.63
+normal arrival
+ 91.72
+premium arrival
+119.62
+premium arrival
+101.80
+normal arrival
+107.30
+normal arrival
+ 90.95
+normal arrival
+ 60.75
+premium arrival
+118.94
+normal arrival
+ 43.66
+normal arrival
+ 69.83
+premium arrival
+114.66
+normal arrival
+105.35
+normal arrival
+ 75.60
+normal arrival
+132.49
+premium arrival
+ 89.83
+normal arrival
+109.87
+normal arrival
+ 95.39
+normal arrival
+ 73.35
+normal arrival
+ 49.87
+premium arrival
+ 92.27
+normal arrival
+104.90
+premium arrival
+150.47
+premium arrival
+134.48
+premium arrival
+ 63.88
+normal arrival
+119.02
+normal arrival
+ 55.79
+normal arrival
+115.27
+premium arrival
+ 54.70
+premium arrival
+144.66
+normal arrival
+ 48.88
+normal arrival
+ 70.62
+premium arrival
+134.84
+premium arrival
+ 88.04
+normal arrival
+ 56.28
+premium arrival
+ 51.56
+normal arrival
+104.60
+premium arrival
+125.43
+premium arrival
+153.91
+normal arrival
+ 55.19
+normal arrival
+ 79.80
+premium arrival
+ 95.10
+premium arrival
+102.02
+premium arrival
+ 85.36
+premium arrival
+119.98
+premium arrival
+106.63
+premium arrival
+145.02
+premium arrival
+143.56
+premium arrival
+126.31
+premium arrival
+ 69.10
+premium arrival
+108.76
+premium arrival
+104.48
+premium arrival
+153.54
+premium arrival
+121.87
+premium arrival
+140.74
+premium arrival
+149.62
+premium arrival
+ 92.05
+premium arrival
+ 75.35
+premium arrival
+158.57
+normal arrival
+132.49
+premium arrival
+115.66
+premium arrival
+155.81
+premium arrival
+108.78
+premium arrival
+128.05
+premium arrival
+135.24
+premium arrival
+ 70.13
+premium arrival
+ 77.19
+premium arrival
+141.33
+premium arrival
+116.91
+normal arrival
+ 76.73
+normal arrival
+109.35
+premium arrival
+ 76.20
+normal arrival
+160.22
+normal arrival
+141.19
+premium arrival
+155.45
+premium arrival
+ 82.21
+premium arrival
+115.72
+normal arrival
+121.44
+premium arrival
+ 54.47
+premium arrival
+133.28
+premium arrival
+119.92
+premium arrival
+ 56.21
+premium arrival
+110.33
+premium arrival
+ 85.52
+premium arrival
+ 47.60
+premium arrival
+140.66
+premium arrival
+128.40
+premium arrival
+126.99
+premium arrival
+103.31
+premium arrival
+116.25
+premium arrival
+114.73
+normal arrival
+119.17
+normal arrival
+111.09
+premium arrival
+120.41
+normal arrival
+112.78
+premium arrival
+137.32
+normal arrival
+ 80.70
+premium arrival
+ 44.85
+premium arrival
+ 97.83
+premium arrival
+ 64.16
+normal arrival
+ 76.30
+normal arrival
+131.22
+premium arrival
+ 79.60
+premium arrival
+ 58.92
+normal arrival
+142.30
+premium arrival
+ 85.25
+premium arrival
+123.90
+normal arrival
+153.58
+premium arrival
+ 96.24
+premium arrival
+148.10
+premium arrival
+104.14
+premium arrival
+ 54.56
+normal arrival
+150.13
+normal arrival
+150.86
+premium arrival
+149.36
+premium arrival
+157.11
+premium arrival
+ 47.76
+premium arrival
+ 85.69
+normal arrival
+ 90.68
+premium arrival
+156.34
+premium arrival
+113.59
+premium arrival
+ 70.33
+premium arrival
+154.88
+premium arrival
+ 77.51
+premium arrival
+157.99
+normal arrival
+102.37
+premium arrival
+ 72.30
+premium arrival
+117.31
+normal arrival
+158.32
+premium arrival
+159.38
+premium arrival
+ 84.80
+premium arrival
+ 83.40
+normal arrival
+ 46.64
+normal arrival
+ 55.17
+normal arrival
+108.25
+premium arrival
+ 49.95
+premium arrival
+102.06
+premium arrival
+138.01
+normal arrival
+ 77.68
+premium arrival
+ 47.18
+normal arrival
+ 44.06
+premium arrival
+126.39
+premium arrival
+ 65.15
+premium arrival
+112.00
+premium arrival
+113.53
+premium arrival
+ 91.66
+normal arrival
+104.59
+normal arrival
+135.15
+normal arrival
+ 53.22
+premium arrival
+ 51.50
+premium arrival
+101.13
+normal arrival
+136.21
+normal arrival
+122.48
+premium arrival
+ 47.84
+premium arrival
+153.13
+premium arrival
+125.65
+premium arrival
+151.29
+premium arrival
+110.71
+digest arrival
+inter =   0.63
+644.41
+digest arrival
+inter =   0.25
+645.04
+premium arrival
+ 95.82
+premium arrival
+117.37
+digest arrival
+inter =   1.42
+645.29
+digest arrival
+inter =   0.21
+646.71
+digest arrival
+inter =   1.71
+646.92
+digest arrival
+inter =   0.47
+648.63
+digest arrival
+inter =   0.57
+649.09
+digest arrival
+inter =   0.28
+649.66
+digest arrival
+inter =   0.33
+649.93
+digest arrival
+inter =   0.59
+650.27
+digest arrival
+inter =   0.60
+650.86
+digest arrival
+inter =   1.13
+651.46
+digest arrival
+inter =   0.76
+652.59
+premium arrival
+ 67.89
+digest arrival
+inter =   0.58
+653.35
+digest arrival
+inter =   0.45
+653.93
+digest arrival
+inter =   0.14
+654.38
+digest arrival
+inter =   0.37
+654.52
+digest arrival
+inter =   1.01
+654.89
+digest arrival
+inter =   0.33
+655.90
+digest arrival
+inter =   0.07
+656.22
+digest arrival
+inter =   0.58
+656.30
+digest arrival
+inter =   0.47
+656.88
+digest arrival
+inter =   0.10
+657.35
+digest arrival
+inter =   0.76
+657.45
+digest arrival
+inter =   0.60
+658.21
+digest arrival
+inter =   1.30
+658.81
+digest arrival
+inter =   1.59
+660.11
+digest arrival
+inter =   1.85
+661.70
+digest arrival
+inter =   0.76
+663.55
+digest arrival
+inter =   0.57
+664.31
+digest arrival
+inter =   0.45
+664.88
+digest arrival
+inter =   1.40
+665.33
+digest arrival
+inter =   0.25
+666.73
+digest arrival
+inter =   0.32
+666.98
+digest arrival
+inter =   0.04
+667.29
+digest arrival
+inter =   1.24
+667.33
+digest arrival
+inter =   3.09
+668.57
+digest arrival
+inter =   1.80
+671.66
+digest arrival
+inter =   1.11
+673.45
+digest arrival
+inter =   0.49
+674.56
+digest arrival
+inter =   1.68
+675.06
+digest arrival
+inter =   0.19
+676.73
+digest arrival
+inter =   0.51
+676.93
+digest arrival
+inter =   0.13
+677.44
+digest arrival
+inter =   1.10
+677.57
+digest arrival
+inter =   0.29
+678.66
+digest arrival
+inter =   0.79
+678.95
+digest arrival
+inter =   0.13
+679.74
+digest arrival
+inter =   1.84
+679.87
+digest arrival
+inter =   0.36
+681.71
+digest arrival
+inter =   0.54
+682.07
+digest arrival
+inter =   2.20
+682.61
+digest arrival
+inter =   1.66
+684.81
+digest arrival
+inter =   1.33
+686.47
+digest arrival
+inter =   0.07
+687.81
+digest arrival
+inter =   0.02
+687.88
+digest arrival
+inter =   0.04
+687.90
+digest arrival
+inter =   0.85
+687.94
+digest arrival
+inter =   0.23
+688.79
+digest arrival
+inter =   0.70
+689.02
+digest arrival
+inter =   1.89
+689.72
+digest arrival
+inter =   1.75
+691.61
+digest arrival
+inter =   0.18
+693.36
+digest arrival
+inter =   3.36
+693.54
+digest arrival
+inter =   2.45
+696.89
+digest arrival
+inter =   0.32
+699.34
+digest arrival
+inter =   0.26
+699.66
+digest arrival
+inter =   1.25
+699.92
+digest arrival
+inter =   0.13
+701.17
+digest arrival
+inter =   0.07
+701.30
+digest arrival
+inter =   1.20
+701.38
+digest arrival
+inter =   0.15
+702.58
+digest arrival
+inter =   0.50
+702.72
+digest arrival
+inter =   0.30
+703.22
+digest arrival
+inter =   0.83
+703.52
+digest arrival
+inter =   0.11
+704.35
+digest arrival
+inter =   1.36
+704.46
+digest arrival
+inter =   0.49
+705.82
+digest arrival
+inter =   1.54
+706.31
+digest arrival
+inter =   0.64
+707.85
+digest arrival
+inter =   2.87
+708.50
+digest arrival
+inter =   0.46
+711.37
+digest arrival
+inter =   1.06
+711.82
+digest arrival
+inter =   0.25
+712.89
+digest arrival
+inter =   0.82
+713.14
+digest arrival
+inter =   0.17
+713.96
+digest arrival
+inter =   0.88
+714.13
+digest arrival
+inter =   1.99
+715.00
+digest arrival
+inter =   2.06
+716.99
+digest arrival
+inter =   1.83
+719.05
+digest arrival
+inter =   0.51
+720.88
+digest arrival
+inter =   3.12
+721.39
+digest arrival
+inter =   1.85
+724.52
+digest arrival
+inter =   1.08
+726.36
+digest arrival
+inter =   0.03
+727.44
+digest arrival
+inter =   0.60
+727.47
+digest arrival
+inter =   0.08
+728.07
+digest arrival
+inter =   0.38
+728.15
+digest arrival
+inter =   0.59
+728.53
+digest arrival
+inter =   0.06
+729.12
+digest arrival
+inter =   0.07
+729.18
+digest arrival
+inter =   0.01
+729.25
+digest arrival
+inter =   0.77
+729.26
+digest arrival
+inter =   0.14
+730.03
+digest arrival
+inter =   0.44
+730.17
+digest arrival
+inter =   0.90
+730.61
+digest arrival
+inter =   0.13
+731.51
+digest arrival
+inter =   1.65
+731.64
+digest arrival
+inter =   0.06
+733.29
+digest arrival
+inter =   0.02
+733.35
+digest arrival
+inter =   0.35
+733.37
+digest arrival
+inter =   0.94
+733.72
+digest arrival
+inter =   1.11
+734.66
+digest arrival
+inter =   0.31
+735.77
+digest arrival
+inter =   0.27
+736.08
+digest arrival
+inter =   0.05
+736.36
+digest arrival
+inter =   0.34
+736.40
+digest arrival
+inter =   0.80
+736.74
+digest arrival
+inter =   0.46
+737.54
+digest arrival
+inter =   2.97
+737.99
+digest arrival
+inter =   1.15
+740.96
+digest arrival
+inter =   1.58
+742.12
+digest arrival
+inter =   1.40
+743.70
+digest arrival
+inter =   0.96
+745.10
+digest arrival
+inter =   2.55
+746.06
+digest arrival
+inter =   0.12
+748.61
+digest arrival
+inter =   2.71
+748.73
+digest arrival
+inter =   1.91
+751.44
+digest arrival
+inter =   0.03
+753.36
+digest arrival
+inter =   0.22
+753.39
+digest arrival
+inter =   0.06
+753.61
+digest arrival
+inter =   1.50
+753.66
+digest arrival
+inter =   2.28
+755.17
+digest arrival
+inter =   0.41
+757.45
+digest arrival
+inter =   0.54
+757.85
+digest arrival
+inter =   2.74
+758.39
+digest arrival
+inter =   0.08
+761.13
+digest arrival
+inter =   2.37
+761.21
+digest arrival
+inter =   0.68
+763.58
+digest arrival
+inter =   0.48
+764.26
+digest arrival
+inter =   0.08
+764.74
+digest arrival
+inter =   0.11
+764.82
+digest arrival
+inter =   1.89
+764.93
+digest arrival
+inter =   0.18
+766.83
+digest arrival
+inter =   1.98
+767.01
+normal term
+767.27
+reliable arrival
+767.27
+digest arrival
+inter =   2.70
+768.99
+digest arrival
+inter =   0.94
+771.69
+digest arrival
+inter =   0.18
+772.63
+digest arrival
+inter =   0.05
+772.81
+digest arrival
+inter =   0.10
+772.85
+digest arrival
+inter =   0.61
+772.95
+digest arrival
+inter =   0.17
+773.56
+digest arrival
+inter =   2.38
+773.73
+digest arrival
+inter =   1.68
+776.11
+digest arrival
+inter =   1.24
+777.80
+digest arrival
+inter =   5.24
+779.04
+digest arrival
+inter =   0.06
+784.28
+digest arrival
+inter =   0.08
+784.35
+digest arrival
+inter =   2.03
+784.43
+digest arrival
+inter =   0.48
+786.46
+digest arrival
+inter =   0.63
+786.94
+digest arrival
+inter =   0.15
+787.57
+digest arrival
+inter =   2.11
+787.72
+digest arrival
+inter =   0.02
+789.84
+digest arrival
+inter =   0.28
+789.86
+digest arrival
+inter =   0.23
+790.14
+digest arrival
+inter =   0.05
+790.37
+digest arrival
+inter =   0.55
+790.42
+digest arrival
+inter =   0.44
+790.98
+digest arrival
+inter =   0.55
+791.42
+digest arrival
+inter =   0.77
+791.97
+digest arrival
+inter =   0.40
+792.74
+digest arrival
+inter =   0.24
+793.13
+digest arrival
+inter =   0.57
+793.37
+digest arrival
+inter =   0.11
+793.94
+digest arrival
+inter =   0.91
+794.05
+digest arrival
+inter =   0.78
+794.96
+digest arrival
+inter =   1.22
+795.75
+digest arrival
+inter =   0.05
+796.97
+digest arrival
+inter =   0.14
+797.01
+digest arrival
+inter =   1.50
+797.15
+digest arrival
+inter =   1.42
+798.65
+digest arrival
+inter =   0.28
+800.07
+digest arrival
+inter =   1.24
+800.35
+digest arrival
+inter =   0.31
+801.59
+digest arrival
+inter =   0.41
+801.90
+digest arrival
+inter =   1.86
+802.31
+digest arrival
+inter =   0.14
+804.17
+digest arrival
+inter =   0.34
+804.31
+digest arrival
+inter =   1.43
+804.64
+digest arrival
+inter =   0.33
+806.07
+digest arrival
+inter =   0.60
+806.40
+digest arrival
+inter =   1.40
+807.00
+digest arrival
+inter =   0.97
+808.40
+digest arrival
+inter =   2.53
+809.37
+digest arrival
+inter =   0.04
+811.90
+digest arrival
+inter =   0.66
+811.94
+digest arrival
+inter =   0.71
+812.60
+digest arrival
+inter =   0.43
+813.31
+digest arrival
+inter =   0.62
+813.73
+digest arrival
+inter =   0.98
+814.35
+digest arrival
+inter =   0.75
+815.33
+digest arrival
+inter =   0.99
+816.08
+digest arrival
+inter =   1.09
+817.07
+digest arrival
+inter =   0.70
+818.17
+digest arrival
+inter =   0.27
+818.87
+digest arrival
+inter =   0.49
+819.14
+digest arrival
+inter =   4.19
+819.62
+digest arrival
+inter =   1.05
+823.82
+digest arrival
+inter =   0.06
+824.86
+digest arrival
+inter =   2.91
+824.92
+digest arrival
+inter =   0.10
+827.82
+digest arrival
+inter =   2.40
+827.93
+digest arrival
+inter =   0.57
+830.33
+digest arrival
+inter =   1.75
+830.90
+digest arrival
+inter =   2.25
+832.64
+digest arrival
+inter =   0.12
+834.89
+digest arrival
+inter =   1.04
+835.02
+digest arrival
+inter =   0.22
+836.06
+digest arrival
+inter =   0.23
+836.28
+digest arrival
+inter =   0.03
+836.51
+digest arrival
+inter =   0.83
+836.54
+digest arrival
+inter =   0.09
+837.37
+digest arrival
+inter =   1.14
+837.46
+digest arrival
+inter =   0.28
+838.60
+digest arrival
+inter =   0.14
+838.88
+digest arrival
+inter =   1.30
+839.02
+digest arrival
+inter =   0.02
+840.32
+digest arrival
+inter =   1.14
+840.34
+digest arrival
+inter =   0.23
+841.48
+digest arrival
+inter =   0.80
+841.71
+digest arrival
+inter =   0.29
+842.50
+digest arrival
+inter =   1.40
+842.80
+digest arrival
+inter =   1.59
+844.20
+digest arrival
+inter =   0.27
+845.79
+digest arrival
+inter =   1.10
+846.05
+digest arrival
+inter =   0.40
+847.16
+digest arrival
+inter =   0.05
+847.56
+digest arrival
+inter =   2.40
+847.61
+digest arrival
+inter =   0.10
+850.00
+digest arrival
+inter =   2.49
+850.11
+digest arrival
+inter =   0.99
+852.59
+digest arrival
+inter =   2.32
+853.59
+digest arrival
+inter =   1.06
+855.90
+digest arrival
+inter =   0.12
+856.97
+digest arrival
+inter =   0.48
+857.09
+digest arrival
+inter =   2.84
+857.57
+digest arrival
+inter =   0.43
+860.41
+digest arrival
+inter =   2.08
+860.84
+digest arrival
+inter =   0.82
+862.92
+digest arrival
+inter =   1.00
+863.75
+digest arrival
+inter =   0.74
+864.75
+digest arrival
+inter =   0.95
+865.48
+digest arrival
+inter =   0.83
+866.43
+digest arrival
+inter =   0.12
+867.26
+digest arrival
+inter =   0.17
+867.38
+digest arrival
+inter =   0.84
+867.55
+digest arrival
+inter =   0.51
+868.39
+digest arrival
+inter =   0.34
+868.90
+digest arrival
+inter =   0.18
+869.24
+digest arrival
+inter =   1.89
+869.43
+digest arrival
+inter =   0.19
+871.31
+digest arrival
+inter =   1.17
+871.51
+digest arrival
+inter =   0.50
+872.68
+digest arrival
+inter =   1.31
+873.18
+digest arrival
+inter =   0.53
+874.49
+digest arrival
+inter =   0.04
+875.02
+digest arrival
+inter =   1.39
+875.06
+digest arrival
+inter =   0.25
+876.46
+digest arrival
+inter =   0.51
+876.71
+digest arrival
+inter =   0.42
+877.22
+digest arrival
+inter =   1.47
+877.64
+digest arrival
+inter =   0.82
+879.11
+digest arrival
+inter =   0.64
+879.93
+digest arrival
+inter =   0.70
+880.57
+digest arrival
+inter =   0.09
+881.27
+digest arrival
+inter =   0.51
+881.36
+digest arrival
+inter =   0.16
+881.87
+digest arrival
+inter =   0.92
+882.03
+digest arrival
+inter =   0.44
+882.95
+digest arrival
+inter =   0.25
+883.38
+digest arrival
+inter =   2.94
+883.63
+digest arrival
+inter =   0.49
+886.57
+digest arrival
+inter =   0.49
+887.07
+digest arrival
+inter =   1.37
+887.55
+digest arrival
+inter =   0.99
+888.92
+digest arrival
+inter =   0.51
+889.91
+digest arrival
+inter =   0.21
+890.42
+digest arrival
+inter =   0.44
+890.63
+digest arrival
+inter =   0.62
+891.06
+digest arrival
+inter =   0.75
+891.68
+digest arrival
+inter =   1.46
+892.43
+digest arrival
+inter =   1.40
+893.89
+digest arrival
+inter =   1.16
+895.29
+digest arrival
+inter =   0.33
+896.45
+digest arrival
+inter =   1.03
+896.77
+digest arrival
+inter =   2.43
+897.80
+digest arrival
+inter =   1.88
+900.23
+digest arrival
+inter =   0.75
+902.12
+digest arrival
+inter =   1.56
+902.87
+digest arrival
+inter =   0.15
+904.43
+digest arrival
+inter =   3.12
+904.58
+digest arrival
+inter =   0.35
+907.69
+digest arrival
+inter =   1.24
+908.05
+digest arrival
+inter =   0.88
+909.28
+digest arrival
+inter =   3.11
+910.16
+digest arrival
+inter =   1.26
+913.27
+digest arrival
+inter =   1.38
+914.53
+digest arrival
+inter =   0.26
+915.91
+digest arrival
+inter =   0.76
+916.18
+digest arrival
+inter =   2.62
+916.94
+digest arrival
+inter =   1.10
+919.56
+digest arrival
+inter =   0.32
+920.66
+digest arrival
+inter =   0.48
+920.98
+digest arrival
+inter =   0.12
+921.46
+digest arrival
+inter =   0.37
+921.58
+digest arrival
+inter =   0.41
+921.95
+digest arrival
+inter =   0.37
+922.36
+digest arrival
+inter =   0.20
+922.74
+digest arrival
+inter =   0.60
+922.94
+digest arrival
+inter =   2.85
+923.54
+digest arrival
+inter =   0.71
+926.39
+digest arrival
+inter =   0.02
+927.10
+digest arrival
+inter =   0.00
+927.11
+digest arrival
+inter =   1.06
+927.12
+digest arrival
+inter =   0.20
+928.18
+digest arrival
+inter =   0.35
+928.38
+digest arrival
+inter =   0.09
+928.72
+digest arrival
+inter =   0.06
+928.81
+digest arrival
+inter =   0.14
+928.87
+digest arrival
+inter =   0.32
+929.02
+digest arrival
+inter =   0.09
+929.33
+digest arrival
+inter =   2.75
+929.43
+digest arrival
+inter =   1.29
+932.18
+digest arrival
+inter =   0.08
+933.47
+digest arrival
+inter =   1.73
+933.54
+digest arrival
+inter =   0.76
+935.28
+digest arrival
+inter =   0.02
+936.03
+digest arrival
+inter =   0.56
+936.05
+digest arrival
+inter =   0.07
+936.61
+digest arrival
+inter =   1.79
+936.68
+digest arrival
+inter =   0.30
+938.47
+digest arrival
+inter =   0.55
+938.77
+digest arrival
+inter =   0.17
+939.32
+digest arrival
+inter =   1.87
+939.49
+digest arrival
+inter =   0.17
+941.36
+digest arrival
+inter =   1.60
+941.52
+digest arrival
+inter =   0.47
+943.13
+digest arrival
+inter =   1.63
+943.60
+digest arrival
+inter =   0.65
+945.23
+digest arrival
+inter =   0.55
+945.87
+digest arrival
+inter =   0.21
+946.42
+digest arrival
+inter =   2.44
+946.64
+digest arrival
+inter =   0.01
+949.08
+digest arrival
+inter =   0.92
+949.09
+digest arrival
+inter =   2.02
+950.01
+digest arrival
+inter =   0.11
+952.03
+digest arrival
+inter =   0.25
+952.14
+digest arrival
+inter =   1.44
+952.39
+digest arrival
+inter =   0.36
+953.83
+digest arrival
+inter =   1.30
+954.20
+digest arrival
+inter =   0.74
+955.50
+digest arrival
+inter =   0.83
+956.24
+digest arrival
+inter =   2.66
+957.07
+digest arrival
+inter =   1.92
+959.72
+digest arrival
+inter =   0.39
+961.65
+digest arrival
+inter =   1.94
+962.03
+digest arrival
+inter =   0.40
+963.97
+digest arrival
+inter =   0.51
+964.37
+digest arrival
+inter =   0.15
+964.88
+digest arrival
+inter =   0.01
+965.04
+digest arrival
+inter =   3.76
+965.05
+digest arrival
+inter =   0.23
+968.81
+digest arrival
+inter =   0.21
+969.04
+digest arrival
+inter =   2.57
+969.25
+digest arrival
+inter =   0.29
+971.83
+digest arrival
+inter =   0.15
+972.11
+digest arrival
+inter =   0.30
+972.26
+digest arrival
+inter =   0.36
+972.56
+digest arrival
+inter =   0.85
+972.92
+digest arrival
+inter =   1.11
+973.77
+digest arrival
+inter =   1.19
+974.87
+digest arrival
+inter =   1.46
+976.06
+digest arrival
+inter =   0.84
+977.52
+digest arrival
+inter =   0.30
+978.36
+digest arrival
+inter =   1.22
+978.66
+digest arrival
+inter =   0.07
+979.88
+digest arrival
+inter =   1.28
+979.94
+digest arrival
+inter =   1.60
+981.23
+digest arrival
+inter =   0.51
+982.83
+digest arrival
+inter =   0.37
+983.34
+digest arrival
+inter =   2.71
+983.71
+digest arrival
+inter =   0.02
+986.42
+digest arrival
+inter =   3.43
+986.44
+digest arrival
+inter =   0.01
+989.88
+digest arrival
+inter =   0.24
+989.88
+digest arrival
+inter =   0.95
+990.13
+digest arrival
+inter =   0.95
+991.08
+digest arrival
+inter =   0.28
+992.03
+digest arrival
+inter =   2.04
+992.31
+digest arrival
+inter =   1.93
+994.35
+digest arrival
+inter =   0.04
+996.28
+digest arrival
+inter =   0.66
+996.32
+digest arrival
+inter =   0.65
+996.99
+digest arrival
+inter =   0.34
+997.64
+digest arrival
+inter =   2.79
+997.98
+digest arrival
+inter =   0.21
+1000.77
+digest arrival
+inter =   0.65
+1000.98
+digest arrival
+inter =   2.74
+1001.63
+digest arrival
+inter =   1.85
+1004.37
+digest arrival
+inter =   1.32
+1006.23
+digest arrival
+inter =   0.73
+1007.55
+digest arrival
+inter =   3.55
+1008.28
+digest arrival
+inter =   0.03
+1011.83
+digest arrival
+inter =   1.59
+1011.86
+digest arrival
+inter =   0.15
+1013.45
+digest arrival
+inter =   2.39
+1013.60
+digest arrival
+inter =   1.74
+1015.99
+digest arrival
+inter =   0.15
+1017.73
+digest arrival
+inter =   0.54
+1017.88
+digest arrival
+inter =   0.09
+1018.41
+digest arrival
+inter =   1.06
+1018.50
+digest arrival
+inter =   1.15
+1019.57
+digest arrival
+inter =   0.69
+1020.72
+digest arrival
+inter =   0.25
+1021.41
+digest arrival
+inter =   2.31
+1021.66
+digest arrival
+inter =   0.42
+1023.96
+digest arrival
+inter =   0.01
+1024.38
+digest arrival
+inter =   0.03
+1024.39
+digest arrival
+inter =   0.11
+1024.42
+digest arrival
+inter =   0.21
+1024.52
+digest arrival
+inter =   1.22
+1024.73
+digest arrival
+inter =   0.26
+1025.96
+digest arrival
+inter =   0.03
+1026.22
+digest arrival
+inter =   0.81
+1026.24
+digest arrival
+inter =   0.19
+1027.05
+digest arrival
+inter =   1.97
+1027.24
+digest arrival
+inter =   0.37
+1029.22
+digest arrival
+inter =   0.61
+1029.59
+digest arrival
+inter =   0.95
+1030.20
+digest arrival
+inter =   0.81
+1031.14
+digest arrival
+inter =   0.09
+1031.96
+digest arrival
+inter =   0.46
+1032.05
+digest arrival
+inter =   0.63
+1032.51
+digest arrival
+inter =   0.61
+1033.14
+digest arrival
+inter =   0.59
+1033.76
+digest arrival
+inter =   2.84
+1034.35
+digest arrival
+inter =   0.79
+1037.20
+digest arrival
+inter =   0.25
+1037.98
+digest arrival
+inter =   0.24
+1038.23
+digest arrival
+inter =   0.69
+1038.48
+digest arrival
+inter =   0.54
+1039.17
+digest arrival
+inter =   0.64
+1039.71
+digest arrival
+inter =   2.69
+1040.35
+digest arrival
+inter =   0.17
+1043.04
+digest arrival
+inter =   2.25
+1043.21
+digest arrival
+inter =   3.74
+1045.46
+digest arrival
+inter =   1.10
+1049.20
+digest arrival
+inter =   2.86
+1050.30
+digest arrival
+inter =   0.15
+1053.15
+digest arrival
+inter =   1.65
+1053.30
+digest arrival
+inter =   1.09
+1054.96
+digest arrival
+inter =   0.87
+1056.05
+digest arrival
+inter =   0.67
+1056.92
+digest arrival
+inter =   0.50
+1057.59
+digest arrival
+inter =   2.93
+1058.09
+digest arrival
+inter =   3.72
+1061.02
+digest arrival
+inter =   0.49
+1064.74
+digest arrival
+inter =   0.15
+1065.23
+digest arrival
+inter =   0.50
+1065.38
+digest arrival
+inter =   2.37
+1065.88
+digest arrival
+inter =   1.30
+1068.26
+digest arrival
+inter =   0.30
+1069.56
+digest arrival
+inter =   0.47
+1069.86
+digest arrival
+inter =   0.49
+1070.33
+reliable term
+Before new arrival 
+1070.60
+reliable term
+Before new arrival 
+944.30
+normal term
+353.94
+reliable arrival
+353.94
+premium term
+368.30
+premium term
+359.62
+normal term
+321.75
+reliable arrival
+368.30
+reliable arrival
+359.62
+reliable arrival
+321.75
+reliable term
+Before new arrival 
+628.32
+reliable term
+Before new arrival 
+603.67
+normal term
+380.83
+normal term
+305.35
+normal term
+311.62
+reliable arrival
+380.83
+reliable arrival
+305.35
+reliable arrival
+311.62
+reliable term
+Before new arrival 
+707.81
+premium term
+262.85
+reliable arrival
+262.85
+reliable term
+Before new arrival 
+456.94
+premium term
+264.12
+reliable arrival
+264.12
+reliable term
+Before new arrival 
+446.69
+reliable term
+Before new arrival 
+637.75
+premium term
+264.59
+normal term
+256.29
+premium term
+283.67
+premium term
+258.97
+normal term
+257.36
+normal term
+240.36
+normal term
+209.66
+premium term
+266.37
+normal term
+191.05
+normal term
+213.53
+reliable term
+Before new arrival 
+497.46
+premium term
+257.55
+normal term
+247.53
+normal term
+213.76
+normal term
+266.74
+premium term
+223.92
+normal term
+241.65
+normal term
+226.24
+normal term
+202.92
+normal term
+179.35
+premium term
+212.83
+reliable term
+Before new arrival 
+439.32
+reliable term
+Before new arrival 
+496.15
+normal term
+219.08
+premium term
+263.83
+reliable term
+Before new arrival 
+418.46
+reliable term
+Before new arrival 
+423.53
+premium term
+245.67
+premium term
+174.66
+normal term
+227.61
+normal term
+163.56
+normal term
+222.83
+premium term
+160.72
+premium term
+243.01
+normal term
+147.04
+normal term
+167.70
+premium term
+231.60
+premium term
+180.83
+normal term
+149.00
+premium term
+137.51
+normal term
+188.70
+premium term
+209.17
+premium term
+237.61
+normal term
+138.72
+normal term
+161.83
+premium term
+176.78
+premium term
+180.29
+premium term
+161.36
+premium term
+195.50
+premium term
+181.48
+premium term
+219.38
+premium term
+217.68
+premium term
+196.74
+premium term
+137.69
+premium term
+175.30
+premium term
+170.47
+premium term
+218.78
+premium term
+185.10
+premium term
+202.66
+premium term
+210.61
+premium term
+152.55
+premium term
+135.13
+premium term
+218.26
+normal term
+191.95
+premium term
+174.04
+premium term
+212.04
+premium term
+163.77
+premium term
+181.01
+premium term
+188.19
+premium term
+122.91
+premium term
+128.76
+premium term
+192.09
+premium term
+166.94
+normal term
+126.63
+normal term
+158.60
+premium term
+124.25
+normal term
+207.75
+normal term
+188.33
+premium term
+200.98
+premium term
+127.34
+premium term
+160.52
+normal term
+165.67
+premium term
+ 98.44
+premium term
+177.01
+premium term
+163.03
+premium term
+ 99.28
+premium term
+151.89
+premium term
+126.99
+premium term
+ 87.71
+premium term
+180.54
+premium term
+407.83
+normal term
+157.25
+normal term
+149.08
+normal term
+150.14
+normal term
+117.75
+normal term
+110.26
+normal term
+164.32
+normal term
+173.51
+normal term
+182.96
+normal term
+176.18
+normal term
+175.96
+normal term
+111.91
+normal term
+122.04
+normal term
+176.27
+normal term
+ 61.99
+normal term
+ 70.25
+normal term
+122.94
+normal term
+ 90.50
+normal term
+ 55.32
+normal term
+109.98
+normal term
+140.36
+normal term
+ 58.17
+normal term
+140.04
+normal term
+126.09
+premium term
+211.48
+premium term
+202.82
+premium term
+171.98
+premium term
+198.22
+premium term
+182.42
+premium term
+182.62
+premium term
+203.76
+premium term
+196.48
+premium term
+284.59
+premium term
+218.59
+premium term
+220.14
+premium term
+124.98
+premium term
+360.26
+premium term
+259.60
+premium term
+185.70
+premium term
+129.31
+premium term
+213.37
+premium term
+161.24
+premium term
+224.34
+premium term
+243.43
+premium term
+175.05
+premium term
+160.90
+premium term
+192.45
+premium term
+264.48
+premium term
+218.59
+premium term
+210.92
+premium term
+127.62
+premium term
+264.86
+premium term
+175.53
+premium term
+137.73
+premium term
+257.76
+premium term
+237.81
+digest term
+Free j_q
+0
+Free trucebaldazzi
+160.81
+premium arrival
+160.81
+premium term
+237.86
+digest term
+Free j_q
+0
+Free trucebaldazzi
+161.09
+normal arrival
+161.09
+normal term
+206.83
+digest term
+Free j_q
+0
+Free trucebaldazzi
+162.66
+normal arrival
+162.66
+normal term
+278.39
+premium term
+188.39
+premium term
+135.34
+premium term
+176.95
+premium term
+231.77
+digest term
+Free j_q
+0
+Free trucebaldazzi
+162.82
+premium arrival
+162.82
+premium term
+189.40
+premium term
+163.91
+premium term
+161.50
+premium term
+245.80
+premium term
+137.80
+premium term
+263.94
+premium term
+218.89
+premium term
+262.94
+premium term
+266.45
+premium term
+167.02
+digest term
+Free j_q
+0
+Free trucebaldazzi
+162.90
+premium arrival
+162.90
+premium term
+265.96
+digest term
+Free j_q
+0
+Free trucebaldazzi
+163.36
+premium arrival
+163.36
+premium term
+240.49
+digest term
+Free j_q
+0
+Free trucebaldazzi
+163.55
+premium arrival
+163.55
+premium term
+170.28
+digest term
+Free j_q
+0
+Free trucebaldazzi
+164.22
+normal arrival
+164.22
+normal term
+284.42
+premium term
+174.10
+premium term
+212.09
+premium term
+152.58
+premium term
+180.84
+digest term
+Free j_q
+0
+Free trucebaldazzi
+164.23
+premium arrival
+164.23
+premium term
+229.90
+digest term
+Free j_q
+0
+Free trucebaldazzi
+165.70
+normal arrival
+165.70
+normal term
+214.70
+digest term
+Free j_q
+0
+Free trucebaldazzi
+166.79
+premium arrival
+166.79
+premium term
+236.74
+digest term
+Free j_q
+0
+Free trucebaldazzi
+167.00
+normal arrival
+167.00
+normal term
+275.01
+digest term
+Free j_q
+0
+Free trucebaldazzi
+167.97
+premium arrival
+167.97
+premium term
+214.65
+digest term
+Free j_q
+0
+Free trucebaldazzi
+168.18
+premium arrival
+168.18
+premium term
+215.00
+digest term
+Free j_q
+0
+Free trucebaldazzi
+169.64
+premium arrival
+169.64
+premium term
+286.31
+digest term
+Free j_q
+0
+Free trucebaldazzi
+170.45
+normal arrival
+170.45
+normal term
+261.91
+digest term
+Free j_q
+0
+Free trucebaldazzi
+171.32
+premium arrival
+171.32
+premium term
+201.60
+digest term
+Free j_q
+0
+Free trucebaldazzi
+171.43
+normal arrival
+171.43
+normal term
+263.12
+digest term
+Free j_q
+0
+Free trucebaldazzi
+171.70
+normal arrival
+171.70
+normal term
+203.47
+digest term
+Free j_q
+0
+Free trucebaldazzi
+172.57
+normal arrival
+172.57
+normal term
+731.64
+digest term
+Free j_q
+0
+Free trucebaldazzi
+173.07
+digest term
+Free j_q
+0
+Free trucebaldazzi
+174.20
+digest term
+Free j_q
+0
+Free trucebaldazzi
+174.38
+digest term
+Free j_q
+0
+Free trucebaldazzi
+174.82
+digest term
+Free j_q
+0
+Free trucebaldazzi
+174.84
+digest term
+Free j_q
+0
+Free trucebaldazzi
+175.07
+digest term
+Free j_q
+0
+Free trucebaldazzi
+175.45
+digest term
+Free j_q
+0
+Free trucebaldazzi
+176.21
+digest term
+Free j_q
+0
+Free trucebaldazzi
+176.54
+digest term
+Free j_q
+0
+Free trucebaldazzi
+176.91
+digest term
+Free j_q
+0
+Free trucebaldazzi
+178.16
+digest term
+Free j_q
+0
+Free trucebaldazzi
+178.20
+digest term
+Free j_q
+0
+Free trucebaldazzi
+178.23
+normal arrival
+178.23
+normal term
+498.88
+digest term
+Free j_q
+0
+Free trucebaldazzi
+178.69
+digest term
+Free j_q
+0
+Free trucebaldazzi
+179.13
+digest term
+Free j_q
+0
+Free trucebaldazzi
+179.61
+digest term
+Free j_q
+0
+Free trucebaldazzi
+180.03
+digest term
+Free j_q
+0
+Free trucebaldazzi
+181.65
+digest term
+Free j_q
+0
+Free trucebaldazzi
+181.71
+digest term
+Free j_q
+0
+Free trucebaldazzi
+182.27
+digest term
+Free j_q
+0
+Free trucebaldazzi
+182.50
+digest term
+Free j_q
+0
+Free trucebaldazzi
+183.16
+premium term
+122.92
+digest term
+Free j_q
+0
+Free trucebaldazzi
+183.16
+digest term
+Free j_q
+0
+Free trucebaldazzi
+183.42
+digest term
+Free j_q
+0
+Free trucebaldazzi
+184.18
+digest term
+Free j_q
+0
+Free trucebaldazzi
+184.62
+digest term
+Free j_q
+0
+Free trucebaldazzi
+184.97
+digest term
+Free j_q
+0
+Free trucebaldazzi
+185.24
+digest term
+Free j_q
+0
+Free trucebaldazzi
+185.79
+digest term
+Free j_q
+0
+Free trucebaldazzi
+185.92
+normal arrival
+185.92
+normal term
+687.65
+digest term
+Free j_q
+0
+Free trucebaldazzi
+187.10
+digest term
+Free j_q
+0
+Free trucebaldazzi
+187.92
+digest term
+Free j_q
+0
+Free trucebaldazzi
+188.45
+digest term
+Free j_q
+0
+Free trucebaldazzi
+188.81
+normal arrival
+188.81
+normal term
+531.79
+digest term
+Free j_q
+0
+Free trucebaldazzi
+188.86
+digest term
+Free j_q
+0
+Free trucebaldazzi
+190.35
+digest term
+Free j_q
+0
+Free trucebaldazzi
+192.56
+digest term
+Free j_q
+0
+Free trucebaldazzi
+192.56
+digest term
+Free j_q
+0
+Free trucebaldazzi
+192.58
+digest term
+Free j_q
+0
+Free trucebaldazzi
+193.47
+digest term
+Free j_q
+0
+Free trucebaldazzi
+194.21
+digest term
+Free j_q
+0
+Free trucebaldazzi
+194.94
+digest term
+Free j_q
+0
+Free trucebaldazzi
+195.64
+digest term
+Free j_q
+0
+Free trucebaldazzi
+195.77
+digest term
+Free j_q
+0
+Free trucebaldazzi
+195.96
+digest term
+Free j_q
+0
+Free trucebaldazzi
+196.28
+digest term
+Free j_q
+0
+Free trucebaldazzi
+199.28
+digest term
+Free j_q
+0
+Free trucebaldazzi
+199.71
+digest term
+Free j_q
+0
+Free trucebaldazzi
+200.11
+digest term
+Free j_q
+0
+Free trucebaldazzi
+200.41
+digest term
+Free j_q
+0
+Free trucebaldazzi
+200.49
+digest term
+Free j_q
+0
+Free trucebaldazzi
+200.67
+digest term
+Free j_q
+0
+Free trucebaldazzi
+200.76
+digest term
+Free j_q
+0
+Free trucebaldazzi
+201.79
+digest term
+Free j_q
+0
+Free trucebaldazzi
+202.03
+digest term
+Free j_q
+0
+Free trucebaldazzi
+202.62
+digest term
+Free j_q
+0
+Free trucebaldazzi
+203.08
+digest term
+Free j_q
+0
+Free trucebaldazzi
+204.63
+digest term
+Free j_q
+0
+Free trucebaldazzi
+204.73
+digest term
+Free j_q
+0
+Free trucebaldazzi
+205.36
+digest term
+Free j_q
+0
+Free trucebaldazzi
+206.33
+digest term
+Free j_q
+0
+Free trucebaldazzi
+207.46
+digest term
+Free j_q
+0
+Free trucebaldazzi
+207.80
+digest term
+Free j_q
+0
+Free trucebaldazzi
+207.83
+digest term
+Free j_q
+0
+Free trucebaldazzi
+207.95
+digest term
+Free j_q
+0
+Free trucebaldazzi
+208.00
+digest term
+Free j_q
+0
+Free trucebaldazzi
+208.19
+digest term
+Free j_q
+0
+Free trucebaldazzi
+208.22
+digest term
+Free j_q
+0
+Free trucebaldazzi
+208.26
+digest term
+Free j_q
+0
+Free trucebaldazzi
+208.30
+digest term
+Free j_q
+0
+Free trucebaldazzi
+208.31
+digest term
+Free j_q
+0
+Free trucebaldazzi
+208.56
+digest term
+Free j_q
+0
+Free trucebaldazzi
+208.65
+digest term
+Free j_q
+0
+Free trucebaldazzi
+209.43
+digest term
+Free j_q
+0
+Free trucebaldazzi
+209.58
+normal arrival
+209.58
+normal term
+522.07
+digest term
+Free j_q
+0
+Free trucebaldazzi
+210.20
+premium arrival
+210.20
+premium term
+524.66
+digest term
+Free j_q
+0
+Free trucebaldazzi
+210.46
+digest term
+Free j_q
+0
+Free trucebaldazzi
+211.02
+digest term
+Free j_q
+0
+Free trucebaldazzi
+211.64
+digest term
+Free j_q
+0
+Free trucebaldazzi
+211.75
+digest term
+Free j_q
+0
+Free trucebaldazzi
+212.10
+digest term
+Free j_q
+0
+Free trucebaldazzi
+212.55
+digest term
+Free j_q
+0
+Free trucebaldazzi
+213.16
+digest term
+Free j_q
+0
+Free trucebaldazzi
+213.23
+digest term
+Free j_q
+0
+Free trucebaldazzi
+214.75
+digest term
+Free j_q
+0
+Free trucebaldazzi
+216.69
+digest term
+Free j_q
+0
+Free trucebaldazzi
+216.76
+normal arrival
+216.76
+reliable arrival
+524.66
+normal term
+550.41
+reliable arrival
+731.64
+normal arrival
+174.38
+normal arrival
+207.95
+normal arrival
+178.20
+reliable arrival
+687.65
+normal arrival
+188.45
+normal arrival
+207.83
+normal arrival
+204.73
+normal arrival
+181.71
+premium arrival
+195.64
+reliable arrival
+531.79
+premium arrival
+207.46
+normal arrival
+208.19
+reliable arrival
+550.41
+reliable arrival
+498.88
+normal arrival
+208.31
+reliable arrival
+522.07
+normal arrival
+178.16
+premium arrival
+185.79
+normal arrival
+182.27
+premium arrival
+206.33
+normal arrival
+199.71
+normal arrival
+200.11
+normal arrival
+208.30
+premium arrival
+205.36
+premium arrival
+200.49
+premium arrival
+207.80
+normal arrival
+202.03
+normal arrival
+200.76
+premium arrival
+214.75
+premium arrival
+192.56
+premium arrival
+178.69
+normal arrival
+213.23
+normal arrival
+173.07
+premium arrival
+209.43
+normal arrival
+190.35
+normal arrival
+211.64
+premium arrival
+208.26
+normal arrival
+195.96
+premium arrival
+174.84
+normal arrival
+176.91
+premium arrival
+208.00
+premium arrival
+194.21
+premium arrival
+182.50
+premium arrival
+208.22
+normal arrival
+187.10
+premium arrival
+216.69
+premium arrival
+213.16
+premium arrival
+176.21
+premium arrival
+184.18
+normal arrival
+185.24
+normal arrival
+200.67
+premium arrival
+208.65
+premium arrival
+179.13
+premium arrival
+208.56
+premium arrival
+183.42
+premium arrival
+175.07
+normal arrival
+211.75
+premium arrival
+183.16
+premium arrival
+204.63
+premium arrival
+210.46
+premium arrival
+196.28
+normal arrival
+183.16
+premium arrival
+188.86
+premium arrival
+212.55
+premium arrival
+175.45
+premium arrival
+194.94
+premium arrival
+187.92
+premium arrival
+180.03
+premium arrival
+192.58
+normal arrival
+192.56
+premium arrival
+212.10
+normal arrival
+203.08
+premium arrival
+211.02
+premium arrival
+179.61
+premium arrival
+193.47
+normal arrival
+200.41
+premium arrival
+199.28
+premium arrival
+202.62
+premium arrival
+184.62
+normal arrival
+181.65
+normal arrival
+174.82
+premium arrival
+184.97
+reliable term
+Before new arrival 
+839.12
+reliable term
+Before new arrival 
+1011.17
+normal term
+440.24
+reliable arrival
+440.24
+normal term
+468.21
+normal term
+438.17
+reliable arrival
+468.21
+reliable arrival
+438.17
+reliable term
+Before new arrival 
+938.51
+normal term
+417.60
+reliable arrival
+417.60
+normal term
+428.32
+normal term
+421.29
+normal term
+386.97
+premium term
+372.69
+reliable arrival
+428.32
+reliable arrival
+421.29
+reliable arrival
+386.97
+reliable term
+Before new arrival 
+703.28
+premium term
+376.18
+normal term
+375.53
+reliable term
+Before new arrival 
+717.23
+reliable term
+Before new arrival 
+659.21
+normal term
+365.61
+reliable term
+Before new arrival 
+678.32
+normal term
+318.05
+premium term
+319.30
+reliable term
+Before new arrival 
+573.18
+reliable term
+Before new arrival 
+598.33
+reliable term
+Before new arrival 
+568.16
+normal term
+312.19
+premium term
+333.37
+normal term
+322.04
+normal term
+316.57
+reliable term
+Before new arrival 
+532.17
+normal term
+319.30
+premium term
+316.04
+reliable term
+Before new arrival 
+538.57
+premium term
+309.31
+reliable term
+Before new arrival 
+529.57
+premium term
+313.61
+reliable term
+Before new arrival 
+489.60
+normal term
+297.06
+normal term
+295.55
+premium term
+309.03
+premium term
+286.49
+premium term
+270.44
+normal term
+303.85
+normal term
+263.58
+premium term
+294.86
+normal term
+272.37
+normal term
+293.45
+premium term
+274.12
+normal term
+256.77
+premium term
+230.13
+normal term
+230.92
+premium term
+261.96
+premium term
+245.55
+premium term
+232.00
+premium term
+257.59
+normal term
+235.42
+premium term
+264.57
+premium term
+259.67
+premium term
+221.67
+premium term
+229.52
+normal term
+229.67
+normal term
+243.05
+premium term
+250.19
+premium term
+220.28
+premium term
+248.99
+premium term
+222.64
+premium term
+213.90
+normal term
+249.30
+premium term
+219.68
+premium term
+236.57
+premium term
+241.32
+premium term
+226.83
+normal term
+211.35
+premium term
+215.54
+premium term
+238.08
+premium term
+200.36
+premium term
+219.16
+premium term
+209.46
+premium term
+201.53
+premium term
+213.89
+normal term
+211.84
+premium term
+229.19
+normal term
+218.90
+premium term
+222.48
+premium term
+190.83
+premium term
+202.91
+normal term
+207.92
+premium term
+206.04
+premium term
+208.59
+premium term
+188.48
+normal term
+185.29
+normal term
+176.40
+premium term
+186.00
+digest term
+Free j_q
+0
+Free trucebaldazzi
+217.42
+premium arrival
+217.42
+premium term
+378.24
+digest term
+Free j_q
+0
+Free trucebaldazzi
+218.88
+normal arrival
+218.88
+normal term
+340.38
+digest term
+Free j_q
+0
+Free trucebaldazzi
+220.40
+digest term
+Free j_q
+0
+Free trucebaldazzi
+220.76
+normal arrival
+220.76
+normal term
+257.93
+digest term
+Free j_q
+0
+Free trucebaldazzi
+220.97
+premium arrival
+220.97
+premium term
+266.72
+digest term
+Free j_q
+0
+Free trucebaldazzi
+221.19
+normal arrival
+221.19
+normal term
+319.15
+digest term
+Free j_q
+0
+Free trucebaldazzi
+221.56
+premium arrival
+221.56
+premium term
+235.46
+digest term
+Free j_q
+0
+Free trucebaldazzi
+221.72
+premium arrival
+221.72
+premium term
+233.84
+digest term
+Free j_q
+0
+Free trucebaldazzi
+221.96
+premium arrival
+221.96
+premium term
+416.08
+digest term
+Free j_q
+0
+Free trucebaldazzi
+223.01
+digest term
+Free j_q
+0
+Free trucebaldazzi
+223.19
+digest term
+Free j_q
+0
+Free trucebaldazzi
+223.40
+digest term
+Free j_q
+0
+Free trucebaldazzi
+223.72
+normal arrival
+223.72
+reliable arrival
+416.08
+premium arrival
+223.40
+normal arrival
+223.01
+premium arrival
+223.19
+normal term
+423.39
+reliable arrival
+423.39
+reliable term
+Before new arrival 
+610.19
+reliable term
+Before new arrival 
+523.23
+premium term
+305.76
+normal term
+284.16
+premium term
+258.04
+digest term
+Free j_q
+0
+Free trucebaldazzi
+224.10
+premium arrival
+224.10
+premium term
+254.26
+digest term
+Free j_q
+0
+Free trucebaldazzi
+224.32
+premium arrival
+224.32
+premium term
+385.58
+digest term
+Free j_q
+0
+Free trucebaldazzi
+224.34
+normal arrival
+224.34
+normal term
+320.95
+digest term
+Free j_q
+0
+Free trucebaldazzi
+224.74
+premium arrival
+224.74
+premium term
+355.03
+digest term
+Free j_q
+0
+Free trucebaldazzi
+225.85
+normal arrival
+225.85
+normal term
+331.52
+digest term
+Free j_q
+0
+Free trucebaldazzi
+225.92
+normal arrival
+225.92
+normal term
+263.99
+digest term
+Free j_q
+0
+Free trucebaldazzi
+226.08
+premium arrival
+226.08
+premium term
+457.15
+digest term
+Free j_q
+0
+Free trucebaldazzi
+227.59
+digest term
+Free j_q
+0
+Free trucebaldazzi
+227.78
+digest term
+Free j_q
+0
+Free trucebaldazzi
+227.95
+digest term
+Free j_q
+0
+Free trucebaldazzi
+228.54
+digest term
+Free j_q
+0
+Free trucebaldazzi
+230.10
+digest term
+Free j_q
+0
+Free trucebaldazzi
+230.13
+digest term
+Free j_q
+0
+Free trucebaldazzi
+230.40
+digest term
+Free j_q
+0
+Free trucebaldazzi
+231.43
+digest term
+Free j_q
+0
+Free trucebaldazzi
+231.75
+digest term
+Free j_q
+0
+Free trucebaldazzi
+231.95
+digest term
+Free j_q
+0
+Free trucebaldazzi
+232.01
+digest term
+Free j_q
+0
+Free trucebaldazzi
+232.16
+digest term
+Free j_q
+0
+Free trucebaldazzi
+232.24
+digest term
+Free j_q
+0
+Free trucebaldazzi
+232.71
+digest term
+Free j_q
+0
+Free trucebaldazzi
+233.21
+digest term
+Free j_q
+0
+Free trucebaldazzi
+233.56
+digest term
+Free j_q
+0
+Free trucebaldazzi
+233.90
+digest term
+Free j_q
+0
+Free trucebaldazzi
+235.01
+digest term
+Free j_q
+0
+Free trucebaldazzi
+236.05
+digest term
+Free j_q
+0
+Free trucebaldazzi
+236.92
+digest term
+Free j_q
+0
+Free trucebaldazzi
+237.63
+digest term
+Free j_q
+0
+Free trucebaldazzi
+237.97
+digest term
+Free j_q
+0
+Free trucebaldazzi
+238.14
+digest term
+Free j_q
+0
+Free trucebaldazzi
+239.16
+digest term
+Free j_q
+0
+Free trucebaldazzi
+239.28
+digest term
+Free j_q
+0
+Free trucebaldazzi
+239.29
+digest term
+Free j_q
+0
+Free trucebaldazzi
+239.51
+digest term
+Free j_q
+0
+Free trucebaldazzi
+240.06
+digest term
+Free j_q
+0
+Free trucebaldazzi
+240.81
+normal arrival
+240.81
+reliable arrival
+457.15
+normal arrival
+233.90
+normal arrival
+227.95
+normal arrival
+240.06
+normal arrival
+228.54
+normal arrival
+231.75
+premium arrival
+239.51
+premium arrival
+237.63
+normal arrival
+236.05
+normal arrival
+227.78
+premium arrival
+239.29
+premium arrival
+233.21
+normal arrival
+230.10
+normal arrival
+231.95
+premium arrival
+230.40
+premium arrival
+236.92
+normal arrival
+232.71
+premium arrival
+239.28
+normal arrival
+239.16
+normal arrival
+237.97
+premium arrival
+230.13
+premium arrival
+231.43
+premium arrival
+232.01
+premium arrival
+232.16
+premium arrival
+232.24
+premium arrival
+227.59
+normal arrival
+233.56
+normal arrival
+238.14
+premium arrival
+235.01
+normal term
+759.46
+reliable term
+Before new arrival 
+688.23
+normal term
+456.46
+normal term
+438.01
+normal term
+440.14
+normal term
+386.44
+normal term
+388.96
+premium term
+392.97
+premium term
+375.19
+normal term
+358.32
+normal term
+347.84
+premium term
+357.80
+premium term
+347.27
+normal term
+343.77
+normal term
+326.77
+premium term
+314.74
+premium term
+321.17
+normal term
+309.72
+premium term
+311.28
+normal term
+307.39
+normal term
+293.63
+premium term
+284.12
+premium term
+272.37
+premium term
+249.94
+premium term
+248.88
+premium term
+246.25
+premium term
+233.56
+normal term
+238.80
+normal term
+242.37
+premium term
+238.86
+digest term
+Free j_q
+0
+Free trucebaldazzi
+241.86
+digest term
+Free j_q
+0
+Free trucebaldazzi
+242.21
+digest term
+Free j_q
+0
+Free trucebaldazzi
+243.39
+digest term
+Free j_q
+0
+Free trucebaldazzi
+244.22
+digest term
+Free j_q
+0
+Free trucebaldazzi
+244.58
+digest term
+Free j_q
+0
+Free trucebaldazzi
+244.77
+digest term
+Free j_q
+0
+Free trucebaldazzi
+245.02
+digest term
+Free j_q
+0
+Free trucebaldazzi
+246.34
+digest term
+Free j_q
+0
+Free trucebaldazzi
+247.41
+digest term
+Free j_q
+0
+Free trucebaldazzi
+248.28
+digest term
+Free j_q
+0
+Free trucebaldazzi
+248.38
+digest term
+Free j_q
+0
+Free trucebaldazzi
+249.02
+digest term
+Free j_q
+0
+Free trucebaldazzi
+249.19
+digest term
+Free j_q
+0
+Free trucebaldazzi
+250.02
+digest term
+Free j_q
+0
+Free trucebaldazzi
+250.58
+digest term
+Free j_q
+0
+Free trucebaldazzi
+251.70
+digest term
+Free j_q
+0
+Free trucebaldazzi
+252.63
+digest term
+Free j_q
+0
+Free trucebaldazzi
+253.12
+digest term
+Free j_q
+0
+Free trucebaldazzi
+253.42
+digest term
+Free j_q
+0
+Free trucebaldazzi
+254.10
+digest term
+Free j_q
+0
+Free trucebaldazzi
+255.38
+digest term
+Free j_q
+0
+Free trucebaldazzi
+256.43
+digest term
+Free j_q
+0
+Free trucebaldazzi
+257.99
+normal arrival
+257.99
+normal term
+522.20
+digest term
+Free j_q
+0
+Free trucebaldazzi
+258.72
+digest term
+Free j_q
+0
+Free trucebaldazzi
+258.80
+digest term
+Free j_q
+0
+Free trucebaldazzi
+259.04
+digest term
+Free j_q
+0
+Free trucebaldazzi
+259.33
+digest term
+Free j_q
+0
+Free trucebaldazzi
+259.40
+digest term
+Free j_q
+0
+Free trucebaldazzi
+259.95
+digest term
+Free j_q
+0
+Free trucebaldazzi
+260.21
+digest term
+Free j_q
+0
+Free trucebaldazzi
+260.69
+digest term
+Free j_q
+0
+Free trucebaldazzi
+261.10
+digest term
+Free j_q
+0
+Free trucebaldazzi
+261.40
+digest term
+Free j_q
+0
+Free trucebaldazzi
+261.42
+digest term
+Free j_q
+0
+Free trucebaldazzi
+262.14
+digest term
+Free j_q
+0
+Free trucebaldazzi
+262.36
+digest term
+Free j_q
+0
+Free trucebaldazzi
+262.68
+normal arrival
+262.68
+normal term
+612.41
+digest term
+Free j_q
+0
+Free trucebaldazzi
+263.02
+digest term
+Free j_q
+0
+Free trucebaldazzi
+263.20
+digest term
+Free j_q
+0
+Free trucebaldazzi
+263.38
+digest term
+Free j_q
+0
+Free trucebaldazzi
+263.72
+digest term
+Free j_q
+0
+Free trucebaldazzi
+263.82
+digest term
+Free j_q
+0
+Free trucebaldazzi
+264.11
+digest term
+Free j_q
+0
+Free trucebaldazzi
+264.52
+digest term
+Free j_q
+0
+Free trucebaldazzi
+264.71
+digest term
+Free j_q
+0
+Free trucebaldazzi
+265.15
+digest term
+Free j_q
+0
+Free trucebaldazzi
+265.16
+digest term
+Free j_q
+0
+Free trucebaldazzi
+265.29
+digest term
+Free j_q
+0
+Free trucebaldazzi
+265.59
+digest term
+Free j_q
+0
+Free trucebaldazzi
+265.60
+digest term
+Free j_q
+0
+Free trucebaldazzi
+266.71
+digest term
+Free j_q
+0
+Free trucebaldazzi
+267.13
+normal arrival
+267.13
+reliable arrival
+759.46
+normal arrival
+263.72
+normal arrival
+261.40
+premium arrival
+265.29
+normal arrival
+244.77
+normal arrival
+256.43
+premium arrival
+247.41
+reliable arrival
+612.41
+premium arrival
+252.63
+premium arrival
+249.02
+premium arrival
+246.34
+premium arrival
+253.12
+reliable arrival
+522.20
+premium arrival
+258.72
+reliable arrival
+456.46
+normal arrival
+263.82
+normal arrival
+244.58
+reliable arrival
+438.01
+reliable arrival
+440.14
+premium arrival
+253.42
+premium arrival
+261.42
+premium arrival
+244.22
+premium arrival
+264.52
+premium arrival
+260.69
+premium arrival
+248.38
+premium arrival
+249.19
+premium arrival
+250.58
+normal arrival
+243.39
+premium arrival
+263.20
+premium arrival
+262.14
+premium arrival
+241.86
+normal arrival
+254.10
+normal arrival
+251.70
+premium arrival
+255.38
+premium arrival
+266.71
+normal arrival
+264.11
+premium arrival
+260.21
+normal arrival
+248.28
+normal arrival
+265.60
+premium arrival
+250.02
+normal arrival
+259.04
+premium arrival
+265.15
+normal arrival
+258.80
+premium arrival
+263.02
+normal arrival
+265.16
+normal arrival
+263.38
+premium arrival
+245.02
+premium arrival
+259.40
+premium arrival
+259.95
+premium arrival
+259.33
+normal term
+799.39
+reliable arrival
+799.39
+reliable term
+Before new arrival 
+1065.52
+reliable term
+Before new arrival 
+1018.79
+normal term
+482.52
+normal term
+460.80
+premium term
+463.59
+normal term
+442.35
+normal term
+452.29
+premium term
+426.15
+reliable arrival
+463.59
+reliable arrival
+482.52
+reliable arrival
+460.80
+reliable arrival
+442.35
+reliable arrival
+452.29
+reliable term
+Before new arrival 
+661.88
+reliable term
+Before new arrival 
+787.28
+premium term
+417.92
+premium term
+411.35
+premium term
+396.13
+premium term
+391.41
+reliable term
+Before new arrival 
+654.31
+premium term
+390.52
+reliable term
+Before new arrival 
+567.74
+reliable term
+Before new arrival 
+591.91
+normal term
+372.40
+normal term
+352.46
+reliable term
+Before new arrival 
+543.04
+reliable term
+Before new arrival 
+540.18
+reliable term
+Before new arrival 
+560.50
+reliable term
+Before new arrival 
+541.14
+premium term
+351.82
+reliable term
+Before new arrival 
+550.22
+premium term
+342.20
+premium term
+315.93
+premium term
+335.19
+premium term
+327.66
+premium term
+307.05
+premium term
+305.05
+premium term
+302.38
+normal term
+293.84
+premium term
+313.62
+premium term
+299.78
+premium term
+275.11
+normal term
+284.53
+normal term
+281.51
+premium term
+284.40
+premium term
+295.21
+normal term
+291.73
+premium term
+286.12
+normal term
+272.49
+normal term
+287.38
+premium term
+271.27
+normal term
+278.71
+premium term
+282.27
+normal term
+272.01
+premium term
+273.54
+normal term
+275.28
+normal term
+269.15
+premium term
+249.35
+premium term
+263.67
+premium term
+262.02
+premium term
+260.33
+digest term
+Free j_q
+0
+Free trucebaldazzi
+267.29
+premium arrival
+267.29
+premium term
+300.71
+digest term
+Free j_q
+0
+Free trucebaldazzi
+267.36
+premium arrival
+267.36
+premium term
+299.08
+digest term
+Free j_q
+0
+Free trucebaldazzi
+268.58
+normal arrival
+268.58
+normal term
+269.71
+digest term
+Free j_q
+0
+Free trucebaldazzi
+268.86
+premium arrival
+268.86
+premium term
+309.02
+digest term
+Free j_q
+0
+Free trucebaldazzi
+269.36
+normal arrival
+269.36
+normal term
+376.17
+digest term
+Free j_q
+0
+Free trucebaldazzi
+270.78
+premium arrival
+270.78
+premium term
+318.31
+digest term
+Free j_q
+0
+Free trucebaldazzi
+271.05
+normal arrival
+271.05
+normal term
+717.42
+digest term
+Free j_q
+0
+Free trucebaldazzi
+271.20
+normal arrival
+271.20
+normal term
+585.87
+digest term
+Free j_q
+0
+Free trucebaldazzi
+271.28
+digest term
+Free j_q
+0
+Free trucebaldazzi
+271.50
+digest term
+Free j_q
+0
+Free trucebaldazzi
+271.70
+digest term
+Free j_q
+0
+Free trucebaldazzi
+271.89
+digest term
+Free j_q
+0
+Free trucebaldazzi
+272.17
+digest term
+Free j_q
+0
+Free trucebaldazzi
+272.17
+digest term
+Free j_q
+0
+Free trucebaldazzi
+273.20
+digest term
+Free j_q
+0
+Free trucebaldazzi
+273.43
+digest term
+Free j_q
+0
+Free trucebaldazzi
+275.49
+digest term
+Free j_q
+0
+Free trucebaldazzi
+275.75
+digest term
+Free j_q
+0
+Free trucebaldazzi
+276.60
+digest term
+Free j_q
+0
+Free trucebaldazzi
+277.10
+digest term
+Free j_q
+0
+Free trucebaldazzi
+277.28
+digest term
+Free j_q
+0
+Free trucebaldazzi
+277.72
+digest term
+Free j_q
+0
+Free trucebaldazzi
+277.82
+digest term
+Free j_q
+0
+Free trucebaldazzi
+278.20
+digest term
+Free j_q
+0
+Free trucebaldazzi
+278.34
+digest term
+Free j_q
+0
+Free trucebaldazzi
+278.45
+digest term
+Free j_q
+0
+Free trucebaldazzi
+279.07
+digest term
+Free j_q
+0
+Free trucebaldazzi
+280.11
+digest term
+Free j_q
+0
+Free trucebaldazzi
+280.52
+digest term
+Free j_q
+0
+Free trucebaldazzi
+280.60
+digest term
+Free j_q
+0
+Free trucebaldazzi
+281.30
+digest term
+Free j_q
+0
+Free trucebaldazzi
+283.64
+digest term
+Free j_q
+0
+Free trucebaldazzi
+284.69
+normal arrival
+284.69
+normal term
+521.75
+digest term
+Free j_q
+0
+Free trucebaldazzi
+284.83
+digest term
+Free j_q
+0
+Free trucebaldazzi
+285.16
+digest term
+Free j_q
+0
+Free trucebaldazzi
+285.34
+digest term
+Free j_q
+0
+Free trucebaldazzi
+285.99
+digest term
+Free j_q
+0
+Free trucebaldazzi
+286.35
+digest term
+Free j_q
+0
+Free trucebaldazzi
+286.36
+digest term
+Free j_q
+0
+Free trucebaldazzi
+287.03
+digest term
+Free j_q
+0
+Free trucebaldazzi
+287.97
+normal arrival
+287.97
+normal term
+706.43
+digest term
+Free j_q
+0
+Free trucebaldazzi
+288.51
+digest term
+Free j_q
+0
+Free trucebaldazzi
+289.49
+premium arrival
+289.49
+premium term
+617.79
+digest term
+Free j_q
+0
+Free trucebaldazzi
+290.07
+digest term
+Free j_q
+0
+Free trucebaldazzi
+291.08
+digest term
+Free j_q
+0
+Free trucebaldazzi
+291.35
+premium arrival
+291.35
+reliable arrival
+617.79
+premium term
+637.38
+reliable arrival
+637.38
+reliable arrival
+717.42
+reliable arrival
+706.43
+reliable arrival
+585.87
+normal arrival
+271.70
+premium arrival
+284.83
+premium arrival
+271.89
+normal arrival
+275.49
+normal arrival
+277.28
+reliable arrival
+521.75
+premium arrival
+273.43
+premium arrival
+287.03
+premium arrival
+286.35
+normal arrival
+271.28
+premium arrival
+280.60
+premium arrival
+279.07
+premium arrival
+275.75
+premium arrival
+285.99
+normal arrival
+280.52
+premium arrival
+277.82
+premium arrival
+285.34
+normal arrival
+278.34
+premium arrival
+272.17
+premium arrival
+288.51
+normal arrival
+278.45
+premium arrival
+277.72
+normal arrival
+272.17
+premium arrival
+277.10
+premium arrival
+280.11
+premium arrival
+291.08
+premium arrival
+286.36
+premium arrival
+276.60
+normal arrival
+281.30
+normal arrival
+285.16
+premium arrival
+273.20
+premium arrival
+271.50
+premium arrival
+290.07
+premium arrival
+278.20
+premium arrival
+283.64
+reliable term
+Before new arrival 
+983.40
+reliable term
+Before new arrival 
+946.10
+reliable term
+Before new arrival 
+940.61
+reliable term
+Before new arrival 
+915.67
+reliable term
+Before new arrival 
+743.21
+normal term
+421.16
+premium term
+431.38
+premium term
+412.05
+normal term
+408.46
+normal term
+400.67
+reliable term
+Before new arrival 
+640.28
+premium term
+388.80
+premium term
+401.73
+premium term
+401.04
+normal term
+379.27
+premium term
+387.04
+premium term
+381.74
+premium term
+361.79
+premium term
+353.48
+normal term
+347.42
+premium term
+343.27
+premium term
+346.03
+normal term
+329.19
+premium term
+319.86
+premium term
+335.82
+normal term
+322.46
+premium term
+320.95
+normal term
+311.87
+premium term
+314.64
+premium term
+315.94
+premium term
+326.62
+premium term
+302.61
+premium term
+292.74
+normal term
+297.42
+normal term
+301.13
+premium term
+286.53
+premium term
+278.82
+premium term
+294.49
+premium term
+279.45
+digest term
+Free j_q
+0
+Free trucebaldazzi
+292.48
+premium term
+284.70
+premium arrival
+292.48
+premium term
+486.74
+digest term
+Free j_q
+0
+Free trucebaldazzi
+292.73
+digest term
+Free j_q
+0
+Free trucebaldazzi
+293.65
+digest term
+Free j_q
+0
+Free trucebaldazzi
+293.91
+digest term
+Free j_q
+0
+Free trucebaldazzi
+296.60
+digest term
+Free j_q
+0
+Free trucebaldazzi
+297.48
+digest term
+Free j_q
+0
+Free trucebaldazzi
+298.78
+digest term
+Free j_q
+0
+Free trucebaldazzi
+299.01
+digest term
+Free j_q
+0
+Free trucebaldazzi
+299.09
+digest term
+Free j_q
+0
+Free trucebaldazzi
+299.14
+digest term
+Free j_q
+0
+Free trucebaldazzi
+299.76
+digest term
+Free j_q
+0
+Free trucebaldazzi
+300.50
+digest term
+Free j_q
+0
+Free trucebaldazzi
+301.78
+digest term
+Free j_q
+0
+Free trucebaldazzi
+302.06
+digest term
+Free j_q
+0
+Free trucebaldazzi
+302.10
+digest term
+Free j_q
+0
+Free trucebaldazzi
+302.54
+premium arrival
+302.54
+reliable arrival
+486.74
+premium arrival
+298.78
+normal arrival
+299.14
+normal arrival
+293.91
+normal arrival
+299.01
+normal arrival
+301.78
+normal arrival
+297.48
+premium arrival
+302.06
+normal arrival
+299.76
+premium arrival
+302.10
+premium arrival
+300.50
+premium arrival
+293.65
+premium arrival
+292.73
+premium arrival
+296.60
+premium term
+524.20
+reliable arrival
+524.20
+reliable term
+Before new arrival 
+745.85
+reliable term
+Before new arrival 
+681.00
+premium term
+435.85
+normal term
+430.88
+normal term
+407.13
+normal term
+400.23
+normal term
+366.51
+normal term
+346.40
+premium term
+346.86
+normal term
+340.93
+premium term
+341.46
+premium term
+319.65
+premium term
+310.35
+premium term
+301.42
+premium term
+300.46
+digest term
+Free j_q
+0
+Free trucebaldazzi
+302.58
+premium arrival
+302.58
+premium term
+372.23
+digest term
+Free j_q
+0
+Free trucebaldazzi
+302.60
+premium arrival
+302.60
+premium term
+374.46
+digest term
+Free j_q
+0
+Free trucebaldazzi
+302.90
+premium arrival
+302.90
+premium term
+356.80
+digest term
+Free j_q
+0
+Free trucebaldazzi
+304.39
+normal arrival
+304.39
+normal term
+340.52
+digest term
+Free j_q
+0
+Free trucebaldazzi
+305.43
+normal arrival
+305.43
+normal term
+381.52
+digest term
+Free j_q
+0
+Free trucebaldazzi
+305.60
+premium arrival
+305.60
+premium term
+336.22
+digest term
+Free j_q
+0
+Free trucebaldazzi
+306.80
+normal arrival
+306.80
+normal term
+386.12
+digest term
+Free j_q
+0
+Free trucebaldazzi
+307.10
+normal arrival
+307.10
+normal term
+487.31
+digest term
+Free j_q
+0
+Free trucebaldazzi
+307.54
+digest term
+Free j_q
+0
+Free trucebaldazzi
+307.68
+digest term
+Free j_q
+0
+Free trucebaldazzi
+308.84
+digest term
+Free j_q
+0
+Free trucebaldazzi
+309.23
+digest term
+Free j_q
+0
+Free trucebaldazzi
+309.32
+digest term
+Free j_q
+0
+Free trucebaldazzi
+309.95
+digest term
+Free j_q
+0
+Free trucebaldazzi
+310.24
+digest term
+Free j_q
+0
+Free trucebaldazzi
+310.33
+digest term
+Free j_q
+0
+Free trucebaldazzi
+310.53
+digest term
+Free j_q
+0
+Free trucebaldazzi
+310.54
+premium arrival
+310.54
+premium term
+446.88
+digest term
+Free j_q
+0
+Free trucebaldazzi
+310.70
+digest term
+Free j_q
+0
+Free trucebaldazzi
+311.15
+premium arrival
+311.15
+reliable arrival
+487.31
+premium arrival
+310.70
+premium arrival
+308.84
+premium arrival
+307.68
+normal arrival
+310.53
+premium arrival
+310.24
+premium arrival
+307.54
+premium arrival
+309.32
+premium arrival
+309.95
+premium arrival
+309.23
+premium term
+523.96
+reliable arrival
+523.96
+reliable term
+Before new arrival 
+736.77
+reliable term
+Before new arrival 
+577.42
+premium term
+392.39
+premium term
+383.16
+premium term
+369.98
+normal term
+364.30
+premium term
+332.21
+premium term
+326.75
+premium term
+322.34
+premium term
+316.95
+premium term
+316.23
+digest term
+Free j_q
+0
+Free trucebaldazzi
+311.32
+premium arrival
+311.32
+premium term
+488.39
+digest term
+Free j_q
+0
+Free trucebaldazzi
+313.12
+premium arrival
+313.12
+premium term
+323.39
+digest term
+Free j_q
+0
+Free trucebaldazzi
+313.30
+normal arrival
+313.30
+normal term
+346.47
+digest term
+Free j_q
+0
+Free trucebaldazzi
+313.31
+premium arrival
+313.31
+premium term
+355.64
+digest term
+Free j_q
+0
+Free trucebaldazzi
+314.22
+premium arrival
+314.22
+premium term
+332.64
+digest term
+Free j_q
+0
+Free trucebaldazzi
+314.31
+normal arrival
+314.31
+normal term
+323.67
+digest term
+Free j_q
+0
+Free trucebaldazzi
+314.74
+normal arrival
+314.74
+normal term
+547.20
+digest term
+Free j_q
+0
+Free trucebaldazzi
+316.05
+digest term
+Free j_q
+0
+Free trucebaldazzi
+316.32
+digest term
+Free j_q
+0
+Free trucebaldazzi
+317.96
+normal arrival
+317.96
+reliable arrival
+547.20
+premium arrival
+316.05
+premium arrival
+316.32
+normal term
+714.15
+reliable term
+Before new arrival 
+663.43
+premium term
+418.24
+premium term
+353.57
+digest term
+Free j_q
+0
+Free trucebaldazzi
+318.92
+digest term
+Free j_q
+0
+Free trucebaldazzi
+319.43
+digest term
+Free j_q
+0
+Free trucebaldazzi
+320.55
+digest term
+Free j_q
+0
+Free trucebaldazzi
+321.00
+digest term
+Free j_q
+0
+Free trucebaldazzi
+321.08
+digest term
+Free j_q
+0
+Free trucebaldazzi
+321.21
+digest term
+Free j_q
+0
+Free trucebaldazzi
+321.47
+digest term
+Free j_q
+0
+Free trucebaldazzi
+321.57
+digest term
+Free j_q
+0
+Free trucebaldazzi
+323.13
+digest term
+Free j_q
+0
+Free trucebaldazzi
+325.68
+digest term
+Free j_q
+0
+Free trucebaldazzi
+326.21
+digest term
+Free j_q
+0
+Free trucebaldazzi
+327.33
+digest term
+Free j_q
+0
+Free trucebaldazzi
+327.88
+digest term
+Free j_q
+0
+Free trucebaldazzi
+328.43
+digest term
+Free j_q
+0
+Free trucebaldazzi
+328.75
+digest term
+Free j_q
+0
+Free trucebaldazzi
+328.76
+digest term
+Free j_q
+0
+Free trucebaldazzi
+330.57
+digest term
+Free j_q
+0
+Free trucebaldazzi
+331.45
+digest term
+Free j_q
+0
+Free trucebaldazzi
+331.93
+digest term
+Free j_q
+0
+Free trucebaldazzi
+332.05
+digest term
+Free j_q
+0
+Free trucebaldazzi
+332.72
+digest term
+Free j_q
+0
+Free trucebaldazzi
+332.82
+digest term
+Free j_q
+0
+Free trucebaldazzi
+333.11
+digest term
+Free j_q
+0
+Free trucebaldazzi
+333.36
+digest term
+Free j_q
+0
+Free trucebaldazzi
+333.51
+normal arrival
+333.51
+normal term
+614.09
+digest term
+Free j_q
+0
+Free trucebaldazzi
+333.89
+digest term
+Free j_q
+0
+Free trucebaldazzi
+334.00
+digest term
+Free j_q
+0
+Free trucebaldazzi
+334.05
+digest term
+Free j_q
+0
+Free trucebaldazzi
+334.43
+digest term
+Free j_q
+0
+Free trucebaldazzi
+335.47
+digest term
+Free j_q
+0
+Free trucebaldazzi
+339.06
+digest term
+Free j_q
+0
+Free trucebaldazzi
+339.07
+digest term
+Free j_q
+0
+Free trucebaldazzi
+339.32
+digest term
+Free j_q
+0
+Free trucebaldazzi
+339.50
+digest term
+Free j_q
+0
+Free trucebaldazzi
+339.69
+digest term
+Free j_q
+0
+Free trucebaldazzi
+339.84
+digest term
+Free j_q
+0
+Free trucebaldazzi
+340.40
+digest term
+Free j_q
+0
+Free trucebaldazzi
+340.85
+digest term
+Free j_q
+0
+Free trucebaldazzi
+340.89
+digest term
+Free j_q
+0
+Free trucebaldazzi
+341.40
+digest term
+Free j_q
+0
+Free trucebaldazzi
+341.78
+digest term
+Free j_q
+0
+Free trucebaldazzi
+342.20
+digest term
+Free j_q
+0
+Free trucebaldazzi
+343.76
+digest term
+Free j_q
+0
+Free trucebaldazzi
+344.35
+digest term
+Free j_q
+0
+Free trucebaldazzi
+344.82
+digest term
+Free j_q
+0
+Free trucebaldazzi
+346.87
+digest term
+Free j_q
+0
+Free trucebaldazzi
+347.24
+digest term
+Free j_q
+0
+Free trucebaldazzi
+347.30
+digest term
+Free j_q
+0
+Free trucebaldazzi
+347.67
+digest term
+Free j_q
+0
+Free trucebaldazzi
+347.83
+digest term
+Free j_q
+0
+Free trucebaldazzi
+349.01
+digest term
+Free j_q
+0
+Free trucebaldazzi
+349.32
+digest term
+Free j_q
+0
+Free trucebaldazzi
+349.37
+digest term
+Free j_q
+0
+Free trucebaldazzi
+349.49
+digest term
+Free j_q
+0
+Free trucebaldazzi
+349.52
+digest term
+Free j_q
+0
+Free trucebaldazzi
+350.07
+digest term
+Free j_q
+0
+Free trucebaldazzi
+350.59
+digest term
+Free j_q
+0
+Free trucebaldazzi
+351.12
+premium arrival
+351.12
+premium term
+616.69
+digest term
+Free j_q
+0
+Free trucebaldazzi
+351.67
+digest term
+Free j_q
+0
+Free trucebaldazzi
+351.70
+digest term
+Free j_q
+0
+Free trucebaldazzi
+351.91
+digest term
+Free j_q
+0
+Free trucebaldazzi
+352.30
+digest term
+Free j_q
+0
+Free trucebaldazzi
+355.67
+digest term
+Free j_q
+0
+Free trucebaldazzi
+356.06
+premium arrival
+356.06
+reliable arrival
+616.69
+reliable arrival
+714.15
+premium arrival
+321.08
+premium arrival
+328.76
+normal arrival
+327.33
+normal arrival
+349.32
+normal arrival
+340.89
+premium arrival
+339.50
+reliable arrival
+614.09
+normal arrival
+351.70
+premium arrival
+349.37
+premium arrival
+331.45
+normal arrival
+327.88
+normal arrival
+341.40
+premium arrival
+328.43
+premium arrival
+343.76
+normal arrival
+332.05
+premium arrival
+347.24
+normal arrival
+347.30
+premium arrival
+334.43
+normal arrival
+318.92
+normal arrival
+326.21
+premium arrival
+349.52
+normal arrival
+333.11
+premium arrival
+334.05
+premium arrival
+350.59
+premium arrival
+340.40
+normal arrival
+335.47
+normal arrival
+349.01
+premium arrival
+319.43
+normal arrival
+342.20
+normal arrival
+347.83
+premium arrival
+351.67
+premium arrival
+328.75
+premium arrival
+344.82
+premium arrival
+330.57
+normal arrival
+352.30
+premium arrival
+321.00
+premium arrival
+340.85
+premium arrival
+333.89
+premium arrival
+339.07
+normal arrival
+325.68
+premium arrival
+321.47
+normal arrival
+320.55
+premium arrival
+339.84
+normal arrival
+355.67
+premium arrival
+339.32
+premium arrival
+351.91
+premium arrival
+321.21
+normal arrival
+339.69
+premium arrival
+349.49
+premium arrival
+332.72
+normal arrival
+333.36
+premium arrival
+339.06
+premium arrival
+323.13
+premium arrival
+321.57
+normal arrival
+331.93
+premium arrival
+350.07
+premium arrival
+346.87
+normal arrival
+341.78
+premium arrival
+344.35
+premium arrival
+334.00
+premium term
+797.64
+reliable arrival
+797.64
+digest arrival
+inter =   0.37
+1070.82
+premium arrival
+299.09
+normal arrival
+332.82
+premium arrival
+347.67
+digest arrival
+inter =   0.26
+1071.19
+digest arrival
+inter =   0.81
+1071.45
+digest arrival
+inter =   0.18
+1072.26
+digest arrival
+inter =   0.09
+1072.44
+premium arrival
+220.40
+premium arrival
+264.71
+digest arrival
+inter =   1.07
+1072.53
+digest arrival
+inter =   0.57
+1073.59
+digest arrival
+inter =   1.58
+1074.16
+digest arrival
+inter =   3.08
+1075.73
+digest arrival
+inter =   0.16
+1078.82
+digest arrival
+inter =   0.00
+1078.97
+digest arrival
+inter =   0.11
+1078.98
+digest arrival
+inter =   1.19
+1079.09
+digest arrival
+inter =   0.59
+1080.27
+digest arrival
+inter =   0.69
+1080.87
+digest arrival
+inter =   1.34
+1081.56
+digest arrival
+inter =   1.22
+1082.90
+digest arrival
+inter =   0.47
+1084.12
+digest arrival
+inter =   1.02
+1084.59
+digest arrival
+inter =   1.11
+1085.61
+digest arrival
+inter =   1.16
+1086.73
+digest arrival
+inter =   0.94
+1087.89
+digest arrival
+inter =   0.30
+1088.82
+digest arrival
+inter =   0.35
+1089.13
+digest arrival
+inter =   0.59
+1089.47
+digest arrival
+inter =   3.92
+1090.06
+digest arrival
+inter =   0.20
+1093.98
+digest arrival
+inter =   1.84
+1094.18
+digest arrival
+inter =   0.77
+1096.02
+digest arrival
+inter =   0.19
+1096.78
+digest arrival
+inter =   0.46
+1096.97
+digest arrival
+inter =   0.75
+1097.44
+digest arrival
+inter =   1.05
+1098.19
+digest arrival
+inter =   0.02
+1099.24
+digest arrival
+inter =   0.50
+1099.27
+digest arrival
+inter =   2.52
+1099.76
+digest arrival
+inter =   0.80
+1102.28
+digest arrival
+inter =   0.61
+1103.08
+digest arrival
+inter =   3.34
+1103.68
+digest arrival
+inter =   0.20
+1107.03
+digest arrival
+inter =   1.23
+1107.22
+digest arrival
+inter =   1.02
+1108.45
+digest arrival
+inter =   0.14
+1109.47
+digest arrival
+inter =   1.58
+1109.61
+digest arrival
+inter =   0.93
+1111.20
+premium arrival
+261.10
+digest arrival
+inter =   0.73
+1112.13
+digest arrival
+inter =   3.03
+1112.86
+digest arrival
+inter =   1.08
+1115.89
+digest arrival
+inter =   3.33
+1116.97
+digest arrival
+inter =   2.59
+1120.30
+digest arrival
+inter =   1.98
+1122.88
+digest arrival
+inter =   0.51
+1124.87
+digest arrival
+inter =   0.85
+1125.37
+digest arrival
+inter =   0.92
+1126.22
+digest arrival
+inter =   0.52
+1127.15
+digest arrival
+inter =   0.25
+1127.66
+digest arrival
+inter =   0.28
+1127.91
+digest arrival
+inter =   0.99
+1128.19
+digest arrival
+inter =   1.35
+1129.19
+digest arrival
+inter =   0.11
+1130.54
+digest arrival
+inter =   0.22
+1130.65
+digest arrival
+inter =   1.10
+1130.87
+digest arrival
+inter =   0.61
+1131.97
+digest arrival
+inter =   1.81
+1132.58
+digest arrival
+inter =   1.22
+1134.38
+digest arrival
+inter =   0.96
+1135.61
+digest arrival
+inter =   0.75
+1136.57
+digest arrival
+inter =   0.47
+1137.31
+digest arrival
+inter =   0.98
+1137.78
+digest arrival
+inter =   0.30
+1138.77
+digest arrival
+inter =   0.46
+1139.07
+digest arrival
+inter =   0.87
+1139.53
+digest arrival
+inter =   0.82
+1140.40
+digest arrival
+inter =   0.14
+1141.22
+digest arrival
+inter =   0.95
+1141.36
+digest arrival
+inter =   1.91
+1142.31
+digest arrival
+inter =   0.08
+1144.22
+digest arrival
+inter =   2.02
+1144.30
+digest arrival
+inter =   0.19
+1146.31
+digest arrival
+inter =   1.11
+1146.50
+digest arrival
+inter =   0.32
+1147.61
+digest arrival
+inter =   0.75
+1147.93
+digest arrival
+inter =   0.25
+1148.68
+digest arrival
+inter =   0.03
+1148.92
+digest arrival
+inter =   1.16
+1148.96
+digest arrival
+inter =   1.06
+1150.11
+digest arrival
+inter =   0.60
+1151.17
+digest arrival
+inter =   1.78
+1151.77
+digest arrival
+inter =   0.84
+1153.55
+digest arrival
+inter =   0.33
+1154.39
+digest arrival
+inter =   0.06
+1154.72
+digest arrival
+inter =   0.27
+1154.78
+digest arrival
+inter =   0.19
+1155.04
+digest arrival
+inter =   4.50
+1155.24
+digest arrival
+inter =   0.61
+1159.73
+digest arrival
+inter =   2.12
+1160.34
+digest arrival
+inter =   1.32
+1162.46
+digest arrival
+inter =   1.67
+1163.78
+digest arrival
+inter =   0.71
+1165.46
+digest arrival
+inter =   1.09
+1166.17
+digest arrival
+inter =   0.16
+1167.25
+digest arrival
+inter =   1.07
+1167.41
+digest arrival
+inter =   0.62
+1168.48
+digest arrival
+inter =   0.35
+1169.10
+digest arrival
+inter =   0.13
+1169.44
+digest arrival
+inter =   2.21
+1169.58
+digest arrival
+inter =   0.06
+1171.79
+digest arrival
+inter =   1.73
+1171.85
+digest arrival
+inter =   0.41
+1173.58
+digest arrival
+inter =   0.83
+1174.00
+digest arrival
+inter =   0.01
+1174.83
+digest arrival
+inter =   1.58
+1174.84
+digest arrival
+inter =   0.15
+1176.42
+digest arrival
+inter =   2.45
+1176.57
+digest arrival
+inter =   1.21
+1179.02
+digest arrival
+inter =   0.27
+1180.23
+digest arrival
+inter =   0.12
+1180.50
+digest arrival
+inter =   0.39
+1180.62
+digest arrival
+inter =   0.30
+1181.01
+digest arrival
+inter =   0.98
+1181.31
+digest arrival
+inter =   0.52
+1182.30
+digest arrival
+inter =   0.01
+1182.82
+digest arrival
+inter =   0.03
+1182.82
+digest arrival
+inter =   0.30
+1182.86
+digest arrival
+inter =   0.60
+1183.16
+digest arrival
+inter =   1.41
+1183.76
+digest arrival
+inter =   0.55
+1185.17
+digest arrival
+inter =   0.68
+1185.73
+digest arrival
+inter =   0.98
+1186.41
+digest arrival
+inter =   0.28
+1187.39
+digest arrival
+inter =   1.22
+1187.67
+digest arrival
+inter =   0.01
+1188.89
+digest arrival
+inter =   0.18
+1188.90
+digest arrival
+inter =   1.27
+1189.08
+digest arrival
+inter =   0.13
+1190.34
+digest arrival
+inter =   0.65
+1190.48
+digest arrival
+inter =   3.69
+1191.12
+digest arrival
+inter =   0.31
+1194.81
+digest arrival
+inter =   0.09
+1195.13
+digest arrival
+inter =   1.17
+1195.22
+digest arrival
+inter =   0.31
+1196.39
+digest arrival
+inter =   1.71
+1196.71
+digest arrival
+inter =   2.81
+1198.42
+digest arrival
+inter =   0.32
+1201.23
+digest arrival
+inter =   1.12
+1201.54
+digest arrival
+inter =   1.15
+1202.67
+digest arrival
+inter =   0.08
+1203.82
+digest arrival
+inter =   0.89
+1203.89
+digest arrival
+inter =   1.71
+1204.78
+digest arrival
+inter =   1.44
+1206.49
+digest arrival
+inter =   2.14
+1207.93
+digest arrival
+inter =   0.64
+1210.07
+digest arrival
+inter =   1.58
+1210.72
+digest arrival
+inter =   0.46
+1212.30
+digest arrival
+inter =   0.14
+1212.75
+digest arrival
+inter =   0.75
+1212.89
+digest arrival
+inter =   1.14
+1213.64
+digest arrival
+inter =   0.68
+1214.79
+digest arrival
+inter =   0.01
+1215.47
+digest arrival
+inter =   0.73
+1215.47
+digest arrival
+inter =   0.54
+1216.20
+digest arrival
+inter =   0.79
+1216.74
+digest arrival
+inter =   0.02
+1217.53
+digest arrival
+inter =   1.48
+1217.56
+digest arrival
+inter =   1.71
+1219.04
+digest arrival
+inter =   0.61
+1220.75
+digest arrival
+inter =   1.10
+1221.36
+digest arrival
+inter =   0.23
+1222.46
+digest arrival
+inter =   0.52
+1222.69
+digest arrival
+inter =   0.45
+1223.21
+digest arrival
+inter =   1.44
+1223.66
+digest arrival
+inter =   0.11
+1225.10
+digest arrival
+inter =   0.08
+1225.22
+digest arrival
+inter =   0.16
+1225.30
+digest arrival
+inter =   0.17
+1225.46
+digest arrival
+inter =   0.30
+1225.63
+digest arrival
+inter =   1.68
+1225.93
+digest arrival
+inter =   1.44
+1227.61
+digest arrival
+inter =   0.05
+1229.06
+digest arrival
+inter =   0.86
+1229.11
+digest arrival
+inter =   2.44
+1229.97
+digest arrival
+inter =   0.14
+1232.40
+digest arrival
+inter =   0.82
+1232.55
+digest arrival
+inter =   1.17
+1233.37
+digest arrival
+inter =   0.07
+1234.54
+digest arrival
+inter =   0.08
+1234.61
+digest arrival
+inter =   0.71
+1234.69
+digest arrival
+inter =   0.30
+1235.40
+digest arrival
+inter =   0.41
+1235.69
+digest arrival
+inter =   2.94
+1236.11
+digest arrival
+inter =   1.63
+1239.05
+reliable term
+Before new arrival 
+1239.21
+reliable term
+Before new arrival 
+882.25
+reliable term
+Before new arrival 
+912.25
+premium term
+509.70
+reliable arrival
+509.70
+reliable term
+Before new arrival 
+698.33
+premium term
+515.65
+normal term
+505.88
+reliable arrival
+515.65
+reliable term
+Before new arrival 
+702.54
+normal term
+516.52
+normal term
+503.40
+premium term
+498.91
+reliable term
+Before new arrival 
+754.38
+normal term
+489.44
+premium term
+485.37
+premium term
+465.84
+normal term
+446.86
+normal term
+453.82
+premium term
+440.09
+premium term
+448.25
+normal term
+434.25
+premium term
+435.00
+normal term
+434.31
+premium term
+421.27
+normal term
+403.73
+normal term
+406.91
+premium term
+423.62
+normal term
+405.59
+premium term
+404.71
+premium term
+418.23
+premium term
+406.88
+normal term
+399.01
+normal term
+412.42
+premium term
+381.90
+normal term
+404.50
+normal term
+408.45
+premium term
+409.53
+premium term
+385.48
+premium term
+399.89
+premium term
+384.69
+normal term
+405.99
+premium term
+370.14
+premium term
+388.55
+premium term
+381.57
+premium term
+385.34
+normal term
+368.36
+premium term
+362.90
+normal term
+358.50
+premium term
+377.73
+normal term
+393.32
+premium term
+376.63
+premium term
+387.52
+premium term
+356.24
+normal term
+370.61
+premium term
+380.15
+premium term
+359.59
+normal term
+355.41
+premium term
+360.92
+premium term
+344.51
+premium term
+340.93
+normal term
+344.34
+premium term
+361.29
+premium term
+353.39
+normal term
+345.56
+premium term
+347.54
+premium term
+336.93
+digest term
+Free j_q
+0
+Free trucebaldazzi
+357.12
+premium term
+299.76
+normal term
+333.49
+premium term
+348.32
+premium term
+220.82
+premium term
+265.08
+premium term
+261.14
+normal arrival
+357.12
+normal term
+506.40
+digest term
+Free j_q
+0
+Free trucebaldazzi
+357.15
+premium arrival
+357.15
+premium term
+376.63
+digest term
+Free j_q
+0
+Free trucebaldazzi
+359.36
+normal arrival
+359.36
+normal term
+387.60
+digest term
+Free j_q
+0
+Free trucebaldazzi
+359.45
+premium arrival
+359.45
+premium term
+383.36
+digest term
+Free j_q
+0
+Free trucebaldazzi
+359.61
+normal arrival
+359.61
+normal term
+578.72
+digest term
+Free j_q
+0
+Free trucebaldazzi
+360.07
+digest term
+Free j_q
+0
+Free trucebaldazzi
+360.18
+digest term
+Free j_q
+0
+Free trucebaldazzi
+360.35
+normal arrival
+360.35
+normal term
+496.91
+digest term
+Free j_q
+0
+Free trucebaldazzi
+362.33
+digest term
+Free j_q
+0
+Free trucebaldazzi
+362.42
+digest term
+Free j_q
+0
+Free trucebaldazzi
+364.72
+premium arrival
+364.72
+premium term
+474.44
+digest term
+Free j_q
+0
+Free trucebaldazzi
+364.90
+normal arrival
+364.90
+normal term
+540.64
+digest term
+Free j_q
+0
+Free trucebaldazzi
+366.00
+premium arrival
+366.00
+premium term
+498.54
+digest term
+Free j_q
+0
+Free trucebaldazzi
+366.71
+digest term
+Free j_q
+0
+Free trucebaldazzi
+367.01
+digest term
+Free j_q
+0
+Free trucebaldazzi
+367.40
+digest term
+Free j_q
+0
+Free trucebaldazzi
+367.61
+premium arrival
+367.61
+premium term
+555.45
+digest term
+Free j_q
+0
+Free trucebaldazzi
+368.48
+digest term
+Free j_q
+0
+Free trucebaldazzi
+368.90
+digest term
+Free j_q
+0
+Free trucebaldazzi
+369.06
+digest term
+Free j_q
+0
+Free trucebaldazzi
+369.22
+digest term
+Free j_q
+0
+Free trucebaldazzi
+369.44
+digest term
+Free j_q
+0
+Free trucebaldazzi
+369.80
+digest term
+Free j_q
+0
+Free trucebaldazzi
+370.01
+digest term
+Free j_q
+0
+Free trucebaldazzi
+370.93
+digest term
+Free j_q
+0
+Free trucebaldazzi
+370.94
+normal arrival
+370.94
+reliable arrival
+555.45
+normal arrival
+370.93
+reliable arrival
+578.72
+premium arrival
+368.90
+premium arrival
+369.44
+normal arrival
+362.33
+normal arrival
+360.18
+premium arrival
+366.71
+premium arrival
+369.06
+premium arrival
+367.40
+normal arrival
+369.80
+premium arrival
+367.01
+premium arrival
+370.01
+premium arrival
+368.48
+premium arrival
+369.22
+premium arrival
+362.42
+normal arrival
+360.07
+normal term
+607.01
+reliable arrival
+607.01
+reliable term
+Before new arrival 
+743.29
+normal term
+495.69
+reliable term
+Before new arrival 
+725.05
+reliable term
+Before new arrival 
+688.27
+premium term
+473.41
+premium term
+458.91
+normal term
+440.72
+normal term
+435.15
+premium term
+412.96
+premium term
+414.25
+premium term
+390.46
+normal term
+382.04
+premium term
+377.71
+premium term
+378.97
+premium term
+376.79
+premium term
+376.34
+premium term
+366.76
+normal term
+361.99
+digest term
+Free j_q
+0
+Free trucebaldazzi
+371.20
+normal arrival
+371.20
+normal term
+545.32
+digest term
+Free j_q
+0
+Free trucebaldazzi
+371.71
+normal arrival
+371.71
+normal term
+610.43
+digest term
+Free j_q
+0
+Free trucebaldazzi
+372.06
+digest term
+Free j_q
+0
+Free trucebaldazzi
+372.16
+normal arrival
+372.16
+reliable arrival
+610.43
+premium arrival
+372.06
+normal term
+1018.31
+reliable term
+Before new arrival 
+729.79
+premium term
+400.42
+digest term
+Free j_q
+0
+Free trucebaldazzi
+372.90
+digest term
+Free j_q
+0
+Free trucebaldazzi
+373.04
+digest term
+Free j_q
+0
+Free trucebaldazzi
+373.27
+digest term
+Free j_q
+0
+Free trucebaldazzi
+373.70
+digest term
+Free j_q
+0
+Free trucebaldazzi
+373.78
+digest term
+Free j_q
+0
+Free trucebaldazzi
+374.75
+digest term
+Free j_q
+0
+Free trucebaldazzi
+375.11
+digest term
+Free j_q
+0
+Free trucebaldazzi
+375.97
+digest term
+Free j_q
+0
+Free trucebaldazzi
+376.53
+digest term
+Free j_q
+0
+Free trucebaldazzi
+376.96
+digest term
+Free j_q
+0
+Free trucebaldazzi
+377.13
+digest term
+Free j_q
+0
+Free trucebaldazzi
+377.86
+digest term
+Free j_q
+0
+Free trucebaldazzi
+378.55
+digest term
+Free j_q
+0
+Free trucebaldazzi
+378.98
+digest term
+Free j_q
+0
+Free trucebaldazzi
+379.23
+digest term
+Free j_q
+0
+Free trucebaldazzi
+381.46
+digest term
+Free j_q
+0
+Free trucebaldazzi
+382.48
+normal arrival
+382.48
+normal term
+870.44
+digest term
+Free j_q
+0
+Free trucebaldazzi
+382.64
+digest term
+Free j_q
+0
+Free trucebaldazzi
+382.75
+digest term
+Free j_q
+0
+Free trucebaldazzi
+382.93
+digest term
+Free j_q
+0
+Free trucebaldazzi
+383.65
+digest term
+Free j_q
+0
+Free trucebaldazzi
+383.87
+digest term
+Free j_q
+0
+Free trucebaldazzi
+384.94
+digest term
+Free j_q
+0
+Free trucebaldazzi
+385.37
+digest term
+Free j_q
+0
+Free trucebaldazzi
+385.41
+digest term
+Free j_q
+0
+Free trucebaldazzi
+385.45
+digest term
+Free j_q
+0
+Free trucebaldazzi
+385.99
+digest term
+Free j_q
+0
+Free trucebaldazzi
+387.22
+digest term
+Free j_q
+0
+Free trucebaldazzi
+388.97
+digest term
+Free j_q
+0
+Free trucebaldazzi
+389.33
+digest term
+Free j_q
+0
+Free trucebaldazzi
+389.89
+digest term
+Free j_q
+0
+Free trucebaldazzi
+390.48
+digest term
+Free j_q
+0
+Free trucebaldazzi
+391.03
+digest term
+Free j_q
+0
+Free trucebaldazzi
+391.27
+digest term
+Free j_q
+0
+Free trucebaldazzi
+391.37
+digest term
+Free j_q
+0
+Free trucebaldazzi
+393.40
+digest term
+Free j_q
+0
+Free trucebaldazzi
+393.75
+digest term
+Free j_q
+0
+Free trucebaldazzi
+395.42
+digest term
+Free j_q
+0
+Free trucebaldazzi
+395.90
+digest term
+Free j_q
+0
+Free trucebaldazzi
+396.07
+digest term
+Free j_q
+0
+Free trucebaldazzi
+397.03
+digest term
+Free j_q
+0
+Free trucebaldazzi
+397.30
+digest term
+Free j_q
+0
+Free trucebaldazzi
+398.50
+digest term
+Free j_q
+0
+Free trucebaldazzi
+398.72
+digest term
+Free j_q
+0
+Free trucebaldazzi
+399.41
+digest term
+Free j_q
+0
+Free trucebaldazzi
+399.57
+digest term
+Free j_q
+0
+Free trucebaldazzi
+400.02
+digest term
+Free j_q
+0
+Free trucebaldazzi
+400.49
+digest term
+Free j_q
+0
+Free trucebaldazzi
+400.54
+digest term
+Free j_q
+0
+Free trucebaldazzi
+401.59
+digest term
+Free j_q
+0
+Free trucebaldazzi
+401.61
+digest term
+Free j_q
+0
+Free trucebaldazzi
+402.57
+digest term
+Free j_q
+0
+Free trucebaldazzi
+402.90
+digest term
+Free j_q
+0
+Free trucebaldazzi
+404.64
+digest term
+Free j_q
+0
+Free trucebaldazzi
+405.67
+digest term
+Free j_q
+0
+Free trucebaldazzi
+406.14
+digest term
+Free j_q
+0
+Free trucebaldazzi
+406.45
+digest term
+Free j_q
+0
+Free trucebaldazzi
+408.11
+digest term
+Free j_q
+0
+Free trucebaldazzi
+408.76
+digest term
+Free j_q
+0
+Free trucebaldazzi
+410.78
+digest term
+Free j_q
+0
+Free trucebaldazzi
+411.06
+digest term
+Free j_q
+0
+Free trucebaldazzi
+412.07
+digest term
+Free j_q
+0
+Free trucebaldazzi
+413.18
+digest term
+Free j_q
+0
+Free trucebaldazzi
+413.24
+normal arrival
+413.24
+normal term
+745.65
+digest term
+Free j_q
+0
+Free trucebaldazzi
+413.52
+digest term
+Free j_q
+0
+Free trucebaldazzi
+413.87
+digest term
+Free j_q
+0
+Free trucebaldazzi
+413.92
+digest term
+Free j_q
+0
+Free trucebaldazzi
+416.14
+digest term
+Free j_q
+0
+Free trucebaldazzi
+416.37
+digest term
+Free j_q
+0
+Free trucebaldazzi
+416.50
+digest term
+Free j_q
+0
+Free trucebaldazzi
+416.96
+digest term
+Free j_q
+0
+Free trucebaldazzi
+417.12
+digest term
+Free j_q
+0
+Free trucebaldazzi
+418.31
+digest term
+Free j_q
+0
+Free trucebaldazzi
+418.32
+digest term
+Free j_q
+0
+Free trucebaldazzi
+420.16
+digest term
+Free j_q
+0
+Free trucebaldazzi
+420.36
+digest term
+Free j_q
+0
+Free trucebaldazzi
+420.94
+digest term
+Free j_q
+0
+Free trucebaldazzi
+421.77
+digest term
+Free j_q
+0
+Free trucebaldazzi
+421.84
+digest term
+Free j_q
+0
+Free trucebaldazzi
+423.56
+digest term
+Free j_q
+0
+Free trucebaldazzi
+423.94
+digest term
+Free j_q
+0
+Free trucebaldazzi
+425.35
+digest term
+Free j_q
+0
+Free trucebaldazzi
+425.75
+digest term
+Free j_q
+0
+Free trucebaldazzi
+426.56
+digest term
+Free j_q
+0
+Free trucebaldazzi
+428.18
+digest term
+Free j_q
+0
+Free trucebaldazzi
+428.56
+digest term
+Free j_q
+0
+Free trucebaldazzi
+428.73
+digest term
+Free j_q
+0
+Free trucebaldazzi
+429.90
+digest term
+Free j_q
+0
+Free trucebaldazzi
+430.81
+digest term
+Free j_q
+0
+Free trucebaldazzi
+432.38
+digest term
+Free j_q
+0
+Free trucebaldazzi
+434.36
+digest term
+Free j_q
+0
+Free trucebaldazzi
+434.55
+digest term
+Free j_q
+0
+Free trucebaldazzi
+434.86
+digest term
+Free j_q
+0
+Free trucebaldazzi
+434.92
+digest term
+Free j_q
+0
+Free trucebaldazzi
+435.24
+digest term
+Free j_q
+0
+Free trucebaldazzi
+435.40
+digest term
+Free j_q
+0
+Free trucebaldazzi
+435.86
+digest term
+Free j_q
+0
+Free trucebaldazzi
+436.44
+digest term
+Free j_q
+0
+Free trucebaldazzi
+436.54
+digest term
+Free j_q
+0
+Free trucebaldazzi
+436.92
+digest term
+Free j_q
+0
+Free trucebaldazzi
+436.96
+digest term
+Free j_q
+0
+Free trucebaldazzi
+437.14
+digest term
+Free j_q
+0
+Free trucebaldazzi
+437.14
+digest term
+Free j_q
+0
+Free trucebaldazzi
+438.37
+digest term
+Free j_q
+0
+Free trucebaldazzi
+438.91
+digest term
+Free j_q
+0
+Free trucebaldazzi
+439.25
+digest term
+Free j_q
+0
+Free trucebaldazzi
+439.62
+digest term
+Free j_q
+0
+Free trucebaldazzi
+441.00
+digest term
+Free j_q
+0
+Free trucebaldazzi
+441.22
+digest term
+Free j_q
+0
+Free trucebaldazzi
+442.78
+digest term
+Free j_q
+0
+Free trucebaldazzi
+443.51
+digest term
+Free j_q
+0
+Free trucebaldazzi
+443.78
+digest term
+Free j_q
+0
+Free trucebaldazzi
+443.92
+digest term
+Free j_q
+0
+Free trucebaldazzi
+444.29
+digest term
+Free j_q
+0
+Free trucebaldazzi
+444.59
+digest term
+Free j_q
+0
+Free trucebaldazzi
+444.72
+digest term
+Free j_q
+0
+Free trucebaldazzi
+445.46
+digest term
+Free j_q
+0
+Free trucebaldazzi
+484.63
+digest term
+Free j_q
+0
+Free trucebaldazzi
+523.24
+digest term
+Free j_q
+0
+Free trucebaldazzi
+561.74
+digest term
+Free j_q
+0
+Free trucebaldazzi
+600.07
+digest term
+Free j_q
+0
+Free trucebaldazzi
+637.84
+digest term
+Free j_q
+0
+Free trucebaldazzi
+675.04
+digest term
+Free j_q
+0
+Free trucebaldazzi
+711.57
+digest term
+Free j_q
+0
+Free trucebaldazzi
+747.21
+digest term
+Free j_q
+0
+Free trucebaldazzi
+781.92
+digest term
+Free j_q
+0
+Free trucebaldazzi
+814.44
+digest term
+Free j_q
+0
+Free trucebaldazzi
+845.80
+digest term
+Free j_q
+0
+Free trucebaldazzi
+876.74
+digest term
+Free j_q
+0
+Free trucebaldazzi
+906.93
+digest term
+Free j_q
+0
+Free trucebaldazzi
+935.78
+digest term
+Free j_q
+0
+Free trucebaldazzi
+963.00
+digest term
+Free j_q
+0
+Free trucebaldazzi
+989.92
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1016.19
+reliable arrival
+1018.31
+normal arrival
+441.22
+normal arrival
+382.75
+premium arrival
+443.92
+reliable arrival
+870.44
+normal arrival
+391.27
+normal arrival
+393.75
+normal arrival
+405.67
+normal arrival
+377.13
+premium arrival
+408.11
+normal arrival
+444.72
+reliable arrival
+745.65
+premium arrival
+401.59
+normal arrival
+393.40
+premium arrival
+876.74
+normal arrival
+428.73
+premium arrival
+375.97
+normal arrival
+390.48
+normal arrival
+430.81
+normal arrival
+373.78
+premium arrival
+989.92
+normal arrival
+416.37
+normal arrival
+400.02
+premium arrival
+436.54
+premium arrival
+429.90
+normal arrival
+445.46
+normal arrival
+432.38
+normal arrival
+376.96
+normal arrival
+382.64
+normal arrival
+373.27
+normal arrival
+378.55
+premium arrival
+420.94
+premium arrival
+935.78
+premium arrival
+421.77
+premium arrival
+396.07
+normal arrival
+420.36
+premium arrival
+389.89
+premium arrival
+484.63
+premium arrival
+372.90
+premium arrival
+400.54
+premium arrival
+814.44
+premium arrival
+434.86
+premium arrival
+395.90
+normal arrival
+443.51
+premium arrival
+384.94
+premium arrival
+435.86
+premium arrival
+379.23
+premium arrival
+388.97
+normal arrival
+441.00
+premium arrival
+417.12
+premium arrival
+406.14
+normal arrival
+421.84
+premium arrival
+413.52
+normal arrival
+437.14
+premium arrival
+747.21
+premium arrival
+383.87
+premium arrival
+436.96
+premium arrival
+416.14
+normal arrival
+413.92
+premium arrival
+402.57
+premium arrival
+443.78
+normal arrival
+416.50
+premium arrival
+434.92
+premium arrival
+373.70
+premium arrival
+523.24
+premium arrival
+410.78
+normal arrival
+391.03
+premium arrival
+428.56
+premium arrival
+381.46
+premium arrival
+1016.19
+normal arrival
+428.18
+premium arrival
+436.92
+normal arrival
+402.90
+premium arrival
+600.07
+premium arrival
+412.07
+premium arrival
+442.78
+normal arrival
+391.37
+premium arrival
+845.80
+premium arrival
+395.42
+premium arrival
+438.91
+normal arrival
+377.86
+normal arrival
+418.32
+normal arrival
+438.37
+premium arrival
+418.31
+premium arrival
+444.59
+premium arrival
+439.25
+premium arrival
+398.72
+premium arrival
+406.45
+premium arrival
+385.99
+premium arrival
+437.14
+premium arrival
+373.04
+premium arrival
+637.84
+premium arrival
+399.41
+premium arrival
+444.29
+normal arrival
+385.41
+premium arrival
+906.93
+premium arrival
+675.04
+premium arrival
+375.11
+premium arrival
+423.94
+premium arrival
+561.74
+premium arrival
+399.57
+premium arrival
+397.30
+premium arrival
+416.96
+premium arrival
+408.76
+normal arrival
+385.37
+normal arrival
+411.06
+premium arrival
+383.65
+normal arrival
+398.50
+premium arrival
+711.57
+premium arrival
+781.92
+normal arrival
+426.56
+premium arrival
+435.24
+premium arrival
+425.35
+normal arrival
+435.40
+premium arrival
+401.61
+premium arrival
+436.44
+premium arrival
+434.55
+premium arrival
+434.36
+premium arrival
+423.56
+normal arrival
+439.62
+premium arrival
+382.93
+premium arrival
+425.75
+premium arrival
+400.49
+premium arrival
+378.98
+premium arrival
+963.00
+premium arrival
+389.33
+premium arrival
+385.45
+normal arrival
+420.16
+premium arrival
+404.64
+normal arrival
+376.53
+premium arrival
+397.03
+normal arrival
+387.22
+premium arrival
+413.18
+digest arrival
+inter =   0.05
+1240.68
+digest arrival
+inter =   0.02
+1240.72
+digest arrival
+inter =   1.65
+1240.75
+digest arrival
+inter =   0.14
+1242.39
+digest arrival
+inter =   2.03
+1242.53
+digest arrival
+inter =   0.52
+1244.56
+digest arrival
+inter =   0.21
+1245.08
+digest arrival
+inter =   1.34
+1245.29
+digest arrival
+inter =   1.07
+1246.63
+digest arrival
+inter =   0.13
+1247.70
+digest arrival
+inter =   0.35
+1247.83
+digest arrival
+inter =   0.03
+1248.18
+digest arrival
+inter =   0.85
+1248.21
+digest arrival
+inter =   0.05
+1249.06
+digest arrival
+inter =   0.60
+1249.11
+digest arrival
+inter =   2.44
+1249.71
+digest arrival
+inter =   2.57
+1252.15
+digest arrival
+inter =   1.72
+1254.72
+digest arrival
+inter =   0.12
+1256.44
+digest arrival
+inter =   0.74
+1256.56
+digest arrival
+inter =   0.12
+1257.29
+digest arrival
+inter =   1.26
+1257.41
+digest arrival
+inter =   0.83
+1258.67
+digest arrival
+inter =   0.01
+1259.50
+digest arrival
+inter =   0.03
+1259.51
+digest arrival
+inter =   0.26
+1259.54
+digest arrival
+inter =   0.51
+1259.80
+digest arrival
+inter =   0.10
+1260.31
+digest arrival
+inter =   0.95
+1260.40
+digest arrival
+inter =   1.14
+1261.35
+digest arrival
+inter =   0.33
+1262.50
+digest arrival
+inter =   0.11
+1262.83
+digest arrival
+inter =   0.87
+1262.94
+digest arrival
+inter =   0.48
+1263.81
+digest arrival
+inter =   2.19
+1264.28
+digest arrival
+inter =   0.40
+1266.48
+digest arrival
+inter =   0.09
+1266.88
+digest arrival
+inter =   0.14
+1266.97
+digest arrival
+inter =   1.09
+1267.11
+digest arrival
+inter =   0.03
+1268.20
+digest arrival
+inter =   2.90
+1268.23
+digest arrival
+inter =   0.79
+1271.13
+digest arrival
+inter =   0.42
+1271.92
+digest arrival
+inter =   0.69
+1272.34
+digest arrival
+inter =   0.86
+1273.03
+digest arrival
+inter =   0.71
+1273.89
+digest arrival
+inter =   1.44
+1274.60
+digest arrival
+inter =   0.39
+1276.04
+digest arrival
+inter =   4.76
+1276.43
+digest arrival
+inter =   0.61
+1281.19
+digest arrival
+inter =   2.08
+1281.80
+digest arrival
+inter =   0.76
+1283.88
+digest arrival
+inter =   0.21
+1284.65
+digest arrival
+inter =   0.76
+1284.85
+digest arrival
+inter =   1.28
+1285.61
+digest arrival
+inter =   0.16
+1286.89
+digest arrival
+inter =   0.30
+1287.05
+digest arrival
+inter =   1.72
+1287.35
+digest arrival
+inter =   1.12
+1289.07
+digest arrival
+inter =   0.18
+1290.19
+digest arrival
+inter =   0.28
+1290.37
+digest arrival
+inter =   1.11
+1290.65
+digest arrival
+inter =   0.19
+1291.76
+digest arrival
+inter =   0.47
+1291.95
+digest arrival
+inter =   0.08
+1292.42
+digest arrival
+inter =   0.09
+1292.51
+digest arrival
+inter =   0.56
+1292.60
+digest arrival
+inter =   0.13
+1293.16
+digest arrival
+inter =   0.13
+1293.29
+digest arrival
+inter =   1.43
+1293.42
+digest arrival
+inter =   0.00
+1294.85
+digest arrival
+inter =   0.04
+1294.85
+digest arrival
+inter =   0.51
+1294.89
+digest arrival
+inter =   0.11
+1295.41
+digest arrival
+inter =   1.20
+1295.52
+digest arrival
+inter =   0.08
+1296.71
+digest arrival
+inter =   0.23
+1296.79
+digest arrival
+inter =   0.25
+1297.02
+digest arrival
+inter =   0.17
+1297.28
+digest arrival
+inter =   0.31
+1297.45
+digest arrival
+inter =   1.67
+1297.76
+digest arrival
+inter =   0.08
+1299.43
+digest arrival
+inter =   0.00
+1299.51
+digest arrival
+inter =   0.49
+1299.51
+digest arrival
+inter =   1.51
+1300.00
+digest arrival
+inter =   2.14
+1301.51
+digest arrival
+inter =   0.33
+1303.65
+digest arrival
+inter =   2.14
+1303.98
+digest arrival
+inter =   0.09
+1306.13
+digest arrival
+inter =   0.53
+1306.21
+digest arrival
+inter =   0.80
+1306.74
+digest arrival
+inter =   0.07
+1307.55
+digest arrival
+inter =   0.60
+1307.62
+digest arrival
+inter =   0.08
+1308.22
+digest arrival
+inter =   0.12
+1308.30
+digest arrival
+inter =   0.94
+1308.43
+digest arrival
+inter =   1.56
+1309.36
+digest arrival
+inter =   0.54
+1310.92
+digest arrival
+inter =   0.39
+1311.46
+digest arrival
+inter =   0.99
+1311.85
+digest arrival
+inter =   0.76
+1312.85
+digest arrival
+inter =   1.06
+1313.61
+digest arrival
+inter =   0.21
+1314.67
+digest arrival
+inter =   1.44
+1314.88
+digest arrival
+inter =   0.68
+1316.32
+digest arrival
+inter =   0.18
+1317.00
+digest arrival
+inter =   0.04
+1317.18
+digest arrival
+inter =   1.19
+1317.22
+digest arrival
+inter =   1.76
+1318.40
+digest arrival
+inter =   0.91
+1320.17
+digest arrival
+inter =   0.55
+1321.08
+digest arrival
+inter =   3.70
+1321.63
+digest arrival
+inter =   0.07
+1325.34
+digest arrival
+inter =   0.46
+1325.41
+digest arrival
+inter =   1.21
+1325.87
+digest arrival
+inter =   3.19
+1327.08
+digest arrival
+inter =   0.94
+1330.28
+digest arrival
+inter =   2.20
+1331.22
+digest arrival
+inter =   0.43
+1333.41
+digest arrival
+inter =   1.53
+1333.84
+digest arrival
+inter =   0.65
+1335.37
+digest arrival
+inter =   0.74
+1336.02
+digest arrival
+inter =   0.69
+1336.76
+digest arrival
+inter =   0.32
+1337.45
+digest arrival
+inter =   1.33
+1337.77
+digest arrival
+inter =   0.78
+1339.09
+digest arrival
+inter =   0.02
+1339.88
+digest arrival
+inter =   1.45
+1339.90
+digest arrival
+inter =   1.51
+1341.34
+reliable term
+Before new arrival 
+1341.39
+normal term
+751.35
+normal term
+684.56
+premium term
+708.64
+reliable arrival
+708.64
+reliable arrival
+751.35
+reliable arrival
+684.56
+reliable term
+Before new arrival 
+973.35
+reliable term
+Before new arrival 
+1114.42
+normal term
+615.55
+normal term
+607.31
+normal term
+600.52
+normal term
+562.37
+premium term
+591.14
+reliable arrival
+591.14
+reliable arrival
+615.55
+reliable arrival
+607.31
+reliable arrival
+600.52
+reliable arrival
+562.37
+reliable term
+Before new arrival 
+774.18
+normal term
+615.76
+reliable term
+Before new arrival 
+911.85
+premium term
+567.02
+normal term
+554.30
+premium term
+1036.11
+normal term
+588.00
+premium term
+532.94
+reliable term
+Before new arrival 
+906.42
+normal term
+541.71
+normal term
+581.94
+reliable term
+Before new arrival 
+835.47
+normal term
+524.67
+premium term
+1139.59
+normal term
+558.75
+normal term
+541.43
+premium term
+577.03
+premium term
+556.70
+normal term
+567.47
+normal term
+549.90
+normal term
+493.38
+normal term
+497.61
+reliable term
+Before new arrival 
+727.70
+normal term
+482.94
+normal term
+486.94
+reliable term
+Before new arrival 
+714.09
+premium term
+527.29
+premium term
+1041.67
+premium term
+525.07
+premium term
+498.97
+normal term
+523.18
+premium term
+488.55
+reliable term
+Before new arrival 
+697.95
+premium term
+580.15
+premium term
+468.22
+premium term
+495.41
+premium term
+907.09
+reliable term
+Before new arrival 
+654.99
+premium term
+524.50
+premium term
+484.61
+normal term
+531.47
+premium term
+472.82
+premium term
+523.49
+premium term
+463.17
+premium term
+470.33
+normal term
+521.43
+premium term
+497.29
+premium term
+481.55
+normal term
+496.73
+premium term
+487.70
+normal term
+510.77
+premium term
+819.48
+premium term
+452.41
+premium term
+504.39
+premium term
+480.50
+normal term
+477.54
+premium term
+463.18
+premium term
+503.74
+normal term
+475.88
+premium term
+491.93
+premium term
+430.46
+premium term
+577.81
+premium term
+464.38
+normal term
+442.91
+premium term
+479.49
+premium term
+431.32
+premium term
+1065.54
+normal term
+474.68
+premium term
+481.97
+normal term
+447.70
+premium term
+644.77
+premium term
+456.54
+premium term
+486.67
+normal term
+434.51
+premium term
+888.11
+premium term
+436.55
+premium term
+478.41
+normal term
+416.46
+normal term
+455.84
+normal term
+475.81
+premium term
+455.67
+premium term
+481.92
+premium term
+473.99
+premium term
+431.15
+premium term
+438.53
+premium term
+417.82
+premium term
+468.07
+premium term
+403.75
+premium term
+667.61
+premium term
+428.61
+premium term
+472.91
+normal term
+412.54
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1041.28
+premium arrival
+1041.28
+premium term
+1087.12
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1065.39
+premium term
+931.00
+premium arrival
+1065.39
+premium term
+1091.89
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1089.34
+premium term
+698.49
+premium arrival
+1089.34
+premium term
+1314.71
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1112.13
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1133.06
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1153.96
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1174.67
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1195.35
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1215.73
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1235.91
+normal term
+405.43
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1255.50
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1273.48
+normal term
+428.62
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1290.85
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1308.03
+normal term
+414.50
+reliable arrival
+1314.71
+premium arrival
+1174.67
+premium arrival
+1273.48
+premium arrival
+1112.13
+premium arrival
+1235.91
+premium arrival
+1133.06
+premium arrival
+1290.85
+premium arrival
+1215.73
+premium arrival
+1195.35
+premium arrival
+1308.03
+premium arrival
+1255.50
+premium arrival
+1153.96
+digest arrival
+inter =   0.69
+1342.85
+digest arrival
+inter =   0.53
+1343.53
+digest arrival
+inter =   2.15
+1344.06
+digest arrival
+inter =   0.34
+1346.21
+digest arrival
+inter =   0.01
+1346.55
+digest arrival
+inter =   1.52
+1346.56
+digest arrival
+inter =   3.50
+1348.07
+digest arrival
+inter =   0.63
+1351.57
+digest arrival
+inter =   1.45
+1352.20
+digest arrival
+inter =   0.02
+1353.65
+digest arrival
+inter =   0.43
+1353.68
+digest arrival
+inter =   1.11
+1354.10
+digest arrival
+inter =   1.21
+1355.21
+digest arrival
+inter =   0.31
+1356.42
+digest arrival
+inter =   0.18
+1356.73
+digest arrival
+inter =   2.09
+1356.90
+digest arrival
+inter =   1.55
+1359.00
+digest arrival
+inter =   1.63
+1360.55
+digest arrival
+inter =   0.05
+1362.18
+digest arrival
+inter =   0.15
+1362.22
+digest arrival
+inter =   1.11
+1362.37
+digest arrival
+inter =   0.24
+1363.49
+digest arrival
+inter =   3.31
+1363.73
+digest arrival
+inter =   0.21
+1367.04
+digest arrival
+inter =   0.05
+1367.25
+digest arrival
+inter =   0.50
+1367.30
+digest arrival
+inter =   0.06
+1367.80
+digest arrival
+inter =   1.39
+1367.86
+digest arrival
+inter =   0.97
+1369.25
+digest arrival
+inter =   0.73
+1370.22
+digest arrival
+inter =   0.39
+1370.95
+digest arrival
+inter =   0.15
+1371.34
+digest arrival
+inter =   4.33
+1371.48
+digest arrival
+inter =   0.39
+1375.81
+digest arrival
+inter =   0.86
+1376.20
+digest arrival
+inter =   1.51
+1377.07
+digest arrival
+inter =   1.63
+1378.58
+digest arrival
+inter =   1.17
+1380.21
+digest arrival
+inter =   0.32
+1381.38
+digest arrival
+inter =   0.01
+1381.70
+digest arrival
+inter =   0.12
+1381.72
+digest arrival
+inter =   0.30
+1381.84
+digest arrival
+inter =   0.32
+1382.14
+digest arrival
+inter =   0.12
+1382.46
+digest arrival
+inter =   0.21
+1382.58
+digest arrival
+inter =   1.84
+1382.79
+digest arrival
+inter =   0.73
+1384.63
+digest arrival
+inter =   1.54
+1385.35
+digest arrival
+inter =   0.27
+1386.89
+digest arrival
+inter =   0.08
+1387.17
+digest arrival
+inter =   1.29
+1387.25
+digest arrival
+inter =   0.72
+1388.54
+digest arrival
+inter =   0.95
+1389.26
+digest arrival
+inter =   2.84
+1390.21
+digest arrival
+inter =   2.32
+1393.05
+digest arrival
+inter =   0.58
+1395.38
+digest arrival
+inter =   3.34
+1395.96
+digest arrival
+inter =   0.28
+1399.29
+digest arrival
+inter =   0.20
+1399.57
+digest arrival
+inter =   0.63
+1399.77
+digest arrival
+inter =   1.99
+1400.40
+digest arrival
+inter =   0.39
+1402.39
+digest arrival
+inter =   0.95
+1402.78
+digest arrival
+inter =   0.40
+1403.72
+digest arrival
+inter =   0.13
+1404.12
+digest arrival
+inter =   1.35
+1404.25
+digest arrival
+inter =   0.18
+1405.60
+digest arrival
+inter =   0.49
+1405.78
+digest arrival
+inter =   0.74
+1406.27
+digest arrival
+inter =   0.47
+1407.01
+digest arrival
+inter =   1.62
+1407.48
+digest arrival
+inter =   1.06
+1409.10
+digest arrival
+inter =   0.24
+1410.16
+digest arrival
+inter =   0.17
+1410.40
+digest arrival
+inter =   0.79
+1410.57
+digest arrival
+inter =   0.32
+1411.36
+digest arrival
+inter =   1.16
+1411.68
+digest arrival
+inter =   0.32
+1412.84
+digest arrival
+inter =   0.70
+1413.17
+digest arrival
+inter =   0.27
+1413.87
+digest arrival
+inter =   0.01
+1414.14
+digest arrival
+inter =   0.77
+1414.15
+digest arrival
+inter =   0.21
+1414.93
+digest arrival
+inter =   0.54
+1415.13
+digest arrival
+inter =   1.46
+1415.67
+digest arrival
+inter =   0.09
+1417.13
+digest arrival
+inter =   0.17
+1417.22
+digest arrival
+inter =   2.30
+1417.39
+digest arrival
+inter =   0.02
+1419.69
+digest arrival
+inter =   0.63
+1419.71
+digest arrival
+inter =   3.13
+1420.34
+digest arrival
+inter =   0.25
+1423.47
+digest arrival
+inter =   0.26
+1423.72
+digest arrival
+inter =   0.51
+1423.98
+digest arrival
+inter =   0.31
+1424.50
+digest arrival
+inter =   0.38
+1424.80
+digest arrival
+inter =   0.24
+1425.18
+digest arrival
+inter =   0.86
+1425.42
+digest arrival
+inter =   0.88
+1426.29
+digest arrival
+inter =   0.33
+1427.17
+digest arrival
+inter =   0.69
+1427.50
+digest arrival
+inter =   3.54
+1428.19
+digest arrival
+inter =   2.56
+1431.72
+digest arrival
+inter =   3.89
+1434.28
+digest arrival
+inter =   1.38
+1438.17
+digest arrival
+inter =   0.98
+1439.55
+digest arrival
+inter =   0.59
+1440.53
+digest arrival
+inter =   0.15
+1441.12
+digest arrival
+inter =   0.12
+1441.27
+digest arrival
+inter =   1.29
+1441.39
+digest arrival
+inter =   0.19
+1442.68
+digest arrival
+inter =   0.20
+1442.87
+digest arrival
+inter =   0.01
+1443.07
+digest arrival
+inter =   0.73
+1443.08
+digest arrival
+inter =   0.45
+1443.81
+digest arrival
+inter =   0.20
+1444.26
+digest arrival
+inter =   0.81
+1444.47
+digest arrival
+inter =   0.02
+1445.28
+digest arrival
+inter =   0.93
+1445.30
+digest arrival
+inter =   0.74
+1446.23
+digest arrival
+inter =   0.64
+1446.97
+digest arrival
+inter =   0.07
+1447.61
+digest arrival
+inter =   1.51
+1447.67
+digest arrival
+inter =   0.98
+1449.18
+digest arrival
+inter =   0.41
+1450.16
+digest arrival
+inter =   0.05
+1450.57
+digest arrival
+inter =   0.97
+1450.61
+digest arrival
+inter =   0.94
+1451.58
+digest arrival
+inter =   1.30
+1452.53
+digest arrival
+inter =   0.73
+1453.83
+digest arrival
+inter =   1.10
+1454.56
+digest arrival
+inter =   0.34
+1455.66
+digest arrival
+inter =   0.97
+1456.00
+digest arrival
+inter =   0.19
+1456.97
+digest arrival
+inter =   0.14
+1457.16
+digest arrival
+inter =   0.75
+1457.30
+digest arrival
+inter =   1.03
+1458.04
+digest arrival
+inter =   1.88
+1459.07
+digest arrival
+inter =   0.28
+1460.95
+digest arrival
+inter =   1.01
+1461.24
+digest arrival
+inter =   0.01
+1462.25
+digest arrival
+inter =   0.93
+1462.27
+digest arrival
+inter =   0.16
+1463.20
+digest arrival
+inter =   1.09
+1463.36
+digest arrival
+inter =   0.27
+1464.45
+digest arrival
+inter =   0.63
+1464.72
+digest arrival
+inter =   0.82
+1465.35
+digest arrival
+inter =   1.05
+1466.17
+digest arrival
+inter =   0.57
+1467.22
+digest arrival
+inter =   2.32
+1467.79
+digest arrival
+inter =   0.14
+1470.11
+digest arrival
+inter =   0.16
+1470.26
+digest arrival
+inter =   0.02
+1470.42
+digest arrival
+inter =   0.29
+1470.43
+digest arrival
+inter =   2.01
+1470.72
+digest arrival
+inter =   0.10
+1472.74
+digest arrival
+inter =   0.67
+1472.84
+digest arrival
+inter =   1.43
+1473.51
+digest arrival
+inter =   0.42
+1474.93
+digest arrival
+inter =   0.00
+1475.35
+digest arrival
+inter =   0.57
+1475.35
+digest arrival
+inter =   0.90
+1475.92
+digest arrival
+inter =   1.46
+1476.82
+digest arrival
+inter =   1.32
+1478.29
+digest arrival
+inter =   0.03
+1479.61
+digest arrival
+inter =   0.80
+1479.63
+digest arrival
+inter =   1.55
+1480.43
+digest arrival
+inter =   0.15
+1481.98
+digest arrival
+inter =   0.09
+1482.13
+digest arrival
+inter =   0.82
+1482.21
+digest arrival
+inter =   0.44
+1483.03
+digest arrival
+inter =   1.19
+1483.47
+digest arrival
+inter =   0.31
+1484.66
+digest arrival
+inter =   0.15
+1484.97
+digest arrival
+inter =   1.57
+1485.12
+digest arrival
+inter =   0.11
+1486.69
+digest arrival
+inter =   1.07
+1486.80
+digest arrival
+inter =   0.24
+1487.87
+digest arrival
+inter =   0.57
+1488.11
+digest arrival
+inter =   1.03
+1488.68
+digest arrival
+inter =   0.67
+1489.71
+digest arrival
+inter =   2.57
+1490.38
+digest arrival
+inter =   2.70
+1492.95
+digest arrival
+inter =   0.63
+1495.65
+digest arrival
+inter =   0.73
+1496.28
+digest arrival
+inter =   1.07
+1497.01
+digest arrival
+inter =   1.93
+1498.08
+digest arrival
+inter =   0.01
+1500.01
+digest arrival
+inter =   0.63
+1500.02
+digest arrival
+inter =   1.48
+1500.65
+digest arrival
+inter =   0.68
+1502.13
+digest arrival
+inter =   0.31
+1502.81
+digest arrival
+inter =   0.15
+1503.12
+digest arrival
+inter =   3.54
+1503.26
+digest arrival
+inter =   0.67
+1506.80
+digest arrival
+inter =   0.58
+1507.47
+digest arrival
+inter =   0.84
+1508.05
+digest arrival
+inter =   0.04
+1508.89
+digest arrival
+inter =   0.68
+1508.93
+digest arrival
+inter =   0.01
+1509.61
+digest arrival
+inter =   0.05
+1509.62
+digest arrival
+inter =   0.11
+1509.67
+digest arrival
+inter =   0.38
+1509.78
+digest arrival
+inter =   0.09
+1510.16
+digest arrival
+inter =   0.48
+1510.25
+digest arrival
+inter =   0.71
+1510.73
+digest arrival
+inter =   0.77
+1511.44
+digest arrival
+inter =   1.25
+1512.21
+digest arrival
+inter =   3.17
+1513.47
+digest arrival
+inter =   5.30
+1516.64
+digest arrival
+inter =   0.72
+1521.94
+digest arrival
+inter =   0.11
+1522.66
+digest arrival
+inter =   1.24
+1522.77
+digest arrival
+inter =   1.09
+1524.01
+digest arrival
+inter =   0.81
+1525.10
+digest arrival
+inter =   0.75
+1525.91
+digest arrival
+inter =   0.51
+1526.65
+digest arrival
+inter =   0.07
+1527.16
+digest arrival
+inter =   0.42
+1527.23
+digest arrival
+inter =   0.71
+1527.65
+digest arrival
+inter =   1.50
+1528.37
+digest arrival
+inter =   0.42
+1529.86
+digest arrival
+inter =   0.29
+1530.28
+digest arrival
+inter =   0.08
+1530.57
+digest arrival
+inter =   0.64
+1530.65
+digest arrival
+inter =   1.00
+1531.29
+digest arrival
+inter =   3.20
+1532.30
+digest arrival
+inter =   0.32
+1535.50
+digest arrival
+inter =   0.12
+1535.82
+digest arrival
+inter =   0.50
+1535.94
+digest arrival
+inter =   0.19
+1536.44
+digest arrival
+inter =   0.20
+1536.63
+digest arrival
+inter =   0.24
+1536.83
+digest arrival
+inter =   0.77
+1537.07
+digest arrival
+inter =   0.16
+1537.85
+digest arrival
+inter =   0.13
+1538.00
+digest arrival
+inter =   0.78
+1538.13
+digest arrival
+inter =   0.40
+1538.91
+digest arrival
+inter =   0.56
+1539.32
+digest arrival
+inter =   0.15
+1539.88
+digest arrival
+inter =   1.61
+1540.03
+reliable term
+Before new arrival 
+1540.09
+premium term
+1349.63
+premium term
+1436.20
+premium term
+1224.26
+premium term
+1315.76
+premium term
+1192.98
+premium term
+1329.35
+premium term
+1252.56
+premium term
+1224.03
+premium term
+1335.07
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1323.55
+premium term
+1270.39
+normal term
+441.01
+premium arrival
+1323.55
+premium term
+1393.50
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1337.90
+premium arrival
+1337.90
+premium term
+1420.60
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1351.40
+premium arrival
+1351.40
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1364.58
+normal term
+447.68
+premium arrival
+1364.58
+digest arrival
+inter =   2.20
+1541.64
+digest arrival
+inter =   0.32
+1543.83
+digest arrival
+inter =   1.01
+1544.16
+digest arrival
+inter =   0.54
+1545.17
+digest arrival
+inter =   0.33
+1545.71
+digest arrival
+inter =   1.64
+1546.04
+digest arrival
+inter =   2.72
+1547.69
+digest arrival
+inter =   1.36
+1550.40
+digest arrival
+inter =   0.08
+1551.76
+digest arrival
+inter =   0.20
+1551.84
+digest arrival
+inter =   0.50
+1552.03
+digest arrival
+inter =   1.98
+1552.53
+digest arrival
+inter =   5.26
+1554.52
+digest arrival
+inter =   1.35
+1559.77
+premium term
+1559.81
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1376.02
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1387.05
+normal term
+450.31
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1397.59
+premium term
+1162.91
+premium term
+1359.59
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1405.58
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1413.43
+normal term
+426.45
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1419.17
+normal term
+381.51
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1423.74
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1428.20
+premium term
+526.49
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1430.66
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1432.88
+normal term
+389.28
+premium term
+499.33
+premium arrival
+1432.88
+reliable arrival
+1559.81
+premium arrival
+1413.43
+premium arrival
+1430.66
+premium arrival
+1423.74
+premium arrival
+1397.59
+premium arrival
+1387.05
+premium arrival
+1428.20
+premium arrival
+1376.02
+premium arrival
+1405.58
+premium arrival
+1419.17
+digest arrival
+inter =   0.01
+1561.12
+digest arrival
+inter =   4.38
+1561.13
+digest arrival
+inter =   0.60
+1565.51
+digest arrival
+inter =   1.30
+1566.11
+digest arrival
+inter =   0.62
+1567.40
+digest arrival
+inter =   0.22
+1568.03
+digest arrival
+inter =   0.04
+1568.25
+digest arrival
+inter =   0.58
+1568.29
+digest arrival
+inter =   0.11
+1568.87
+digest arrival
+inter =   0.52
+1568.98
+digest arrival
+inter =   0.54
+1569.49
+digest arrival
+inter =   0.41
+1570.04
+digest arrival
+inter =   0.22
+1570.45
+digest arrival
+inter =   1.89
+1570.67
+digest arrival
+inter =   0.01
+1572.56
+digest arrival
+inter =   0.41
+1572.56
+digest arrival
+inter =   0.44
+1572.97
+digest arrival
+inter =   0.32
+1573.41
+digest arrival
+inter =   0.05
+1573.73
+digest arrival
+inter =   0.18
+1573.77
+digest arrival
+inter =   0.35
+1573.96
+digest arrival
+inter =   0.63
+1574.30
+digest arrival
+inter =   1.14
+1574.94
+digest arrival
+inter =   0.10
+1576.07
+digest arrival
+inter =   0.95
+1576.18
+digest arrival
+inter =   0.86
+1577.13
+digest arrival
+inter =   0.23
+1577.99
+digest arrival
+inter =   1.86
+1578.21
+digest arrival
+inter =   0.82
+1580.07
+digest arrival
+inter =   1.47
+1580.89
+digest arrival
+inter =   0.02
+1582.36
+digest arrival
+inter =   0.92
+1582.38
+digest arrival
+inter =   1.30
+1583.30
+digest arrival
+inter =   0.04
+1584.61
+digest arrival
+inter =   1.06
+1584.65
+digest arrival
+inter =   1.04
+1585.71
+digest arrival
+inter =   0.65
+1586.75
+digest arrival
+inter =   0.84
+1587.40
+digest arrival
+inter =   1.23
+1588.24
+digest arrival
+inter =   1.46
+1589.47
+digest arrival
+inter =   0.16
+1590.92
+digest arrival
+inter =   0.61
+1591.08
+digest arrival
+inter =   1.21
+1591.69
+digest arrival
+inter =   0.33
+1592.90
+digest arrival
+inter =   1.55
+1593.24
+digest arrival
+inter =   0.81
+1594.79
+digest arrival
+inter =   0.03
+1595.60
+digest arrival
+inter =   0.02
+1595.63
+digest arrival
+inter =   2.09
+1595.65
+digest arrival
+inter =   1.62
+1597.74
+digest arrival
+inter =   1.16
+1599.35
+digest arrival
+inter =   1.41
+1600.52
+digest arrival
+inter =   1.23
+1601.92
+digest arrival
+inter =   0.50
+1603.15
+digest arrival
+inter =   0.84
+1603.65
+digest arrival
+inter =   0.29
+1604.50
+digest arrival
+inter =   1.56
+1604.79
+digest arrival
+inter =   1.92
+1606.35
+digest arrival
+inter =   0.20
+1608.27
+digest arrival
+inter =   0.46
+1608.48
+digest arrival
+inter =   0.73
+1608.93
+digest arrival
+inter =   1.43
+1609.66
+digest arrival
+inter =   1.39
+1611.09
+digest arrival
+inter =   0.46
+1612.47
+digest arrival
+inter =   0.14
+1612.93
+digest arrival
+inter =   0.61
+1613.07
+digest arrival
+inter =   1.13
+1613.68
+digest arrival
+inter =   0.10
+1614.81
+digest arrival
+inter =   0.00
+1614.91
+digest arrival
+inter =   1.47
+1614.92
+digest arrival
+inter =   0.43
+1616.38
+digest arrival
+inter =   1.45
+1616.81
+digest arrival
+inter =   0.27
+1618.26
+digest arrival
+inter =   0.82
+1618.53
+digest arrival
+inter =   1.48
+1619.35
+digest arrival
+inter =   1.09
+1620.83
+digest arrival
+inter =   0.58
+1621.92
+digest arrival
+inter =   0.46
+1622.50
+digest arrival
+inter =   0.67
+1622.96
+digest arrival
+inter =   1.08
+1623.62
+digest arrival
+inter =   0.56
+1624.70
+digest arrival
+inter =   1.76
+1625.26
+digest arrival
+inter =   0.75
+1627.02
+digest arrival
+inter =   3.45
+1627.77
+digest arrival
+inter =   0.01
+1631.22
+digest arrival
+inter =   0.15
+1631.23
+digest arrival
+inter =   0.97
+1631.38
+digest arrival
+inter =   1.96
+1632.35
+digest arrival
+inter =   1.53
+1634.31
+digest arrival
+inter =   0.79
+1635.84
+digest arrival
+inter =   1.95
+1636.63
+digest arrival
+inter =   0.85
+1638.58
+digest arrival
+inter =   0.18
+1639.43
+digest arrival
+inter =   0.07
+1639.60
+digest arrival
+inter =   0.38
+1639.68
+digest arrival
+inter =   0.20
+1640.06
+digest arrival
+inter =   0.35
+1640.26
+digest arrival
+inter =   0.89
+1640.61
+digest arrival
+inter =   1.02
+1641.49
+digest arrival
+inter =   0.28
+1642.51
+digest arrival
+inter =   0.56
+1642.79
+digest arrival
+inter =   0.51
+1643.35
+digest arrival
+inter =   0.81
+1643.85
+digest arrival
+inter =   0.59
+1644.66
+digest arrival
+inter =   1.94
+1645.25
+digest arrival
+inter =   1.06
+1647.19
+digest arrival
+inter =   1.59
+1648.25
+digest arrival
+inter =   1.36
+1649.84
+digest arrival
+inter =   0.09
+1651.20
+digest arrival
+inter =   0.15
+1651.30
+digest arrival
+inter =   0.64
+1651.45
+digest arrival
+inter =   0.41
+1652.09
+digest arrival
+inter =   0.28
+1652.50
+digest arrival
+inter =   1.62
+1652.78
+digest arrival
+inter =   0.02
+1654.40
+digest arrival
+inter =   3.97
+1654.43
+digest arrival
+inter =   0.35
+1658.40
+digest arrival
+inter =   0.99
+1658.75
+digest arrival
+inter =   1.72
+1659.74
+digest arrival
+inter =   0.51
+1661.46
+digest arrival
+inter =   0.55
+1661.97
+digest arrival
+inter =   1.96
+1662.52
+premium term
+1662.64
+reliable arrival
+1662.64
+digest arrival
+inter =   4.61
+1664.48
+digest arrival
+inter =   0.10
+1669.09
+digest arrival
+inter =   0.18
+1669.19
+digest arrival
+inter =   1.75
+1669.37
+digest arrival
+inter =   0.69
+1671.12
+digest arrival
+inter =   0.03
+1671.81
+digest arrival
+inter =   0.54
+1671.84
+digest arrival
+inter =   0.06
+1672.38
+digest arrival
+inter =   0.24
+1672.44
+digest arrival
+inter =   0.32
+1672.68
+digest arrival
+inter =   0.02
+1673.00
+digest arrival
+inter =   0.29
+1673.02
+digest arrival
+inter =   0.76
+1673.31
+digest arrival
+inter =   0.49
+1674.07
+digest arrival
+inter =   0.44
+1674.56
+digest arrival
+inter =   2.33
+1675.00
+digest arrival
+inter =   0.77
+1677.33
+digest arrival
+inter =   3.52
+1678.10
+digest arrival
+inter =   1.14
+1681.62
+digest arrival
+inter =   0.60
+1682.76
+digest arrival
+inter =   0.58
+1683.35
+digest arrival
+inter =   0.34
+1683.93
+digest arrival
+inter =   0.13
+1684.27
+digest arrival
+inter =   1.50
+1684.40
+digest arrival
+inter =   1.10
+1685.90
+digest arrival
+inter =   2.11
+1687.00
+digest arrival
+inter =   1.09
+1689.11
+digest arrival
+inter =   0.25
+1690.19
+digest arrival
+inter =   0.52
+1690.44
+digest arrival
+inter =   0.06
+1690.96
+digest arrival
+inter =   0.97
+1691.02
+digest arrival
+inter =   0.10
+1691.99
+digest arrival
+inter =   0.15
+1692.09
+digest arrival
+inter =   0.05
+1692.24
+digest arrival
+inter =   0.56
+1692.29
+digest arrival
+inter =   1.94
+1692.85
+digest arrival
+inter =   0.60
+1694.79
+digest arrival
+inter =   0.11
+1695.39
+digest arrival
+inter =   2.09
+1695.50
+digest arrival
+inter =   0.14
+1697.59
+digest arrival
+inter =   0.12
+1697.72
+digest arrival
+inter =   0.49
+1697.85
+digest arrival
+inter =   0.03
+1698.33
+digest arrival
+inter =   2.87
+1698.37
+digest arrival
+inter =   1.66
+1701.24
+digest arrival
+inter =   2.50
+1702.90
+digest arrival
+inter =   1.43
+1705.40
+digest arrival
+inter =   0.23
+1706.83
+digest arrival
+inter =   1.24
+1707.06
+digest arrival
+inter =   2.08
+1708.30
+digest arrival
+inter =   4.44
+1710.37
+digest arrival
+inter =   0.39
+1714.82
+digest arrival
+inter =   0.55
+1715.20
+digest arrival
+inter =   0.72
+1715.75
+digest arrival
+inter =   1.56
+1716.47
+digest arrival
+inter =   3.14
+1718.03
+digest arrival
+inter =   0.96
+1721.17
+digest arrival
+inter =   0.06
+1722.14
+digest arrival
+inter =   2.51
+1722.20
+digest arrival
+inter =   1.71
+1724.71
+digest arrival
+inter =   0.29
+1726.42
+digest arrival
+inter =   0.20
+1726.71
+digest arrival
+inter =   0.54
+1726.91
+digest arrival
+inter =   0.49
+1727.45
+digest arrival
+inter =   0.04
+1727.94
+digest arrival
+inter =   1.26
+1727.98
+digest arrival
+inter =   0.86
+1729.24
+digest arrival
+inter =   1.04
+1730.09
+digest arrival
+inter =   1.24
+1731.13
+digest arrival
+inter =   1.22
+1732.37
+digest arrival
+inter =   0.03
+1733.58
+digest arrival
+inter =   2.55
+1733.61
+digest arrival
+inter =   1.20
+1736.17
+digest arrival
+inter =   0.05
+1737.37
+digest arrival
+inter =   0.13
+1737.42
+digest arrival
+inter =   0.27
+1737.54
+digest arrival
+inter =   0.88
+1737.82
+digest arrival
+inter =   0.04
+1738.70
+digest arrival
+inter =   0.09
+1738.74
+digest arrival
+inter =   0.55
+1738.83
+digest arrival
+inter =   0.19
+1739.39
+digest arrival
+inter =   1.04
+1739.58
+digest arrival
+inter =   1.20
+1740.62
+digest arrival
+inter =   0.50
+1741.82
+digest arrival
+inter =   0.01
+1742.32
+digest arrival
+inter =   0.22
+1742.33
+digest arrival
+inter =   0.72
+1742.55
+digest arrival
+inter =   0.12
+1743.27
+digest arrival
+inter =   3.72
+1743.39
+digest arrival
+inter =   0.90
+1747.11
+digest arrival
+inter =   0.60
+1748.01
+digest arrival
+inter =   0.51
+1748.61
+digest arrival
+inter =   0.10
+1749.11
+digest arrival
+inter =   0.12
+1749.21
+digest arrival
+inter =   1.14
+1749.33
+digest arrival
+inter =   1.50
+1750.47
+digest arrival
+inter =   0.16
+1751.98
+digest arrival
+inter =   0.35
+1752.14
+digest arrival
+inter =   0.85
+1752.49
+digest arrival
+inter =   0.48
+1753.34
+digest arrival
+inter =   0.96
+1753.82
+digest arrival
+inter =   0.56
+1754.78
+digest arrival
+inter =   0.32
+1755.34
+digest arrival
+inter =   0.67
+1755.65
+digest arrival
+inter =   0.37
+1756.32
+digest arrival
+inter =   0.39
+1756.69
+digest arrival
+inter =   0.53
+1757.08
+digest arrival
+inter =   0.06
+1757.61
+digest arrival
+inter =   0.21
+1757.67
+digest arrival
+inter =   0.64
+1757.88
+digest arrival
+inter =   0.87
+1758.52
+digest arrival
+inter =   0.66
+1759.39
+digest arrival
+inter =   0.03
+1760.05
+digest arrival
+inter =   0.03
+1760.08
+digest arrival
+inter =   1.12
+1760.11
+digest arrival
+inter =   0.34
+1761.24
+digest arrival
+inter =   0.96
+1761.57
+digest arrival
+inter =   0.40
+1762.54
+digest arrival
+inter =   1.02
+1762.94
+digest arrival
+inter =   0.83
+1763.96
+digest arrival
+inter =   0.13
+1764.79
+digest arrival
+inter =   1.11
+1764.91
+digest arrival
+inter =   3.29
+1766.02
+digest arrival
+inter =   1.00
+1769.31
+digest arrival
+inter =   0.19
+1770.30
+digest arrival
+inter =   0.07
+1770.50
+digest arrival
+inter =   0.43
+1770.56
+digest arrival
+inter =   0.99
+1770.99
+digest arrival
+inter =   0.28
+1771.98
+digest arrival
+inter =   0.01
+1772.26
+digest arrival
+inter =   0.18
+1772.27
+digest arrival
+inter =   0.84
+1772.45
+digest arrival
+inter =   1.71
+1773.29
+digest arrival
+inter =   3.25
+1775.00
+digest arrival
+inter =   1.11
+1778.25
+digest arrival
+inter =   2.63
+1779.36
+digest arrival
+inter =   0.46
+1781.99
+digest arrival
+inter =   0.05
+1782.44
+digest arrival
+inter =   1.36
+1782.50
+digest arrival
+inter =   0.06
+1783.86
+digest arrival
+inter =   0.01
+1783.92
+digest arrival
+inter =   0.31
+1783.93
+digest arrival
+inter =   0.15
+1784.24
+digest arrival
+inter =   1.86
+1784.39
+digest arrival
+inter =   0.39
+1786.25
+digest arrival
+inter =   0.40
+1786.64
+digest arrival
+inter =   2.79
+1787.04
+digest arrival
+inter =   0.18
+1789.82
+digest arrival
+inter =   0.44
+1790.00
+digest arrival
+inter =   0.90
+1790.44
+digest arrival
+inter =   0.05
+1791.34
+digest arrival
+inter =   0.13
+1791.39
+digest arrival
+inter =   3.02
+1791.52
+digest arrival
+inter =   1.02
+1794.54
+digest arrival
+inter =   1.85
+1795.56
+digest arrival
+inter =   0.15
+1797.41
+digest arrival
+inter =   1.20
+1797.56
+digest arrival
+inter =   0.93
+1798.76
+digest arrival
+inter =   0.06
+1799.69
+digest arrival
+inter =   0.49
+1799.75
+digest arrival
+inter =   0.97
+1800.24
+digest arrival
+inter =   0.33
+1801.21
+digest arrival
+inter =   0.52
+1801.55
+digest arrival
+inter =   0.82
+1802.06
+digest arrival
+inter =   0.10
+1802.88
+digest arrival
+inter =   0.26
+1802.98
+digest arrival
+inter =   0.17
+1803.24
+digest arrival
+inter =   0.96
+1803.41
+digest arrival
+inter =   1.46
+1804.37
+digest arrival
+inter =   0.07
+1805.82
+digest arrival
+inter =   0.31
+1805.89
+digest arrival
+inter =   0.66
+1806.20
+digest arrival
+inter =   0.27
+1806.86
+digest arrival
+inter =   1.18
+1807.13
+digest arrival
+inter =   0.82
+1808.31
+digest arrival
+inter =   0.40
+1809.13
+digest arrival
+inter =   0.29
+1809.53
+digest arrival
+inter =   0.49
+1809.83
+digest arrival
+inter =   0.18
+1810.32
+digest arrival
+inter =   0.98
+1810.49
+digest arrival
+inter =   0.87
+1811.47
+digest arrival
+inter =   1.04
+1812.34
+digest arrival
+inter =   1.72
+1813.38
+digest arrival
+inter =   0.03
+1815.11
+digest arrival
+inter =   0.44
+1815.13
+digest arrival
+inter =   0.75
+1815.57
+digest arrival
+inter =   0.39
+1816.32
+digest arrival
+inter =   0.78
+1816.70
+digest arrival
+inter =   0.94
+1817.49
+digest arrival
+inter =   0.04
+1818.43
+digest arrival
+inter =   1.32
+1818.46
+digest arrival
+inter =   0.82
+1819.79
+digest arrival
+inter =   0.29
+1820.60
+digest arrival
+inter =   1.17
+1820.89
+digest arrival
+inter =   0.03
+1822.06
+digest arrival
+inter =   0.17
+1822.09
+digest arrival
+inter =   2.06
+1822.26
+digest arrival
+inter =   1.48
+1824.32
+digest arrival
+inter =   1.30
+1825.80
+digest arrival
+inter =   0.49
+1827.11
+digest arrival
+inter =   0.54
+1827.59
+digest arrival
+inter =   0.14
+1828.14
+digest arrival
+inter =   0.61
+1828.28
+digest arrival
+inter =   0.23
+1828.89
+digest arrival
+inter =   0.52
+1829.12
+digest arrival
+inter =   0.32
+1829.63
+digest arrival
+inter =   0.75
+1829.95
+digest arrival
+inter =   0.85
+1830.70
+digest arrival
+inter =   0.12
+1831.55
+digest arrival
+inter =   0.90
+1831.68
+digest arrival
+inter =   1.32
+1832.58
+digest arrival
+inter =   0.21
+1833.90
+digest arrival
+inter =   1.64
+1834.11
+digest arrival
+inter =   0.44
+1835.75
+digest arrival
+inter =   0.13
+1836.19
+digest arrival
+inter =   0.45
+1836.31
+digest arrival
+inter =   0.10
+1836.76
+digest arrival
+inter =   0.81
+1836.86
+digest arrival
+inter =   0.16
+1837.67
+digest arrival
+inter =   0.22
+1837.84
+digest arrival
+inter =   0.19
+1838.06
+digest arrival
+inter =   0.20
+1838.25
+digest arrival
+inter =   1.70
+1838.45
+digest arrival
+inter =   0.14
+1840.15
+digest arrival
+inter =   0.07
+1840.28
+digest arrival
+inter =   0.62
+1840.36
+digest arrival
+inter =   0.45
+1840.98
+digest arrival
+inter =   0.50
+1841.43
+digest arrival
+inter =   0.38
+1841.92
+digest arrival
+inter =   1.88
+1842.30
+digest arrival
+inter =   1.14
+1844.18
+digest arrival
+inter =   0.30
+1845.31
+digest arrival
+inter =   1.48
+1845.61
+digest arrival
+inter =   1.01
+1847.09
+digest arrival
+inter =   1.79
+1848.10
+digest arrival
+inter =   0.47
+1849.89
+digest arrival
+inter =   0.83
+1850.36
+digest arrival
+inter =   1.59
+1851.20
+digest arrival
+inter =   0.05
+1852.79
+digest arrival
+inter =   0.44
+1852.84
+digest arrival
+inter =   1.07
+1853.29
+digest arrival
+inter =   1.27
+1854.35
+digest arrival
+inter =   4.18
+1855.63
+digest arrival
+inter =   0.01
+1859.81
+digest arrival
+inter =   2.26
+1859.82
+digest arrival
+inter =   2.18
+1862.07
+digest arrival
+inter =   0.46
+1864.25
+digest arrival
+inter =   0.31
+1864.71
+digest arrival
+inter =   0.22
+1865.02
+digest arrival
+inter =   0.97
+1865.24
+digest arrival
+inter =   0.45
+1866.21
+digest arrival
+inter =   0.11
+1866.66
+digest arrival
+inter =   0.45
+1866.77
+digest arrival
+inter =   0.21
+1867.22
+digest arrival
+inter =   1.63
+1867.43
+digest arrival
+inter =   0.15
+1869.06
+digest arrival
+inter =   0.14
+1869.21
+digest arrival
+inter =   3.54
+1869.35
+digest arrival
+inter =   2.90
+1872.89
+digest arrival
+inter =   0.08
+1875.78
+digest arrival
+inter =   0.74
+1875.86
+digest arrival
+inter =   0.14
+1876.61
+digest arrival
+inter =   0.09
+1876.74
+digest arrival
+inter =   0.01
+1876.84
+digest arrival
+inter =   0.00
+1876.85
+digest arrival
+inter =   0.08
+1876.85
+digest arrival
+inter =   1.06
+1876.94
+digest arrival
+inter =   0.02
+1877.99
+digest arrival
+inter =   0.36
+1878.01
+digest arrival
+inter =   0.73
+1878.37
+digest arrival
+inter =   0.23
+1879.10
+digest arrival
+inter =   1.09
+1879.34
+digest arrival
+inter =   1.01
+1880.43
+digest arrival
+inter =   0.30
+1881.44
+digest arrival
+inter =   1.01
+1881.74
+digest arrival
+inter =   0.24
+1882.74
+digest arrival
+inter =   1.42
+1882.98
+digest arrival
+inter =   1.77
+1884.40
+digest arrival
+inter =   0.05
+1886.18
+digest arrival
+inter =   0.42
+1886.23
+digest arrival
+inter =   0.70
+1886.65
+digest arrival
+inter =   1.56
+1887.35
+digest arrival
+inter =   3.07
+1888.91
+digest arrival
+inter =   1.27
+1891.98
+reliable term
+Before new arrival 
+1892.41
+reliable term
+Before new arrival 
+1755.03
+premium term
+1605.73
+premium term
+1537.52
+premium term
+1509.43
+premium term
+1458.19
+premium term
+1434.71
+premium term
+1474.42
+premium term
+1406.62
+premium term
+1423.83
+premium term
+1431.52
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1434.40
+premium term
+500.45
+premium term
+526.50
+premium term
+1037.12
+premium term
+485.60
+premium term
+469.17
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1435.18
+premium term
+489.24
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1435.87
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1436.53
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1437.60
+premium term
+1140.23
+premium term
+470.89
+premium term
+907.53
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1438.03
+premium term
+473.24
+premium term
+495.78
+premium term
+819.84
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1438.38
+premium term
+567.36
+premium term
+524.84
+premium term
+577.35
+premium term
+591.45
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1438.65
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1438.90
+premium term
+481.79
+premium term
+556.93
+premium term
+708.86
+premium term
+1041.88
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1439.09
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1440.18
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1441.72
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1444.59
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1446.22
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1446.42
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1446.68
+normal arrival
+1446.68
+reliable arrival
+1605.73
+premium arrival
+1440.18
+normal arrival
+1438.90
+normal arrival
+1439.09
+premium arrival
+1438.65
+premium arrival
+1436.53
+premium arrival
+1434.40
+premium arrival
+1444.59
+premium arrival
+1438.03
+premium arrival
+1435.18
+normal arrival
+1446.22
+premium arrival
+1438.38
+premium arrival
+1446.42
+premium arrival
+1437.60
+normal term
+1792.26
+reliable arrival
+1792.26
+reliable term
+Before new arrival 
+1798.03
+digest arrival
+inter =   2.08
+1893.25
+digest arrival
+inter =   0.19
+1895.33
+digest arrival
+inter =   0.20
+1895.51
+digest arrival
+inter =   0.47
+1895.71
+digest arrival
+inter =   2.07
+1896.18
+digest arrival
+inter =   3.46
+1898.26
+digest arrival
+inter =   2.72
+1901.72
+digest arrival
+inter =   1.04
+1904.43
+digest arrival
+inter =   0.41
+1905.47
+digest arrival
+inter =   0.86
+1905.89
+digest arrival
+inter =   1.56
+1906.75
+digest arrival
+inter =   1.02
+1908.30
+digest arrival
+inter =   0.18
+1909.33
+digest arrival
+inter =   0.87
+1909.51
+digest arrival
+inter =   1.27
+1910.38
+digest arrival
+inter =   0.25
+1911.65
+digest arrival
+inter =   0.57
+1911.89
+digest arrival
+inter =   0.49
+1912.46
+digest arrival
+inter =   0.68
+1912.95
+digest arrival
+inter =   0.34
+1913.62
+digest arrival
+inter =   1.51
+1913.96
+digest arrival
+inter =   2.03
+1915.46
+digest arrival
+inter =   0.15
+1917.49
+digest arrival
+inter =   2.42
+1917.65
+digest arrival
+inter =   2.45
+1920.07
+digest arrival
+inter =   0.83
+1922.52
+digest arrival
+inter =   1.11
+1923.35
+digest arrival
+inter =   0.26
+1924.46
+digest arrival
+inter =   0.37
+1924.72
+digest arrival
+inter =   0.29
+1925.08
+digest arrival
+inter =   1.07
+1925.38
+digest arrival
+inter =   0.56
+1926.45
+digest arrival
+inter =   0.52
+1927.01
+digest arrival
+inter =   0.83
+1927.53
+digest arrival
+inter =   1.11
+1928.36
+digest arrival
+inter =   0.15
+1929.47
+digest arrival
+inter =   1.70
+1929.61
+digest arrival
+inter =   0.11
+1931.32
+digest arrival
+inter =   0.35
+1931.43
+digest arrival
+inter =   0.75
+1931.77
+digest arrival
+inter =   1.12
+1932.53
+digest arrival
+inter =   0.60
+1933.64
+digest arrival
+inter =   0.49
+1934.24
+digest arrival
+inter =   1.70
+1934.73
+digest arrival
+inter =   0.10
+1936.43
+digest arrival
+inter =   1.40
+1936.53
+digest arrival
+inter =   0.31
+1937.93
+digest arrival
+inter =   2.07
+1938.24
+digest arrival
+inter =   1.41
+1940.31
+digest arrival
+inter =   0.30
+1941.72
+digest arrival
+inter =   0.53
+1942.03
+digest arrival
+inter =   2.56
+1942.56
+digest arrival
+inter =   0.57
+1945.11
+digest arrival
+inter =   0.09
+1945.68
+digest arrival
+inter =   2.92
+1945.77
+digest arrival
+inter =   0.76
+1948.69
+digest arrival
+inter =   0.20
+1949.45
+digest arrival
+inter =   0.77
+1949.65
+digest arrival
+inter =   2.21
+1950.42
+digest arrival
+inter =   1.25
+1952.63
+digest arrival
+inter =   0.45
+1953.88
+digest arrival
+inter =   0.37
+1954.33
+digest arrival
+inter =   0.05
+1954.69
+digest arrival
+inter =   1.67
+1954.74
+digest arrival
+inter =   3.17
+1956.41
+digest arrival
+inter =   0.02
+1959.58
+digest arrival
+inter =   4.07
+1959.60
+digest arrival
+inter =   0.93
+1963.66
+digest arrival
+inter =   0.11
+1964.59
+digest arrival
+inter =   0.17
+1964.70
+digest arrival
+inter =   0.99
+1964.87
+reliable term
+Before new arrival 
+1965.05
+premium term
+1606.07
+normal term
+1543.66
+normal term
+1515.06
+premium term
+1501.94
+premium term
+1480.85
+premium term
+1478.02
+premium term
+1473.93
+premium term
+1463.48
+premium term
+1451.62
+normal term
+1461.71
+premium term
+1452.81
+premium term
+1460.67
+premium term
+1450.81
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1446.98
+normal arrival
+1446.98
+normal term
+1881.62
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1447.25
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1447.38
+premium term
+463.26
+premium term
+533.02
+premium term
+580.20
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1447.43
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1447.53
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1447.60
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1448.62
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1449.44
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1449.51
+premium term
+527.33
+premium term
+487.72
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1449.52
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1450.58
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1450.94
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1451.21
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1451.22
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1451.71
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1451.84
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1452.04
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1452.57
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1452.64
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1453.36
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1455.14
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1456.14
+normal arrival
+1456.14
+normal term
+1740.02
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1456.45
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1456.51
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1456.63
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1456.87
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1457.08
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1458.82
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1460.75
+normal arrival
+1460.75
+normal term
+1710.78
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1461.36
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1462.06
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1462.08
+normal arrival
+1462.08
+normal term
+1722.22
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1462.24
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1462.91
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1464.19
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1465.18
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1465.29
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1465.75
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1466.67
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1467.04
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1467.30
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1469.76
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1470.04
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1470.25
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1470.45
+normal arrival
+1470.45
+normal term
+1873.62
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1470.47
+normal arrival
+1470.47
+normal term
+1723.60
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1470.96
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1472.29
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1473.09
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1473.28
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1473.79
+normal arrival
+1473.79
+normal term
+1858.54
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1473.99
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1474.44
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1475.22
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1476.35
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1476.62
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1478.75
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1479.65
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1481.12
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1481.70
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1482.52
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1483.01
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1484.17
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1484.43
+normal arrival
+1484.43
+normal term
+1821.21
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1486.60
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1487.59
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1487.61
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1488.40
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1488.66
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1488.99
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1489.27
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1489.76
+normal arrival
+1489.76
+normal term
+1709.81
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1491.59
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1491.69
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1492.29
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1494.57
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1495.18
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1495.20
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1495.84
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1496.18
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1497.27
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1497.63
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1498.03
+premium arrival
+1498.03
+premium term
+1749.27
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1498.13
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1498.83
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1499.39
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1499.46
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1500.14
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1500.87
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1501.29
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1501.42
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1501.81
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1502.86
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1503.28
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1505.21
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1505.23
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1505.38
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1505.71
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1505.95
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1506.10
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1506.15
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1506.59
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1507.73
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1507.80
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1507.88
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1509.35
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1509.85
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1511.12
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1511.89
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1512.09
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1513.44
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1514.84
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1514.94
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1515.07
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1515.15
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1515.30
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1515.39
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1516.25
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1517.42
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1518.14
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1518.66
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1518.79
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1519.73
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1520.11
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1520.19
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1520.53
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1521.15
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1521.31
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1521.59
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1521.87
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1522.04
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1522.82
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1522.98
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1523.34
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1523.83
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1524.84
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1525.74
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1526.37
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1526.66
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1527.45
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1527.65
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1527.88
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1528.21
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1528.55
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1529.12
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1530.65
+digest term
+Free j_q
+0
+Free trucebaldazzi
+1531.04
+normal arrival
+1531.04
+reliable arrival
+1749.27
+normal arrival
+1506.59
+normal term
+1799.14
+reliable arrival
+1881.62
+normal arrival
+1530.65
+normal arrival
+1456.87
+normal arrival
+1449.52
+premium arrival
+1515.07
+reliable arrival
+1873.62
+premium arrival
+1518.66
+reliable arrival
+1858.54
+normal arrival
+1505.71
+premium arrival
+1450.58
+premium arrival
+1488.66
+premium arrival
+1479.65
+reliable arrival
+1821.21
+normal arrival
+1498.13
+premium arrival
+1470.04
+premium arrival
+1520.11
+normal arrival
+1447.43
+premium arrival
+1456.63
+reliable arrival
+1740.02
+normal arrival
+1449.44
+reliable arrival
+1799.14
+normal arrival
+1478.75
+normal arrival
+1467.04
+premium arrival
+1488.99
+premium arrival
+1450.94
+reliable arrival
+1722.22
+premium arrival
+1502.86
+reliable arrival
+1723.60
+reliable arrival
+1710.78
+premium arrival
+1528.55
+premium arrival
+1458.82
+premium arrival
+1500.87
+premium arrival
+1448.62
+reliable arrival
+1709.81
+normal arrival
+1522.98
+premium arrival
+1499.39
+premium arrival
+1487.61
+normal arrival
+1474.44
+normal arrival
+1495.20
+premium arrival
+1464.19
+premium arrival
+1496.18
+normal arrival
+1486.60
+normal arrival
+1498.83
+premium arrival
+1447.60
+premium arrival
+1516.25
+premium arrival
+1487.59
+premium arrival
+1451.84
+normal arrival
+1521.31
+premium arrival
+1525.74
+premium arrival
+1522.04
+premium arrival
+1509.35
+premium arrival
+1518.79
+premium arrival
+1501.81
+premium arrival
+1462.06
+normal arrival
+1470.25
+premium arrival
+1447.38
+premium arrival
+1484.17
+premium arrival
+1499.46
+normal arrival
+1483.01
+premium arrival
+1507.73
+normal arrival
+1457.08
+premium arrival
+1497.27
+premium arrival
+1511.89
+premium arrival
+1501.42
+normal arrival
+1517.42
+premium arrival
+1491.69
+normal arrival
+1469.76
+normal arrival
+1467.30
+premium arrival
+1495.18
+premium arrival
+1476.35
+normal arrival
+1513.44
+premium arrival
+1462.91
+premium arrival
+1473.99
+premium arrival
+1529.12
+premium arrival
+1526.66
+premium arrival
+1475.22
+premium arrival
+1519.73
+premium arrival
+1505.95
+premium arrival
+1505.38
+premium arrival
+1473.28
+premium arrival
+1522.82
+premium arrival
+1506.10
+premium arrival
+1520.19
+normal arrival
+1452.04
+normal arrival
+1512.09
+premium arrival
+1452.64
+premium arrival
+1528.21
+premium arrival
+1461.36
+premium arrival
+1503.28
+premium arrival
+1455.14
+normal arrival
+1462.24
+premium arrival
+1465.75
+premium arrival
+1527.45
+premium arrival
+1481.12
+premium arrival
+1511.12
+normal arrival
+1518.14
+normal arrival
+1524.84
+normal arrival
+1507.88
+normal arrival
+1473.09
+premium arrival
+1452.57
+premium arrival
+1521.87
+premium arrival
+1523.83
+premium arrival
+1451.21
+normal arrival
+1514.94
+premium arrival
+1515.15
+premium arrival
+1470.96
+premium arrival
+1482.52
+normal arrival
+1465.29
+premium arrival
+1495.84
+premium arrival
+1494.57
+normal arrival
+1527.65
+premium arrival
+1514.84
+premium arrival
+1451.22
+premium arrival
+1506.15
+normal arrival
+1501.29
+premium arrival
+1466.67
+premium arrival
+1456.51
+premium arrival
+1523.34
+normal arrival
+1521.15
+premium arrival
+1526.37
+premium arrival
+1500.14
+premium arrival
+1492.29
+premium arrival
+1488.40
+normal arrival
+1515.39
+premium arrival
+1481.70
+premium arrival
+1497.63
+premium arrival
+1465.18
+normal arrival
+1505.21
+premium arrival
+1505.23
+premium arrival
+1447.25
+premium arrival
+1453.36
+premium arrival
+1472.29
+premium arrival
+1521.59
+premium arrival
+1507.80
+premium arrival
+1476.62
+premium arrival
+1520.53
+premium arrival
+1449.51
+premium arrival
+1515.30
+premium arrival
+1509.85
+premium arrival
+1451.71
+normal arrival
+1527.88
+normal arrival
+1491.59
+digest arrival
+inter =   0.03
+1965.86
+digest arrival
+inter =   0.62
+1965.89
+digest arrival
+inter =   0.28
+1966.51
+digest arrival
+inter =   0.24
+1966.79
+digest arrival
+inter =   0.33
+1967.02
+digest arrival
+inter =   0.27
+1967.35
+digest arrival
+inter =   0.71
+1967.62
+digest arrival
+inter =   0.09
+1968.33
+digest arrival
+inter =   1.39
+1968.42
+digest arrival
+inter =   1.36
+1969.81
+digest arrival
+inter =   1.44
+1971.17
+digest arrival
+inter =   0.01
+1972.61
+digest arrival
+inter =   0.01
+1972.62
+digest arrival
+inter =   2.28
+1972.63
+digest arrival
+inter =   0.44
+1974.91
+digest arrival
+inter =   0.43
+1975.35
+digest arrival
+inter =   0.41
+1975.78
+digest arrival
+inter =   0.48
+1976.19
+digest arrival
+inter =   0.38
+1976.67
+digest arrival
+inter =   1.72
+1977.05
+digest arrival
+inter =   1.84
+1978.77
+digest arrival
+inter =   0.86
+1980.61
+digest arrival
+inter =   1.31
+1981.47
+digest arrival
+inter =   1.18
+1982.78
+digest arrival
+inter =   0.70
+1983.96
+digest arrival
+inter =   0.09
+1984.65
+digest arrival
+inter =   0.67
+1984.75
+digest arrival
+inter =   2.25
+1985.41
+digest arrival
+inter =   0.12
+1987.67
+digest arrival
+inter =   2.01
+1987.79
+digest arrival
+inter =   1.11
+1989.79
+digest arrival
+inter =   0.02
+1990.90
+digest arrival
+inter =   0.11
+1990.92
+digest arrival
+inter =   0.34
+1991.04
+digest arrival
+inter =   0.46
+1991.38
+digest arrival
+inter =   1.76
+1991.84
+digest arrival
+inter =   0.15
+1993.61
+digest arrival
+inter =   2.88
+1993.75
+digest arrival
+inter =   1.15
+1996.63
+digest arrival
+inter =   4.18
+1997.78
+reliable term
+Before new arrival 
+2000.50
+normal term
+1738.61
+reliable arrival
+1738.61
+digest arrival
+inter =   1.64
+2001.97
+digest arrival
+inter =   0.43
+2003.61
+digest arrival
+inter =   0.74
+2004.04
+digest arrival
+inter =   0.25
+2004.77
+digest arrival
+inter =   0.24
+2005.03
+digest arrival
+inter =   0.09
+2005.27
+digest arrival
+inter =   0.64
+2005.36
+digest arrival
+inter =   1.48
+2006.00
+digest arrival
+inter =   2.65
+2007.48
+digest arrival
+inter =   2.52
+2010.13
+digest arrival
+inter =   1.31
+2012.66
+digest arrival
+inter =   0.52
+2013.97
+digest arrival
+inter =   0.95
+2014.49
+digest arrival
+inter =   0.47
+2015.43
+digest arrival
+inter =   0.36
+2015.90
+digest arrival
+inter =   0.79
+2016.27
+digest arrival
+inter =   0.03
+2017.06
+digest arrival
+inter =   0.59
+2017.08
+digest arrival
+inter =   1.30
+2017.67
+digest arrival
+inter =   1.03
+2018.97
+digest arrival
+inter =   0.59
+2020.00
+digest arrival
+inter =   0.81
+2020.59
+digest arrival
+inter =   0.29
+2021.40
+digest arrival
+inter =   0.61
+2021.69
+digest arrival
+inter =   0.56
+2022.30
+digest arrival
+inter =   1.23
+2022.86
+digest arrival
+inter =   0.06
+2024.09
+digest arrival
+inter =   1.71
+2024.15
+digest arrival
+inter =   0.04
+2025.86
+digest arrival
+inter =   2.96
+2025.91
+digest arrival
+inter =   0.83
+2028.86
+digest arrival
+inter =   0.12
+2029.69
+digest arrival
+inter =   2.55
+2029.81
+digest arrival
+inter =   0.68
+2032.36
+digest arrival
+inter =   1.09
+2033.04
+digest arrival
+inter =   0.58
+2034.12
+digest arrival
+inter =   1.12
+2034.71
+digest arrival
+inter =   0.73
+2035.83
+digest arrival
+inter =   0.58
+2036.57
+digest arrival
+inter =   0.46
+2037.15
+digest arrival
+inter =   2.98
+2037.61
+digest arrival
+inter =   0.03
+2040.58
+digest arrival
+inter =   0.33
+2040.61
+digest arrival
+inter =   1.16
+2040.94
+digest arrival
+inter =   0.12
+2042.10
+digest arrival
+inter =   0.01
+2042.22
+digest arrival
+inter =   1.10
+2042.23
+digest arrival
+inter =   0.07
+2043.33
+digest arrival
+inter =   1.47
+2043.39
+digest arrival
+inter =   0.10
+2044.87
+digest arrival
+inter =   0.20
+2044.97
+digest arrival
+inter =   0.13
+2045.17
+digest arrival
+inter =   4.66
+2045.29
+digest arrival
+inter =   0.03
+2049.95
+digest arrival
+inter =   1.68
+2049.99
+digest arrival
+inter =   4.23
+2051.67
+digest arrival
+inter =   2.36
+2055.90
+digest arrival
+inter =   0.31
+2058.26
+digest arrival
+inter =   0.35
+2058.57
+digest arrival
+inter =   0.42
+2058.93
+digest arrival
+inter =   0.13
+2059.34
+digest arrival
+inter =   1.10
+2059.47
+digest arrival
+inter =   0.67
+2060.57
+digest arrival
+inter =   0.22
+2061.24
+digest arrival
+inter =   4.34
+2061.46
+digest arrival
+inter =   0.32
+2065.80
+digest arrival
+inter =   0.07
+2066.12
+digest arrival
+inter =   0.89
+2066.19
+digest arrival
+inter =   1.48
+2067.08
+digest arrival
+inter =   0.22
+2068.56
+digest arrival
+inter =   0.20
+2068.79
+digest a

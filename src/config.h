@@ -1,3 +1,5 @@
+#ifndef __config_h__
+    #define __config_h__
 #define PREMIUM_MEAN_SERVICE_TIME 60 //60 sec; this value is used also as mean service time for reliable analysis multi server queue node
 #define NORMAL_MEAN_SERVICE_TIME 120 //120 sec
 #define DIGEST_MEAN_SERVICE_TIME 0.6 // 0.6 sec
@@ -9,7 +11,8 @@
 #define N_NORMAL 84 // number of servers in normal user multi server queue node
 #define N_PREMIUM 60 // number of servers in premium user multi server queue node
 #define N_RELIABLE 12 // number of servers in realiable analysis multi server queue node
-#define TIMEOUT 180 // 180 sec
-#define TIMEOUT_RELIABLE 360 // 360 sec
+#define TIMEOUT 120 // 180 sec
+#define TIMEOUT_RELIABLE 240// 360 sec
 #define PROBABILITY_PREMIUM 0.6
 #define PROBABILITY_MALWARE 0.86
+#endif
