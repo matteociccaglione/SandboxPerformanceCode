@@ -24,6 +24,7 @@ typedef struct __digestCenter{
     int digestMatching; // number of jobs whose digest matches with digest of already analyzed jobs
     double lastEventTime;
     double probabilityOfMatching;
+    double interarrivalTime;
     job_queue *queue;
 }digestCenter;
 
@@ -37,6 +38,8 @@ typedef struct __normalAnalysisCenter
     int index; // number of completely processed jobs
     int numberOfTimeouts; // number of jobs terminated with expiration of timeout
     double lastEventTime;
+    double interarrivalTime;
+    double lastArrivalTime;
     job_queue *queue;
 }normalAnalysisCenter;
 
@@ -50,6 +53,8 @@ typedef struct __premiumAnalysisCenter
     int index; // number of completely processed jobs
     int numberOfTimeouts; // number of jobs terminated with expiration of timeout
     double lastEventTime;
+    double interarrivalTime;
+    double lastArrivalTime;
     job_queue *queue;
 }premiumAnalysisCenter;
 
@@ -66,8 +71,15 @@ typedef struct __reliableAnalysisCenter
     int premiumIndex; // number of completely processed premium jobs
     int numberOfTimeouts; // number of jobs terminated with expiration of timeout
     double service_time_premium[N_RELIABLE];
+    double service_time_normal[N_RELIABLE];
+    double areaNormal;
+    double lastEventTimeNormal;
+    int normalJobs;
+    int normalIndex;
     double lastEventTime;
     double lastEventTimePremium;
+    double interarrivalTime;
+    double lastArrivalTime;
     job_queue *queueNormal;
     job_queue *queuePremium;
 }reliableAnalysisCenter;
