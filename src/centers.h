@@ -100,6 +100,7 @@ typedef struct __reliableAnalysisCenter
     double lastEventTimePremium;
     double interarrivalTime;
     double lastArrivalTime;
+    int jobAnalyzed;
     job_queue *queueNormal;
     job_queue *queuePremium;
 }reliableAnalysisCenter;

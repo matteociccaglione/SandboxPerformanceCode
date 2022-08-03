@@ -13,7 +13,7 @@
 #define N_PREMIUM 90// number of servers in premium user multi server queue node
 #define N_RELIABLE 45 // number of servers in realiable analysis multi server queue node
 #define TIMEOUT 300  // 120 sec
-#define TIMEOUT_RELIABLE 1050 // 240 sec (2 times normal timeout)
+#define TIMEOUT_RELIABLE 500 // 240 sec (2 times normal timeout)
 #define PROBABILITY_PREMIUM 0.70
 #define PROBABILITY_MALWARE 0.86
 #endif
