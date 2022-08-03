@@ -180,7 +180,7 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
 
 Job **jobs;
 int N = 0;
-int main()
+int oneTimeSimulation()
 {
     event_list events;
     digestCenter digestCenter;
@@ -499,6 +499,17 @@ int main()
 
     printf("Verify:\n");
     verify(&digestCenter,&normalAnalysisCenter,&premiumAnalysisCenter,&reliableAnalysisCenter);
+}
+
+int main(){
+    if (FINITE_HORIZON){
+        for (int i = 0; i < ITERATIONS; i++)
+        {
+            /* code */
+        }
+        
+    }
+    
 }
 
 void handleDigestArrival( digestCenter *digestCenter, event_list *ev)

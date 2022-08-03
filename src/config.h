@@ -1,6 +1,8 @@
 #ifndef __config_h__
     #define __config_h__
-#define SEED 987654321
+#define FINITE_HORIZON 0
+#define ITERATIONS 128
+#define INFINITE_HORIZON 0
 #define PREMIUM_MEAN_SERVICE_TIME 120 //60 sec; this value is used also as mean service time for reliable analysis multi server queue node
 #define NORMAL_MEAN_SERVICE_TIME 150 //120 sec
 #define DIGEST_MEAN_SERVICE_TIME 0.6 // 0.6 sec
