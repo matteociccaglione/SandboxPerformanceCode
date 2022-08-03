@@ -16,6 +16,8 @@ typedef struct __job{
     UserType userType; // Job submitted by a premium user or a normal one
     JobType type; // Job type: malware, benign
     double serviceTime; // Service time 
+    double arrivalTime; // Time in which the job arrives to the center
+    int jobNumber;
 }Job;
 
 typedef struct __job_queue{
