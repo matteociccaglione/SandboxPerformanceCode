@@ -1,6 +1,6 @@
 #ifndef __config_h__
     #define __config_h__
-#define FINITE_HORIZON 0
+#define FINITE_HORIZON 1
 #define ITERATIONS 128
 #define INFINITE_HORIZON 0
 #define PREMIUM_MEAN_SERVICE_TIME 120 //60 sec; this value is used also as mean service time for reliable analysis multi server queue node

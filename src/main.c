@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include "stats.h"
 
 typedef struct __event_list
 {
@@ -180,8 +181,9 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
 
 Job **jobs;
 int N = 0;
-int oneTimeSimulation()
+stats oneTimeSimulation(int runNumber, char *filename)
 {
+    simulationTime=START;
     event_list events;
     digestCenter digestCenter;
     normalAnalysisCenter normalAnalysisCenter;
@@ -268,7 +270,7 @@ int oneTimeSimulation()
 
     events.arrivals = NULL;
     events.terminations = NULL;
-    PlantSeeds(123456789);
+    PlantSeeds(12345678+runNumber);
     insertList(&events, getArrival(), 0);
     int premiumArrival = 0;
     int normalArrival = 0;
@@ -372,35 +374,48 @@ int oneTimeSimulation()
             }
         }
     }
+    stats statistics;
+    statistics.realSimulationTime=simulationTime;
+    statistics.numJobs = digestCenter.index;
+    statistics.numNormalJobs = digestCenter.index - digestCenter.indexPremium;
+    statistics.numPremiumJobs = digestCenter.indexPremium;
 
-    printf("Arrival : %d Normal arrival : %d Premium arrival : %d\n",arrival,normalArrival,premiumArrival);
-    printf("Premium termination : %d normal termination: %d\n",premiumTermination,normalTermination);
     // print out stats
-    printf("Real simulation time: %6.2f\n\n", simulationTime);
-
+    FILE* file = fopen(filename,"a+");
+    fprintf(file,"%d,",runNumber);
+    //printf("Real simulation time: %6.2f\n\n", simulationTime);
     // Digest center
     double digestResponseTime = digestCenter.area / digestCenter.index;
+    /*
     printf("Area: %6.2f\n",digestCenter.area);
     printf("Area is negativa: %d\n",digestCenter.area<0.0);
     printf("\nCenter 1 : Digest center\n");
     printf("Number of processed jobs : %d\n", digestCenter.index);
     printf("Mean number of jobs in the center: %6.2f\n", digestCenter.area / simulationTime);
     printf("Average response time : %6.2f\n", digestResponseTime);
-    double digestRo = (digestCenter.service_time/digestCenter.index)/(digestCenter.interarrivalTime/digestCenter.index);
-    printf("Utilization : %6.2f\n",digestRo);
+    */
+    double digestRo = (digestCenter.serviceArea/digestCenter.index)/(digestCenter.interarrivalTime/digestCenter.index);
+    //printf("Utilization : %6.2f\n",digestRo);
 
     double delayArea = digestCenter.queueArea;
-    printf("Average wait time : %6.2f\n", delayArea / digestCenter.index);
-    printf("Job with a matching digest: %d (percentage : %6.2f)\n",
-     digestCenter.digestMatching, (double)digestCenter.digestMatching / digestCenter.index);
-
+    //printf("Average wait time : %6.2f\n", delayArea / digestCenter.index);
+    //printf("Job with a matching digest: %d (percentage : %6.2f)\n",
+     //digestCenter.digestMatching, (double)digestCenter.digestMatching / digestCenter.index);
+    statistics.numDigestMatching=digestCenter.digestMatching;
+    statistics.responseTime[0]=digestResponseTime;
+    statistics.waitTime[0] = delayArea/digestCenter.index;
+    statistics.serviceTime[0] = digestCenter.serviceArea/digestCenter.index;
+    statistics.interarrivalTime[0] = digestCenter.interarrivalTime/digestCenter.index;
+    statistics.avgNumberOFJobs[0] = digestCenter.index/simulationTime;
+    
     // Normal analysis center
     double normalResponseTime = normalAnalysisCenter.area / normalAnalysisCenter.index;
+    /*
     printf("\nCenter 2 : Normal analysis center\n");
     printf("Number of processed jobs : %d\n", normalAnalysisCenter.index);
     printf("Mean number of jobs in the center: %6.2f\n", normalAnalysisCenter.area / simulationTime);
     printf("Average response time : %6.6f\n", normalResponseTime);
-
+*/
     delayArea = normalAnalysisCenter.area-normalAnalysisCenter.serviceArea;
 /*
     for (int i = 0; i < N_NORMAL; i++)
@@ -433,6 +448,7 @@ int oneTimeSimulation()
     }
     meanServiceTime = meanServiceTime/servers_used;
     double rho =  meanServiceTime/((normalAnalysisCenter.interarrivalTime*N_NORMAL)/normalAnalysisCenter.index);
+    /*
     printf("Mean service time with area: %6.6f\n",normalAnalysisCenter.serviceArea/normalAnalysisCenter.index);
     printf("Utilization : %6.2f\n", rho);
     printf("Average service time : %6.6f\n", meanServiceTime);
@@ -443,24 +459,41 @@ int oneTimeSimulation()
      normalAnalysisCenter.numberOfTimeouts, (double)normalAnalysisCenter.numberOfTimeouts / normalAnalysisCenter.index);
     printf("Tempo di risposta medio corretto = %6.6f\n Tempo di attesa medio corretto = %6.6f\n",normalAnalysisCenter.meanResponseTime/normalAnalysisCenter.index,normalAnalysisCenter.meanQueueTime/normalAnalysisCenter.index);
         printf("Verificato = %6.6f = %6.20f+%6.6f = %d\n",normalAnalysisCenter.meanResponseTime/normalAnalysisCenter.index,normalAnalysisCenter.meanQueueTime/normalAnalysisCenter.index,meanServiceTime,normalAnalysisCenter.meanQueueTime/normalAnalysisCenter.index+meanServiceTime == normalAnalysisCenter.meanResponseTime/normalAnalysisCenter.index);
+    */
+   statistics.responseTime[1]=normalResponseTime;
+    statistics.waitTime[1] = delayArea/normalAnalysisCenter.index;
+    statistics.serviceTime[1] = normalAnalysisCenter.serviceArea/normalAnalysisCenter.index;
+    statistics.interarrivalTime[1] = normalAnalysisCenter.interarrivalTime/normalAnalysisCenter.index;
+    statistics.avgNumberOFJobs[1] = normalAnalysisCenter.index/simulationTime;
+    statistics.numOfTimeouts[0] = normalAnalysisCenter.numberOfTimeouts;
     // Premium analysis center
     double premiumResponseTime = premiumAnalysisCenter.area / premiumAnalysisCenter.index;
+    /*
     printf("\nCenter 3 : Premium analysis center\n");
     printf("Number of processed jobs : %d\n", premiumAnalysisCenter.index);
     printf("Mean number of jobs in the center: %6.2f\n", premiumAnalysisCenter.area / simulationTime);
     printf("Average response time : %6.2f\n", premiumResponseTime);
+    */
     delayArea = premiumAnalysisCenter.queueArea;
     meanServiceTime=premiumAnalysisCenter.serviceArea;
     double premiumRho = meanServiceTime/(premiumAnalysisCenter.interarrivalTime*N_PREMIUM);
+    /*
     printf("Utilization : %6.2f\n",premiumRho);
     printf("Average service time: %6.6f\n", meanServiceTime/premiumAnalysisCenter.index);
     printf("Average wait time : %6.2f\n", delayArea / premiumAnalysisCenter.index);
     printf("Number of termination due to timeout expiration: %d (percentage : %6.6f)\n",
      premiumAnalysisCenter.numberOfTimeouts, (double)premiumAnalysisCenter.numberOfTimeouts / premiumAnalysisCenter.index);
-
+     */
+    statistics.responseTime[2]=premiumResponseTime;
+    statistics.waitTime[2] = delayArea/premiumAnalysisCenter.index;
+    statistics.serviceTime[2] = premiumAnalysisCenter.serviceArea/premiumAnalysisCenter.index;
+    statistics.interarrivalTime[2] = premiumAnalysisCenter.interarrivalTime/premiumAnalysisCenter.index;
+    statistics.avgNumberOFJobs[2] = premiumAnalysisCenter.index/simulationTime;
+    statistics.numOfTimeouts[1] = premiumAnalysisCenter.numberOfTimeouts;
     // Reliable analysis center
     double reliableResponseTime = reliableAnalysisCenter.area / reliableAnalysisCenter.index;
     double reliablePremiumresponseTime = reliableAnalysisCenter.areaPremium / reliableAnalysisCenter.premiumIndex;
+    /*
     printf("\nCenter 4 : Reliable analysis center\n");
     printf("Number of processed jobs : %d\n", reliableAnalysisCenter.index);
     printf("Mean number of jobs in the center: %6.2f\n", reliableAnalysisCenter.area / simulationTime);
@@ -468,6 +501,7 @@ int oneTimeSimulation()
     printf("Average PREMIUM class response time : %6.2f\n", reliablePremiumresponseTime);
     printf("Average response time : %6.2f\n", reliableResponseTime);
     printf("Average NORMAL response time: %6.2f\n",reliableAnalysisCenter.areaNormal/reliableAnalysisCenter.normalIndex);
+    */
     delayArea = reliableAnalysisCenter.queueArea;
     double delayAreaPremium = reliableAnalysisCenter.queueAreaPremium;
     double delayAreaNormal = reliableAnalysisCenter.queueAreaNormal;
@@ -476,6 +510,7 @@ int oneTimeSimulation()
 
 
     double reliableRho = meanServiceTime/(reliableAnalysisCenter.interarrivalTime*N_RELIABLE);
+    /*
     printf("Mean service time: %6.6f\n",meanServiceTime/reliableAnalysisCenter.index);
     printf("Utilization: %6.2f\n",reliableRho);
     printf("Average PREMIUM class wait time : %6.2f\n", delayAreaPremium / reliableAnalysisCenter.premiumIndex);
@@ -483,34 +518,77 @@ int oneTimeSimulation()
     printf("Average wait time : %6.2f\n", delayArea / reliableAnalysisCenter.index);
     printf("Number of termination due to timeout expiration: %d (percentage : %6.6f)\n",
      reliableAnalysisCenter.numberOfTimeouts, (double)reliableAnalysisCenter.numberOfTimeouts / reliableAnalysisCenter.index);
-
+     */
+    statistics.responseTime[3]=reliableResponseTime;
+    statistics.waitTime[3] = delayArea/reliableAnalysisCenter.index;
+    statistics.serviceTime[3] = reliableAnalysisCenter.serviceArea/reliableAnalysisCenter.index;
+    statistics.interarrivalTime[3] = reliableAnalysisCenter.interarrivalTime/reliableAnalysisCenter.index;
+    statistics.avgNumberOFJobs[3] = reliableAnalysisCenter.index/simulationTime;
+    statistics.numOfTimeouts[2] = reliableAnalysisCenter.numberOfTimeouts;
     // Global performances
-    printf("\nGlobal performances\n");
+    //printf("\nGlobal performances\n");
     double globalWaitTime = (digestCenter.queueArea + normalAnalysisCenter.queueArea + premiumAnalysisCenter.queueArea + reliableAnalysisCenter.queueArea)/digestCenter.index;
     double globalPremiumWaitTime = (digestCenter.queueArea + premiumAnalysisCenter.queueArea + reliableAnalysisCenter.queueAreaPremium) / digestCenter.indexPremium;
     double globalNormalWaitTime = (digestCenter.queueArea +normalAnalysisCenter.queueArea+reliableAnalysisCenter.queueAreaNormal)/(digestCenter.index-digestCenter.indexPremium);
     double globalResponseTime = (digestCenter.area + normalAnalysisCenter.area + premiumAnalysisCenter.area + reliableAnalysisCenter.area) / digestCenter.index;
     double globalPremiumResponseTime = (digestCenter.area  + premiumAnalysisCenter.area + reliableAnalysisCenter.areaPremium) / digestCenter.indexPremium;
     double globalNormalResponseTime = (digestCenter.area +normalAnalysisCenter.area+reliableAnalysisCenter.areaNormal)/(digestCenter.index-digestCenter.indexPremium);
-    printf("Global waiting time : %6.6f\nGlobal premium waiting time : %6.6f\nGlobal normal waiting time : %6.6f\n",globalWaitTime,globalPremiumWaitTime,globalNormalWaitTime);
-    printf("Global response time : %6.6f\nGlobal premium response time : %6.6f\nGlobal normal response time : %6.6f\n",globalResponseTime,globalPremiumResponseTime,globalNormalResponseTime);
+    //printf("Global waiting time : %6.6f\nGlobal premium waiting time : %6.6f\nGlobal normal waiting time : %6.6f\n",globalWaitTime,globalPremiumWaitTime,globalNormalWaitTime);
+    //printf("Global response time : %6.6f\nGlobal premium response time : %6.6f\nGlobal normal response time : %6.6f\n",globalResponseTime,globalPremiumResponseTime,globalNormalResponseTime);
     double percentageFailure = (double) reliableAnalysisCenter.numberOfTimeouts / digestCenter.index;
-    printf("Global failure percentage : %6.6f\n", percentageFailure);
+    //printf("Global failure percentage : %6.6f\n", percentageFailure);
 
-    printf("Verify:\n");
-    verify(&digestCenter,&normalAnalysisCenter,&premiumAnalysisCenter,&reliableAnalysisCenter);
+    //printf("Verify:\n");
+    //verify(&digestCenter,&normalAnalysisCenter,&premiumAnalysisCenter,&reliableAnalysisCenter);
+    fprintf(file,"%d,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f\n",statistics.numDigestMatching,
+    statistics.serviceTime[0],
+    statistics.serviceTime[1],
+    statistics.serviceTime[2],
+    statistics.serviceTime[3],
+    statistics.responseTime[0],
+    statistics.responseTime[1],
+    statistics.responseTime[2],
+    statistics.responseTime[3],
+    statistics.waitTime[0],
+    statistics.waitTime[1],
+    statistics.waitTime[2],
+    statistics.waitTime[3],
+    statistics.interarrivalTime[0],
+    statistics.interarrivalTime[1],
+    statistics.interarrivalTime[2],
+    statistics.interarrivalTime[3],
+    statistics.avgNumberOFJobs[0],
+    statistics.avgNumberOFJobs[1],
+    statistics.avgNumberOFJobs[2],
+    statistics.avgNumberOFJobs[3],
+    statistics.numOfTimeouts[0],
+    statistics.numOfTimeouts[1],
+    statistics.numOfTimeouts[2]);
+    fclose(file);
+    return statistics;
 }
 
 int main(){
+    stats *head = NULL;
+    printf("%p %p\n",&head,*&head);
+    FILE* f = fopen("simulation_stats.csv","w+");
+    stats statistics[ITERATIONS];
+    fprintf(f,"#RUN,Digest Matching, Service time Digest, Service time Normal, Service time Premium, Service time Reliable,Response time Digest, Response time Normal, Response time Premium, Response time Reliable, Wait time Digest, Wait time Normal, Wait time Premium, Wait time Reliable,Interarrival time Digest, Interarrival time Normal, Interarrival time Premium, Interarrival time Reliable, Avg num of jobs Digest, Avg num of jobs Normal, Avg num of jobs Premium, Avg num of jobs Reliable, Num of timeouts Normal, Num of timeouts Premium, Num of timeouts Reliable\n");
+    fclose(f);
     if (FINITE_HORIZON){
         for (int i = 0; i < ITERATIONS; i++)
         {
-            /* code */
+            statistics[i] = oneTimeSimulation(i,"simulation_stats.csv");
+            printf("Before insert list %d\n",i);
+            insertListStats(&head,statistics+i);
+            printf("Post insert list\n");
         }
         
     }
     
 }
+
+
 
 void handleDigestArrival( digestCenter *digestCenter, event_list *ev)
 {
