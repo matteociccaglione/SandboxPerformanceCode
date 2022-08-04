@@ -14,32 +14,22 @@ typedef struct __stats{
     double avgNumberOFJobs[4]; // E(N), average number of jobs in the four centers
     double interarrivalTime[4]; // 1/lambda for the 4 centers
     double serviceTime[4]; // avg service time in the four centers
-    struct __stats *next; // pointer to the next struct in the list
-
     double numOfTimeouts[3]; // Num of timeouts in the last 3 centers
 
 }stats;
 
-void insertListStats(stats** head, stats *s){
-    stats* temp = *head;
-    stats* tail = NULL;
+typedef struct __avgStats{
+    double numJobs;         // average number of processed jobs through runs
+    double numNormalJobs;   // average number of processed jobs submitted by Normal users
+    double numPremiumJobs;  // average number of processed jobs submitted by Premium users
 
-    printf("%p\n",temp);
-    while(temp!=NULL){
-        tail=temp;
+    double responseTime[4]; // avg response time in the four centers
+    double waitTime[4]; // avg wait time in the four centers
+    double numDigestMatching; // number of jobs whose digest has matched
+    double avgNumberOFJobs[4]; // E(N), average number of jobs in the four centers
+    double interarrivalTime[4]; // 1/lambda for the 4 centers
+    double serviceTime[4]; // avg service time in the four centers
+    double numOfTimeouts[3]; // Num of timeouts in the last 3 centers
+}avgStats;
 
-        temp=temp->next;
-
-    }
-
-    if(tail==NULL){
-        *head = s;
-
-        s->next=NULL;
-    }
-    else{
-        tail->next = s;
-        s->next = NULL;
-    }
-}
 #endif

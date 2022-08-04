@@ -1,13 +1,11 @@
 #include "events_queue.h"
-//#include "job.h"
-//#include "config.h"
-//#include "centers.h"
 #include "../lib/rngs.h"
 #include "../lib/rvgs.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include "stats.h"
+#include "../lib/rvms.h"
 
 typedef struct __event_list
 {
@@ -24,29 +22,43 @@ typedef struct __event_list
 #define MEAN_SERVICE_TIME_PREMIUM_STREAM 5
 #define MEAN_SERVICE_TIME_NORMAL_STREAM 6
 double simulationTime = START;
+
+/**
+ * @brief This function is used to generate an arrival to the entire system:
+    the arrival is only received by the first center (digest calculation), since the
+    arrivals to the other centers are some of the terminations of other centers.
+ * 
+ * @return arrival* A pointer to an arrival event struct
+ */
 arrival *getArrival()
 {
-    /*
-    This function is used to generate an arrival to the entire system:
-    The arrival is only received by the first center (digest calculation)
-    */
     arrival *event = malloc(sizeof(arrival));
     SelectStream(MEAN_INTERARRIVAL_STREAM);
-    double inter = Exponential(MEAN_INTERARRIVAL_TIME);
+    double inter = Exponential(MEAN_INTERARRIVAL_TIME);             // generate interarrival time
     
-    event->time = inter + simulationTime;
-    event->center = CENTER_DIGEST;
+    event->time = inter + simulationTime;                           // time of the arrival = simulation time + interarrival time
+    event->center = CENTER_DIGEST;                                  // the arrival can only be to the digest calculation center
     SelectStream(USER_PROBABILITY_STREAM);
-    event->job.userType = Bernoulli(PROBABILITY_PREMIUM);
+    event->job.userType = Bernoulli(PROBABILITY_PREMIUM);           // generate randomly if the job is from a Premium or Normal user
     SelectStream(MALWARE_PROBABILITY_STREAM);
-    event->job.type = Bernoulli(PROBABILITY_MALWARE);
+    event->job.type = Bernoulli(PROBABILITY_MALWARE);               // generate randomly if the job is a malware or not
     SelectStream(DIGEST_SERVICE_TIME_STREAM);
-    event->job.serviceTime = Exponential(DIGEST_MEAN_SERVICE_TIME);
+    event->job.serviceTime = Exponential(DIGEST_MEAN_SERVICE_TIME); // generate the service time for the digest calculation
     return event;
 }
 
+/**
+ * @brief This function is used to add a new event (arrival or termination)
+ * to the event list of the simulation. There are two separate lists, one for the arrivals
+ * and one for the terminations, ordered by time of the event.
+ * 
+ * @param ev Pointer to the event list struct
+ * @param node Pointer to an arrival event or to a termination event struct
+ * @param type 0 for arrivals, 1 for terminations
+ */
 void insertList(event_list *ev, void *node, int type)
 {
+    // arrivals
     if (type == 0)
     {
         arrival *ar = (arrival *)node;
@@ -86,8 +98,8 @@ void insertList(event_list *ev, void *node, int type)
             ar->next = NULL;
         }
     }
-    else
-    {
+    // terminations
+    else{
         termination *ar = (termination *)node;
         termination *head = ev->terminations;
         termination *prev = NULL;
@@ -127,12 +139,26 @@ void insertList(event_list *ev, void *node, int type)
     }
 }
 
+/**
+ * @brief This function returns the minimum value between two doubles.
+ * 
+ * @param val1 First number
+ * @param val2 Second number
+ * @return double The minimum between the two parameters
+ */
 double min(double val1, double val2){
     if(val1<val2)
         return val1;
     return val2;
 }
 
+/**
+ * @brief This function is used to find the free server in a center to which assign a new job.
+ * The chosen policy is "IN ORDER" (Lowest numbered idle server).
+ * @param servers pointer to an array of servers' status (busy = 1, idle = 0)
+ * @param n size of the array
+ * @return int The index of the chosen server in the array 
+ */
 int findFreeServer(int *servers, int n)
 {
     int i = 0;
@@ -146,22 +172,43 @@ int findFreeServer(int *servers, int n)
     return -1;
 }
 
+/**
+ * @brief This function is used to determine if the next event to be processed during the simulation
+ * is an arrival or a termination event. The return value is used to distinguish from which of the two
+ * queues of events the event should be extracted (the event extracted is always the head of the list,
+ * so the event with lowest happening time).
+ * 
+ * If the arrival event and the termination event have the same happening time, the termination event is preferred
+ * as the next event.  
+ * 
+ * @param ev The event_list struct containing the lists of arrivals and terminations
+ * @return int 0 if arrival, 1 if termination
+ */
 int nextEvent(event_list ev)
 {
-    if (ev.terminations == NULL && ev.arrivals!=NULL)
-    {
+    if (ev.terminations == NULL && ev.arrivals!=NULL){
+        // return arrival
         return 0;
     }
     if(ev.arrivals==NULL && ev.terminations!=NULL){
+        //return termination
         return 1;
     }
-    if (ev.arrivals->time < ev.terminations->time)
-    {
+    if (ev.arrivals->time < ev.terminations->time){
+        // return arrival
         return 0;
     }
+    // return termination
     return 1;
 }
 
+/**
+ * @brief This function is used to determine if the list of the events is empty,
+ * in order to stop the simulation run.
+ * 
+ * @param ev The event_list struct containing the events
+ * @return int 0 if there are still events to be processed; 1 otherwise (if the lists are empty)
+ */
 int isEmptyList(event_list ev)
 {
     if (ev.arrivals == NULL && ev.terminations == NULL)
@@ -169,6 +216,7 @@ int isEmptyList(event_list ev)
     return 0;
 }
 
+// Definition of functions to handle the events to the four centers of the system
 void handleDigestArrival(digestCenter *digestCenter, event_list *ev);
 void handleNormalArrival(normalAnalysisCenter *center, event_list *ev);
 void handlePremiumArrival(premiumAnalysisCenter *center, event_list *ev);
@@ -179,16 +227,23 @@ void handlePremiumTermination(premiumAnalysisCenter *center, event_list *ev, dig
 void handleReliableTermination(reliableAnalysisCenter *center, event_list *ev, digestCenter *digestCenter);
 void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, premiumAnalysisCenter *premiumCenter, reliableAnalysisCenter *reliableCenter);
 
-Job **jobs;
-int N = 0;
-stats oneTimeSimulation(int runNumber, char *filename)
-{
-    simulationTime=START;
-    event_list events;
-    digestCenter digestCenter;
-    normalAnalysisCenter normalAnalysisCenter;
-    premiumAnalysisCenter premiumAnalysisCenter;
-    reliableAnalysisCenter reliableAnalysisCenter;
+/**
+ * @brief This function is used to do a single simulation run of the system.
+ * 
+ * @param runNumber The progressive ID of the simulation run
+ * @param filename Filename of the file where to save statistics
+ * @return stats Returns a struct containing recovered statistics through the simulation run
+ */
+stats oneTimeSimulation(int runNumber, char *filename){
+
+    // Initial setup
+    simulationTime=START;                                                   // set the initial value of the simulation clock
+    event_list events;                                                      // struct that contains the event lists of the simulation
+    digestCenter digestCenter;                                              // struct containing info on the Digest Center during the simulation
+    normalAnalysisCenter normalAnalysisCenter;                              // struct containing info on the Normal Analysis Center during the simulation
+    premiumAnalysisCenter premiumAnalysisCenter;                            // struct containing info on the Premium Analysis Center during the simulation
+    reliableAnalysisCenter reliableAnalysisCenter;                          // struct containing info on the Reliable Analysis Center during the simulation
+
     // Digest center initialization
     digestCenter.area = 0.0;
     digestCenter.queueArea = 0.0;
@@ -268,58 +323,51 @@ stats oneTimeSimulation(int runNumber, char *filename)
     reliableAnalysisCenter.serviceAreaPremium=0.0;
     reliableAnalysisCenter.jobAnalyzed=0;
 
-    events.arrivals = NULL;
-    events.terminations = NULL;
-    PlantSeeds(12345678+runNumber);
-    insertList(&events, getArrival(), 0);
-    int premiumArrival = 0;
-    int normalArrival = 0;
-    int arrival = 0;
-    int premiumTermination = 0;
-    int normalTermination = 0;
-    jobs = malloc(sizeof(Job*)*28700);
-    while (simulationTime < OBSERVATION_PERIOD || !(isEmptyList(events)))
-    {
-        if(simulationTime>=OBSERVATION_PERIOD)
-            printf("SIMULAZIONE FINITA\n");
-        if (nextEvent(events) == 0)
-        {
-            switch (events.arrivals->center)
-            {
+    // Initialize event lists
+    events.arrivals = NULL;                                                 // list of arrivals
+    events.terminations = NULL;                                             // list of terminations
+    PlantSeeds(123456789+runNumber);                                         // seeds for RNGS
+    insertList(&events, getArrival(), 0);                                   // generate the first arrival and put it in the list of events
+    
+    // Run the simulation until the simulation time is greater or equal of the defined observation period.
+    // If so, continue the simulation until the lists of events are completely processed and become empty
+    while (simulationTime < OBSERVATION_PERIOD || !(isEmptyList(events))){
+
+        // next event is an arrival
+        if (nextEvent(events) == 0){
+            // distinguish the center that has to process the arrival event 
+            switch (events.arrivals->center){
+                // Before calling the appropriate function to handle the event, update areas used to calculate statistics
+                // Areas to be updated : time-integrated number of jobs in center, time-integrated number of jobs in queue, time-integrated number of jobs in service
             case CENTER_DIGEST:
-                printf("digest arrival\n");
                 digestCenter.area+=(events.arrivals->time-digestCenter.lastEventTime)*digestCenter.jobs;
                 digestCenter.serviceArea+=(events.arrivals->time-digestCenter.lastEventTime)*(digestCenter.jobs-digestCenter.jobsInQueue);
                 digestCenter.queueArea+=(events.arrivals->time-digestCenter.lastEventTime)*digestCenter.jobsInQueue;
-                arrival++;
                 handleDigestArrival(&digestCenter, &events);
                 break;
             case CENTER_NORMAL:
-                printf("normal arrival\n");
                 normalAnalysisCenter.area+=(events.arrivals->time-normalAnalysisCenter.lastEventTime)*normalAnalysisCenter.jobs;
                 normalAnalysisCenter.serviceArea+=(events.arrivals->time-normalAnalysisCenter.lastEventTime)*(normalAnalysisCenter.jobs-normalAnalysisCenter.jobsInQueue);
                 normalAnalysisCenter.queueArea+=(events.arrivals->time-normalAnalysisCenter.lastEventTime)*normalAnalysisCenter.jobsInQueue;
-                normalArrival++;
                 handleNormalArrival(&normalAnalysisCenter, &events);
                 break;
             case CENTER_PREMIUM:
-                printf("premium arrival\n");
                 premiumAnalysisCenter.area+=(events.arrivals->time-premiumAnalysisCenter.lastEventTime)*premiumAnalysisCenter.jobs;
                 premiumAnalysisCenter.serviceArea+=(events.arrivals->time-premiumAnalysisCenter.lastEventTime)*(premiumAnalysisCenter.jobs-premiumAnalysisCenter.jobsInQueue);
                 premiumAnalysisCenter.queueArea+=(events.arrivals->time-premiumAnalysisCenter.lastEventTime)*(premiumAnalysisCenter.jobsInQueue);
-                premiumArrival++;
                 handlePremiumArrival(&premiumAnalysisCenter, &events);
                 break;
             case CENTER_RELIABLE:
-                printf("reliable arrival\n");
                 reliableAnalysisCenter.area+=(events.arrivals->time-reliableAnalysisCenter.lastEventTime)*reliableAnalysisCenter.jobs;
                 reliableAnalysisCenter.serviceArea+=(events.arrivals->time-reliableAnalysisCenter.lastEventTime)*(reliableAnalysisCenter.jobs-(reliableAnalysisCenter.jobsInQueueNormal+reliableAnalysisCenter.jobsInQueuePremium));
                 reliableAnalysisCenter.queueArea+=(events.arrivals->time-reliableAnalysisCenter.lastEventTime)*(reliableAnalysisCenter.jobsInQueueNormal+reliableAnalysisCenter.jobsInQueuePremium);
                 if(events.arrivals->job.userType==PREMIUM){
+                    // update areas for jobs submitted by premium users
                     reliableAnalysisCenter.areaPremium+=(events.arrivals->time-reliableAnalysisCenter.lastEventTimePremium)*reliableAnalysisCenter.premiumJobs;
                     reliableAnalysisCenter.serviceAreaPremium+=(events.arrivals->time-reliableAnalysisCenter.lastEventTimePremium)*(reliableAnalysisCenter.premiumJobs-reliableAnalysisCenter.jobsInQueuePremium);
                     reliableAnalysisCenter.queueAreaPremium+=(events.arrivals->time-reliableAnalysisCenter.lastEventTimePremium)*(reliableAnalysisCenter.jobsInQueuePremium);
                 }else{
+                    // update areas for jobs sumbitted by normal users
                     reliableAnalysisCenter.areaNormal+=(events.arrivals->time-reliableAnalysisCenter.lastEventTimeNormal)*reliableAnalysisCenter.normalJobs;
                     reliableAnalysisCenter.queueAreaNormal+=(events.arrivals->time - reliableAnalysisCenter.lastEventTimeNormal)*reliableAnalysisCenter.jobsInQueueNormal;
                     reliableAnalysisCenter.serviceAreaNormal+=(events.arrivals->time - reliableAnalysisCenter.lastEventTimeNormal)*(reliableAnalysisCenter.normalJobs-reliableAnalysisCenter.jobsInQueueNormal);
@@ -327,45 +375,41 @@ stats oneTimeSimulation(int runNumber, char *filename)
                 handleReliableArrival(&reliableAnalysisCenter, &events);
             }
         }
-        else
-        {
-            // Termination
-            switch (events.terminations->center)
-            {
+        else{
+            // Next event is a termination
+            switch (events.terminations->center){
+                // Before calling the appropriate function to handle the event, update areas used to calculate statistics
+                // Areas to be updated : time-integrated number of jobs in center, time-integrated number of jobs in queue, time-integrated number of jobs in service
             case CENTER_DIGEST:
-                printf("digest term\n");
                 digestCenter.area+=(events.terminations->time-digestCenter.lastEventTime)*digestCenter.jobs;
                 digestCenter.serviceArea+=(events.terminations->time-digestCenter.lastEventTime)*(digestCenter.jobs-digestCenter.jobsInQueue);
                 digestCenter.queueArea+=(events.terminations->time-digestCenter.lastEventTime)*digestCenter.jobsInQueue;
                 handleDigestTermination( &digestCenter, &events);
                 break;
             case CENTER_NORMAL:
-                printf("normal term\n");
                 normalAnalysisCenter.area+=(events.terminations->time-normalAnalysisCenter.lastEventTime)*normalAnalysisCenter.jobs;
                 normalAnalysisCenter.serviceArea+=(events.terminations->time-normalAnalysisCenter.lastEventTime)*(normalAnalysisCenter.jobs-normalAnalysisCenter.jobsInQueue);
                 normalAnalysisCenter.queueArea+=(events.terminations->time-normalAnalysisCenter.lastEventTime)*normalAnalysisCenter.jobsInQueue;
-                normalTermination++;
                 handleNormalTermination(&normalAnalysisCenter, &events, &digestCenter);
                 break;
             case CENTER_PREMIUM:
-                printf("premium term\n");
                 premiumAnalysisCenter.area+=(events.terminations->time-premiumAnalysisCenter.lastEventTime)*premiumAnalysisCenter.jobs;
                 premiumAnalysisCenter.serviceArea+=(events.terminations->time-premiumAnalysisCenter.lastEventTime)*(premiumAnalysisCenter.jobs-premiumAnalysisCenter.jobsInQueue);
                 premiumAnalysisCenter.queueArea+=(events.terminations->time-premiumAnalysisCenter.lastEventTime)*(premiumAnalysisCenter.jobsInQueue);
-                premiumTermination++;
                 handlePremiumTermination(&premiumAnalysisCenter, &events, &digestCenter);
                 break;
             case CENTER_RELIABLE:
-                printf("reliable term\n");
                 reliableAnalysisCenter.area+=(events.terminations->time-reliableAnalysisCenter.lastEventTime)*reliableAnalysisCenter.jobs;
                 reliableAnalysisCenter.serviceArea+=(events.terminations->time-reliableAnalysisCenter.lastEventTime)*(reliableAnalysisCenter.jobs-(reliableAnalysisCenter.jobsInQueueNormal+reliableAnalysisCenter.jobsInQueuePremium));
                 reliableAnalysisCenter.queueArea+=(events.terminations->time-reliableAnalysisCenter.lastEventTime)*(reliableAnalysisCenter.jobsInQueueNormal+reliableAnalysisCenter.jobsInQueuePremium);
                 if(events.terminations->job.userType==PREMIUM){
+                    // update areas for jobs submitted by premium users
                     reliableAnalysisCenter.areaPremium+=(events.terminations->time-reliableAnalysisCenter.lastEventTimePremium)*reliableAnalysisCenter.premiumJobs;
-                reliableAnalysisCenter.serviceAreaPremium+=(events.terminations->time-reliableAnalysisCenter.lastEventTimePremium)*(reliableAnalysisCenter.premiumJobs-reliableAnalysisCenter.jobsInQueuePremium);
-                reliableAnalysisCenter.queueAreaPremium+=(events.terminations->time-reliableAnalysisCenter.lastEventTimePremium)*(reliableAnalysisCenter.jobsInQueuePremium);
+                    reliableAnalysisCenter.serviceAreaPremium+=(events.terminations->time-reliableAnalysisCenter.lastEventTimePremium)*(reliableAnalysisCenter.premiumJobs-reliableAnalysisCenter.jobsInQueuePremium);
+                    reliableAnalysisCenter.queueAreaPremium+=(events.terminations->time-reliableAnalysisCenter.lastEventTimePremium)*(reliableAnalysisCenter.jobsInQueuePremium);
                 }
                 else{
+                    //update areas for jobs submitted by normal users
                     reliableAnalysisCenter.areaNormal+=(events.terminations->time-reliableAnalysisCenter.lastEventTimeNormal)*reliableAnalysisCenter.normalJobs;
                     reliableAnalysisCenter.queueAreaNormal+=(events.terminations->time - reliableAnalysisCenter.lastEventTimeNormal)*reliableAnalysisCenter.jobsInQueueNormal;
                     reliableAnalysisCenter.serviceAreaNormal+=(events.terminations->time - reliableAnalysisCenter.lastEventTimeNormal)*(reliableAnalysisCenter.normalJobs-reliableAnalysisCenter.jobsInQueueNormal);
@@ -374,13 +418,15 @@ stats oneTimeSimulation(int runNumber, char *filename)
             }
         }
     }
-    stats statistics;
-    statistics.realSimulationTime=simulationTime;
-    statistics.numJobs = digestCenter.index;
-    statistics.numNormalJobs = digestCenter.index - digestCenter.indexPremium;
-    statistics.numPremiumJobs = digestCenter.indexPremium;
 
-    // print out stats
+    // struct used to contain statistics
+    stats statistics;
+    statistics.realSimulationTime=simulationTime;                                       // final value of the simulation clock
+    statistics.numJobs = digestCenter.index;                                            // jobs processed by the entire system (all of them pass through the digest center)  
+    statistics.numNormalJobs = digestCenter.index - digestCenter.indexPremium;          // jobs processed and submitted by normal users
+    statistics.numPremiumJobs = digestCenter.indexPremium;                              // jobs processed and submitted by premium users
+
+    // Output file for simulation statistics
     FILE* file = fopen(filename,"a+");
     fprintf(file,"%d,",runNumber);
     //printf("Real simulation time: %6.2f\n\n", simulationTime);
@@ -406,7 +452,7 @@ stats oneTimeSimulation(int runNumber, char *filename)
     statistics.waitTime[0] = delayArea/digestCenter.index;
     statistics.serviceTime[0] = digestCenter.serviceArea/digestCenter.index;
     statistics.interarrivalTime[0] = digestCenter.interarrivalTime/digestCenter.index;
-    statistics.avgNumberOFJobs[0] = digestCenter.index/simulationTime;
+    statistics.avgNumberOFJobs[0] = digestCenter.area/simulationTime;
     
     // Normal analysis center
     double normalResponseTime = normalAnalysisCenter.area / normalAnalysisCenter.index;
@@ -464,7 +510,7 @@ stats oneTimeSimulation(int runNumber, char *filename)
     statistics.waitTime[1] = delayArea/normalAnalysisCenter.index;
     statistics.serviceTime[1] = normalAnalysisCenter.serviceArea/normalAnalysisCenter.index;
     statistics.interarrivalTime[1] = normalAnalysisCenter.interarrivalTime/normalAnalysisCenter.index;
-    statistics.avgNumberOFJobs[1] = normalAnalysisCenter.index/simulationTime;
+    statistics.avgNumberOFJobs[1] = normalAnalysisCenter.area/simulationTime;
     statistics.numOfTimeouts[0] = normalAnalysisCenter.numberOfTimeouts;
     // Premium analysis center
     double premiumResponseTime = premiumAnalysisCenter.area / premiumAnalysisCenter.index;
@@ -488,7 +534,7 @@ stats oneTimeSimulation(int runNumber, char *filename)
     statistics.waitTime[2] = delayArea/premiumAnalysisCenter.index;
     statistics.serviceTime[2] = premiumAnalysisCenter.serviceArea/premiumAnalysisCenter.index;
     statistics.interarrivalTime[2] = premiumAnalysisCenter.interarrivalTime/premiumAnalysisCenter.index;
-    statistics.avgNumberOFJobs[2] = premiumAnalysisCenter.index/simulationTime;
+    statistics.avgNumberOFJobs[2] = premiumAnalysisCenter.area/simulationTime;
     statistics.numOfTimeouts[1] = premiumAnalysisCenter.numberOfTimeouts;
     // Reliable analysis center
     double reliableResponseTime = reliableAnalysisCenter.area / reliableAnalysisCenter.index;
@@ -505,7 +551,7 @@ stats oneTimeSimulation(int runNumber, char *filename)
     delayArea = reliableAnalysisCenter.queueArea;
     double delayAreaPremium = reliableAnalysisCenter.queueAreaPremium;
     double delayAreaNormal = reliableAnalysisCenter.queueAreaNormal;
-    printf("Area premium = %6.2f\n",delayAreaPremium);
+    //printf("Area premium = %6.2f\n",delayAreaPremium);
     meanServiceTime=reliableAnalysisCenter.serviceArea;
 
 
@@ -523,7 +569,7 @@ stats oneTimeSimulation(int runNumber, char *filename)
     statistics.waitTime[3] = delayArea/reliableAnalysisCenter.index;
     statistics.serviceTime[3] = reliableAnalysisCenter.serviceArea/reliableAnalysisCenter.index;
     statistics.interarrivalTime[3] = reliableAnalysisCenter.interarrivalTime/reliableAnalysisCenter.index;
-    statistics.avgNumberOFJobs[3] = reliableAnalysisCenter.index/simulationTime;
+    statistics.avgNumberOFJobs[3] = reliableAnalysisCenter.area/simulationTime;
     statistics.numOfTimeouts[2] = reliableAnalysisCenter.numberOfTimeouts;
     // Global performances
     //printf("\nGlobal performances\n");
@@ -568,22 +614,223 @@ stats oneTimeSimulation(int runNumber, char *filename)
     return statistics;
 }
 
+
+/* use 0.95 for 95% confidence */
+
+double* welford(double confidence, double *statistics, int size){
+  long   n    = 0;                     /* counts data points */
+  double sum  = 0.0;
+  double mean = 0.0;
+  double data;
+  double stdev;
+  double u, t, w;
+  double diff;
+
+  for(int i = 0; i<size; i++) {                 /* use Welford's one-pass method */
+    data = statistics[i];               /* to calculate the sample mean  */
+    n++;                                 /* and standard deviation        */
+    diff  = data - mean;
+    sum  += diff * diff * (n - 1.0) / n;
+    mean += diff / n;
+  }
+  stdev  = sqrt(sum / n);
+
+  if (n > 1) {
+    u = 1.0 - 0.5 * (1.0 - confidence);              /* interval parameter  */
+    t = idfStudent(n - 1, u);                 /* critical value of t */
+    w = t * stdev / sqrt(n - 1);              /* interval half width */
+    //printf("\nbased upon %ld data points", n);
+    //printf(" and with %d%% confidence\n", (int) (100.0 * confidence + 0.5));
+    //printf("the expected value is in the interval");
+    //printf("%10.2f +/- %6.2f\n", mean, w);
+    double *array = malloc(sizeof(double)*2);
+    array[0] = round(1000000 * mean)/ 1000000.0;
+    array[1] = round(1000000 * w) / 1000000.0;
+    return array;
+  }
+  else
+    printf("ERROR - insufficient data\n");
+  return (0);
+}
+
+
+/**
+ * @brief The main function. It starts the simulation.
+ * 
+ * @return int 
+ */
 int main(){
-    stats *head = NULL;
-    printf("%p %p\n",&head,*&head);
     FILE* f = fopen("simulation_stats.csv","w+");
     stats statistics[ITERATIONS];
+    avgStats averageAmongRuns;
     fprintf(f,"#RUN,Digest Matching, Service time Digest, Service time Normal, Service time Premium, Service time Reliable,Response time Digest, Response time Normal, Response time Premium, Response time Reliable, Wait time Digest, Wait time Normal, Wait time Premium, Wait time Reliable,Interarrival time Digest, Interarrival time Normal, Interarrival time Premium, Interarrival time Reliable, Avg num of jobs Digest, Avg num of jobs Normal, Avg num of jobs Premium, Avg num of jobs Reliable, Num of timeouts Normal, Num of timeouts Premium, Num of timeouts Reliable\n");
     fclose(f);
     if (FINITE_HORIZON){
+        printf ("Finite Horizon simulation with %d runs\n\n", ITERATIONS);
         for (int i = 0; i < ITERATIONS; i++)
         {
             statistics[i] = oneTimeSimulation(i,"simulation_stats.csv");
-            printf("Before insert list %d\n",i);
-            insertListStats(&head,statistics+i);
-            printf("Post insert list\n");
+            if ((i+1)%10 == 0 || i+1 == ITERATIONS){
+                printf("Run %d DONE\n", i+1);
+            }
+        }
+
+        // Calculate mean values of the statistics recovered through the ITERATIONS runs
+        double confidence = 0.95;
+        double array[ITERATIONS];
+        double *results;
+        double **confidenceIntervals = malloc(sizeof(double*) * 27);
+
+        printf("\n\nConfidence intervals:\n\n");
+        // num jobs
+        for (int i = 0; i < ITERATIONS; i++){
+            array[i] = (double) statistics[i].numJobs;
+        }
+        results = welford(confidence, array, ITERATIONS);
+        confidenceIntervals[0] = results;
+        printf("Num jobs processed : %6.6f +/- %6.6f jobs\n", results[0], results[1]);
+        free(results);
+
+        // num normal jobs
+        for (int i = 0; i < ITERATIONS; i++){
+            array[i] = (double) statistics[i].numNormalJobs;
+        }
+        results = welford(confidence, array, ITERATIONS);
+        confidenceIntervals[1] = results;
+        printf("Num normal jobs processed : %6.6f +/- %6.6f jobs\n", results[0], results[1]);
+        free(results);
+
+        // num premium jobs
+        for (int i = 0; i < ITERATIONS; i++){
+            array[i] = (double) statistics[i].numPremiumJobs;
+        }
+        results = welford(confidence, array, ITERATIONS);
+        confidenceIntervals[2] = results;
+        printf("Num premium jobs processed : %6.6f +/- %6.6f jobs\n", results[0], results[1]);
+        free(results);
+
+        // num digest Matching
+        for (int i = 0; i < ITERATIONS; i++){
+            array[i] = (double) statistics[i].numDigestMatching;
+        }
+        results = welford(confidence, array, ITERATIONS);
+        confidenceIntervals[3] = results;
+        printf("Num digest matching : %6.6f +/- %6.6f jobs\n", results[0], results[1]);
+        free(results);
+        
+        // response times
+        for(int j = 0; j<4; j++){
+            for (int i = 0; i < ITERATIONS; i++){
+                array[i] = (double) statistics[i].responseTime[j];
+            }
+            results = welford(confidence, array, ITERATIONS);
+            confidenceIntervals[3] = results;
+            printf("Response time center %d : %6.6f +/- %6.6f sec\n",j+1, results[0], results[1]);
+            free(results);
+        }
+
+        // wait times
+        for(int j = 0; j<4; j++){
+            for (int i = 0; i < ITERATIONS; i++){
+                array[i] = (double) statistics[i].waitTime[j];
+            }
+            results = welford(confidence, array, ITERATIONS);
+            confidenceIntervals[3] = results;
+            printf("Wait time center %d : %6.6f +/- %6.6f sec\n",j+1, results[0], results[1]);
+            free(results);
+        }
+
+        // service times
+        for(int j = 0; j<4; j++){
+            for (int i = 0; i < ITERATIONS; i++){
+                array[i] = (double) statistics[i].serviceTime[j];
+            }
+            results = welford(confidence, array, ITERATIONS);
+            confidenceIntervals[3] = results;
+            printf("Service time center %d : %6.6f +/- %6.6f sec\n",j+1, results[0], results[1]);
+            free(results);
+        }
+
+        // interarrival times
+        for(int j = 0; j<4; j++){
+            for (int i = 0; i < ITERATIONS; i++){
+                array[i] = (double) statistics[i].interarrivalTime[j];
+            }
+            results = welford(confidence, array, ITERATIONS);
+            confidenceIntervals[3] = results;
+            printf("Inter-arrival time center %d : %6.6f +/- %6.6f sec\n",j+1, results[0], results[1]);
+            free(results);
+        }
+
+        // average number of jobs in center
+        for(int j = 0; j<4; j++){
+            for (int i = 0; i < ITERATIONS; i++){
+                array[i] = (double) statistics[i].avgNumberOFJobs[j];
+            }
+            results = welford(confidence, array, ITERATIONS);
+            confidenceIntervals[3] = results;
+            printf("Average number of jobs in the center %d : %6.6f +/- %6.6f jobs\n",j+1, results[0], results[1]);
+            free(results);
+        }
+
+        // timeouts
+        for(int j = 0; j<3; j++){
+            for (int i = 0; i < ITERATIONS; i++){
+                array[i] = (double) statistics[i].numOfTimeouts[j];
+            }
+            results = welford(confidence, array, ITERATIONS);
+            confidenceIntervals[3] = results;
+            printf("Average number of timeouts in the center %d : %6.6f +/- %6.6f jobs\n",j+1, results[0], results[1]);
+            free(results);
         }
         
+        //init struct
+        averageAmongRuns.numJobs = 0.0;
+        averageAmongRuns.numNormalJobs = 0.0;
+        averageAmongRuns.numPremiumJobs = 0.0;
+        averageAmongRuns.numDigestMatching = 0.0;
+        for(int j = 0; j<4; j++){
+            averageAmongRuns.responseTime[j] = 0.0;
+            averageAmongRuns.waitTime[j] = 0.0;
+            averageAmongRuns.serviceTime[j] = 0.0;
+            averageAmongRuns.interarrivalTime[j] = 0.0;
+            averageAmongRuns.avgNumberOFJobs[j] = 0.0;
+            if (j!= 0){
+                averageAmongRuns.numOfTimeouts[j-1] = 0.0;
+            }
+        }
+
+        //fill struct
+        for (int i=0; i < ITERATIONS; i++){
+            averageAmongRuns.numJobs += statistics[i].numJobs;
+            averageAmongRuns.numNormalJobs += statistics[i].numNormalJobs;
+            averageAmongRuns.numPremiumJobs += statistics[i].numPremiumJobs;
+            averageAmongRuns.numDigestMatching += statistics[i].numDigestMatching;
+            for(int j = 0; j<4; j++){
+                averageAmongRuns.responseTime[j] += statistics[i].responseTime[j];
+                averageAmongRuns.waitTime[j] += statistics[i].waitTime[j];
+                averageAmongRuns.serviceTime[j] += statistics[i].serviceTime[j];
+                averageAmongRuns.interarrivalTime[j] += statistics[i].interarrivalTime[j];
+                averageAmongRuns.avgNumberOFJobs[j] += statistics[i].avgNumberOFJobs[j];
+                if (j!= 0){
+                    averageAmongRuns.numOfTimeouts[j-1] += statistics[i].numOfTimeouts[j-1];
+                }
+            }
+        }
+        averageAmongRuns.numJobs /= (double) ITERATIONS;
+        averageAmongRuns.numNormalJobs /= (double) ITERATIONS;
+        averageAmongRuns.numPremiumJobs /= (double) ITERATIONS;
+        averageAmongRuns.numDigestMatching /= (double) ITERATIONS;
+        for(int j = 0; j<4; j++){
+            averageAmongRuns.responseTime[j] /= (double) ITERATIONS;
+            averageAmongRuns.waitTime[j] /= (double) ITERATIONS;
+            averageAmongRuns.serviceTime[j] /= (double) ITERATIONS;
+            averageAmongRuns.interarrivalTime[j] /= (double) ITERATIONS;
+            averageAmongRuns.avgNumberOFJobs[j] /= (double) ITERATIONS;
+            if (j!= 0){
+                averageAmongRuns.numOfTimeouts[j-1] /= (double) ITERATIONS;
+            }
+        }
     }
     
 }
@@ -693,9 +940,6 @@ void handleNormalArrival(normalAnalysisCenter *center, event_list *ev)
 
     arrival *ar = ev->arrivals;
     ar->job.arrivalTime = ar->time;
-    ar->job.jobNumber = N;
-    N++;
-    printf("Job %d arrivato al tempo %6.6f\n",ar->job.jobNumber,ar->job.arrivalTime);
     double jobs = center->jobs;
     center->jobs++;
     double current = simulationTime;
@@ -737,7 +981,6 @@ void handleNormalArrival(normalAnalysisCenter *center, event_list *ev)
 void handleNormalTermination(normalAnalysisCenter *center, event_list *ev, digestCenter *digestCenter)
 {
     termination *ter = ev->terminations;
-    printf("Job %d terminato al tempo %6.6f con Service time %6.6f\n",ter->job.jobNumber,ter->time,min(ter->job.serviceTime,TIMEOUT));
     center->jobs--;
     center->index++;
     simulationTime = ter->time;
@@ -752,7 +995,7 @@ void handleNormalTermination(normalAnalysisCenter *center, event_list *ev, diges
         ar->center = CENTER_RELIABLE;
         ar->time = simulationTime;
         ar->job = ter->job;
-        // Service time is half because reliable machines are 2x faster than normal machines
+        // Service time is decreased by a factor, because reliable machines are faster than normal machines
         double factor = (double) PREMIUM_MEAN_SERVICE_TIME/NORMAL_MEAN_SERVICE_TIME;
         ar->job.serviceTime = ar->job.serviceTime * factor;
         insertList(ev, ar, 0);
@@ -771,7 +1014,6 @@ void handleNormalTermination(normalAnalysisCenter *center, event_list *ev, diges
             exit(0);
         }
         Job job = j_q->job;
-        printf("Job %d uscito dalla coda al tempo %6.6f\n",job.jobNumber,simulationTime);
         center->meanQueueTime += simulationTime - job.arrivalTime;
         free(j_q);
         // The actual service time can be less than the generated service time due to timeout expiration
@@ -1036,6 +1278,16 @@ void handleReliableTermination(reliableAnalysisCenter *center, event_list *ev, d
     free(ter);
 }
 
+/**
+ * @brief This function is used to do the VERIFICATION of the system. The checks done are:
+ *          - Check that service time = wait time (queue) + service time, for each center and for the two separate queues of the reliable center
+ *          - Check 
+ * 
+ * @param digestCenter 
+ * @param normalCenter 
+ * @param premiumCenter 
+ * @param reliableCenter 
+ */
 void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, premiumAnalysisCenter *premiumCenter, reliableAnalysisCenter *reliableCenter){
 
     double responseTime = digestCenter->area / digestCenter->index;
@@ -1065,13 +1317,13 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
     responseTime = reliableCenter->areaPremium / reliableCenter->premiumIndex;
     waitTime = reliableCenter->queueAreaPremium / reliableCenter->premiumIndex;
     serviceTime = reliableCenter->serviceAreaPremium / reliableCenter->premiumIndex;
-    printf("Verify for reliable center: \n");
+    printf("Verify for reliable center (Premium class): \n");
     printf("E(Ts1) = E(Tq1) + E(s1) -> %6.6f + %6.6f = %6.6f\n",waitTime,serviceTime,responseTime);
     printf("Condition is satisfied: %d\n",round(1000000*responseTime)/1000000==round(1000000*(waitTime+serviceTime))/1000000);
     responseTime = reliableCenter->areaNormal / reliableCenter->normalIndex;
     waitTime = reliableCenter->queueAreaNormal / reliableCenter->normalIndex;
     serviceTime = reliableCenter->serviceAreaNormal / reliableCenter->normalIndex;
-    printf("Verify for reliable center: \n");
+    printf("Verify for reliable center (Normal class): \n");
     printf("E(Ts2) = E(Tq2) + E(s2) -> %6.6f + %6.6f = %6.6f\n",waitTime,serviceTime,responseTime);
     printf("Condition is satisfied: %d\n",round(1000000*responseTime)/1000000==round(1000000*(waitTime+serviceTime))/1000000);
 
