@@ -21,6 +21,7 @@ typedef struct __event_list
 #define DIGEST_MATCHING_PROBABILITY_STREAM 4
 #define MEAN_SERVICE_TIME_PREMIUM_STREAM 5
 #define MEAN_SERVICE_TIME_NORMAL_STREAM 6
+#define MEAN_SERVICE_TIME_RELIABLE_STREAM 7
 double simulationTime = START;
 
 /**
@@ -1079,7 +1080,8 @@ void handleNormalTermination(normalAnalysisCenter *center, event_list *ev, diges
         ar->job = ter->job;
         // Service time is decreased by a factor, because reliable machines are faster than normal machines
         double factor = (double) PREMIUM_MEAN_SERVICE_TIME/NORMAL_MEAN_SERVICE_TIME;
-        ar->job.serviceTime = ar->job.serviceTime * factor;
+        SelectStream(MEAN_SERVICE_TIME_RELIABLE_STREAM);
+        ar->job.serviceTime = Exponential(RELIABLE_MEAN_SERVICE_TIME);
         insertList(ev, ar, 0);
     }else if (digestCenter->probabilityOfMatching < FINAL_DIGEST_MATCHING_PROB){
         digestCenter->probabilityOfMatching += LINEAR_INCREASING_PROB_FACTOR;
@@ -1183,8 +1185,8 @@ void handlePremiumTermination(premiumAnalysisCenter *center, event_list *ev, dig
         ar->center = CENTER_RELIABLE;
         ar->time = simulationTime;
         ar->job = ter->job;
-        // Service time is the same because the machines are the same.
-        ar->job.serviceTime = ar->job.serviceTime;
+        SelectStream(MEAN_SERVICE_TIME_RELIABLE_STREAM);
+        ar->job.serviceTime = Exponential(RELIABLE_MEAN_SERVICE_TIME);
         insertList(ev, ar, 0);
     }else if (digestCenter->probabilityOfMatching < FINAL_DIGEST_MATCHING_PROB){
         digestCenter->probabilityOfMatching += LINEAR_INCREASING_PROB_FACTOR;
