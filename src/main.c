@@ -584,9 +584,14 @@ stats oneTimeSimulation(int runNumber, char *filename){
     double percentageFailure = (double) reliableAnalysisCenter.numberOfTimeouts / digestCenter.index;
     //printf("Global failure percentage : %6.6f\n", percentageFailure);
 
+    statistics.globalResponseTime = globalResponseTime;
+    statistics.globalPremiumResponseTime = globalPremiumResponseTime;
+    statistics.globalFailurePercentage = percentageFailure;
+
     //printf("Verify:\n");
     //verify(&digestCenter,&normalAnalysisCenter,&premiumAnalysisCenter,&reliableAnalysisCenter);
-    fprintf(file,"%d,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f\n",statistics.numDigestMatching,
+    fprintf(file,"%d,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f\n",
+    statistics.numDigestMatching,
     statistics.serviceTime[0],
     statistics.serviceTime[1],
     statistics.serviceTime[2],
@@ -609,7 +614,10 @@ stats oneTimeSimulation(int runNumber, char *filename){
     statistics.avgNumberOFJobs[3],
     statistics.numOfTimeouts[0],
     statistics.numOfTimeouts[1],
-    statistics.numOfTimeouts[2]);
+    statistics.numOfTimeouts[2],
+    statistics.globalResponseTime,
+    statistics.globalPremiumResponseTime,
+    statistics.globalFailurePercentage);
     fclose(file);
     return statistics;
 }
@@ -654,16 +662,26 @@ double* welford(double confidence, double *statistics, int size){
 }
 
 
+void writeCSVLine(FILE* file, char *statName, char* actualValue){
+    fprintf(file, "%s, %s, %s\n",
+    statName,
+    "",
+    actualValue);
+}
+
 /**
  * @brief The main function. It starts the simulation.
  * 
  * @return int 
  */
 int main(){
+    char *centerNames[4] = {"digest", "normal", "premium", "reliable"};
     FILE* f = fopen("simulation_stats.csv","w+");
+    FILE* estimations = fopen("interval_estimation.csv", "w+");
+    fprintf(estimations, "Statistic, Analytical result, Experimental result\n"); 
     stats statistics[ITERATIONS];
     avgStats averageAmongRuns;
-    fprintf(f,"#RUN,Digest Matching, Service time Digest, Service time Normal, Service time Premium, Service time Reliable,Response time Digest, Response time Normal, Response time Premium, Response time Reliable, Wait time Digest, Wait time Normal, Wait time Premium, Wait time Reliable,Interarrival time Digest, Interarrival time Normal, Interarrival time Premium, Interarrival time Reliable, Avg num of jobs Digest, Avg num of jobs Normal, Avg num of jobs Premium, Avg num of jobs Reliable, Num of timeouts Normal, Num of timeouts Premium, Num of timeouts Reliable\n");
+    fprintf(f,"#RUN,Digest Matching, Service time Digest, Service time Normal, Service time Premium, Service time Reliable,Response time Digest, Response time Normal, Response time Premium, Response time Reliable, Wait time Digest, Wait time Normal, Wait time Premium, Wait time Reliable,Interarrival time Digest, Interarrival time Normal, Interarrival time Premium, Interarrival time Reliable, Avg num of jobs Digest, Avg num of jobs Normal, Avg num of jobs Premium, Avg num of jobs Reliable, Num of timeouts Normal, Num of timeouts Premium, Num of timeouts Reliable, Global Response Time, Global Premium Response Time, Percentage of Failure\n");
     fclose(f);
     if (FINITE_HORIZON){
         printf ("Finite Horizon simulation with %d runs\n\n", ITERATIONS);
@@ -680,6 +698,8 @@ int main(){
         double array[ITERATIONS];
         double *results;
         double **confidenceIntervals = malloc(sizeof(double*) * 27);
+        char* actualValue = malloc(60 * sizeof(char));
+        char* statName = malloc(100 * sizeof(char));
 
         printf("\n\nConfidence intervals:\n\n");
         // num jobs
@@ -689,6 +709,8 @@ int main(){
         results = welford(confidence, array, ITERATIONS);
         confidenceIntervals[0] = results;
         printf("Num jobs processed : %6.6f +/- %6.6f jobs\n", results[0], results[1]);
+        sprintf(actualValue, "%6.6f +/- %6.6f", results[0], results[1]);
+        writeCSVLine(estimations, "Number of processed jobs", actualValue);
         free(results);
 
         // num normal jobs
@@ -698,6 +720,8 @@ int main(){
         results = welford(confidence, array, ITERATIONS);
         confidenceIntervals[1] = results;
         printf("Num normal jobs processed : %6.6f +/- %6.6f jobs\n", results[0], results[1]);
+        sprintf(actualValue, "%6.6f +/- %6.6f", results[0], results[1]);
+        writeCSVLine(estimations, "Number of processed normal jobs", actualValue);
         free(results);
 
         // num premium jobs
@@ -707,6 +731,8 @@ int main(){
         results = welford(confidence, array, ITERATIONS);
         confidenceIntervals[2] = results;
         printf("Num premium jobs processed : %6.6f +/- %6.6f jobs\n", results[0], results[1]);
+        sprintf(actualValue, "%6.6f +/- %6.6f", results[0], results[1]);
+        writeCSVLine(estimations, "Number of processed premium jobs", actualValue);
         free(results);
 
         // num digest Matching
@@ -716,6 +742,8 @@ int main(){
         results = welford(confidence, array, ITERATIONS);
         confidenceIntervals[3] = results;
         printf("Num digest matching : %6.6f +/- %6.6f jobs\n", results[0], results[1]);
+        sprintf(actualValue, "%6.6f +/- %6.6f", results[0], results[1]);
+        writeCSVLine(estimations, "Number of matching digests", actualValue);
         free(results);
         
         // response times
@@ -726,6 +754,9 @@ int main(){
             results = welford(confidence, array, ITERATIONS);
             confidenceIntervals[3] = results;
             printf("Response time center %d : %6.6f +/- %6.6f sec\n",j+1, results[0], results[1]);
+            sprintf(statName, "Response time %s center", centerNames[j]);
+            sprintf(actualValue, "%6.6f +/- %6.6f", results[0], results[1]);
+            writeCSVLine(estimations, statName, actualValue);
             free(results);
         }
 
@@ -737,6 +768,9 @@ int main(){
             results = welford(confidence, array, ITERATIONS);
             confidenceIntervals[3] = results;
             printf("Wait time center %d : %6.6f +/- %6.6f sec\n",j+1, results[0], results[1]);
+            sprintf(statName, "Waiting time %s center", centerNames[j]);
+            sprintf(actualValue, "%6.6f +/- %6.6f", results[0], results[1]);
+            writeCSVLine(estimations, statName, actualValue);
             free(results);
         }
 
@@ -748,6 +782,9 @@ int main(){
             results = welford(confidence, array, ITERATIONS);
             confidenceIntervals[3] = results;
             printf("Service time center %d : %6.6f +/- %6.6f sec\n",j+1, results[0], results[1]);
+            sprintf(statName, "Service time %s center", centerNames[j]);
+            sprintf(actualValue, "%6.6f +/- %6.6f", results[0], results[1]);
+            writeCSVLine(estimations, statName, actualValue);
             free(results);
         }
 
@@ -759,6 +796,9 @@ int main(){
             results = welford(confidence, array, ITERATIONS);
             confidenceIntervals[3] = results;
             printf("Inter-arrival time center %d : %6.6f +/- %6.6f sec\n",j+1, results[0], results[1]);
+            sprintf(statName, "Interarrival time %s center", centerNames[j]);
+            sprintf(actualValue, "%6.6f +/- %6.6f", results[0], results[1]);
+            writeCSVLine(estimations, statName, actualValue);
             free(results);
         }
 
@@ -770,6 +810,9 @@ int main(){
             results = welford(confidence, array, ITERATIONS);
             confidenceIntervals[3] = results;
             printf("Average number of jobs in the center %d : %6.6f +/- %6.6f jobs\n",j+1, results[0], results[1]);
+            sprintf(statName, "Average number of jobs in %s center", centerNames[j]);
+            sprintf(actualValue, "%6.6f +/- %6.6f", results[0], results[1]);
+            writeCSVLine(estimations, statName, actualValue);   
             free(results);
         }
 
@@ -780,10 +823,49 @@ int main(){
             }
             results = welford(confidence, array, ITERATIONS);
             confidenceIntervals[3] = results;
-            printf("Average number of timeouts in the center %d : %6.6f +/- %6.6f jobs\n",j+1, results[0], results[1]);
+            printf("Average number of timeouts in the center %d : %6.6f +/- %6.6f jobs\n",j+2, results[0], results[1]);
+            sprintf(statName, "Timeouts at %s center", centerNames[j+1]);
+            sprintf(actualValue, "%6.6f +/- %6.6f", results[0], results[1]);
+            writeCSVLine(estimations, statName, actualValue);
             free(results);
         }
-        
+
+        // Global response time
+        for (int i = 0; i < ITERATIONS; i++){
+            array[i] = (double) statistics[i].globalResponseTime;
+        }
+        results = welford(confidence, array, ITERATIONS);
+        confidenceIntervals[3] = results;
+        printf("Global response time : %6.6f +/- %6.6f jobs\n", results[0], results[1]);
+        sprintf(actualValue, "%6.6f +/- %6.6f", results[0], results[1]);
+        writeCSVLine(estimations, "Global response time", actualValue);
+        free(results);
+
+        // Global PREMIUM response time
+        for (int i = 0; i < ITERATIONS; i++){
+            array[i] = (double) statistics[i].globalPremiumResponseTime;
+        }
+        results = welford(confidence, array, ITERATIONS);
+        confidenceIntervals[3] = results;
+        printf("Global PREMIUM response time : %6.6f +/- %6.6f jobs\n", results[0], results[1]);
+        sprintf(actualValue, "%6.6f +/- %6.6f", results[0], results[1]);
+        writeCSVLine(estimations, "Global Premium response time", actualValue);
+        free(results);
+
+        // Global failure percentage
+        for (int i = 0; i < ITERATIONS; i++){
+            array[i] = (double) statistics[i].globalFailurePercentage;
+        }
+        results = welford(confidence, array, ITERATIONS);
+        confidenceIntervals[3] = results;
+        printf("Percentage of failure : %6.6f +/- %6.6f jobs\n", results[0], results[1]);
+        sprintf(actualValue, "%6.6f +/- %6.6f", results[0], results[1]);
+        writeCSVLine(estimations, "Failure percentage", actualValue);
+        free(results);
+        // close the file of interval estimations
+        fclose(estimations);
+
+
         //init struct
         averageAmongRuns.numJobs = 0.0;
         averageAmongRuns.numNormalJobs = 0.0;

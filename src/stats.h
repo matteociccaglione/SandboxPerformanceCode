@@ -16,6 +16,10 @@ typedef struct __stats{
     double serviceTime[4]; // avg service time in the four centers
     double numOfTimeouts[3]; // Num of timeouts in the last 3 centers
 
+    double globalResponseTime;  // response time for a job
+    double globalPremiumResponseTime; // response time for a preium job
+    double globalFailurePercentage; // percentage of jobs processed but exited from the system for timeout expiration
+
 }stats;
 
 typedef struct __avgStats{
