@@ -2,30 +2,34 @@ Statistic, Analytical result, Experimental result
 Number of processed jobs, , 99978.679688 +/- 51.403916
 Number of processed normal jobs, , 30011.757812 +/- 27.602121
 Number of processed premium jobs, , 69966.921875 +/- 41.004170
-Number of matching digests, , 4837.773438 +/- 12.753551
+Number of matching digests, , 4839.812500 +/- 12.765719
 Response time digest center, , 1.963279 +/- 0.006028
-Response time normal center, , 161.659218 +/- 1.392403
-Response time premium center, , 119.163175 +/- 0.402627
-Response time reliable center, , 393.266794 +/- 1.010869
+Response time normal center, , 224.062908 +/- 4.812282
+Response time premium center, , 143.158816 +/- 1.413922
+Response time reliable center, , 458.945732 +/- 26.611969
 Waiting time digest center, , 1.363271 +/- 0.005838
-Waiting time normal center, , 31.982447 +/- 1.345287
-Waiting time premium center, , 9.019379 +/- 0.369156
-Waiting time reliable center, , 17.088464 +/- 0.977623
+Waiting time normal center, , 76.828723 +/- 4.738207
+Waiting time premium center, , 23.970745 +/- 1.375199
+Waiting time reliable center, , 383.926029 +/- 26.391946
 Service time digest center, , 0.600008 +/- 0.000323
-Service time normal center, , 129.676771 +/- 0.101143
-Service time premium center, , 110.143796 +/- 0.062261
-Service time reliable center, , 376.178330 +/- 0.149862
+Service time normal center, , 147.234185 +/- 0.134146
+Service time premium center, , 119.188072 +/- 0.077270
+Service time reliable center, , 75.019703 +/- 0.402554
 Interarrival time digest center, , 0.864200 +/- 0.000445
-Interarrival time normal center, , 3.025103 +/- 0.002813
-Interarrival time premium center, , 1.297709 +/- 0.000806
-Interarrival time reliable center, , 9.256581 +/- 0.015786
-Average number of jobs in digest center, , 2.250938 +/- 0.007525
-Average number of jobs in normal center, , 52.951348 +/- 0.477997
-Average number of jobs in premium center, , 90.984693 +/- 0.343164
-Average number of jobs in reliable center, , 42.106562 +/- 0.162781
-Timeouts at normal center, , 3865.656250 +/- 10.895418
-Timeouts at premium center, , 5470.359375 +/- 12.070756
-Timeouts at reliable center, , 1475.843750 +/- 6.639029
-Global response time, , 164.229670 +/- 0.565600
-Global Premium response time, , 147.678136 +/- 0.422889
-Failure percentage, , 0.014762 +/- 0.000067
+Interarrival time normal center, , 3.025166 +/- 0.002814
+Interarrival time premium center, , 1.297737 +/- 0.000806
+Interarrival time reliable center, , 88.965814 +/- 0.461334
+Average number of jobs in digest center, , 2.271863 +/- 0.007595
+Average number of jobs in normal center, , 74.091398 +/- 1.625701
+Average number of jobs in premium center, , 110.327612 +/- 1.130062
+Average number of jobs in reliable center, , 5.187811 +/- 0.317253
+Timeouts at normal center, , 524.390625 +/- 3.874181
+Timeouts at premium center, , 446.304688 +/- 3.769322
+Timeouts at reliable center, , 0.015625 +/- 0.021777
+Global response time, , 165.793473 +/- 1.765061
+Global Premium response time, , 140.174912 +/- 1.353109
+Failure percentage, , 0.000000 +/- 0.000000
+Rho in the digest center, , 0.694300 +/- 0.000533
+Rho in the normal center, , 0.974888 +/- 0.001283
+Rho in the premium center, , 0.966782 +/- 0.000923
+Rho in the reliable center, , 0.843944 +/- 0.006158

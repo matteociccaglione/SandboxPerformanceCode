@@ -14,6 +14,7 @@ typedef struct __stats{
     double avgNumberOFJobs[4]; // E(N), average number of jobs in the four centers
     double interarrivalTime[4]; // 1/lambda for the 4 centers
     double serviceTime[4]; // avg service time in the four centers
+    double ro[4];
     double numOfTimeouts[3]; // Num of timeouts in the last 3 centers
 
     double globalResponseTime;  // response time for a job
