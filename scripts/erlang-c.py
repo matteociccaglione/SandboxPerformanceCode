@@ -3,8 +3,8 @@ import math
 sum = 0.0
 ro = 0.844224
 p0=0.0
-m=1
-Esi = 75
+m=50
+Esi = 150
 Esquadro = 26729.7
 cquadro = (Esquadro-(Esi)**2)/((Esi)**2)
 
@@ -16,8 +16,8 @@ p0+=pezzo_grosso
 
 
 Pq = pezzo_grosso/p0
-"""
-Etq = Pq*Esi/((1-ro)*m)*(1-0.135335)
+
+Etq = Pq*Esi/((1-ro)*m)
 
 Enq = (ro**2/(2*(1-ro)))*(1+cquadro)
 #Etq = Enq*3.026799
@@ -57,3 +57,5 @@ Etq = p1*Etq1 + (1-p1)*Etq2
 Ets = Etq + Esi
 print(Etq)
 print(Ets)
+print(Etq1 + Esi)
+"""

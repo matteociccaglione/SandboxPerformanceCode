@@ -26,8 +26,9 @@ Average number of jobs in reliable center, , 5.187811 +/- 0.317253
 Timeouts at normal center, , 524.390625 +/- 3.874181
 Timeouts at premium center, , 446.304688 +/- 3.769322
 Timeouts at reliable center, , 0.015625 +/- 0.021777
+Number of mbypass, , 0.000000 +/- 0.000000
 Global response time, , 165.793473 +/- 1.765061
-Global Premium response time, , 140.174912 +/- 1.353109
+Global Premium response time, , 141.137177 +/- 1.397107
 Failure percentage, , 0.000000 +/- 0.000000
 Rho in the digest center, , 0.694300 +/- 0.000533
 Rho in the normal center, , 0.974888 +/- 0.001283

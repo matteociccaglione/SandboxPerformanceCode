@@ -105,11 +105,25 @@ typedef struct __reliableAnalysisCenter
     job_queue *queuePremium;
 }reliableAnalysisCenter;
 
+typedef struct __machineLearningCenter
+{
+    int jobs; // number of job in the center (queue + single server)
+    double area; // time integrated number of jobs in the center
+    double serviceArea;
+    int index; // number of completely processed jobs
+    int indexPremium; // number of completely processed PREMIUM jobs
+    int mlSuccess; // number of positive result from machine learning model
+    double lastEventTime;
+    double interarrivalTime;
+    double lastArrivalTime;
+    int numOfBypass;
+}machineLearningCenter;
 
 typedef enum __center{
     CENTER_DIGEST = 0,
     CENTER_NORMAL = 1,
     CENTER_PREMIUM = 2,
-    CENTER_RELIABLE = 3
+    CENTER_RELIABLE = 3,
+    CENTER_ML = 4
 }center;
 #endif
