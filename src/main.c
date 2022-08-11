@@ -235,7 +235,7 @@ void handleNormalTermination(normalAnalysisCenter *center, event_list *ev, diges
 void handlePremiumTermination(premiumAnalysisCenter *center, event_list *ev, digestCenter *digestCenter);
 void handleReliableTermination(reliableAnalysisCenter *center, event_list *ev, digestCenter *digestCenter);
 void handleMachineLearningTermination(machineLearningCenter *mlCenter, event_list *ev);
-void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, premiumAnalysisCenter *premiumCenter, reliableAnalysisCenter *reliableCenter);
+void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, premiumAnalysisCenter *premiumCenter, reliableAnalysisCenter *reliableCenter, machineLearningCenter *mlCenter);
 
 digestCenter initializeDigest(){
         // Digest center initialization
@@ -654,7 +654,7 @@ stats computeStatistics(digestCenter digestCenter, normalAnalysisCenter normalAn
     statistics.globalPremiumResponseTime = globalPremiumResponseTime;
     statistics.globalFailurePercentage = percentageFailure;
 
-    statistics.ro[4] = (1/mlCenter.interarrivalTime)*(1-mlCenter.numOfBypass/(digestCenter.index- digestCenter.digestMatching))*(mlCenter.serviceArea/mlCenter.index)/N_ML;
+    statistics.ro[4] = (mlCenter.serviceArea/mlCenter.index)/(N_ML*mlCenter.interarrivalTime/mlCenter.index);
     statistics.numOfBypass = mlCenter.numOfBypass;
     statistics.responseTime[4] = mlCenter.area/mlCenter.index;
     statistics.serviceTime[4] = mlCenter.serviceArea/mlCenter.index;
@@ -662,7 +662,7 @@ stats computeStatistics(digestCenter digestCenter, normalAnalysisCenter normalAn
     statistics.interarrivalTime[4] = mlCenter.interarrivalTime/mlCenter.index;
     
     // printf("Verify:\n");
-    verify(&digestCenter, &normalAnalysisCenter, &premiumAnalysisCenter, &reliableAnalysisCenter);
+    verify(&digestCenter, &normalAnalysisCenter, &premiumAnalysisCenter, &reliableAnalysisCenter,&mlCenter);
     if(IMPROVEMENT){
             fprintf(file, "%d,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f\n",
             statistics.numDigestMatching,
@@ -1805,7 +1805,7 @@ void handleMachineLearningTermination(machineLearningCenter *mlCenter, event_lis
  * @param premiumCenter
  * @param reliableCenter
  */
-void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, premiumAnalysisCenter *premiumCenter, reliableAnalysisCenter *reliableCenter)
+void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, premiumAnalysisCenter *premiumCenter, reliableAnalysisCenter *reliableCenter, machineLearningCenter *mlCenter)
 {
 
     double responseTime = digestCenter->area / digestCenter->index;
@@ -1869,6 +1869,7 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
         printf("Condition is satisfied: %d\n", round(1000000 * responseTime) / 1000000 == round(1000000 * (waitTime + serviceTime)) / 1000000);
         exit(EXIT_FAILURE);
     }
+
 
     // Verify routing probabilities
 
@@ -1984,5 +1985,18 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
         printf("E(N) = lambda*E(Ts) : %6.6f = %6.6f * %6.6f = %6.6f\n", eN, lambda, serviceTime, round(1000000*(lambda*serviceTime))/1000000);
         printf("Condition is not satisfied\n");
         exit(EXIT_FAILURE);
+    }
+    if(IMPROVEMENT){
+    lambda = round(1000000*(1/mlCenter->interarrivalTime*mlCenter->index))/1000000;
+    serviceTime = round(1000000*(mlCenter->area/mlCenter->index))/1000000;
+    eN = round(1000000*(double)mlCenter->area/mlCenter->interarrivalTime)/1000000;
+    experimental = round(1000000*(lambda*serviceTime)/1000000);
+    condition = eN!=experimental || (eN!=experimental+0.01) || (eN!=experimental-0.01);
+    if(!condition){
+        printf("Verify that little is valid for machine learning center\n");
+        printf("E(N) = lambda*E(Ts) : %6.6f = %6.6f * %6.6f = %6.6f\n", eN, lambda, serviceTime, round(1000000*(lambda*serviceTime))/1000000);
+        printf("Condition is not satisfied\n");
+        exit(EXIT_FAILURE);
+    }
     }
 }
