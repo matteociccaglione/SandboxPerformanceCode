@@ -773,6 +773,7 @@ stats* infiniteHorizonSimulation(int batchNumber, int batchSize, char* filename)
                 digestCenter.queueArea = 0.0;
                 digestCenter.serviceArea = 0.0;
                 digestCenter.digestMatching = 0;
+                digestCenter.interarrivalTime = 0.0;
                 normalAnalysisCenter.index = 0;
                 normalAnalysisCenter.area = 0.0;
                 normalAnalysisCenter.queueArea = 0.0;
@@ -800,6 +801,7 @@ stats* infiniteHorizonSimulation(int batchNumber, int batchSize, char* filename)
                 reliableAnalysisCenter.serviceAreaPremium = 0.0;
                 reliableAnalysisCenter.interarrivalTime = 0.0;
                 nBatch++;
+                batchTime = simulationTime;
             }
             // distinguish the center that has to process the arrival event
             events = handleArrival(&digestCenter,&normalAnalysisCenter,&premiumAnalysisCenter,&reliableAnalysisCenter,&mlCenter,events);
@@ -903,6 +905,45 @@ double *welford(double confidence, double *statistics, int size)
     else
         printf("ERROR - insufficient data\n");
     return (0);
+}
+
+double autocorrelation(double *statistics, int size, double confidence, int j){
+    int i = 0;
+    double sum = 0.0;
+    double n;
+    int p = 0;
+    double* cosum = malloc(sizeof(double)*(j+1));
+    double* hold = malloc(sizeof(double)*(j+1));
+    while (i < j+1) {              /* initialize the hold array with */
+    double x = statistics[i];         /* the first K + 1 data values    */
+    sum     += x;
+    hold[i]  = x;
+    i++;
+  }
+  
+
+  while (i<size) {
+    for (int k = 0; k < j+1; k++)
+      cosum[k] += hold[p] * hold[(p + k) % (j+1)];
+    double x = statistics[i];
+    sum    += x;
+    hold[p] = x;
+    p       = (p + 1) % (j+1);
+    i++;
+  }
+  n = i;
+
+  while (i < n + j+1) {         /* empty the circular array */
+    for (int k = 0; k < j+1; k++)
+      cosum[j] += hold[p] * hold[(p + k) % (j+1)];
+    hold[p] = 0.0;
+    p       = (p + 1) % SIZE;
+    i++;
+  } 
+
+  mean = sum / n;
+  for (j = 0; j <= K; j++)
+    cosum[j] = (cosum[j] / (n - j)) - (mean * mean);
 }
 
 void writeCSVLine(FILE *file, char *statName, char *actualValue)
