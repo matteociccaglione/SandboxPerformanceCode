@@ -237,8 +237,9 @@ void handleReliableTermination(reliableAnalysisCenter *center, event_list *ev, d
 void handleMachineLearningTermination(machineLearningCenter *mlCenter, event_list *ev);
 void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, premiumAnalysisCenter *premiumCenter, reliableAnalysisCenter *reliableCenter, machineLearningCenter *mlCenter);
 
-digestCenter initializeDigest(){
-        // Digest center initialization
+digestCenter initializeDigest()
+{
+    // Digest center initialization
     digestCenter digestCenter;
     digestCenter.area = 0.0;
     digestCenter.queueArea = 0.0;
@@ -255,7 +256,8 @@ digestCenter initializeDigest(){
     digestCenter.serviceArea = 0.0;
     return digestCenter;
 }
-premiumAnalysisCenter initializePremium(){
+premiumAnalysisCenter initializePremium()
+{
     premiumAnalysisCenter premiumAnalysisCenter;
     premiumAnalysisCenter.area = 0.0;
     premiumAnalysisCenter.queueArea = 0.0;
@@ -272,7 +274,8 @@ premiumAnalysisCenter initializePremium(){
     return premiumAnalysisCenter;
 }
 
-normalAnalysisCenter initializeNormal(){
+normalAnalysisCenter initializeNormal()
+{
     normalAnalysisCenter normalAnalysisCenter;
     // Normal center initialization
     normalAnalysisCenter.area = 0.0;
@@ -294,9 +297,10 @@ normalAnalysisCenter initializeNormal(){
     return normalAnalysisCenter;
 }
 
-reliableAnalysisCenter initializeReliable(){
+reliableAnalysisCenter initializeReliable()
+{
     reliableAnalysisCenter reliableAnalysisCenter;
-        // Reliable center initialization
+    // Reliable center initialization
     reliableAnalysisCenter.area = 0.0;
     reliableAnalysisCenter.areaNormal = 0.0;
     reliableAnalysisCenter.areaPremium = 0.0;
@@ -332,7 +336,8 @@ reliableAnalysisCenter initializeReliable(){
     reliableAnalysisCenter.jobAnalyzed = 0;
     return reliableAnalysisCenter;
 }
-machineLearningCenter initializeMl(){
+machineLearningCenter initializeMl()
+{
     machineLearningCenter ml;
     ml.jobs = 0;
     ml.index = 0;
@@ -346,121 +351,125 @@ machineLearningCenter initializeMl(){
     ml.lastArrivalTime = 0.0;
     return ml;
 }
-event_list handleArrival(digestCenter *digestCenter, normalAnalysisCenter *normalAnalysisCenter, premiumAnalysisCenter *premiumAnalysisCenter, reliableAnalysisCenter *reliableAnalysisCenter,machineLearningCenter *mlCenter, event_list events){
-        switch (events.arrivals->center)
-            {
-                // Before calling the appropriate function to handle the event, update areas used to calculate statistics
-                // Areas to be updated : time-integrated number of jobs in center, time-integrated number of jobs in queue, time-integrated number of jobs in service
-            case CENTER_DIGEST:
-                digestCenter->area += (events.arrivals->time - digestCenter->lastEventTime) * digestCenter->jobs;
-                digestCenter->serviceArea += (events.arrivals->time - digestCenter->lastEventTime) * (digestCenter->jobs - digestCenter->jobsInQueue);
-                digestCenter->queueArea += (events.arrivals->time - digestCenter->lastEventTime) * digestCenter->jobsInQueue;
-                handleDigestArrival(digestCenter, &events);
-                break;
-            case CENTER_NORMAL:
-                normalAnalysisCenter->area += (events.arrivals->time - normalAnalysisCenter->lastEventTime) * normalAnalysisCenter->jobs;
-                normalAnalysisCenter->serviceArea += (events.arrivals->time - normalAnalysisCenter->lastEventTime) * (normalAnalysisCenter->jobs - normalAnalysisCenter->jobsInQueue);
-                normalAnalysisCenter->queueArea += (events.arrivals->time - normalAnalysisCenter->lastEventTime) * normalAnalysisCenter->jobsInQueue;
-                handleNormalArrival(normalAnalysisCenter, &events);
-                break;
-            case CENTER_PREMIUM:
-                premiumAnalysisCenter->area += (events.arrivals->time - premiumAnalysisCenter->lastEventTime) * premiumAnalysisCenter->jobs;
-                premiumAnalysisCenter->serviceArea += (events.arrivals->time - premiumAnalysisCenter->lastEventTime) * (premiumAnalysisCenter->jobs - premiumAnalysisCenter->jobsInQueue);
-                premiumAnalysisCenter->queueArea += (events.arrivals->time - premiumAnalysisCenter->lastEventTime) * (premiumAnalysisCenter->jobsInQueue);
-                handlePremiumArrival(premiumAnalysisCenter, &events);
-                break;
-            case CENTER_RELIABLE:
-                reliableAnalysisCenter->area += (events.arrivals->time - reliableAnalysisCenter->lastEventTime) * reliableAnalysisCenter->jobs;
-                reliableAnalysisCenter->serviceArea += (events.arrivals->time - reliableAnalysisCenter->lastEventTime) * (reliableAnalysisCenter->jobs - (reliableAnalysisCenter->jobsInQueueNormal + reliableAnalysisCenter->jobsInQueuePremium));
-                reliableAnalysisCenter->queueArea += (events.arrivals->time - reliableAnalysisCenter->lastEventTime) * (reliableAnalysisCenter->jobsInQueueNormal + reliableAnalysisCenter->jobsInQueuePremium);
-                reliableAnalysisCenter->areaPremium += (events.arrivals->time - reliableAnalysisCenter->lastEventTime) * reliableAnalysisCenter->premiumJobs;
-                reliableAnalysisCenter->serviceAreaPremium += (events.arrivals->time - reliableAnalysisCenter->lastEventTime) * (reliableAnalysisCenter->premiumJobs - reliableAnalysisCenter->jobsInQueuePremium);
-                reliableAnalysisCenter->queueAreaPremium += (events.arrivals->time - reliableAnalysisCenter->lastEventTime) * (reliableAnalysisCenter->jobsInQueuePremium);
-                reliableAnalysisCenter->areaNormal += (events.arrivals->time - reliableAnalysisCenter->lastEventTime) * reliableAnalysisCenter->normalJobs;
-                reliableAnalysisCenter->queueAreaNormal += (events.arrivals->time - reliableAnalysisCenter->lastEventTime) * reliableAnalysisCenter->jobsInQueueNormal;
-                reliableAnalysisCenter->serviceAreaNormal += (events.arrivals->time - reliableAnalysisCenter->lastEventTime) * (reliableAnalysisCenter->normalJobs - reliableAnalysisCenter->jobsInQueueNormal);
-                /*
-            if(events.arrivals->job.userType==PREMIUM){
-                // update areas for jobs submitted by premium users
-                reliableAnalysisCenter.areaPremium+=(events.arrivals->time-reliableAnalysisCenter.lastEventTimePremium)*reliableAnalysisCenter.premiumJobs;
-                reliableAnalysisCenter.serviceAreaPremium+=(events.arrivals->time-reliableAnalysisCenter.lastEventTimePremium)*(reliableAnalysisCenter.premiumJobs-reliableAnalysisCenter.jobsInQueuePremium);
-                reliableAnalysisCenter.queueAreaPremium+=(events.arrivals->time-reliableAnalysisCenter.lastEventTimePremium)*(reliableAnalysisCenter.jobsInQueuePremium);
-            }else{
-                // update areas for jobs sumbitted by normal users
-                reliableAnalysisCenter.areaNormal+=(events.arrivals->time-reliableAnalysisCenter.lastEventTimeNormal)*reliableAnalysisCenter.normalJobs;
-                reliableAnalysisCenter.queueAreaNormal+=(events.arrivals->time - reliableAnalysisCenter.lastEventTimeNormal)*reliableAnalysisCenter.jobsInQueueNormal;
-                reliableAnalysisCenter.serviceAreaNormal+=(events.arrivals->time - reliableAnalysisCenter.lastEventTimeNormal)*(reliableAnalysisCenter.normalJobs-reliableAnalysisCenter.jobsInQueueNormal);
-            }*/
-                handleReliableArrival(reliableAnalysisCenter,&events);
-                break;
-            case CENTER_ML:
-                if(mlCenter->jobs<N_ML){
-                mlCenter->area += (events.arrivals->time - mlCenter->lastEventTime) * mlCenter->jobs;
-                mlCenter->serviceArea += (events.arrivals->time - mlCenter->lastEventTime) * mlCenter->jobs;
-                }
-                handleMachineLearningArrival(mlCenter, &events);
-            }
-        return events;
+event_list handleArrival(digestCenter *digestCenter, normalAnalysisCenter *normalAnalysisCenter, premiumAnalysisCenter *premiumAnalysisCenter, reliableAnalysisCenter *reliableAnalysisCenter, machineLearningCenter *mlCenter, event_list events)
+{
+    switch (events.arrivals->center)
+    {
+        // Before calling the appropriate function to handle the event, update areas used to calculate statistics
+        // Areas to be updated : time-integrated number of jobs in center, time-integrated number of jobs in queue, time-integrated number of jobs in service
+    case CENTER_DIGEST:
+        digestCenter->area += (events.arrivals->time - digestCenter->lastEventTime) * digestCenter->jobs;
+        digestCenter->serviceArea += (events.arrivals->time - digestCenter->lastEventTime) * (digestCenter->jobs - digestCenter->jobsInQueue);
+        digestCenter->queueArea += (events.arrivals->time - digestCenter->lastEventTime) * digestCenter->jobsInQueue;
+        handleDigestArrival(digestCenter, &events);
+        break;
+    case CENTER_NORMAL:
+        normalAnalysisCenter->area += (events.arrivals->time - normalAnalysisCenter->lastEventTime) * normalAnalysisCenter->jobs;
+        normalAnalysisCenter->serviceArea += (events.arrivals->time - normalAnalysisCenter->lastEventTime) * (normalAnalysisCenter->jobs - normalAnalysisCenter->jobsInQueue);
+        normalAnalysisCenter->queueArea += (events.arrivals->time - normalAnalysisCenter->lastEventTime) * normalAnalysisCenter->jobsInQueue;
+        handleNormalArrival(normalAnalysisCenter, &events);
+        break;
+    case CENTER_PREMIUM:
+        premiumAnalysisCenter->area += (events.arrivals->time - premiumAnalysisCenter->lastEventTime) * premiumAnalysisCenter->jobs;
+        premiumAnalysisCenter->serviceArea += (events.arrivals->time - premiumAnalysisCenter->lastEventTime) * (premiumAnalysisCenter->jobs - premiumAnalysisCenter->jobsInQueue);
+        premiumAnalysisCenter->queueArea += (events.arrivals->time - premiumAnalysisCenter->lastEventTime) * (premiumAnalysisCenter->jobsInQueue);
+        handlePremiumArrival(premiumAnalysisCenter, &events);
+        break;
+    case CENTER_RELIABLE:
+        reliableAnalysisCenter->area += (events.arrivals->time - reliableAnalysisCenter->lastEventTime) * reliableAnalysisCenter->jobs;
+        reliableAnalysisCenter->serviceArea += (events.arrivals->time - reliableAnalysisCenter->lastEventTime) * (reliableAnalysisCenter->jobs - (reliableAnalysisCenter->jobsInQueueNormal + reliableAnalysisCenter->jobsInQueuePremium));
+        reliableAnalysisCenter->queueArea += (events.arrivals->time - reliableAnalysisCenter->lastEventTime) * (reliableAnalysisCenter->jobsInQueueNormal + reliableAnalysisCenter->jobsInQueuePremium);
+        reliableAnalysisCenter->areaPremium += (events.arrivals->time - reliableAnalysisCenter->lastEventTime) * reliableAnalysisCenter->premiumJobs;
+        reliableAnalysisCenter->serviceAreaPremium += (events.arrivals->time - reliableAnalysisCenter->lastEventTime) * (reliableAnalysisCenter->premiumJobs - reliableAnalysisCenter->jobsInQueuePremium);
+        reliableAnalysisCenter->queueAreaPremium += (events.arrivals->time - reliableAnalysisCenter->lastEventTime) * (reliableAnalysisCenter->jobsInQueuePremium);
+        reliableAnalysisCenter->areaNormal += (events.arrivals->time - reliableAnalysisCenter->lastEventTime) * reliableAnalysisCenter->normalJobs;
+        reliableAnalysisCenter->queueAreaNormal += (events.arrivals->time - reliableAnalysisCenter->lastEventTime) * reliableAnalysisCenter->jobsInQueueNormal;
+        reliableAnalysisCenter->serviceAreaNormal += (events.arrivals->time - reliableAnalysisCenter->lastEventTime) * (reliableAnalysisCenter->normalJobs - reliableAnalysisCenter->jobsInQueueNormal);
+        /*
+    if(events.arrivals->job.userType==PREMIUM){
+        // update areas for jobs submitted by premium users
+        reliableAnalysisCenter.areaPremium+=(events.arrivals->time-reliableAnalysisCenter.lastEventTimePremium)*reliableAnalysisCenter.premiumJobs;
+        reliableAnalysisCenter.serviceAreaPremium+=(events.arrivals->time-reliableAnalysisCenter.lastEventTimePremium)*(reliableAnalysisCenter.premiumJobs-reliableAnalysisCenter.jobsInQueuePremium);
+        reliableAnalysisCenter.queueAreaPremium+=(events.arrivals->time-reliableAnalysisCenter.lastEventTimePremium)*(reliableAnalysisCenter.jobsInQueuePremium);
+    }else{
+        // update areas for jobs sumbitted by normal users
+        reliableAnalysisCenter.areaNormal+=(events.arrivals->time-reliableAnalysisCenter.lastEventTimeNormal)*reliableAnalysisCenter.normalJobs;
+        reliableAnalysisCenter.queueAreaNormal+=(events.arrivals->time - reliableAnalysisCenter.lastEventTimeNormal)*reliableAnalysisCenter.jobsInQueueNormal;
+        reliableAnalysisCenter.serviceAreaNormal+=(events.arrivals->time - reliableAnalysisCenter.lastEventTimeNormal)*(reliableAnalysisCenter.normalJobs-reliableAnalysisCenter.jobsInQueueNormal);
+    }*/
+        handleReliableArrival(reliableAnalysisCenter, &events);
+        break;
+    case CENTER_ML:
+        if (mlCenter->jobs < N_ML)
+        {
+            mlCenter->area += (events.arrivals->time - mlCenter->lastEventTime) * mlCenter->jobs;
+            mlCenter->serviceArea += (events.arrivals->time - mlCenter->lastEventTime) * mlCenter->jobs;
+        }
+        handleMachineLearningArrival(mlCenter, &events);
+    }
+    return events;
 }
 
-event_list handleTermination(digestCenter *digestCenter, normalAnalysisCenter *normalAnalysisCenter, premiumAnalysisCenter *premiumAnalysisCenter, reliableAnalysisCenter *reliableAnalysisCenter,machineLearningCenter *mlCenter,  event_list events){
-switch (events.terminations->center)
-            {
-                // Before calling the appropriate function to handle the event, update areas used to calculate statistics
-                // Areas to be updated : time-integrated number of jobs in center, time-integrated number of jobs in queue, time-integrated number of jobs in service
-            case CENTER_DIGEST:
-                digestCenter->area += (events.terminations->time - digestCenter->lastEventTime) * digestCenter->jobs;
-                digestCenter->serviceArea += (events.terminations->time - digestCenter->lastEventTime) * (digestCenter->jobs - digestCenter->jobsInQueue);
-                digestCenter->queueArea += (events.terminations->time - digestCenter->lastEventTime) * digestCenter->jobsInQueue;
-                handleDigestTermination(digestCenter, &events);
-                break;
-            case CENTER_NORMAL:
-                normalAnalysisCenter->area += (events.terminations->time - normalAnalysisCenter->lastEventTime) * normalAnalysisCenter->jobs;
-                normalAnalysisCenter->serviceArea += (events.terminations->time - normalAnalysisCenter->lastEventTime) * (normalAnalysisCenter->jobs - normalAnalysisCenter->jobsInQueue);
-                normalAnalysisCenter->queueArea += (events.terminations->time - normalAnalysisCenter->lastEventTime) * normalAnalysisCenter->jobsInQueue;
-                handleNormalTermination(normalAnalysisCenter, &events, digestCenter);
-                break;
-            case CENTER_PREMIUM:
-                premiumAnalysisCenter->area += (events.terminations->time - premiumAnalysisCenter->lastEventTime) * premiumAnalysisCenter->jobs;
-                premiumAnalysisCenter->serviceArea += (events.terminations->time - premiumAnalysisCenter->lastEventTime) * (premiumAnalysisCenter->jobs - premiumAnalysisCenter->jobsInQueue);
-                premiumAnalysisCenter->queueArea += (events.terminations->time - premiumAnalysisCenter->lastEventTime) * (premiumAnalysisCenter->jobsInQueue);
-                handlePremiumTermination(premiumAnalysisCenter, &events, digestCenter);
-                break;
-            case CENTER_RELIABLE:
-                reliableAnalysisCenter->area += (events.terminations->time - reliableAnalysisCenter->lastEventTime) * reliableAnalysisCenter->jobs;
-                reliableAnalysisCenter->serviceArea += (events.terminations->time - reliableAnalysisCenter->lastEventTime) * (reliableAnalysisCenter->jobs - (reliableAnalysisCenter->jobsInQueueNormal + reliableAnalysisCenter->jobsInQueuePremium));
-                reliableAnalysisCenter->queueArea += (events.terminations->time - reliableAnalysisCenter->lastEventTime) * (reliableAnalysisCenter->jobsInQueueNormal + reliableAnalysisCenter->jobsInQueuePremium);
-                reliableAnalysisCenter->areaPremium += (events.terminations->time - reliableAnalysisCenter->lastEventTime) * reliableAnalysisCenter->premiumJobs;
-                reliableAnalysisCenter->serviceAreaPremium += (events.terminations->time - reliableAnalysisCenter->lastEventTime) * (reliableAnalysisCenter->premiumJobs - reliableAnalysisCenter->jobsInQueuePremium);
-                reliableAnalysisCenter->queueAreaPremium += (events.terminations->time - reliableAnalysisCenter->lastEventTime) * (reliableAnalysisCenter->jobsInQueuePremium);
-                reliableAnalysisCenter->areaNormal += (events.terminations->time - reliableAnalysisCenter->lastEventTime) * reliableAnalysisCenter->normalJobs;
-                reliableAnalysisCenter->queueAreaNormal += (events.terminations->time - reliableAnalysisCenter->lastEventTime) * reliableAnalysisCenter->jobsInQueueNormal;
-                reliableAnalysisCenter->serviceAreaNormal += (events.terminations->time - reliableAnalysisCenter->lastEventTime) * (reliableAnalysisCenter->normalJobs - reliableAnalysisCenter->jobsInQueueNormal);
-                /*
-                if(events.terminations->job.userType==PREMIUM){
-                    // update areas for jobs submitted by premium users
-                    reliableAnalysisCenter.areaPremium+=(events.terminations->time-reliableAnalysisCenter.lastEventTimePremium)*reliableAnalysisCenter.premiumJobs;
-                    reliableAnalysisCenter.serviceAreaPremium+=(events.terminations->time-reliableAnalysisCenter.lastEventTimePremium)*(reliableAnalysisCenter.premiumJobs-reliableAnalysisCenter.jobsInQueuePremium);
-                    reliableAnalysisCenter.queueAreaPremium+=(events.terminations->time-reliableAnalysisCenter.lastEventTimePremium)*(reliableAnalysisCenter.jobsInQueuePremium);
-                }
-                else{
-                    //update areas for jobs submitted by normal users
-                    reliableAnalysisCenter.areaNormal+=(events.terminations->time-reliableAnalysisCenter.lastEventTimeNormal)*reliableAnalysisCenter.normalJobs;
-                    reliableAnalysisCenter.queueAreaNormal+=(events.terminations->time - reliableAnalysisCenter.lastEventTimeNormal)*reliableAnalysisCenter.jobsInQueueNormal;
-                    reliableAnalysisCenter.serviceAreaNormal+=(events.terminations->time - reliableAnalysisCenter.lastEventTimeNormal)*(reliableAnalysisCenter.normalJobs-reliableAnalysisCenter.jobsInQueueNormal);
-                }
-                */
-                handleReliableTermination(reliableAnalysisCenter, &events, digestCenter);
-                break;
-            case CENTER_ML:
-                mlCenter->area += (events.terminations->time - mlCenter->lastEventTime) * mlCenter->jobs;
-                mlCenter->serviceArea += (events.terminations ->time - mlCenter->lastEventTime) * mlCenter->jobs;
-                handleMachineLearningTermination(mlCenter, &events);
-            }
-            return events;
+event_list handleTermination(digestCenter *digestCenter, normalAnalysisCenter *normalAnalysisCenter, premiumAnalysisCenter *premiumAnalysisCenter, reliableAnalysisCenter *reliableAnalysisCenter, machineLearningCenter *mlCenter, event_list events)
+{
+    switch (events.terminations->center)
+    {
+        // Before calling the appropriate function to handle the event, update areas used to calculate statistics
+        // Areas to be updated : time-integrated number of jobs in center, time-integrated number of jobs in queue, time-integrated number of jobs in service
+    case CENTER_DIGEST:
+        digestCenter->area += (events.terminations->time - digestCenter->lastEventTime) * digestCenter->jobs;
+        digestCenter->serviceArea += (events.terminations->time - digestCenter->lastEventTime) * (digestCenter->jobs - digestCenter->jobsInQueue);
+        digestCenter->queueArea += (events.terminations->time - digestCenter->lastEventTime) * digestCenter->jobsInQueue;
+        handleDigestTermination(digestCenter, &events);
+        break;
+    case CENTER_NORMAL:
+        normalAnalysisCenter->area += (events.terminations->time - normalAnalysisCenter->lastEventTime) * normalAnalysisCenter->jobs;
+        normalAnalysisCenter->serviceArea += (events.terminations->time - normalAnalysisCenter->lastEventTime) * (normalAnalysisCenter->jobs - normalAnalysisCenter->jobsInQueue);
+        normalAnalysisCenter->queueArea += (events.terminations->time - normalAnalysisCenter->lastEventTime) * normalAnalysisCenter->jobsInQueue;
+        handleNormalTermination(normalAnalysisCenter, &events, digestCenter);
+        break;
+    case CENTER_PREMIUM:
+        premiumAnalysisCenter->area += (events.terminations->time - premiumAnalysisCenter->lastEventTime) * premiumAnalysisCenter->jobs;
+        premiumAnalysisCenter->serviceArea += (events.terminations->time - premiumAnalysisCenter->lastEventTime) * (premiumAnalysisCenter->jobs - premiumAnalysisCenter->jobsInQueue);
+        premiumAnalysisCenter->queueArea += (events.terminations->time - premiumAnalysisCenter->lastEventTime) * (premiumAnalysisCenter->jobsInQueue);
+        handlePremiumTermination(premiumAnalysisCenter, &events, digestCenter);
+        break;
+    case CENTER_RELIABLE:
+        reliableAnalysisCenter->area += (events.terminations->time - reliableAnalysisCenter->lastEventTime) * reliableAnalysisCenter->jobs;
+        reliableAnalysisCenter->serviceArea += (events.terminations->time - reliableAnalysisCenter->lastEventTime) * (reliableAnalysisCenter->jobs - (reliableAnalysisCenter->jobsInQueueNormal + reliableAnalysisCenter->jobsInQueuePremium));
+        reliableAnalysisCenter->queueArea += (events.terminations->time - reliableAnalysisCenter->lastEventTime) * (reliableAnalysisCenter->jobsInQueueNormal + reliableAnalysisCenter->jobsInQueuePremium);
+        reliableAnalysisCenter->areaPremium += (events.terminations->time - reliableAnalysisCenter->lastEventTime) * reliableAnalysisCenter->premiumJobs;
+        reliableAnalysisCenter->serviceAreaPremium += (events.terminations->time - reliableAnalysisCenter->lastEventTime) * (reliableAnalysisCenter->premiumJobs - reliableAnalysisCenter->jobsInQueuePremium);
+        reliableAnalysisCenter->queueAreaPremium += (events.terminations->time - reliableAnalysisCenter->lastEventTime) * (reliableAnalysisCenter->jobsInQueuePremium);
+        reliableAnalysisCenter->areaNormal += (events.terminations->time - reliableAnalysisCenter->lastEventTime) * reliableAnalysisCenter->normalJobs;
+        reliableAnalysisCenter->queueAreaNormal += (events.terminations->time - reliableAnalysisCenter->lastEventTime) * reliableAnalysisCenter->jobsInQueueNormal;
+        reliableAnalysisCenter->serviceAreaNormal += (events.terminations->time - reliableAnalysisCenter->lastEventTime) * (reliableAnalysisCenter->normalJobs - reliableAnalysisCenter->jobsInQueueNormal);
+        /*
+        if(events.terminations->job.userType==PREMIUM){
+            // update areas for jobs submitted by premium users
+            reliableAnalysisCenter.areaPremium+=(events.terminations->time-reliableAnalysisCenter.lastEventTimePremium)*reliableAnalysisCenter.premiumJobs;
+            reliableAnalysisCenter.serviceAreaPremium+=(events.terminations->time-reliableAnalysisCenter.lastEventTimePremium)*(reliableAnalysisCenter.premiumJobs-reliableAnalysisCenter.jobsInQueuePremium);
+            reliableAnalysisCenter.queueAreaPremium+=(events.terminations->time-reliableAnalysisCenter.lastEventTimePremium)*(reliableAnalysisCenter.jobsInQueuePremium);
+        }
+        else{
+            //update areas for jobs submitted by normal users
+            reliableAnalysisCenter.areaNormal+=(events.terminations->time-reliableAnalysisCenter.lastEventTimeNormal)*reliableAnalysisCenter.normalJobs;
+            reliableAnalysisCenter.queueAreaNormal+=(events.terminations->time - reliableAnalysisCenter.lastEventTimeNormal)*reliableAnalysisCenter.jobsInQueueNormal;
+            reliableAnalysisCenter.serviceAreaNormal+=(events.terminations->time - reliableAnalysisCenter.lastEventTimeNormal)*(reliableAnalysisCenter.normalJobs-reliableAnalysisCenter.jobsInQueueNormal);
+        }
+        */
+        handleReliableTermination(reliableAnalysisCenter, &events, digestCenter);
+        break;
+    case CENTER_ML:
+        mlCenter->area += (events.terminations->time - mlCenter->lastEventTime) * mlCenter->jobs;
+        mlCenter->serviceArea += (events.terminations->time - mlCenter->lastEventTime) * mlCenter->jobs;
+        handleMachineLearningTermination(mlCenter, &events);
+    }
+    return events;
 }
 
-stats computeStatistics(digestCenter digestCenter, normalAnalysisCenter normalAnalysisCenter, premiumAnalysisCenter premiumAnalysisCenter, reliableAnalysisCenter reliableAnalysisCenter,machineLearningCenter mlCenter, char* filename, int runNumber, int simulationTime){
+stats computeStatistics(digestCenter digestCenter, normalAnalysisCenter normalAnalysisCenter, premiumAnalysisCenter premiumAnalysisCenter, reliableAnalysisCenter reliableAnalysisCenter, machineLearningCenter mlCenter, char *filename, int runNumber, int simulationTime)
+{
     stats statistics;
     statistics.realSimulationTime = simulationTime;                            // final value of the simulation clock
     statistics.numJobs = digestCenter.index;                                   // jobs processed by the entire system (all of them pass through the digest center)
@@ -470,24 +479,19 @@ stats computeStatistics(digestCenter digestCenter, normalAnalysisCenter normalAn
     // Output file for simulation statistics
     FILE *file = fopen(filename, "a+");
     fprintf(file, "%d,", runNumber);
-    // printf("Real simulation time: %6.2f\n\n", simulationTime);
+
     //  Digest center
     double digestResponseTime = digestCenter.area / digestCenter.index;
-    /*
-    printf("Area: %6.2f\n",digestCenter.area);
-    printf("Area is negativa: %d\n",digestCenter.area<0.0);
-    printf("\nCenter 1 : Digest center\n");
-    printf("Number of processed jobs : %d\n", digestCenter.index);
-    printf("Mean number of jobs in the center: %6.2f\n", digestCenter.area / simulationTime);
-    printf("Average response time : %6.2f\n", digestResponseTime);
-    */
     double digestRo = (digestCenter.serviceArea / digestCenter.index) / (digestCenter.interarrivalTime / digestCenter.index);
-    // printf("Utilization : %6.2f\n",digestRo);
+
 
     double delayArea = digestCenter.queueArea;
-    // printf("Average wait time : %6.2f\n", delayArea / digestCenter.index);
-    // printf("Job with a matching digest: %d (percentage : %6.2f)\n",
+
     // digestCenter.digestMatching, (double)digestCenter.digestMatching / digestCenter.index);
+    if(digestCenter.index == 0){
+        digestResponseTime = 0.0;
+        digestRo = 0.0;
+    }
     statistics.numDigestMatching = digestCenter.digestMatching;
     statistics.responseTime[0] = digestResponseTime;
     statistics.waitTime[0] = delayArea / digestCenter.index;
@@ -495,29 +499,23 @@ stats computeStatistics(digestCenter digestCenter, normalAnalysisCenter normalAn
     statistics.interarrivalTime[0] = digestCenter.interarrivalTime / digestCenter.index;
     statistics.avgNumberOFJobs[0] = digestCenter.area / digestCenter.interarrivalTime;
     statistics.ro[0] = digestRo;
+    if (digestCenter.index == 0){
+        statistics.waitTime[0] = 0.0;
+        statistics.serviceTime[0] = 0.0;
+        statistics.interarrivalTime[0] = 0.0;
+    }
+    if (digestCenter.interarrivalTime == 0.0)
+    {
+        statistics.avgNumberOFJobs[0] = 0.0;
+    }
+    
+    
+
     // Normal analysis center
     double normalResponseTime = normalAnalysisCenter.area / normalAnalysisCenter.index;
-    /*
-    printf("\nCenter 2 : Normal analysis center\n");
-    printf("Number of processed jobs : %d\n", normalAnalysisCenter.index);
-    printf("Mean number of jobs in the center: %6.2f\n", normalAnalysisCenter.area / simulationTime);
-    printf("Average response time : %6.6f\n", normalResponseTime);
-*/
     delayArea = normalAnalysisCenter.area - normalAnalysisCenter.serviceArea;
-    /*
-        for (int i = 0; i < N_NORMAL; i++)
-        {
-            delayArea -= normalAnalysisCenter.service_time[i];
-        }
-        */
     double meanServiceTime = 0.0;
-    for (int k = 0; k < N_NORMAL; k++)
-    {
-        meanServiceTime += normalAnalysisCenter.service_time[k];
-    }
-    meanServiceTime = meanServiceTime / normalAnalysisCenter.index;
 
-    meanServiceTime = 0.0;
     double means[N_NORMAL];
     int servers_used = 0;
     for (int k = 0; k < N_NORMAL; k++)
@@ -538,18 +536,8 @@ stats computeStatistics(digestCenter digestCenter, normalAnalysisCenter normalAn
     }
     meanServiceTime = meanServiceTime / servers_used;
     double rho = meanServiceTime / ((normalAnalysisCenter.interarrivalTime * N_NORMAL) / normalAnalysisCenter.index);
-    /*
-    printf("Mean service time with area: %6.6f\n",normalAnalysisCenter.serviceArea/normalAnalysisCenter.index);
-    printf("Utilization : %6.2f\n", rho);
-    printf("Average service time : %6.6f\n", meanServiceTime);
-    printf("Average interarrival time: %6.6f\n",normalAnalysisCenter.interarrivalTime/normalAnalysisCenter.index);
-    printf("Average wait time : %6.6f\n", delayArea / normalAnalysisCenter.index);
-    printf("Verificato = %6.6f = %6.6f+%6.6f = %6.6f\n",normalResponseTime, delayArea/normalAnalysisCenter.index,meanServiceTime,delayArea/normalAnalysisCenter.index+meanServiceTime);
-    printf("Number of termination due to timeout expiration: %d (percentage : %6.6f)\n",
-     normalAnalysisCenter.numberOfTimeouts, (double)normalAnalysisCenter.numberOfTimeouts / normalAnalysisCenter.index);
-    printf("Tempo di risposta medio corretto = %6.6f\n Tempo di attesa medio corretto = %6.6f\n",normalAnalysisCenter.meanResponseTime/normalAnalysisCenter.index,normalAnalysisCenter.meanQueueTime/normalAnalysisCenter.index);
-        printf("Verificato = %6.6f = %6.20f+%6.6f = %d\n",normalAnalysisCenter.meanResponseTime/normalAnalysisCenter.index,normalAnalysisCenter.meanQueueTime/normalAnalysisCenter.index,meanServiceTime,normalAnalysisCenter.meanQueueTime/normalAnalysisCenter.index+meanServiceTime == normalAnalysisCenter.meanResponseTime/normalAnalysisCenter.index);
-    */
+
+
     statistics.responseTime[1] = normalResponseTime;
     statistics.waitTime[1] = delayArea / normalAnalysisCenter.index;
     statistics.serviceTime[1] = normalAnalysisCenter.serviceArea / normalAnalysisCenter.index;
@@ -557,24 +545,26 @@ stats computeStatistics(digestCenter digestCenter, normalAnalysisCenter normalAn
     statistics.avgNumberOFJobs[1] = normalAnalysisCenter.area / normalAnalysisCenter.interarrivalTime;
     statistics.ro[1] = rho;
     statistics.numOfTimeouts[0] = normalAnalysisCenter.numberOfTimeouts;
+    if(normalAnalysisCenter.index == 0){
+        normalResponseTime = 0.0;
+        rho = 0.0;
+        statistics.responseTime[1] = 0.0;
+        statistics.ro[1] = 0.0;
+        statistics.waitTime[1] = 0.0;
+        statistics.serviceTime[1] = 0.0;
+        statistics.interarrivalTime[1] = 0.0;
+    }
+    if(normalAnalysisCenter.interarrivalTime == 0.0){
+        statistics.avgNumberOFJobs[1] = 0.0;
+    }
+
+
     // Premium analysis center
     double premiumResponseTime = premiumAnalysisCenter.area / premiumAnalysisCenter.index;
-    /*
-    printf("\nCenter 3 : Premium analysis center\n");
-    printf("Number of processed jobs : %d\n", premiumAnalysisCenter.index);
-    printf("Mean number of jobs in the center: %6.2f\n", premiumAnalysisCenter.area / simulationTime);
-    printf("Average response time : %6.2f\n", premiumResponseTime);
-    */
     delayArea = premiumAnalysisCenter.queueArea;
     meanServiceTime = premiumAnalysisCenter.serviceArea;
     double premiumRho = meanServiceTime / (premiumAnalysisCenter.interarrivalTime * N_PREMIUM);
-    /*
-    printf("Utilization : %6.2f\n",premiumRho);
-    printf("Average service time: %6.6f\n", meanServiceTime/premiumAnalysisCenter.index);
-    printf("Average wait time : %6.2f\n", delayArea / premiumAnalysisCenter.index);
-    printf("Number of termination due to timeout expiration: %d (percentage : %6.6f)\n",
-     premiumAnalysisCenter.numberOfTimeouts, (double)premiumAnalysisCenter.numberOfTimeouts / premiumAnalysisCenter.index);
-     */
+
     statistics.responseTime[2] = premiumResponseTime;
     statistics.ro[2] = premiumRho;
     statistics.waitTime[2] = delayArea / premiumAnalysisCenter.index;
@@ -582,38 +572,31 @@ stats computeStatistics(digestCenter digestCenter, normalAnalysisCenter normalAn
     statistics.interarrivalTime[2] = premiumAnalysisCenter.interarrivalTime / premiumAnalysisCenter.index;
     statistics.avgNumberOFJobs[2] = premiumAnalysisCenter.area / premiumAnalysisCenter.interarrivalTime;
     statistics.numOfTimeouts[1] = premiumAnalysisCenter.numberOfTimeouts;
+    if (premiumAnalysisCenter.index == 0){
+        premiumResponseTime = 0.0;
+        premiumRho = 0.0;
+        statistics.responseTime[2] = 0.0;
+        statistics.ro[2] = 0.0;
+        statistics.waitTime[2] = 0.0;
+        statistics.serviceTime[2] = 0.0;
+        statistics.interarrivalTime[2] = 0.0;
+    }
+    if(premiumAnalysisCenter.interarrivalTime == 0){
+        statistics.avgNumberOFJobs[2] = 0.0;
+    }
+    
+
     // Reliable analysis center
     double reliableResponseTime = reliableAnalysisCenter.area / reliableAnalysisCenter.index;
     double reliablePremiumresponseTime = reliableAnalysisCenter.areaPremium / reliableAnalysisCenter.premiumIndex;
-    /*
-    printf("\nCenter 4 : Reliable analysis center\n");
-    printf("Number of processed jobs : %d\n", reliableAnalysisCenter.index);
-    printf("Mean number of jobs in the center: %6.2f\n", reliableAnalysisCenter.area / simulationTime);
-    printf("Mean number of PREMIUM jobs in the center : %6.2f\n", reliableAnalysisCenter.areaPremium / simulationTime);
-    printf("Average PREMIUM class response time : %6.2f\n", reliablePremiumresponseTime);
-    printf("Average response time : %6.2f\n", reliableResponseTime);
-    printf("Average NORMAL response time: %6.2f\n",reliableAnalysisCenter.areaNormal/reliableAnalysisCenter.normalIndex);
-    */
+    
     delayArea = reliableAnalysisCenter.queueArea;
     double delayAreaPremium = reliableAnalysisCenter.queueAreaPremium;
     double delayAreaNormal = reliableAnalysisCenter.queueAreaNormal;
-    // printf("Area premium = %6.2f\n",delayAreaPremium);
     meanServiceTime = reliableAnalysisCenter.serviceArea;
 
     double reliableRho = meanServiceTime / (reliableAnalysisCenter.interarrivalTime * N_RELIABLE);
-    // printf("Utilization: %6.2f\n",reliableRho);
-    /*
-    printf("Mean service time: %6.6f\n",meanServiceTime/reliableAnalysisCenter.index);
-    printf("Utilization: %6.2f\n",reliableRho);
-    printf("Average PREMIUM class wait time : %6.2f\n", delayAreaPremium / reliableAnalysisCenter.premiumIndex);
-    printf("Average NORMAL class wait time : %6.2f\n", delayAreaNormal / reliableAnalysisCenter.normalIndex);
-    printf("Average wait time : %6.2f\n", delayArea / reliableAnalysisCenter.index);
-
-    printf("Number of termination due to timeout expiration: %d (percentage : %6.6f)\n",
-     reliableAnalysisCenter.numberOfTimeouts, (double)reliableAnalysisCenter.numberOfTimeouts / reliableAnalysisCenter.index);
-    */
-    // printf("Average PREMIUM class wait time : %6.2f\n", delayAreaPremium / reliableAnalysisCenter.premiumIndex);
-    // printf("Average NORMAL class wait time : %6.2f\n", delayAreaNormal / reliableAnalysisCenter.normalIndex);
+    
     statistics.ro[3] = reliableRho;
     statistics.responseTime[3] = reliableResponseTime;
     statistics.waitTime[3] = delayArea / reliableAnalysisCenter.index;
@@ -621,152 +604,202 @@ stats computeStatistics(digestCenter digestCenter, normalAnalysisCenter normalAn
     statistics.interarrivalTime[3] = reliableAnalysisCenter.interarrivalTime / reliableAnalysisCenter.index;
     statistics.avgNumberOFJobs[3] = reliableAnalysisCenter.area / reliableAnalysisCenter.interarrivalTime;
     statistics.numOfTimeouts[2] = reliableAnalysisCenter.numberOfTimeouts;
-    //ML performances
-
+    if (reliableAnalysisCenter.index == 0){
+        reliableResponseTime = 0.0;
+        reliableRho = 0.0;
+        statistics.responseTime[3] = 0.0;
+        statistics.waitTime[3] = 0.0;
+        statistics.serviceTime[3] = 0.0;
+        statistics.interarrivalTime[3] = 0.0;
+    }
+    if (reliableAnalysisCenter.interarrivalTime == 0.0){
+        statistics.avgNumberOFJobs[3] = 0.0;
+    }
+    if (reliableAnalysisCenter.premiumIndex == 0){
+        reliablePremiumresponseTime = 0.0;
+    }
     
+    
+    
+
+
+    // ML performances
 
     // Global performances
     // printf("\nGlobal performances\n");
     double globalWaitTime = (digestCenter.queueArea + normalAnalysisCenter.queueArea + premiumAnalysisCenter.queueArea + reliableAnalysisCenter.queueArea) / digestCenter.index;
     double globalPremiumWaitTime = (digestCenter.queueArea + premiumAnalysisCenter.queueArea + reliableAnalysisCenter.queueAreaPremium) / digestCenter.indexPremium;
     double globalNormalWaitTime = (digestCenter.queueArea + normalAnalysisCenter.queueArea + reliableAnalysisCenter.queueAreaNormal) / (digestCenter.index - digestCenter.indexPremium);
-    double globalResponseTime = digestResponseTime + normalResponseTime*(double)normalAnalysisCenter.index/digestCenter.index  + premiumResponseTime*(double)premiumAnalysisCenter.index/digestCenter.index + reliableResponseTime*((double)(premiumAnalysisCenter.numberOfTimeouts+normalAnalysisCenter.numberOfTimeouts)/digestCenter.index);
-    //double globalResponseTime = (digestCenter.area +normalAnalysisCenter .area + premiumAnalysisCenter.area) / digestCenter.index + reliableAnalysisCenter.area/(premiumAnalysisCenter.index+ normalAnalysisCenter.index);
+    double globalResponseTime = digestResponseTime + normalResponseTime * (double)normalAnalysisCenter.index / digestCenter.index + premiumResponseTime * (double)premiumAnalysisCenter.index / digestCenter.index + reliableResponseTime * ((double)(premiumAnalysisCenter.numberOfTimeouts + normalAnalysisCenter.numberOfTimeouts) / digestCenter.index);
+    printf("Digest : %6.6f\n", digestResponseTime);
+    printf("Normal : %6.6f\n", normalResponseTime);
+    printf("Premium : %6.6f\n", premiumResponseTime);
+    printf("Reliable : %6.6f\n", reliableResponseTime);
 
-    double globalPremiumResponseTime = digestResponseTime + premiumResponseTime*(double)premiumAnalysisCenter.index/digestCenter.indexPremium + reliableResponseTime*(double)premiumAnalysisCenter.numberOfTimeouts/digestCenter.indexPremium;
-    //double globalPremiumResponseTime = (digestCenter.area + premiumAnalysisCenter.area ) / digestCenter.index + reliableAnalysisCenter.areaPremium/premiumAnalysisCenter.index;
-    double globalNormalResponseTime = digestResponseTime + normalResponseTime*(double)normalAnalysisCenter.index/(digestCenter.index-digestCenter.indexPremium) + reliableResponseTime*(double)normalAnalysisCenter.numberOfTimeouts/(digestCenter.index-digestCenter.indexPremium);
-    //double globalNormalResponseTime = (digestCenter.area + normalAnalysisCenter.area) / (digestCenter.index)  + reliableAnalysisCenter.areaNormal/normalAnalysisCenter.index;
-    // printf("Global waiting time : %6.6f\nGlobal premium waiting time : %6.6f\nGlobal normal waiting time : %6.6f\n",globalWaitTime,globalPremiumWaitTime,globalNormalWaitTime);
-    if(IMPROVEMENT){
-        //printf("%d\n",mlCenter.index);
-        double mlResponseTime = mlCenter.area/mlCenter.index;
-         globalResponseTime = digestResponseTime + normalResponseTime*(double)normalAnalysisCenter.index/digestCenter.index  + premiumResponseTime*(double)premiumAnalysisCenter.index/digestCenter.index + reliableResponseTime*((double)(premiumAnalysisCenter.numberOfTimeouts+normalAnalysisCenter.numberOfTimeouts)/digestCenter.index) + mlResponseTime*((double)mlCenter.index/digestCenter.index);
-       globalPremiumResponseTime = digestResponseTime + premiumResponseTime*(double)premiumAnalysisCenter.index/digestCenter.indexPremium + reliableResponseTime*(double)premiumAnalysisCenter.numberOfTimeouts/digestCenter.indexPremium + mlResponseTime*((double)mlCenter.indexPremium/digestCenter.indexPremium);
-        globalNormalResponseTime = digestResponseTime + normalResponseTime*(double)normalAnalysisCenter.index/(digestCenter.index-digestCenter.indexPremium) + reliableResponseTime*(double)normalAnalysisCenter.numberOfTimeouts/(digestCenter.index-digestCenter.indexPremium)  + mlResponseTime*((double)(mlCenter.index-mlCenter.indexPremium)/(digestCenter.index -digestCenter.indexPremium)) ;
+
+    double globalPremiumResponseTime = digestResponseTime + premiumResponseTime * (double)premiumAnalysisCenter.index / digestCenter.indexPremium + reliableResponseTime * (double)premiumAnalysisCenter.numberOfTimeouts / digestCenter.indexPremium;
+    // double globalPremiumResponseTime = (digestCenter.area + premiumAnalysisCenter.area ) / digestCenter.index + reliableAnalysisCenter.areaPremium/premiumAnalysisCenter.index;
+    double globalNormalResponseTime = digestResponseTime + normalResponseTime * (double)normalAnalysisCenter.index / (digestCenter.index - digestCenter.indexPremium) + reliableResponseTime * (double)normalAnalysisCenter.numberOfTimeouts / (digestCenter.index - digestCenter.indexPremium);
+    // double globalNormalResponseTime = (digestCenter.area + normalAnalysisCenter.area) / (digestCenter.index)  + reliableAnalysisCenter.areaNormal/normalAnalysisCenter.index;
+    //  printf("Global waiting time : %6.6f\nGlobal premium waiting time : %6.6f\nGlobal normal waiting time : %6.6f\n",globalWaitTime,globalPremiumWaitTime,globalNormalWaitTime);
+    if (IMPROVEMENT)
+    {
+        // printf("%d\n",mlCenter.index);
+        double mlResponseTime = mlCenter.area / mlCenter.index;
+        globalResponseTime = digestResponseTime + normalResponseTime * (double)normalAnalysisCenter.index / digestCenter.index + premiumResponseTime * (double)premiumAnalysisCenter.index / digestCenter.index + reliableResponseTime * ((double)(premiumAnalysisCenter.numberOfTimeouts + normalAnalysisCenter.numberOfTimeouts) / digestCenter.index) + mlResponseTime * ((double)mlCenter.index / digestCenter.index);
+        globalPremiumResponseTime = digestResponseTime + premiumResponseTime * (double)premiumAnalysisCenter.index / digestCenter.indexPremium + reliableResponseTime * (double)premiumAnalysisCenter.numberOfTimeouts / digestCenter.indexPremium + mlResponseTime * ((double)mlCenter.indexPremium / digestCenter.indexPremium);
+        globalNormalResponseTime = digestResponseTime + normalResponseTime * (double)normalAnalysisCenter.index / (digestCenter.index - digestCenter.indexPremium) + reliableResponseTime * (double)normalAnalysisCenter.numberOfTimeouts / (digestCenter.index - digestCenter.indexPremium) + mlResponseTime * ((double)(mlCenter.index - mlCenter.indexPremium) / (digestCenter.index - digestCenter.indexPremium));
     }
-    //printf("Global response time : %6.6f\nGlobal premium response time : %6.6f\nGlobal normal response time : %6.6f\n",globalResponseTime,globalPremiumResponseTime,globalNormalResponseTime);
+    // printf("Global response time : %6.6f\nGlobal premium response time : %6.6f\nGlobal normal response time : %6.6f\n",globalResponseTime,globalPremiumResponseTime,globalNormalResponseTime);
     double percentageFailure = (double)reliableAnalysisCenter.numberOfTimeouts / digestCenter.index;
     // printf("Global failure percentage : %6.6f\n", percentageFailure);
-    double check = globalPremiumResponseTime*((double)digestCenter.indexPremium/digestCenter.index) + globalNormalResponseTime*((double)(digestCenter.index-digestCenter.indexPremium)/digestCenter.index);
-    //printf("%6.6f\n", check);
+    double check = globalPremiumResponseTime * ((double)digestCenter.indexPremium / digestCenter.index) + globalNormalResponseTime * ((double)(digestCenter.index - digestCenter.indexPremium) / digestCenter.index);
+    // printf("%6.6f\n", check);
     statistics.globalResponseTime = globalResponseTime;
     statistics.globalPremiumResponseTime = globalPremiumResponseTime;
     statistics.globalFailurePercentage = percentageFailure;
 
-    statistics.ro[4] = (mlCenter.serviceArea/mlCenter.index)/(N_ML*mlCenter.interarrivalTime/mlCenter.index);
+    statistics.ro[4] = (mlCenter.serviceArea / mlCenter.index) / (N_ML * mlCenter.interarrivalTime / mlCenter.index);
     statistics.numOfBypass = mlCenter.numOfBypass;
-    statistics.responseTime[4] = mlCenter.area/mlCenter.index;
-    statistics.serviceTime[4] = mlCenter.serviceArea/mlCenter.index;
-    statistics.avgNumberOFJobs[4] = mlCenter.area/mlCenter.interarrivalTime;
-    statistics.interarrivalTime[4] = mlCenter.interarrivalTime/mlCenter.index;
-    
+    statistics.responseTime[4] = mlCenter.area / mlCenter.index;
+    statistics.serviceTime[4] = mlCenter.serviceArea / mlCenter.index;
+    statistics.avgNumberOFJobs[4] = mlCenter.area / mlCenter.interarrivalTime;
+    statistics.interarrivalTime[4] = mlCenter.interarrivalTime / mlCenter.index;
+
     // printf("Verify:\n");
-    verify(&digestCenter, &normalAnalysisCenter, &premiumAnalysisCenter, &reliableAnalysisCenter,&mlCenter);
-    if(IMPROVEMENT){
-            fprintf(file, "%d,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f\n",
-            statistics.numDigestMatching,
-            statistics.serviceTime[0],
-            statistics.serviceTime[1],
-            statistics.serviceTime[2],
-            statistics.serviceTime[3],
-            statistics.serviceTime[4],
-            statistics.responseTime[0],
-            statistics.responseTime[1],
-            statistics.responseTime[2],
-            statistics.responseTime[3],
-            statistics.responseTime[4],
-            statistics.waitTime[0],
-            statistics.waitTime[1],
-            statistics.waitTime[2],
-            statistics.waitTime[3],
-            statistics.interarrivalTime[0],
-            statistics.interarrivalTime[1],
-            statistics.interarrivalTime[2],
-            statistics.interarrivalTime[3],
-            statistics.interarrivalTime[4],
-            statistics.avgNumberOFJobs[0],
-            statistics.avgNumberOFJobs[1],
-            statistics.avgNumberOFJobs[2],
-            statistics.avgNumberOFJobs[3],
-            statistics.avgNumberOFJobs[4],
-            statistics.numOfTimeouts[0],
-            statistics.numOfTimeouts[1],
-            statistics.numOfTimeouts[2],
-            statistics.numOfBypass,
-            statistics.globalResponseTime,
-            statistics.globalPremiumResponseTime,
-            statistics.globalFailurePercentage,
-            statistics.ro[0],
-            statistics.ro[1],
-            statistics.ro[2],
-            statistics.ro[3],
-            statistics.ro[4]);
+    // TODO: uncomment the following line
+    //verify(&digestCenter, &normalAnalysisCenter, &premiumAnalysisCenter, &reliableAnalysisCenter, &mlCenter);
+    if (IMPROVEMENT)
+    {
+        fprintf(file, "%d,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f\n",
+                statistics.numDigestMatching,
+                statistics.serviceTime[0],
+                statistics.serviceTime[1],
+                statistics.serviceTime[2],
+                statistics.serviceTime[3],
+                statistics.serviceTime[4],
+                statistics.responseTime[0],
+                statistics.responseTime[1],
+                statistics.responseTime[2],
+                statistics.responseTime[3],
+                statistics.responseTime[4],
+                statistics.waitTime[0],
+                statistics.waitTime[1],
+                statistics.waitTime[2],
+                statistics.waitTime[3],
+                statistics.interarrivalTime[0],
+                statistics.interarrivalTime[1],
+                statistics.interarrivalTime[2],
+                statistics.interarrivalTime[3],
+                statistics.interarrivalTime[4],
+                statistics.avgNumberOFJobs[0],
+                statistics.avgNumberOFJobs[1],
+                statistics.avgNumberOFJobs[2],
+                statistics.avgNumberOFJobs[3],
+                statistics.avgNumberOFJobs[4],
+                statistics.numOfTimeouts[0],
+                statistics.numOfTimeouts[1],
+                statistics.numOfTimeouts[2],
+                statistics.numOfBypass,
+                statistics.globalResponseTime,
+                statistics.globalPremiumResponseTime,
+                statistics.globalFailurePercentage,
+                statistics.ro[0],
+                statistics.ro[1],
+                statistics.ro[2],
+                statistics.ro[3],
+                statistics.ro[4]);
     }
-    else{
-    fprintf(file, "%d,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f\n",
-            statistics.numDigestMatching,
-            statistics.serviceTime[0],
-            statistics.serviceTime[1],
-            statistics.serviceTime[2],
-            statistics.serviceTime[3],
-            statistics.responseTime[0],
-            statistics.responseTime[1],
-            statistics.responseTime[2],
-            statistics.responseTime[3],
-            statistics.waitTime[0],
-            statistics.waitTime[1],
-            statistics.waitTime[2],
-            statistics.waitTime[3],
-            statistics.interarrivalTime[0],
-            statistics.interarrivalTime[1],
-            statistics.interarrivalTime[2],
-            statistics.interarrivalTime[3],
-            statistics.avgNumberOFJobs[0],
-            statistics.avgNumberOFJobs[1],
-            statistics.avgNumberOFJobs[2],
-            statistics.avgNumberOFJobs[3],
-            statistics.numOfTimeouts[0],
-            statistics.numOfTimeouts[1],
-            statistics.numOfTimeouts[2],
-            statistics.globalResponseTime,
-            statistics.globalPremiumResponseTime,
-            statistics.globalFailurePercentage,
-            statistics.ro[0],
-            statistics.ro[1],
-            statistics.ro[2],
-            statistics.ro[3]);}
+    else
+    {
+        fprintf(file, "%d,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f\n",
+                statistics.numDigestMatching,
+                statistics.serviceTime[0],
+                statistics.serviceTime[1],
+                statistics.serviceTime[2],
+                statistics.serviceTime[3],
+                statistics.responseTime[0],
+                statistics.responseTime[1],
+                statistics.responseTime[2],
+                statistics.responseTime[3],
+                statistics.waitTime[0],
+                statistics.waitTime[1],
+                statistics.waitTime[2],
+                statistics.waitTime[3],
+                statistics.interarrivalTime[0],
+                statistics.interarrivalTime[1],
+                statistics.interarrivalTime[2],
+                statistics.interarrivalTime[3],
+                statistics.avgNumberOFJobs[0],
+                statistics.avgNumberOFJobs[1],
+                statistics.avgNumberOFJobs[2],
+                statistics.avgNumberOFJobs[3],
+                statistics.numOfTimeouts[0],
+                statistics.numOfTimeouts[1],
+                statistics.numOfTimeouts[2],
+                statistics.globalResponseTime,
+                statistics.globalPremiumResponseTime,
+                statistics.globalFailurePercentage,
+                statistics.ro[0],
+                statistics.ro[1],
+                statistics.ro[2],
+                statistics.ro[3]);
+    }
     fclose(file);
     return statistics;
 }
 
-stats* infiniteHorizonSimulation(int batchNumber, int batchSize, char* filename){
+stats *infiniteHorizonSimulation(int batchNumber, int batchSize, char *filename)
+{
     int nBatch = 0;
     int jobsInBatch = 0;
     simulationTime = START;
-    double batchTime = 0.0;                        // set the initial value of the simulation clock
-    event_list events;                             // struct that contains the event lists of the simulation
-    digestCenter digestCenter = initializeDigest();                     // struct containing info on the Digest Center during the simulation
-    normalAnalysisCenter normalAnalysisCenter = initializeNormal();     // struct containing info on the Normal Analysis Center during the simulation
-    premiumAnalysisCenter premiumAnalysisCenter = initializePremium();   // struct containing info on the Premium Analysis Center during the simulation
+    double batchTime = 0.0;                                               // set the initial value of the simulation clock
+    event_list events;                                                    // struct that contains the event lists of the simulation
+    digestCenter digestCenter = initializeDigest();                       // struct containing info on the Digest Center during the simulation
+    normalAnalysisCenter normalAnalysisCenter = initializeNormal();       // struct containing info on the Normal Analysis Center during the simulation
+    premiumAnalysisCenter premiumAnalysisCenter = initializePremium();    // struct containing info on the Premium Analysis Center during the simulation
     reliableAnalysisCenter reliableAnalysisCenter = initializeReliable(); // struct containing info on the Reliable Analysis Center during the simulation
     machineLearningCenter mlCenter = initializeMl();
-        // Initialize event lists
+    // Initialize event lists
     events.arrivals = NULL;               // list of arrivals
     events.terminations = NULL;           // list of terminations
-    PlantSeeds(123456789);    // seeds for RNGS
+    PlantSeeds(123456789);                // seeds for RNGS
     insertList(&events, getArrival(), 0); // generate the first arrival and put it in the list of events
-    stats *allStatistics = malloc(sizeof(stats)*batchNumber);
-    while(nBatch<batchNumber || !isEmptyList(events)){
+    stats *allStatistics = malloc(sizeof(stats) * batchNumber);
+    int digestArrivals = 0;
+    int normalArrivals = 0;
+    int premiumArrivals = 0;
+    int reliableArrivals = 0;
+    while (nBatch < batchNumber)
+    {
         if (nextEvent(events) == 0)
         {
-            if(events.arrivals->center == CENTER_DIGEST){
+            //jobsInBatch++;
+            
+            if (events.arrivals->center == CENTER_DIGEST)
+            {
                 jobsInBatch++;
+                digestArrivals++;
+            }else if (events.arrivals->center == CENTER_NORMAL){
+                normalArrivals++;
+            }else if (events.arrivals->center == CENTER_PREMIUM){
+                premiumArrivals++;
+            }else{
+                reliableArrivals++;
             }
-            if((jobsInBatch%batchSize == 0 && nBatch!=batchNumber-1) || (jobsInBatch%batchSize == 0 && isEmptyList(events) && nBatch == batchNumber-1)){
-                //Compute statistics
-                allStatistics[nBatch] = computeStatistics(digestCenter,normalAnalysisCenter,premiumAnalysisCenter,reliableAnalysisCenter,mlCenter,filename,nBatch,simulationTime-batchTime);
-                //Reset center values
+          
+            
+            // distinguish the center that has to process the arrival event
+            events = handleArrival(&digestCenter, &normalAnalysisCenter, &premiumAnalysisCenter, &reliableAnalysisCenter, &mlCenter, events);
+
+            //if ((jobsInBatch % batchSize == 0 && nBatch != batchNumber - 1) || (jobsInBatch % batchSize == 0 && isEmptyList(events) && nBatch == batchNumber - 1))
+            //if ((jobsInBatch % batchSize == 0 && nBatch != batchNumber - 1))
+            if (jobsInBatch == batchSize)
+            {
+                // Compute statistics
+                allStatistics[nBatch] = computeStatistics(digestCenter, normalAnalysisCenter, premiumAnalysisCenter, reliableAnalysisCenter, mlCenter, filename, nBatch, simulationTime - batchTime);
+                // Reset center values
                 digestCenter.index = 0;
                 digestCenter.indexPremium = 0;
                 digestCenter.area = 0.0;
@@ -793,7 +826,7 @@ stats* infiniteHorizonSimulation(int batchNumber, int batchSize, char* filename)
                 reliableAnalysisCenter.area = 0.0;
                 reliableAnalysisCenter.areaNormal = 0.0;
                 reliableAnalysisCenter.areaPremium = 0.0;
-                reliableAnalysisCenter.queueArea= 0.0;
+                reliableAnalysisCenter.queueArea = 0.0;
                 reliableAnalysisCenter.queueAreaNormal = 0.0;
                 reliableAnalysisCenter.queueAreaPremium = 0.0;
                 reliableAnalysisCenter.serviceArea = 0.0;
@@ -802,15 +835,20 @@ stats* infiniteHorizonSimulation(int batchNumber, int batchSize, char* filename)
                 reliableAnalysisCenter.interarrivalTime = 0.0;
                 nBatch++;
                 batchTime = simulationTime;
-            }
-            // distinguish the center that has to process the arrival event
-            events = handleArrival(&digestCenter,&normalAnalysisCenter,&premiumAnalysisCenter,&reliableAnalysisCenter,&mlCenter,events);
+                jobsInBatch = 0;
 
+                printf("D: %d\tN: %d\tP: %d\tR: %d\n", digestArrivals, normalArrivals, premiumArrivals, reliableArrivals);
+                digestArrivals = 0;
+                normalArrivals = 0;
+                premiumArrivals = 0;
+                reliableArrivals = 0;
+            }
+            
         }
         else
         {
             // Next event is a termination
-            events = handleTermination(&digestCenter,&normalAnalysisCenter,&premiumAnalysisCenter,&reliableAnalysisCenter,&mlCenter,events);
+            events = handleTermination(&digestCenter, &normalAnalysisCenter, &premiumAnalysisCenter, &reliableAnalysisCenter, &mlCenter, events);
         }
     }
     return allStatistics;
@@ -827,11 +865,11 @@ stats oneTimeSimulation(int runNumber, char *filename)
 {
 
     // Initial setup
-    simulationTime = START;                        // set the initial value of the simulation clock
-    event_list events;                             // struct that contains the event lists of the simulation
-    digestCenter digestCenter = initializeDigest();                     // struct containing info on the Digest Center during the simulation
-    normalAnalysisCenter normalAnalysisCenter = initializeNormal();     // struct containing info on the Normal Analysis Center during the simulation
-    premiumAnalysisCenter premiumAnalysisCenter = initializePremium();   // struct containing info on the Premium Analysis Center during the simulation
+    simulationTime = START;                                               // set the initial value of the simulation clock
+    event_list events;                                                    // struct that contains the event lists of the simulation
+    digestCenter digestCenter = initializeDigest();                       // struct containing info on the Digest Center during the simulation
+    normalAnalysisCenter normalAnalysisCenter = initializeNormal();       // struct containing info on the Normal Analysis Center during the simulation
+    premiumAnalysisCenter premiumAnalysisCenter = initializePremium();    // struct containing info on the Premium Analysis Center during the simulation
     reliableAnalysisCenter reliableAnalysisCenter = initializeReliable(); // struct containing info on the Reliable Analysis Center during the simulation
     machineLearningCenter mlCenter = initializeMl();
     // Initialize event lists
@@ -849,22 +887,19 @@ stats oneTimeSimulation(int runNumber, char *filename)
         if (nextEvent(events) == 0)
         {
             // distinguish the center that has to process the arrival event
-            events = handleArrival(&digestCenter,&normalAnalysisCenter,&premiumAnalysisCenter,&reliableAnalysisCenter,&mlCenter,events);
+            events = handleArrival(&digestCenter, &normalAnalysisCenter, &premiumAnalysisCenter, &reliableAnalysisCenter, &mlCenter, events);
         }
         else
         {
             // Next event is a termination
-            events = handleTermination(&digestCenter,&normalAnalysisCenter,&premiumAnalysisCenter,&reliableAnalysisCenter,&mlCenter,events);
+            events = handleTermination(&digestCenter, &normalAnalysisCenter, &premiumAnalysisCenter, &reliableAnalysisCenter, &mlCenter, events);
         }
     }
 
     // struct used to contain statistics
-    stats statistics = computeStatistics(digestCenter,normalAnalysisCenter,premiumAnalysisCenter,reliableAnalysisCenter,mlCenter,filename,runNumber,simulationTime);
+    stats statistics = computeStatistics(digestCenter, normalAnalysisCenter, premiumAnalysisCenter, reliableAnalysisCenter, mlCenter, filename, runNumber, simulationTime);
     return statistics;
-    
 }
-
-
 
 /* use 0.95 for 95% confidence */
 
@@ -907,43 +942,60 @@ double *welford(double confidence, double *statistics, int size)
     return (0);
 }
 
-double autocorrelation(double *statistics, int size, double confidence, int j){
+/**
+ * @brief This function calculate the autocorrelation with lag 1
+ * over a dataset of data points.
+ * 
+ * @param statistics array of data points
+ * @param size number of datapoints
+ * @param j autocorrelation lag (set 1)
+ * @return double autocorrelation value (C_j/C_0)
+ */
+double autocorrelation(double *statistics, int size, int j)
+{
     int i = 0;
     double sum = 0.0;
     double n;
     int p = 0;
-    double* cosum = malloc(sizeof(double)*(j+1));
-    double* hold = malloc(sizeof(double)*(j+1));
-    while (i < j+1) {              /* initialize the hold array with */
-    double x = statistics[i];         /* the first K + 1 data values    */
-    sum     += x;
-    hold[i]  = x;
-    i++;
-  }
-  
+    double *cosum = malloc(sizeof(double) * (j + 1));
+    double *hold = malloc(sizeof(double) * (j + 1));
+    double mean = 0.0;
+    while (i < j + 1)
+    {                             /* initialize the hold array with */
+        double x = statistics[i]; /* the first K + 1 data values    */
+        sum += x;
+        hold[i] = x;
+        i++;
+    }
 
-  while (i<size) {
-    for (int k = 0; k < j+1; k++)
-      cosum[k] += hold[p] * hold[(p + k) % (j+1)];
-    double x = statistics[i];
-    sum    += x;
-    hold[p] = x;
-    p       = (p + 1) % (j+1);
-    i++;
-  }
-  n = i;
+    while (i < size)
+    {
+        for (int k = 0; k < j + 1; k++)
+            cosum[k] += hold[p] * hold[(p + k) % (j + 1)];
+        double x = statistics[i];
+        sum += x;
+        hold[p] = x;
+        p = (p + 1) % (j + 1);
+        i++;
+    }
+    n = i;
 
-  while (i < n + j+1) {         /* empty the circular array */
-    for (int k = 0; k < j+1; k++)
-      cosum[j] += hold[p] * hold[(p + k) % (j+1)];
-    hold[p] = 0.0;
-    p       = (p + 1) % SIZE;
-    i++;
-  } 
+    while (i < n + j + 1)
+    { /* empty the circular array */
+        for (int k = 0; k < j + 1; k++){
+            cosum[k] += hold[p] * hold[(p + k) % (j + 1)];
+        }
+        hold[p] = 0.0;
+        p = (p + 1) % (j + 1);
+        i++;
+    }
 
-  mean = sum / n;
-  for (j = 0; j <= K; j++)
-    cosum[j] = (cosum[j] / (n - j)) - (mean * mean);
+    mean = sum / n;
+    for (int k = 0; k <= j; k++)
+        cosum[k] = (cosum[k] / (n - k)) - (mean * mean);
+
+    // return C_j / C_0
+    return cosum[j] / cosum[0];
 }
 
 void writeCSVLine(FILE *file, char *statName, char *actualValue)
@@ -968,10 +1020,11 @@ int main()
     stats statistics[ITERATIONS];
     avgStats averageAmongRuns;
     int nCenters = 4;
-    if(IMPROVEMENT)
+    if (IMPROVEMENT)
         nCenters = 5;
-    if(IMPROVEMENT){
-         fprintf(f, "#RUN,Digest Matching, Service time Digest, Service time Normal, Service time Premium, Service time Reliable,Service time ML,Response time Digest, Response time Normal, Response time Premium, Response time Reliable, Response time ML, Wait time Digest, Wait time Normal, Wait time Premium, Wait time Reliable,Interarrival time Digest, Interarrival time Normal, Interarrival time Premium, Interarrival time Reliable,Interarrival time ML, Avg num of jobs Digest, Avg num of jobs Normal, Avg num of jobs Premium, Avg num of jobs Reliable, Avg num of jobs ML, Num of timeouts Normal, Num of timeouts Premium, Num of timeouts Reliable, Num of bypass, Global Response Time, Global Premium Response Time, Percentage of Failure, Rho Digest, Rho Normal, Rho Premium, Rho Reliable, Rho ML\n");
+    if (IMPROVEMENT)
+    {
+        fprintf(f, "#RUN,Digest Matching, Service time Digest, Service time Normal, Service time Premium, Service time Reliable,Service time ML,Response time Digest, Response time Normal, Response time Premium, Response time Reliable, Response time ML, Wait time Digest, Wait time Normal, Wait time Premium, Wait time Reliable,Interarrival time Digest, Interarrival time Normal, Interarrival time Premium, Interarrival time Reliable,Interarrival time ML, Avg num of jobs Digest, Avg num of jobs Normal, Avg num of jobs Premium, Avg num of jobs Reliable, Avg num of jobs ML, Num of timeouts Normal, Num of timeouts Premium, Num of timeouts Reliable, Num of bypass, Global Response Time, Global Premium Response Time, Percentage of Failure, Rho Digest, Rho Normal, Rho Premium, Rho Reliable, Rho ML\n");
     }
     else
         fprintf(f, "#RUN,Digest Matching, Service time Digest, Service time Normal, Service time Premium, Service time Reliable,Response time Digest, Response time Normal, Response time Premium, Response time Reliable, Wait time Digest, Wait time Normal, Wait time Premium, Wait time Reliable,Interarrival time Digest, Interarrival time Normal, Interarrival time Premium, Interarrival time Reliable, Avg num of jobs Digest, Avg num of jobs Normal, Avg num of jobs Premium, Avg num of jobs Reliable, Num of timeouts Normal, Num of timeouts Premium, Num of timeouts Reliable, Global Response Time, Global Premium Response Time, Percentage of Failure, Rho Digest, Rho Normal, Rho Premium, Rho Reliable\n");
@@ -986,7 +1039,6 @@ int main()
             {
                 printf("Run %d DONE\n", i + 1);
             }
-            
         }
 
         // Calculate mean values of the statistics recovered through the ITERATIONS runs
@@ -1187,7 +1239,7 @@ int main()
         writeCSVLine(estimations, "Failure percentage", actualValue);
         free(results);
         // Rho
-                // timeouts
+        // timeouts
         for (int j = 0; j < nCenters; j++)
         {
             for (int i = 0; i < ITERATIONS; i++)
@@ -1261,10 +1313,137 @@ int main()
             }
         }
     }
-    else{
-        //INFINITE HORIZON
-        stats *simResults = infiniteHorizonSimulation(64,1024,"simulation_stats.csv");
-        //TODO add interval estimation
+    else
+    {
+        // INFINITE HORIZON
+        int batchNumber = 64;   // k
+        int batchSize = 12000;   // b
+        int lag = 1;            // j
+        stats *simResults = infiniteHorizonSimulation(batchNumber, batchSize, "simulation_stats.csv");
+        // TODO: add interval estimation
+
+        // autocorrelation of global response times
+        double *dataPoints = malloc(batchNumber * sizeof(double));
+        for(int i = 0; i < batchNumber; i++){
+            dataPoints[i] = simResults[i].globalResponseTime;
+        }
+        double autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
+        printf("\n\nAutocorrelation for global response time is %6.6f\n", autoCorrelation);
+        free(dataPoints);
+
+        // premium global response time
+        dataPoints = malloc(batchNumber * sizeof(double));
+        for(int i = 0; i < batchNumber; i++){
+            dataPoints[i] = simResults[i].globalPremiumResponseTime;
+        }
+        autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
+        printf("Autocorrelation for global premium response time is %6.6f\n", autoCorrelation);
+        free(dataPoints);
+
+        // num jobs
+        dataPoints = malloc(batchNumber * sizeof(double));
+        for(int i = 0; i < batchNumber; i++){
+            dataPoints[i] = simResults[i].numJobs;
+        }
+        autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
+        printf("Autocorrelation for num jobs is %6.6f\n", autoCorrelation);
+        free(dataPoints);
+
+        // num normal jobs
+        dataPoints = malloc(batchNumber * sizeof(double));
+        for(int i = 0; i < batchNumber; i++){
+            dataPoints[i] = simResults[i].numNormalJobs;
+        }
+        autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
+        printf("Autocorrelation for num normal jobs is %6.6f\n", autoCorrelation);
+        free(dataPoints);
+
+        // num premium jobs
+        dataPoints = malloc(batchNumber * sizeof(double));
+        for(int i = 0; i < batchNumber; i++){
+            dataPoints[i] = simResults[i].numPremiumJobs;
+        }
+        autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
+        printf("Autocorrelation for num premium jobs is %6.6f\n", autoCorrelation);
+        free(dataPoints);
+
+        // global failure percentage
+        dataPoints = malloc(batchNumber * sizeof(double));
+        for(int i = 0; i < batchNumber; i++){
+            dataPoints[i] = simResults[i].globalFailurePercentage;
+        }
+        autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
+        printf("Autocorrelation for global failure percentage is %6.6f\n", autoCorrelation);
+        free(dataPoints);
+
+        int numCenters = 4;
+        for (int c = 0; c < numCenters; c++){
+            // wait time
+            dataPoints = malloc(batchNumber * sizeof(double));
+            for(int i = 0; i < batchNumber; i++){
+                dataPoints[i] = simResults[i].waitTime[c];
+            }
+            autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
+            printf("Autocorrelation for wait time (center %d) is %6.6f\n", c+1, autoCorrelation);
+            free(dataPoints);
+        }
+
+        for (int c = 0; c < numCenters; c++){
+            // service time
+            dataPoints = malloc(batchNumber * sizeof(double));
+            for(int i = 0; i < batchNumber; i++){
+                dataPoints[i] = simResults[i].serviceTime[c];
+            }
+            autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
+            printf("Autocorrelation for service time (center %d) is %6.6f\n", c+1, autoCorrelation);
+            free(dataPoints);
+        }
+
+        for (int c = 0; c < numCenters; c++){
+            // interarrival time
+            dataPoints = malloc(batchNumber * sizeof(double));
+            for(int i = 0; i < batchNumber; i++){
+                dataPoints[i] = simResults[i].interarrivalTime[c];
+            }
+            autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
+            printf("Autocorrelation for interarrival time (center %d) is %6.6f\n", c+1, autoCorrelation);
+            free(dataPoints);
+        }
+
+        for (int c = 0; c < numCenters; c++){
+            // avg number of jobs time
+            dataPoints = malloc(batchNumber * sizeof(double));
+            for(int i = 0; i < batchNumber; i++){
+                dataPoints[i] = simResults[i].avgNumberOFJobs[c];
+            }
+            autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
+            printf("Autocorrelation for avg number of jobs (center %d) is %6.6f\n", c+1, autoCorrelation);
+            free(dataPoints);
+        }
+
+        for (int c = 0; c < numCenters; c++){
+            // utilization
+            dataPoints = malloc(batchNumber * sizeof(double));
+            for(int i = 0; i < batchNumber; i++){
+                dataPoints[i] = simResults[i].ro[c];
+            }
+            autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
+            printf("Autocorrelation for utilization (center %d) is %6.6f\n", c+1, autoCorrelation);
+            free(dataPoints);
+        }
+
+        for (int c = 0; c < 3; c++){
+            // num timeouts
+            dataPoints = malloc(batchNumber * sizeof(double));
+            for(int i = 0; i < batchNumber; i++){
+                dataPoints[i] = simResults[i].numOfTimeouts[c];
+            }
+            autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
+            printf("Autocorrelation for num timeouts (center %d) is %6.6f\n", c+2, autoCorrelation);
+            free(dataPoints);
+        }
+        
+        
     }
 }
 
@@ -1295,7 +1474,7 @@ void handleDigestArrival(digestCenter *digestCenter, event_list *ev)
         insertQueue(&(digestCenter->queue), node);
     }
     // Generate a new arrival and insert into the list of events, only if the simuation time is not over
-    if (simulationTime < OBSERVATION_PERIOD)
+    if (simulationTime < OBSERVATION_PERIOD || INFINITE_HORIZON)
     {
         arrival *newArrival = getArrival();
         digestCenter->interarrivalTime += newArrival->time - simulationTime;
@@ -1320,49 +1499,50 @@ void handleDigestTermination(digestCenter *digestCenter, event_list *ev)
     digestCenter->lastEventTime = term->time;
     ev->terminations = term->next;
 
-
     SelectStream(DIGEST_MATCHING_PROBABILITY_STREAM);
     if (!Bernoulli(digestCenter->probabilityOfMatching))
     {
         // Digest not matching: create new arrival
-    if(IMPROVEMENT){
-        SelectStream(MEAN_SERVICE_TIME_ML_STREAM);
-        arrival *ar = malloc(sizeof(arrival));
-        ar->job.type = term->job.type;
-        ar->job.userType = term->job.userType;
-        ar->job.serviceTime = Exponential(ML_MEAN_SERVICE_TIME);
-        
-        ar->time = simulationTime;
-        ar->center = CENTER_ML;
-        insertList(ev,ar,0);
-    }
-    else{
-        arrival *ar = malloc(sizeof(arrival));
-        if (ar == NULL)
+        if (IMPROVEMENT)
         {
-            printf("Memory leak\n");
-            exit(0);
-        }
-        switch (term->job.userType)
-        {
-        case PREMIUM:
-            ar->center = CENTER_PREMIUM;
-            SelectStream(MEAN_SERVICE_TIME_PREMIUM_STREAM);
-            ar->job.serviceTime = Exponential(PREMIUM_MEAN_SERVICE_TIME);
+            SelectStream(MEAN_SERVICE_TIME_ML_STREAM);
+            arrival *ar = malloc(sizeof(arrival));
             ar->job.type = term->job.type;
             ar->job.userType = term->job.userType;
-            break;
-        case NORMAL:
-            ar->center = CENTER_NORMAL;
-            SelectStream(MEAN_SERVICE_TIME_NORMAL_STREAM);
-            ar->job.serviceTime = Exponential(NORMAL_MEAN_SERVICE_TIME);
-            ar->job.type = term->job.type;
-            ar->job.userType = term->job.userType;
-            break;
+            ar->job.serviceTime = Exponential(ML_MEAN_SERVICE_TIME);
+
+            ar->time = simulationTime;
+            ar->center = CENTER_ML;
+            insertList(ev, ar, 0);
         }
-        ar->time = simulationTime;
-        insertList(ev, ar, 0);
-    }
+        else
+        {
+            arrival *ar = malloc(sizeof(arrival));
+            if (ar == NULL)
+            {
+                printf("Memory leak\n");
+                exit(0);
+            }
+            switch (term->job.userType)
+            {
+            case PREMIUM:
+                ar->center = CENTER_PREMIUM;
+                SelectStream(MEAN_SERVICE_TIME_PREMIUM_STREAM);
+                ar->job.serviceTime = Exponential(PREMIUM_MEAN_SERVICE_TIME);
+                ar->job.type = term->job.type;
+                ar->job.userType = term->job.userType;
+                break;
+            case NORMAL:
+                ar->center = CENTER_NORMAL;
+                SelectStream(MEAN_SERVICE_TIME_NORMAL_STREAM);
+                ar->job.serviceTime = Exponential(NORMAL_MEAN_SERVICE_TIME);
+                ar->job.type = term->job.type;
+                ar->job.userType = term->job.userType;
+                break;
+            }
+            ar->time = simulationTime;
+            insertList(ev, ar, 0);
+        }
     }
     else
     {
@@ -1750,84 +1930,95 @@ void handleReliableTermination(reliableAnalysisCenter *center, event_list *ev, d
     free(ter);
 }
 
-void handleMachineLearningArrival(machineLearningCenter *mlCenter, event_list *ev){
+void handleMachineLearningArrival(machineLearningCenter *mlCenter, event_list *ev)
+{
     arrival *ar = ev->arrivals;
     simulationTime = ar->time;
     ev->arrivals = ar->next;
-    //printf("ML Service time = %6.6f\n",ar->job.serviceTime);
+    // printf("ML Service time = %6.6f\n",ar->job.serviceTime);
 
-    if(mlCenter->jobs<N_ML){
+    if (mlCenter->jobs < N_ML)
+    {
         if (mlCenter->lastArrivalTime != 0.0)
             mlCenter->interarrivalTime += ar->time - mlCenter->lastArrivalTime;
         mlCenter->lastArrivalTime = simulationTime;
         mlCenter->jobs++;
         mlCenter->lastEventTime = simulationTime;
-        //We can handle this job
+        // We can handle this job
         termination *terr = malloc(sizeof(termination));
         terr->center = CENTER_ML;
         terr->time = simulationTime + ar->job.serviceTime;
         terr->job = ar->job;
-        insertList(ev,terr,1);
+        insertList(ev, terr, 1);
     }
-    else{
+    else
+    {
         mlCenter->numOfBypass++;
-        //Job is moved to the correct center
-        if (ar->job.userType == PREMIUM){
-        arrival *arr = malloc(sizeof(arrival));
-        arr->center = CENTER_PREMIUM;
-        arr->time = simulationTime;
-        arr->job = ar->job;
-        SelectStream(MEAN_SERVICE_TIME_PREMIUM_STREAM);
-        arr->job.serviceTime = Exponential(PREMIUM_MEAN_SERVICE_TIME);
-        insertList(ev, arr, 0);
+        // Job is moved to the correct center
+        if (ar->job.userType == PREMIUM)
+        {
+            arrival *arr = malloc(sizeof(arrival));
+            arr->center = CENTER_PREMIUM;
+            arr->time = simulationTime;
+            arr->job = ar->job;
+            SelectStream(MEAN_SERVICE_TIME_PREMIUM_STREAM);
+            arr->job.serviceTime = Exponential(PREMIUM_MEAN_SERVICE_TIME);
+            insertList(ev, arr, 0);
         }
-        else{
-        arrival *arr = malloc(sizeof(arrival));
-        arr->center = CENTER_NORMAL;
-        arr->time = simulationTime;
-        arr->job = ar->job;
-        SelectStream(MEAN_SERVICE_TIME_NORMAL_STREAM);
-        arr->job.serviceTime = Exponential(NORMAL_MEAN_SERVICE_TIME);
-        insertList(ev, arr, 0);
+        else
+        {
+            arrival *arr = malloc(sizeof(arrival));
+            arr->center = CENTER_NORMAL;
+            arr->time = simulationTime;
+            arr->job = ar->job;
+            SelectStream(MEAN_SERVICE_TIME_NORMAL_STREAM);
+            arr->job.serviceTime = Exponential(NORMAL_MEAN_SERVICE_TIME);
+            insertList(ev, arr, 0);
         }
     }
     free(ar);
 }
 
-void handleMachineLearningTermination(machineLearningCenter *mlCenter, event_list *ev){
+void handleMachineLearningTermination(machineLearningCenter *mlCenter, event_list *ev)
+{
     termination *ter = ev->terminations;
     simulationTime = ter->time;
     mlCenter->lastEventTime = simulationTime;
     ev->terminations = ter->next;
     mlCenter->jobs--;
     mlCenter->index++;
-    if(ter->job.userType==PREMIUM){
+    if (ter->job.userType == PREMIUM)
+    {
         mlCenter->indexPremium++;
     }
     SelectStream(ML_RESULT_STREAM);
-    if(Bernoulli(PROB_POSITIVE_ML)){
-        //We have a positive result that goes out of the system
+    if (Bernoulli(PROB_POSITIVE_ML))
+    {
+        // We have a positive result that goes out of the system
         mlCenter->mlSuccess++;
     }
-    else{
-        //Negative result
-        if(ter->job.userType==PREMIUM){
-        arrival *arr = malloc(sizeof(arrival));
-        arr->center = CENTER_PREMIUM;
-        arr->time = simulationTime;
-        arr->job = ter->job;
-        SelectStream(MEAN_SERVICE_TIME_PREMIUM_STREAM);
-        arr->job.serviceTime = Exponential(PREMIUM_MEAN_SERVICE_TIME);
-        insertList(ev, arr, 0);
+    else
+    {
+        // Negative result
+        if (ter->job.userType == PREMIUM)
+        {
+            arrival *arr = malloc(sizeof(arrival));
+            arr->center = CENTER_PREMIUM;
+            arr->time = simulationTime;
+            arr->job = ter->job;
+            SelectStream(MEAN_SERVICE_TIME_PREMIUM_STREAM);
+            arr->job.serviceTime = Exponential(PREMIUM_MEAN_SERVICE_TIME);
+            insertList(ev, arr, 0);
         }
-        else{
-        arrival *arr = malloc(sizeof(arrival));
-        arr->center = CENTER_NORMAL;
-        arr->time = simulationTime;
-        arr->job = ter->job;
-        SelectStream(MEAN_SERVICE_TIME_NORMAL_STREAM);
-        arr->job.serviceTime = Exponential(NORMAL_MEAN_SERVICE_TIME);
-        insertList(ev, arr, 0);
+        else
+        {
+            arrival *arr = malloc(sizeof(arrival));
+            arr->center = CENTER_NORMAL;
+            arr->time = simulationTime;
+            arr->job = ter->job;
+            SelectStream(MEAN_SERVICE_TIME_NORMAL_STREAM);
+            arr->job.serviceTime = Exponential(NORMAL_MEAN_SERVICE_TIME);
+            insertList(ev, arr, 0);
         }
     }
     free(ter);
@@ -1902,7 +2093,7 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
     responseTime = reliableCenter->areaNormal / reliableCenter->normalIndex;
     waitTime = reliableCenter->queueAreaNormal / reliableCenter->normalIndex;
     serviceTime = reliableCenter->serviceAreaNormal / reliableCenter->normalIndex;
-    
+
     if (round(1000000 * responseTime) / 1000000 == round(1000000 * (waitTime + serviceTime)) / 1000000 == 0)
     {
         printf("Verify for reliable center (Normal class): \n");
@@ -1910,7 +2101,6 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
         printf("Condition is satisfied: %d\n", round(1000000 * responseTime) / 1000000 == round(1000000 * (waitTime + serviceTime)) / 1000000);
         exit(EXIT_FAILURE);
     }
-
 
     // Verify routing probabilities
 
@@ -1950,18 +2140,18 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
     double expectedTimeoutPremium = round(100 * exp(-(double)TIMEOUT / PREMIUM_MEAN_SERVICE_TIME)) / 100;
     double expectedTimeoutNormal = round(100 * exp(-(double)TIMEOUT / NORMAL_MEAN_SERVICE_TIME)) / 100;
     double expectedTimeoutReliable = round(100 * exp(-(double)TIMEOUT_RELIABLE / PREMIUM_MEAN_SERVICE_TIME)) / 100;
-    if (((probabilityOfTimeoutPremium ==round(100*(expectedTimeoutPremium+0.01))/100) || (probabilityOfTimeoutPremium == round(100*(expectedTimeoutPremium-0.01))/100) || (probabilityOfTimeoutPremium == expectedTimeoutPremium)) == 0)
+    if (((probabilityOfTimeoutPremium == round(100 * (expectedTimeoutPremium + 0.01)) / 100) || (probabilityOfTimeoutPremium == round(100 * (expectedTimeoutPremium - 0.01)) / 100) || (probabilityOfTimeoutPremium == expectedTimeoutPremium)) == 0)
     {
         printf("Verify that P(Job is timed out| Job is in the premium center) = %6.2f\n", expectedTimeoutPremium);
         printf("Probability computed = %6.2f\n", probabilityOfTimeoutPremium);
-        printf("Condition is satisfied: %d\n", ((probabilityOfTimeoutPremium ==round(100*(expectedTimeoutPremium+0.01))/100) || (probabilityOfTimeoutPremium == round(100*(expectedTimeoutPremium-0.01))/100) || (probabilityOfTimeoutPremium == expectedTimeoutPremium)));
+        printf("Condition is satisfied: %d\n", ((probabilityOfTimeoutPremium == round(100 * (expectedTimeoutPremium + 0.01)) / 100) || (probabilityOfTimeoutPremium == round(100 * (expectedTimeoutPremium - 0.01)) / 100) || (probabilityOfTimeoutPremium == expectedTimeoutPremium)));
         exit(EXIT_FAILURE);
     }
-    if (((probabilityOfTimeoutNormal ==round(100*(expectedTimeoutNormal+0.01))/100) || (probabilityOfTimeoutNormal == round(100*(expectedTimeoutNormal-0.01))/100) || (probabilityOfTimeoutNormal == expectedTimeoutNormal)) == 0)
+    if (((probabilityOfTimeoutNormal == round(100 * (expectedTimeoutNormal + 0.01)) / 100) || (probabilityOfTimeoutNormal == round(100 * (expectedTimeoutNormal - 0.01)) / 100) || (probabilityOfTimeoutNormal == expectedTimeoutNormal)) == 0)
     {
         printf("Verify that P(Job is timed out| Job is in the normal center) = %6.2f\n", expectedTimeoutNormal);
         printf("Probability computed = %6.2f\n", probabilityOfTimeoutNormal);
-        printf("Condition is satisfied: %d\n", (probabilityOfTimeoutNormal == expectedTimeoutNormal +0.01) || (probabilityOfTimeoutNormal == expectedTimeoutNormal -0.01) || (probabilityOfTimeoutNormal == expectedTimeoutNormal));
+        printf("Condition is satisfied: %d\n", (probabilityOfTimeoutNormal == expectedTimeoutNormal + 0.01) || (probabilityOfTimeoutNormal == expectedTimeoutNormal - 0.01) || (probabilityOfTimeoutNormal == expectedTimeoutNormal));
         exit(EXIT_FAILURE);
     }
     /*
@@ -1973,71 +2163,78 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
     // Verify that number of jobs in input is equals to number of jobs analyzed + number of jobs timed out
     int numberOfInput = digestCenter->index;
     int numberOfProcessed = premiumCenter->index - premiumCenter->numberOfTimeouts + normalCenter->index - normalCenter->numberOfTimeouts + digestCenter->digestMatching + reliableCenter->jobAnalyzed;
-    if(!IMPROVEMENT){
-    if ((numberOfProcessed + reliableCenter->numberOfTimeouts == numberOfInput) == 0)
+    if (!IMPROVEMENT)
     {
-        printf("Verify that number of jobs in input is equals to number of jobs analyzed + number of jobs timed out\n");
-        printf("#job in input = #processed+#timedout -> %d = %d+%d\n", numberOfInput, numberOfProcessed, reliableCenter->numberOfTimeouts);
-        printf("Condition is satisfied: %d\n", numberOfProcessed + reliableCenter->numberOfTimeouts == numberOfInput);
-        exit(EXIT_FAILURE);
-    }
+        if ((numberOfProcessed + reliableCenter->numberOfTimeouts == numberOfInput) == 0)
+        {
+            printf("Verify that number of jobs in input is equals to number of jobs analyzed + number of jobs timed out\n");
+            printf("#job in input = #processed+#timedout -> %d = %d+%d\n", numberOfInput, numberOfProcessed, reliableCenter->numberOfTimeouts);
+            printf("Condition is satisfied: %d\n", numberOfProcessed + reliableCenter->numberOfTimeouts == numberOfInput);
+            exit(EXIT_FAILURE);
+        }
     }
 
-    double lambda = round(1000000*(1/digestCenter->interarrivalTime*digestCenter->index))/1000000;
-    serviceTime = round(1000000*(digestCenter->area/digestCenter->index))/1000000;
-    double eN = round(1000000*(double)digestCenter->area/digestCenter->interarrivalTime)/1000000;
-    double experimental = round(1000000*(lambda*serviceTime)/1000000);
-    int condition = eN!=experimental || (eN!=experimental+0.01) || (eN!=experimental-0.01);
-    if(!condition){
+    double lambda = round(1000000 * (1 / digestCenter->interarrivalTime * digestCenter->index)) / 1000000;
+    serviceTime = round(1000000 * (digestCenter->area / digestCenter->index)) / 1000000;
+    double eN = round(1000000 * (double)digestCenter->area / digestCenter->interarrivalTime) / 1000000;
+    double experimental = round(1000000 * (lambda * serviceTime) / 1000000);
+    int condition = eN != experimental || (eN != experimental + 0.01) || (eN != experimental - 0.01);
+    if (!condition)
+    {
         printf("Verify that little is valid for digest center\n");
-        printf("E(N) = lambda*E(Ts) : %6.6f = %6.6f * %6.6f = %6.6f\n", eN, lambda, serviceTime, round(1000000*(lambda*serviceTime))/1000000);
+        printf("E(N) = lambda*E(Ts) : %6.6f = %6.6f * %6.6f = %6.6f\n", eN, lambda, serviceTime, round(1000000 * (lambda * serviceTime)) / 1000000);
         printf("Condition is not satisfied\n");
         exit(EXIT_FAILURE);
     }
-    lambda = round(1000000*(1/normalCenter->interarrivalTime*normalCenter->index))/1000000;
-    serviceTime = round(1000000*(normalCenter->area/normalCenter->index))/1000000;
-    eN = round(1000000*(double)normalCenter->area/normalCenter->interarrivalTime)/1000000;
-    experimental = round(1000000*(lambda*serviceTime)/1000000);
-    condition = eN!=experimental || (eN!=experimental+0.01) || (eN!=experimental-0.01);
-    if(!condition){
+    lambda = round(1000000 * (1 / normalCenter->interarrivalTime * normalCenter->index)) / 1000000;
+    serviceTime = round(1000000 * (normalCenter->area / normalCenter->index)) / 1000000;
+    eN = round(1000000 * (double)normalCenter->area / normalCenter->interarrivalTime) / 1000000;
+    experimental = round(1000000 * (lambda * serviceTime) / 1000000);
+    condition = eN != experimental || (eN != experimental + 0.01) || (eN != experimental - 0.01);
+    if (!condition)
+    {
         printf("Verify that little is valid for normal center\n");
-        printf("E(N) = lambda*E(Ts) : %6.6f = %6.6f * %6.6f = %6.6f\n", eN, lambda, serviceTime, round(1000000*(lambda*serviceTime))/1000000);
+        printf("E(N) = lambda*E(Ts) : %6.6f = %6.6f * %6.6f = %6.6f\n", eN, lambda, serviceTime, round(1000000 * (lambda * serviceTime)) / 1000000);
         printf("Condition is not satisfied\n");
         exit(EXIT_FAILURE);
     }
-    lambda = round(1000000*(1/premiumCenter->interarrivalTime*premiumCenter->index))/1000000;
-    serviceTime = round(1000000*(premiumCenter->area/premiumCenter->index))/1000000;
-    eN = round(1000000*(double)premiumCenter->area/premiumCenter->interarrivalTime)/1000000;
-    experimental = round(1000000*(lambda*serviceTime)/1000000);
-    condition = eN!=experimental || (eN!=experimental+0.01) || (eN!=experimental-0.01);
-    if(!condition){
+    lambda = round(1000000 * (1 / premiumCenter->interarrivalTime * premiumCenter->index)) / 1000000;
+    serviceTime = round(1000000 * (premiumCenter->area / premiumCenter->index)) / 1000000;
+    eN = round(1000000 * (double)premiumCenter->area / premiumCenter->interarrivalTime) / 1000000;
+    experimental = round(1000000 * (lambda * serviceTime) / 1000000);
+    condition = eN != experimental || (eN != experimental + 0.01) || (eN != experimental - 0.01);
+    if (!condition)
+    {
         printf("Verify that little is valid for premium center\n");
-        printf("E(N) = lambda*E(Ts) : %6.6f = %6.6f * %6.6f = %6.6f\n", eN, lambda, serviceTime, round(1000000*(lambda*serviceTime))/1000000);
+        printf("E(N) = lambda*E(Ts) : %6.6f = %6.6f * %6.6f = %6.6f\n", eN, lambda, serviceTime, round(1000000 * (lambda * serviceTime)) / 1000000);
         printf("Condition is not satisfied\n");
         exit(EXIT_FAILURE);
     }
-    lambda = round(1000000*(1/reliableCenter->interarrivalTime*reliableCenter->index))/1000000;
-    serviceTime = round(1000000*(reliableCenter->area/reliableCenter->index))/1000000;
-    eN = round(1000000*(double)reliableCenter->area/reliableCenter->interarrivalTime)/1000000;
-    experimental = round(1000000*(lambda*serviceTime)/1000000);
-    condition = eN!=experimental || (eN!=experimental+0.01) || (eN!=experimental-0.01);
-    if(!condition){
+    lambda = round(1000000 * (1 / reliableCenter->interarrivalTime * reliableCenter->index)) / 1000000;
+    serviceTime = round(1000000 * (reliableCenter->area / reliableCenter->index)) / 1000000;
+    eN = round(1000000 * (double)reliableCenter->area / reliableCenter->interarrivalTime) / 1000000;
+    experimental = round(1000000 * (lambda * serviceTime) / 1000000);
+    condition = eN != experimental || (eN != experimental + 0.01) || (eN != experimental - 0.01);
+    if (!condition)
+    {
         printf("Verify that little is valid for reliable center\n");
-        printf("E(N) = lambda*E(Ts) : %6.6f = %6.6f * %6.6f = %6.6f\n", eN, lambda, serviceTime, round(1000000*(lambda*serviceTime))/1000000);
+        printf("E(N) = lambda*E(Ts) : %6.6f = %6.6f * %6.6f = %6.6f\n", eN, lambda, serviceTime, round(1000000 * (lambda * serviceTime)) / 1000000);
         printf("Condition is not satisfied\n");
         exit(EXIT_FAILURE);
     }
-    if(IMPROVEMENT){
-    lambda = round(1000000*(1/mlCenter->interarrivalTime*mlCenter->index))/1000000;
-    serviceTime = round(1000000*(mlCenter->area/mlCenter->index))/1000000;
-    eN = round(1000000*(double)mlCenter->area/mlCenter->interarrivalTime)/1000000;
-    experimental = round(1000000*(lambda*serviceTime)/1000000);
-    condition = eN!=experimental || (eN!=experimental+0.01) || (eN!=experimental-0.01);
-    if(!condition){
-        printf("Verify that little is valid for machine learning center\n");
-        printf("E(N) = lambda*E(Ts) : %6.6f = %6.6f * %6.6f = %6.6f\n", eN, lambda, serviceTime, round(1000000*(lambda*serviceTime))/1000000);
-        printf("Condition is not satisfied\n");
-        exit(EXIT_FAILURE);
-    }
+    if (IMPROVEMENT)
+    {
+        lambda = round(1000000 * (1 / mlCenter->interarrivalTime * mlCenter->index)) / 1000000;
+        serviceTime = round(1000000 * (mlCenter->area / mlCenter->index)) / 1000000;
+        eN = round(1000000 * (double)mlCenter->area / mlCenter->interarrivalTime) / 1000000;
+        experimental = round(1000000 * (lambda * serviceTime) / 1000000);
+        condition = eN != experimental || (eN != experimental + 0.01) || (eN != experimental - 0.01);
+        if (!condition)
+        {
+            printf("Verify that little is valid for machine learning center\n");
+            printf("E(N) = lambda*E(Ts) : %6.6f = %6.6f * %6.6f = %6.6f\n", eN, lambda, serviceTime, round(1000000 * (lambda * serviceTime)) / 1000000);
+            printf("Condition is not satisfied\n");
+            exit(EXIT_FAILURE);
+        }
     }
 }

@@ -15,7 +15,7 @@ typedef struct __stats{
     double interarrivalTime[5]; // 1/lambda for the 4 centers
     double serviceTime[5]; // avg service time in the four centers
     double ro[5];
-    double numOfTimeouts[3]; // Num of timeouts in the last 3 centers
+    double numOfTimeouts[3]; // Num of timeouts in the normal, premium and reliable center
     double numOfBypass;
     double globalResponseTime;  // response time for a job
     double globalPremiumResponseTime; // response time for a preium job
