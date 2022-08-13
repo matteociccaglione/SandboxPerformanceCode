@@ -631,10 +631,6 @@ stats computeStatistics(digestCenter digestCenter, normalAnalysisCenter normalAn
     double globalPremiumWaitTime = (digestCenter.queueArea + premiumAnalysisCenter.queueArea + reliableAnalysisCenter.queueAreaPremium) / digestCenter.indexPremium;
     double globalNormalWaitTime = (digestCenter.queueArea + normalAnalysisCenter.queueArea + reliableAnalysisCenter.queueAreaNormal) / (digestCenter.index - digestCenter.indexPremium);
     double globalResponseTime = digestResponseTime + normalResponseTime * (double)normalAnalysisCenter.index / digestCenter.index + premiumResponseTime * (double)premiumAnalysisCenter.index / digestCenter.index + reliableResponseTime * ((double)(premiumAnalysisCenter.numberOfTimeouts + normalAnalysisCenter.numberOfTimeouts) / digestCenter.index);
-    printf("Digest : %6.6f\n", digestResponseTime);
-    printf("Normal : %6.6f\n", normalResponseTime);
-    printf("Premium : %6.6f\n", premiumResponseTime);
-    printf("Reliable : %6.6f\n", reliableResponseTime);
 
 
     double globalPremiumResponseTime = digestResponseTime + premiumResponseTime * (double)premiumAnalysisCenter.index / digestCenter.indexPremium + reliableResponseTime * (double)premiumAnalysisCenter.numberOfTimeouts / digestCenter.indexPremium;
@@ -658,6 +654,7 @@ stats computeStatistics(digestCenter digestCenter, normalAnalysisCenter normalAn
     statistics.globalResponseTime = globalResponseTime;
     statistics.globalPremiumResponseTime = globalPremiumResponseTime;
     statistics.globalFailurePercentage = percentageFailure;
+    statistics.globalNormalResponseTime = globalNormalResponseTime;
 
     statistics.ro[4] = (mlCenter.serviceArea / mlCenter.index) / (N_ML * mlCenter.interarrivalTime / mlCenter.index);
     statistics.numOfBypass = mlCenter.numOfBypass;
@@ -671,7 +668,7 @@ stats computeStatistics(digestCenter digestCenter, normalAnalysisCenter normalAn
     //verify(&digestCenter, &normalAnalysisCenter, &premiumAnalysisCenter, &reliableAnalysisCenter, &mlCenter);
     if (IMPROVEMENT)
     {
-        fprintf(file, "%d,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f\n",
+        fprintf(file, "%d,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f\n",
                 statistics.numDigestMatching,
                 statistics.serviceTime[0],
                 statistics.serviceTime[1],
@@ -703,6 +700,7 @@ stats computeStatistics(digestCenter digestCenter, normalAnalysisCenter normalAn
                 statistics.numOfBypass,
                 statistics.globalResponseTime,
                 statistics.globalPremiumResponseTime,
+                statistics.globalNormalResponseTime,
                 statistics.globalFailurePercentage,
                 statistics.ro[0],
                 statistics.ro[1],
@@ -712,7 +710,7 @@ stats computeStatistics(digestCenter digestCenter, normalAnalysisCenter normalAn
     }
     else
     {
-        fprintf(file, "%d,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f\n",
+        fprintf(file, "%d,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f\n",
                 statistics.numDigestMatching,
                 statistics.serviceTime[0],
                 statistics.serviceTime[1],
@@ -739,6 +737,7 @@ stats computeStatistics(digestCenter digestCenter, normalAnalysisCenter normalAn
                 statistics.numOfTimeouts[2],
                 statistics.globalResponseTime,
                 statistics.globalPremiumResponseTime,
+                statistics.globalNormalResponseTime,
                 statistics.globalFailurePercentage,
                 statistics.ro[0],
                 statistics.ro[1],
@@ -866,6 +865,9 @@ stats oneTimeSimulation(int runNumber, char *filename)
 
     // Initial setup
     simulationTime = START;                                               // set the initial value of the simulation clock
+    double sampleTime = START;                                            // local variable used to periodically sample response times
+    double *sampleResponseTime = malloc(320 * sizeof(double));
+    int sampleIndex = 0;
     event_list events;                                                    // struct that contains the event lists of the simulation
     digestCenter digestCenter = initializeDigest();                       // struct containing info on the Digest Center during the simulation
     normalAnalysisCenter normalAnalysisCenter = initializeNormal();       // struct containing info on the Normal Analysis Center during the simulation
@@ -882,12 +884,53 @@ stats oneTimeSimulation(int runNumber, char *filename)
     // If so, continue the simulation until the lists of events are completely processed and become empty
     while (simulationTime < OBSERVATION_PERIOD || !(isEmptyList(events)))
     {
+        double eventTime;
+        if(nextEvent(events) == 0){
+            eventTime = events.arrivals->time;
+        }else{
+            eventTime = events.terminations->time;
+        }
+
+        // sample response times every 5 minutes
+        if (eventTime - sampleTime > 5*60){
+            double digestResponseTime = digestCenter.area/digestCenter.index;
+            double normalResponseTime = normalAnalysisCenter.area/normalAnalysisCenter.index;
+            double premiumResponseTime = premiumAnalysisCenter.area/premiumAnalysisCenter.index;
+            double reliableResponseTime = reliableAnalysisCenter.area/reliableAnalysisCenter.index;
+            if (digestCenter.index == 0){
+                digestResponseTime = 0.0;
+            }
+            if (normalAnalysisCenter.index == 0){
+                normalResponseTime = 0.0;
+            }
+            if (premiumAnalysisCenter.index == 0){
+                premiumResponseTime = 0.0;
+            }
+            if (reliableAnalysisCenter.index == 0){
+                reliableResponseTime = 0.0;
+            }
+            
+
+            double globalResponseTime = digestResponseTime + normalResponseTime * (double)normalAnalysisCenter.index / digestCenter.index + premiumResponseTime * (double)premiumAnalysisCenter.index / digestCenter.index + reliableResponseTime * ((double)(premiumAnalysisCenter.numberOfTimeouts + normalAnalysisCenter.numberOfTimeouts) / digestCenter.index);
+            if (IMPROVEMENT){
+                double mlResponseTime = mlCenter.area / mlCenter.index;
+                if (mlCenter.index == 0){
+                    mlResponseTime = 0.0;
+                }
+                globalResponseTime = digestResponseTime + normalResponseTime * (double)normalAnalysisCenter.index / digestCenter.index + premiumResponseTime * (double)premiumAnalysisCenter.index / digestCenter.index + reliableResponseTime * ((double)(premiumAnalysisCenter.numberOfTimeouts + normalAnalysisCenter.numberOfTimeouts) / digestCenter.index) + mlResponseTime * ((double)mlCenter.index / digestCenter.index);
+            }          
+
+            sampleResponseTime[sampleIndex] = globalResponseTime;
+            sampleIndex++;
+            sampleTime = eventTime;
+        }
 
         // next event is an arrival
         if (nextEvent(events) == 0)
         {
             // distinguish the center that has to process the arrival event
             events = handleArrival(&digestCenter, &normalAnalysisCenter, &premiumAnalysisCenter, &reliableAnalysisCenter, &mlCenter, events);
+            
         }
         else
         {
@@ -898,6 +941,8 @@ stats oneTimeSimulation(int runNumber, char *filename)
 
     // struct used to contain statistics
     stats statistics = computeStatistics(digestCenter, normalAnalysisCenter, premiumAnalysisCenter, reliableAnalysisCenter, mlCenter, filename, runNumber, simulationTime);
+    statistics.samplesResponseTime = sampleResponseTime;
+    statistics.sampleArraySize = sampleIndex + 1;
     return statistics;
 }
 
@@ -1024,10 +1069,10 @@ int main()
         nCenters = 5;
     if (IMPROVEMENT)
     {
-        fprintf(f, "#RUN,Digest Matching, Service time Digest, Service time Normal, Service time Premium, Service time Reliable,Service time ML,Response time Digest, Response time Normal, Response time Premium, Response time Reliable, Response time ML, Wait time Digest, Wait time Normal, Wait time Premium, Wait time Reliable,Interarrival time Digest, Interarrival time Normal, Interarrival time Premium, Interarrival time Reliable,Interarrival time ML, Avg num of jobs Digest, Avg num of jobs Normal, Avg num of jobs Premium, Avg num of jobs Reliable, Avg num of jobs ML, Num of timeouts Normal, Num of timeouts Premium, Num of timeouts Reliable, Num of bypass, Global Response Time, Global Premium Response Time, Percentage of Failure, Rho Digest, Rho Normal, Rho Premium, Rho Reliable, Rho ML\n");
+        fprintf(f, "#RUN,Digest Matching, Service time Digest, Service time Normal, Service time Premium, Service time Reliable,Service time ML,Response time Digest, Response time Normal, Response time Premium, Response time Reliable, Response time ML, Wait time Digest, Wait time Normal, Wait time Premium, Wait time Reliable,Interarrival time Digest, Interarrival time Normal, Interarrival time Premium, Interarrival time Reliable,Interarrival time ML, Avg num of jobs Digest, Avg num of jobs Normal, Avg num of jobs Premium, Avg num of jobs Reliable, Avg num of jobs ML, Num of timeouts Normal, Num of timeouts Premium, Num of timeouts Reliable, Num of bypass, Global Response Time, Global Premium Response Time, Global Normal Response Time, Percentage of Failure, Rho Digest, Rho Normal, Rho Premium, Rho Reliable, Rho ML\n");
     }
     else
-        fprintf(f, "#RUN,Digest Matching, Service time Digest, Service time Normal, Service time Premium, Service time Reliable,Response time Digest, Response time Normal, Response time Premium, Response time Reliable, Wait time Digest, Wait time Normal, Wait time Premium, Wait time Reliable,Interarrival time Digest, Interarrival time Normal, Interarrival time Premium, Interarrival time Reliable, Avg num of jobs Digest, Avg num of jobs Normal, Avg num of jobs Premium, Avg num of jobs Reliable, Num of timeouts Normal, Num of timeouts Premium, Num of timeouts Reliable, Global Response Time, Global Premium Response Time, Percentage of Failure, Rho Digest, Rho Normal, Rho Premium, Rho Reliable\n");
+        fprintf(f, "#RUN,Digest Matching, Service time Digest, Service time Normal, Service time Premium, Service time Reliable,Response time Digest, Response time Normal, Response time Premium, Response time Reliable, Wait time Digest, Wait time Normal, Wait time Premium, Wait time Reliable,Interarrival time Digest, Interarrival time Normal, Interarrival time Premium, Interarrival time Reliable, Avg num of jobs Digest, Avg num of jobs Normal, Avg num of jobs Premium, Avg num of jobs Reliable, Num of timeouts Normal, Num of timeouts Premium, Num of timeouts Reliable, Global Response Time, Global Premium Response Time, Global Normal Response Time, Percentage of Failure, Rho Digest, Rho Normal, Rho Premium, Rho Reliable\n");
     fclose(f);
     if (FINITE_HORIZON)
     {
@@ -1210,7 +1255,7 @@ int main()
         }
         results = welford(confidence, array, ITERATIONS);
         confidenceIntervals[3] = results;
-        printf("Global response time : %6.6f +/- %6.6f jobs\n", results[0], results[1]);
+        printf("Global response time : %6.6f +/- %6.6f sec\n", results[0], results[1]);
         sprintf(actualValue, "%6.6f +/- %6.6f", results[0], results[1]);
         writeCSVLine(estimations, "Global response time", actualValue);
         free(results);
@@ -1222,9 +1267,21 @@ int main()
         }
         results = welford(confidence, array, ITERATIONS);
         confidenceIntervals[3] = results;
-        printf("Global PREMIUM response time : %6.6f +/- %6.6f jobs\n", results[0], results[1]);
+        printf("Global PREMIUM response time : %6.6f +/- %6.6f sec\n", results[0], results[1]);
         sprintf(actualValue, "%6.6f +/- %6.6f", results[0], results[1]);
         writeCSVLine(estimations, "Global Premium response time", actualValue);
+        free(results);
+
+        // Global NORMAL response time
+        for (int i = 0; i < ITERATIONS; i++)
+        {
+            array[i] = (double)statistics[i].globalNormalResponseTime;
+        }
+        results = welford(confidence, array, ITERATIONS);
+        confidenceIntervals[3] = results;
+        printf("Global NORMAL response time : %6.6f +/- %6.6f sec\n", results[0], results[1]);
+        sprintf(actualValue, "%6.6f +/- %6.6f", results[0], results[1]);
+        writeCSVLine(estimations, "Global Normal response time", actualValue);
         free(results);
 
         // Global failure percentage
@@ -1257,6 +1314,44 @@ int main()
 
         // close the file of interval estimations
         fclose(estimations);
+
+
+        // calculate mean value, upper and lower bounds for response time global
+        FILE *transient = fopen("transient.csv", "w+");
+        fprintf(transient, "Minutes, Mean, Upper, Lower\n");
+        int minSize = INFINITY;
+        for (int i = 0; i < ITERATIONS; i++){
+            if (statistics[i].sampleArraySize < minSize){
+                minSize = statistics[i].sampleArraySize;
+            }
+        }
+
+        double means[minSize];
+        double upper[minSize];
+        double lower[minSize];
+
+        double dataset[ITERATIONS];
+        for (int k = 0; k < minSize; k++){
+            for (int j = 0; j < ITERATIONS; j++){
+                // build a dataset for each sample time
+                dataset[j] = statistics[j].samplesResponseTime[k];
+            }
+            int sampleTime = k*5;   // 5 minutes
+            results = welford(confidence, dataset, ITERATIONS);
+            means[k] = results[0];
+            upper[k] = results[0] + results[1];
+            lower[k] = results[0] - results[1];
+            free(results);
+
+            fprintf(transient, "%d, %6.6f, %6.6f, %6.6f\n", sampleTime, means[k], upper[k], lower[k]);
+        }
+
+        fclose(transient);
+        
+        
+
+
+
 
         // init struct
         averageAmongRuns.numJobs = 0.0;
@@ -1316,11 +1411,17 @@ int main()
     else
     {
         // INFINITE HORIZON
+        // the method of autocorrelation < 0.2 has been used to have almost independent batches
         int batchNumber = 64;   // k
-        int batchSize = 12000;   // b
+        int batchSize = 10000;   // b
         int lag = 1;            // j
+        double confidence = 0.95;
         stats *simResults = infiniteHorizonSimulation(batchNumber, batchSize, "simulation_stats.csv");
-        // TODO: add interval estimation
+        char *filename = "infinite_horizon.csv";
+
+        FILE *f = fopen(filename, "w+");
+        fprintf(f, "Statistic, Analytical result, Experimental result\n");
+        char *actualValue = malloc(60 * sizeof(char));
 
         // autocorrelation of global response times
         double *dataPoints = malloc(batchNumber * sizeof(double));
@@ -1328,8 +1429,14 @@ int main()
             dataPoints[i] = simResults[i].globalResponseTime;
         }
         double autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
-        printf("\n\nAutocorrelation for global response time is %6.6f\n", autoCorrelation);
+        printf("\n\nAutocorrelation for global response time is %6.3f\n", autoCorrelation);
+        double *results;
+        results = welford(confidence, dataPoints, batchNumber);
+        printf("Confidence interval for E(Ts) : %6.6f +/- %6.6f\n", results[0], results[1]);
+        sprintf(actualValue, "%6.6f +/- %6.6f", results[0], results[1]);
+        writeCSVLine(f, "Global Response Time", actualValue);
         free(dataPoints);
+        free(results);
 
         // premium global response time
         dataPoints = malloc(batchNumber * sizeof(double));
@@ -1337,113 +1444,29 @@ int main()
             dataPoints[i] = simResults[i].globalPremiumResponseTime;
         }
         autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
-        printf("Autocorrelation for global premium response time is %6.6f\n", autoCorrelation);
+        printf("Autocorrelation for global premium response time is %6.3f\n", autoCorrelation);
+        results = welford(confidence, dataPoints, batchNumber);
+        printf("Confidence interval for E(Ts_premium) : %6.6f +/- %6.6f\n", results[0], results[1]);
+        sprintf(actualValue, "%6.6f +/- %6.6f", results[0], results[1]);
+        writeCSVLine(f, "Global Premium Response Time", actualValue);
         free(dataPoints);
+        free(results);
 
-        // num jobs
+        // normal global response time
         dataPoints = malloc(batchNumber * sizeof(double));
         for(int i = 0; i < batchNumber; i++){
-            dataPoints[i] = simResults[i].numJobs;
+            dataPoints[i] = simResults[i].globalNormalResponseTime;
         }
         autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
-        printf("Autocorrelation for num jobs is %6.6f\n", autoCorrelation);
+        printf("Autocorrelation for global normal response time is %6.3f\n", autoCorrelation);
+        results = welford(confidence, dataPoints, batchNumber);
+        printf("Confidence interval for E(Ts_normal) : %6.6f +/- %6.6f\n", results[0], results[1]);
+        sprintf(actualValue, "%6.6f +/- %6.6f", results[0], results[1]);
+        writeCSVLine(f, "Global Normal Response Time", actualValue);
         free(dataPoints);
-
-        // num normal jobs
-        dataPoints = malloc(batchNumber * sizeof(double));
-        for(int i = 0; i < batchNumber; i++){
-            dataPoints[i] = simResults[i].numNormalJobs;
-        }
-        autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
-        printf("Autocorrelation for num normal jobs is %6.6f\n", autoCorrelation);
-        free(dataPoints);
-
-        // num premium jobs
-        dataPoints = malloc(batchNumber * sizeof(double));
-        for(int i = 0; i < batchNumber; i++){
-            dataPoints[i] = simResults[i].numPremiumJobs;
-        }
-        autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
-        printf("Autocorrelation for num premium jobs is %6.6f\n", autoCorrelation);
-        free(dataPoints);
-
-        // global failure percentage
-        dataPoints = malloc(batchNumber * sizeof(double));
-        for(int i = 0; i < batchNumber; i++){
-            dataPoints[i] = simResults[i].globalFailurePercentage;
-        }
-        autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
-        printf("Autocorrelation for global failure percentage is %6.6f\n", autoCorrelation);
-        free(dataPoints);
-
-        int numCenters = 4;
-        for (int c = 0; c < numCenters; c++){
-            // wait time
-            dataPoints = malloc(batchNumber * sizeof(double));
-            for(int i = 0; i < batchNumber; i++){
-                dataPoints[i] = simResults[i].waitTime[c];
-            }
-            autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
-            printf("Autocorrelation for wait time (center %d) is %6.6f\n", c+1, autoCorrelation);
-            free(dataPoints);
-        }
-
-        for (int c = 0; c < numCenters; c++){
-            // service time
-            dataPoints = malloc(batchNumber * sizeof(double));
-            for(int i = 0; i < batchNumber; i++){
-                dataPoints[i] = simResults[i].serviceTime[c];
-            }
-            autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
-            printf("Autocorrelation for service time (center %d) is %6.6f\n", c+1, autoCorrelation);
-            free(dataPoints);
-        }
-
-        for (int c = 0; c < numCenters; c++){
-            // interarrival time
-            dataPoints = malloc(batchNumber * sizeof(double));
-            for(int i = 0; i < batchNumber; i++){
-                dataPoints[i] = simResults[i].interarrivalTime[c];
-            }
-            autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
-            printf("Autocorrelation for interarrival time (center %d) is %6.6f\n", c+1, autoCorrelation);
-            free(dataPoints);
-        }
-
-        for (int c = 0; c < numCenters; c++){
-            // avg number of jobs time
-            dataPoints = malloc(batchNumber * sizeof(double));
-            for(int i = 0; i < batchNumber; i++){
-                dataPoints[i] = simResults[i].avgNumberOFJobs[c];
-            }
-            autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
-            printf("Autocorrelation for avg number of jobs (center %d) is %6.6f\n", c+1, autoCorrelation);
-            free(dataPoints);
-        }
-
-        for (int c = 0; c < numCenters; c++){
-            // utilization
-            dataPoints = malloc(batchNumber * sizeof(double));
-            for(int i = 0; i < batchNumber; i++){
-                dataPoints[i] = simResults[i].ro[c];
-            }
-            autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
-            printf("Autocorrelation for utilization (center %d) is %6.6f\n", c+1, autoCorrelation);
-            free(dataPoints);
-        }
-
-        for (int c = 0; c < 3; c++){
-            // num timeouts
-            dataPoints = malloc(batchNumber * sizeof(double));
-            for(int i = 0; i < batchNumber; i++){
-                dataPoints[i] = simResults[i].numOfTimeouts[c];
-            }
-            autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
-            printf("Autocorrelation for num timeouts (center %d) is %6.6f\n", c+2, autoCorrelation);
-            free(dataPoints);
-        }
+        free(results);
         
-        
+        fclose(f);
     }
 }
 

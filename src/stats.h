@@ -19,8 +19,11 @@ typedef struct __stats{
     double numOfBypass;
     double globalResponseTime;  // response time for a job
     double globalPremiumResponseTime; // response time for a preium job
+    double globalNormalResponseTime; // response time for a normal job
     double globalFailurePercentage; // percentage of jobs processed but exited from the system for timeout expiration
 
+    double *samplesResponseTime; // array of samples (one each 5 minutes)
+    int sampleArraySize;
 }stats;
 
 typedef struct __avgStats{
