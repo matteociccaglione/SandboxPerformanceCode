@@ -1,37 +1,42 @@
 Statistic, Analytical result, Experimental result
-Number of processed jobs, , 99978.679688 +/- 51.403916
-Number of processed normal jobs, , 30011.757812 +/- 27.602121
-Number of processed premium jobs, , 69966.921875 +/- 41.004170
-Number of matching digests, , 4839.820312 +/- 12.761807
-Response time digest center, , 1.963279 +/- 0.006028
-Response time normal center, , 211.256606 +/- 3.758205
-Response time premium center, , 141.010483 +/- 1.277447
-Response time reliable center, , 2697.186667 +/- 240.311767
-Waiting time digest center, , 1.363271 +/- 0.005838
-Waiting time normal center, , 64.631397 +/- 3.686798
-Waiting time premium center, , 22.051126 +/- 1.239202
-Waiting time reliable center, , 2623.554688 +/- 240.132029
-Service time digest center, , 0.600008 +/- 0.000323
-Service time normal center, , 146.625209 +/- 0.132553
-Service time premium center, , 118.959357 +/- 0.076599
-Service time reliable center, , 73.631979 +/- 0.317128
-Interarrival time digest center, , 0.864200 +/- 0.000445
-Interarrival time normal center, , 3.025167 +/- 0.002814
-Interarrival time premium center, , 1.297737 +/- 0.000806
-Interarrival time reliable center, , 71.214446 +/- 0.337725
-Average number of jobs in digest center, , 2.271863 +/- 0.007595
-Average number of jobs in normal center, , 69.852052 +/- 1.273147
-Average number of jobs in premium center, , 108.670967 +/- 1.024168
-Average number of jobs in reliable center, , 38.209713 +/- 3.514895
-Timeouts at normal center, , 639.570313 +/- 4.172136
-Timeouts at premium center, , 573.226563 +/- 4.129280
-Timeouts at reliable center, , 22.875000 +/- 0.854320
-Number of mbypass, , 0.000000 +/- 0.000000
-Global response time, , 189.199474 +/- 3.582869
-Global Premium response time, , 158.468105 +/- 2.556075
-Global Normal response time, , 260.810816 +/- 6.812082
-Failure percentage, , 0.000229 +/- 0.000009
-Rho in the digest center, , 0.694300 +/- 0.000533
-Rho in the normal center, , 0.970829 +/- 0.001262
-Rho in the premium center, , 0.964927 +/- 0.000920
-Rho in the reliable center, , 1.034665 +/- 0.006456
+Number of processed jobs, , 140019.273437 +/- 64.119146
+Number of processed normal jobs, , 42029.875000 +/- 34.751211
+Number of processed premium jobs, , 97989.398438 +/- 51.631094
+Number of matching digests, , 6780.976562 +/- 13.887782
+Response time digest center, , 21.322070 +/- 0.587570
+Response time normal center, , 209.392424 +/- 3.829354
+Response time premium center, , 142.152186 +/- 1.219661
+Response time reliable center, , 376.763999 +/- 18.247500
+Response time ml center, , 30.005386 +/- 0.021107
+Waiting time digest center, , 20.722111 +/- 0.587458
+Waiting time normal center, , 62.157482 +/- 3.766830
+Waiting time premium center, , 22.971343 +/- 1.183972
+Waiting time reliable center, , 303.178738 +/- 18.034744
+Service time digest center, , 0.599959 +/- 0.000255
+Service time normal center, , 147.234942 +/- 0.134630
+Service time premium center, , 119.180843 +/- 0.077383
+Service time reliable center, , 73.585260 +/- 0.376146
+Service time ml center, , 30.005386 +/- 0.021107
+Interarrival time digest center, , 0.617067 +/- 0.000282
+Interarrival time normal center, , 3.055598 +/- 0.003600
+Interarrival time premium center, , 1.310569 +/- 0.001083
+Interarrival time reliable center, , 89.790971 +/- 0.471722
+Interarrival time ml center, , 1.552571 +/- 0.001044
+Average number of jobs in digest center, , 34.560544 +/- 0.959804
+Average number of jobs in normal center, , 68.556385 +/- 1.301156
+Average number of jobs in premium center, , 108.482075 +/- 0.984864
+Average number of jobs in reliable center, , 4.217155 +/- 0.217058
+Average number of jobs in ml center, , 19.326241 +/- 0.001278
+Timeouts at normal center, , 519.414063 +/- 3.844991
+Timeouts at premium center, , 442.210938 +/- 3.762804
+Timeouts at reliable center, , 18.078125 +/- 0.756081
+Number of mbypass, , 77574.335938 +/- 73.802019
+Global response time, , 145.156596 +/- 1.357447
+Global Premium response time, , 130.677086 +/- 1.071574
+Global Normal response time, , 178.895827 +/- 2.841209
+Failure percentage, , 0.000129 +/- 0.000005
+Rho in the digest center, , 0.972282 +/- 0.000601
+Rho in the normal center, , 0.965167 +/- 0.001416
+Rho in the premium center, , 0.957266 +/- 0.001028
+Rho in the reliable center, , 0.820229 +/- 0.005922
+Rho in the ml center, , 0.966312 +/- 0.000064

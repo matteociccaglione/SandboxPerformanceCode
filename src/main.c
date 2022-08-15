@@ -665,7 +665,7 @@ stats computeStatistics(digestCenter digestCenter, normalAnalysisCenter normalAn
 
     // printf("Verify:\n");
     // TODO: uncomment the following line
-    //verify(&digestCenter, &normalAnalysisCenter, &premiumAnalysisCenter, &reliableAnalysisCenter, &mlCenter);
+    verify(&digestCenter, &normalAnalysisCenter, &premiumAnalysisCenter, &reliableAnalysisCenter, &mlCenter);
     if (IMPROVEMENT)
     {
         fprintf(file, "%d,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f\n",
@@ -2259,5 +2259,16 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
             printf("Condition is not satisfied\n");
             exit(EXIT_FAILURE);
         }
+
+        // verify that utilization of no queue multi-server center is equal to avg number of busy servers / total number of servers
+        // rho = lambda * E(S)
+        double rhoMl = (mlCenter->serviceArea/mlCenter->index) / (N_ML * mlCenter->interarrivalTime / mlCenter->index);
+        rhoMl = round (10000 * rhoMl) / 10000;
+        if (! (rhoMl == round(10000 * (eN/N_ML))/10000)){
+            printf("Verify that rho is valid for machine learning center\n");
+            printf("rho = E(N)/N_ML : %6.4f = %6.4f / %d = %6.4f\n", rhoMl, eN, N_ML, round(10000 * (eN/N_ML))/10000);
+            printf("Condition is not satisfied\n");
+            exit(EXIT_FAILURE);
+        }        
     }
 }
