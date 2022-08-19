@@ -1,7 +1,7 @@
 import math
 
 n = 20
-l = 1.541087
+l = 1.5413773148
 mu = 1/30
 sum = 0
 for i in range(0,n+1):

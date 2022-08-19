@@ -385,18 +385,6 @@ event_list handleArrival(digestCenter *digestCenter, normalAnalysisCenter *norma
         reliableAnalysisCenter->areaNormal += (events.arrivals->time - reliableAnalysisCenter->lastEventTime) * reliableAnalysisCenter->normalJobs;
         reliableAnalysisCenter->queueAreaNormal += (events.arrivals->time - reliableAnalysisCenter->lastEventTime) * reliableAnalysisCenter->jobsInQueueNormal;
         reliableAnalysisCenter->serviceAreaNormal += (events.arrivals->time - reliableAnalysisCenter->lastEventTime) * (reliableAnalysisCenter->normalJobs - reliableAnalysisCenter->jobsInQueueNormal);
-        /*
-    if(events.arrivals->job.userType==PREMIUM){
-        // update areas for jobs submitted by premium users
-        reliableAnalysisCenter.areaPremium+=(events.arrivals->time-reliableAnalysisCenter.lastEventTimePremium)*reliableAnalysisCenter.premiumJobs;
-        reliableAnalysisCenter.serviceAreaPremium+=(events.arrivals->time-reliableAnalysisCenter.lastEventTimePremium)*(reliableAnalysisCenter.premiumJobs-reliableAnalysisCenter.jobsInQueuePremium);
-        reliableAnalysisCenter.queueAreaPremium+=(events.arrivals->time-reliableAnalysisCenter.lastEventTimePremium)*(reliableAnalysisCenter.jobsInQueuePremium);
-    }else{
-        // update areas for jobs sumbitted by normal users
-        reliableAnalysisCenter.areaNormal+=(events.arrivals->time-reliableAnalysisCenter.lastEventTimeNormal)*reliableAnalysisCenter.normalJobs;
-        reliableAnalysisCenter.queueAreaNormal+=(events.arrivals->time - reliableAnalysisCenter.lastEventTimeNormal)*reliableAnalysisCenter.jobsInQueueNormal;
-        reliableAnalysisCenter.serviceAreaNormal+=(events.arrivals->time - reliableAnalysisCenter.lastEventTimeNormal)*(reliableAnalysisCenter.normalJobs-reliableAnalysisCenter.jobsInQueueNormal);
-    }*/
         handleReliableArrival(reliableAnalysisCenter, &events);
         break;
     case CENTER_ML:
@@ -444,20 +432,6 @@ event_list handleTermination(digestCenter *digestCenter, normalAnalysisCenter *n
         reliableAnalysisCenter->areaNormal += (events.terminations->time - reliableAnalysisCenter->lastEventTime) * reliableAnalysisCenter->normalJobs;
         reliableAnalysisCenter->queueAreaNormal += (events.terminations->time - reliableAnalysisCenter->lastEventTime) * reliableAnalysisCenter->jobsInQueueNormal;
         reliableAnalysisCenter->serviceAreaNormal += (events.terminations->time - reliableAnalysisCenter->lastEventTime) * (reliableAnalysisCenter->normalJobs - reliableAnalysisCenter->jobsInQueueNormal);
-        /*
-        if(events.terminations->job.userType==PREMIUM){
-            // update areas for jobs submitted by premium users
-            reliableAnalysisCenter.areaPremium+=(events.terminations->time-reliableAnalysisCenter.lastEventTimePremium)*reliableAnalysisCenter.premiumJobs;
-            reliableAnalysisCenter.serviceAreaPremium+=(events.terminations->time-reliableAnalysisCenter.lastEventTimePremium)*(reliableAnalysisCenter.premiumJobs-reliableAnalysisCenter.jobsInQueuePremium);
-            reliableAnalysisCenter.queueAreaPremium+=(events.terminations->time-reliableAnalysisCenter.lastEventTimePremium)*(reliableAnalysisCenter.jobsInQueuePremium);
-        }
-        else{
-            //update areas for jobs submitted by normal users
-            reliableAnalysisCenter.areaNormal+=(events.terminations->time-reliableAnalysisCenter.lastEventTimeNormal)*reliableAnalysisCenter.normalJobs;
-            reliableAnalysisCenter.queueAreaNormal+=(events.terminations->time - reliableAnalysisCenter.lastEventTimeNormal)*reliableAnalysisCenter.jobsInQueueNormal;
-            reliableAnalysisCenter.serviceAreaNormal+=(events.terminations->time - reliableAnalysisCenter.lastEventTimeNormal)*(reliableAnalysisCenter.normalJobs-reliableAnalysisCenter.jobsInQueueNormal);
-        }
-        */
         handleReliableTermination(reliableAnalysisCenter, &events, digestCenter);
         break;
     case CENTER_ML:
@@ -624,9 +598,27 @@ stats computeStatistics(digestCenter digestCenter, normalAnalysisCenter normalAn
 
 
     // ML performances
+    statistics.ro[4] = mlCenter.serviceArea / (N_ML * mlCenter.interarrivalTime);
+    statistics.numOfBypass = mlCenter.numOfBypass;
+    statistics.responseTime[4] = mlCenter.area / mlCenter.index;
+    statistics.serviceTime[4] = mlCenter.serviceArea / mlCenter.index;
+    statistics.avgNumberOFJobs[4] = mlCenter.area / mlCenter.interarrivalTime;
+    statistics.interarrivalTime[4] = mlCenter.interarrivalTime / mlCenter.index;
+    if (mlCenter.index == 0){
+        statistics.ro[4] = 0.0;
+        statistics.numOfBypass = 0;
+        statistics.responseTime[4] = 0.0;
+        statistics.serviceTime[4] = 0.0;
+        statistics.interarrivalTime[4] = 0.0;
+    }
+    if (mlCenter.interarrivalTime == 0.0){
+        statistics.avgNumberOFJobs[4] = 0.0;
+    }
+    
+    
+
 
     // Global performances
-    // printf("\nGlobal performances\n");
     double globalWaitTime = (digestCenter.queueArea + normalAnalysisCenter.queueArea + premiumAnalysisCenter.queueArea + reliableAnalysisCenter.queueArea) / digestCenter.index;
     double globalPremiumWaitTime = (digestCenter.queueArea + premiumAnalysisCenter.queueArea + reliableAnalysisCenter.queueAreaPremium) / digestCenter.indexPremium;
     double globalNormalWaitTime = (digestCenter.queueArea + normalAnalysisCenter.queueArea + reliableAnalysisCenter.queueAreaNormal) / (digestCenter.index - digestCenter.indexPremium);
@@ -642,6 +634,10 @@ stats computeStatistics(digestCenter digestCenter, normalAnalysisCenter normalAn
     {
         // printf("%d\n",mlCenter.index);
         double mlResponseTime = mlCenter.area / mlCenter.index;
+        if (mlCenter.index == 0){
+            mlResponseTime = 0.0;
+        }
+        
         globalResponseTime = digestResponseTime + normalResponseTime * (double)normalAnalysisCenter.index / digestCenter.index + premiumResponseTime * (double)premiumAnalysisCenter.index / digestCenter.index + reliableResponseTime * ((double)(premiumAnalysisCenter.numberOfTimeouts + normalAnalysisCenter.numberOfTimeouts) / digestCenter.index) + mlResponseTime * ((double)mlCenter.index / digestCenter.index);
         globalPremiumResponseTime = digestResponseTime + premiumResponseTime * (double)premiumAnalysisCenter.index / digestCenter.indexPremium + reliableResponseTime * (double)premiumAnalysisCenter.numberOfTimeouts / digestCenter.indexPremium + mlResponseTime * ((double)mlCenter.indexPremium / digestCenter.indexPremium);
         globalNormalResponseTime = digestResponseTime + normalResponseTime * (double)normalAnalysisCenter.index / (digestCenter.index - digestCenter.indexPremium) + reliableResponseTime * (double)normalAnalysisCenter.numberOfTimeouts / (digestCenter.index - digestCenter.indexPremium) + mlResponseTime * ((double)(mlCenter.index - mlCenter.indexPremium) / (digestCenter.index - digestCenter.indexPremium));
@@ -656,16 +652,12 @@ stats computeStatistics(digestCenter digestCenter, normalAnalysisCenter normalAn
     statistics.globalFailurePercentage = percentageFailure;
     statistics.globalNormalResponseTime = globalNormalResponseTime;
 
-    statistics.ro[4] = (mlCenter.serviceArea / mlCenter.index) / (N_ML * mlCenter.interarrivalTime / mlCenter.index);
-    statistics.numOfBypass = mlCenter.numOfBypass;
-    statistics.responseTime[4] = mlCenter.area / mlCenter.index;
-    statistics.serviceTime[4] = mlCenter.serviceArea / mlCenter.index;
-    statistics.avgNumberOFJobs[4] = mlCenter.area / mlCenter.interarrivalTime;
-    statistics.interarrivalTime[4] = mlCenter.interarrivalTime / mlCenter.index;
+    if (FINITE_HORIZON){
+        // verification implies average calculations over runs to match theretical values
+        // so it does not make sense for infinite horizon simulation (one long run), because it should be evaluated at each batch
+        verify(&digestCenter, &normalAnalysisCenter, &premiumAnalysisCenter, &reliableAnalysisCenter, &mlCenter);
+    }
 
-    // printf("Verify:\n");
-    // TODO: uncomment the following line
-    verify(&digestCenter, &normalAnalysisCenter, &premiumAnalysisCenter, &reliableAnalysisCenter, &mlCenter);
     if (IMPROVEMENT)
     {
         fprintf(file, "%d,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f,%6.6f\n",
@@ -766,34 +758,18 @@ stats *infiniteHorizonSimulation(int batchNumber, int batchSize, char *filename)
     PlantSeeds(123456789);                // seeds for RNGS
     insertList(&events, getArrival(), 0); // generate the first arrival and put it in the list of events
     stats *allStatistics = malloc(sizeof(stats) * batchNumber);
-    int digestArrivals = 0;
-    int normalArrivals = 0;
-    int premiumArrivals = 0;
-    int reliableArrivals = 0;
     while (nBatch < batchNumber)
     {
         if (nextEvent(events) == 0)
-        {
-            //jobsInBatch++;
-            
+        {         
             if (events.arrivals->center == CENTER_DIGEST)
             {
                 jobsInBatch++;
-                digestArrivals++;
-            }else if (events.arrivals->center == CENTER_NORMAL){
-                normalArrivals++;
-            }else if (events.arrivals->center == CENTER_PREMIUM){
-                premiumArrivals++;
-            }else{
-                reliableArrivals++;
             }
-          
-            
+                      
             // distinguish the center that has to process the arrival event
             events = handleArrival(&digestCenter, &normalAnalysisCenter, &premiumAnalysisCenter, &reliableAnalysisCenter, &mlCenter, events);
 
-            //if ((jobsInBatch % batchSize == 0 && nBatch != batchNumber - 1) || (jobsInBatch % batchSize == 0 && isEmptyList(events) && nBatch == batchNumber - 1))
-            //if ((jobsInBatch % batchSize == 0 && nBatch != batchNumber - 1))
             if (jobsInBatch == batchSize)
             {
                 // Compute statistics
@@ -832,15 +808,25 @@ stats *infiniteHorizonSimulation(int batchNumber, int batchSize, char *filename)
                 reliableAnalysisCenter.serviceAreaNormal = 0.0;
                 reliableAnalysisCenter.serviceAreaPremium = 0.0;
                 reliableAnalysisCenter.interarrivalTime = 0.0;
+
+                if (IMPROVEMENT){
+                    mlCenter.index = 0;
+                    mlCenter.indexPremium = 0;
+                    mlCenter.area = 0.0;
+                    mlCenter.serviceArea = 0.0;
+                    mlCenter.mlSuccess = 0;
+                    mlCenter.numOfBypass = 0;
+                    mlCenter.interarrivalTime = 0.0;
+                }
+                
+
+                if ((nBatch + 1)%5 == 0 || (nBatch + 1) == batchNumber){
+                    printf("Batch %d DONE\n", nBatch+1);
+                }
+
                 nBatch++;
                 batchTime = simulationTime;
                 jobsInBatch = 0;
-
-                printf("D: %d\tN: %d\tP: %d\tR: %d\n", digestArrivals, normalArrivals, premiumArrivals, reliableArrivals);
-                digestArrivals = 0;
-                normalArrivals = 0;
-                premiumArrivals = 0;
-                reliableArrivals = 0;
             }
             
         }
@@ -1316,6 +1302,8 @@ int main()
         fclose(estimations);
 
 
+
+        // TRANSIENT STUDY : sample statistics every 5 minutes of simulation time
         // calculate mean value, upper and lower bounds for response time global
         FILE *transient = fopen("transient.csv", "w+");
         fprintf(transient, "Minutes, Mean, Upper, Lower\n");
@@ -1411,30 +1399,41 @@ int main()
     else
     {
         // INFINITE HORIZON
+
         // the method of autocorrelation < 0.2 has been used to have almost independent batches
         int batchNumber = 64;   // k
         int batchSize = 10000;   // b
         int lag = 1;            // j
         double confidence = 0.95;
+        printf("Infinite Horizon Simulation\n\n");
+        printf("One long run made of %d batches of %d jobs each\n", batchNumber, batchSize);
+
+
         stats *simResults = infiniteHorizonSimulation(batchNumber, batchSize, "simulation_stats.csv");
         char *filename = "infinite_horizon.csv";
 
         FILE *f = fopen(filename, "w+");
         fprintf(f, "Statistic, Analytical result, Experimental result\n");
         char *actualValue = malloc(60 * sizeof(char));
+        char *statName = malloc(100 * sizeof(char));
 
-        // autocorrelation of global response times
+        int numCenters = 4;
+        if (IMPROVEMENT)
+            numCenters = 5;
+
+
+        printf("\n\nRecovered Statistics\n\n");
+        // global response times
         double *dataPoints = malloc(batchNumber * sizeof(double));
         for(int i = 0; i < batchNumber; i++){
             dataPoints[i] = simResults[i].globalResponseTime;
         }
         double autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
-        printf("\n\nAutocorrelation for global response time is %6.3f\n", autoCorrelation);
         double *results;
         results = welford(confidence, dataPoints, batchNumber);
-        printf("Confidence interval for E(Ts) : %6.6f +/- %6.6f\n", results[0], results[1]);
         sprintf(actualValue, "%6.6f +/- %6.6f", results[0], results[1]);
         writeCSVLine(f, "Global Response Time", actualValue);
+        printf("Global response time : %6.6f +/- %6.6f sec\n", results[0], results[1]);
         free(dataPoints);
         free(results);
 
@@ -1444,11 +1443,10 @@ int main()
             dataPoints[i] = simResults[i].globalPremiumResponseTime;
         }
         autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
-        printf("Autocorrelation for global premium response time is %6.3f\n", autoCorrelation);
         results = welford(confidence, dataPoints, batchNumber);
-        printf("Confidence interval for E(Ts_premium) : %6.6f +/- %6.6f\n", results[0], results[1]);
         sprintf(actualValue, "%6.6f +/- %6.6f", results[0], results[1]);
         writeCSVLine(f, "Global Premium Response Time", actualValue);
+        printf("Global Premium response time : %6.6f +/- %6.6f sec\n", results[0], results[1]);
         free(dataPoints);
         free(results);
 
@@ -1458,14 +1456,28 @@ int main()
             dataPoints[i] = simResults[i].globalNormalResponseTime;
         }
         autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
-        printf("Autocorrelation for global normal response time is %6.3f\n", autoCorrelation);
         results = welford(confidence, dataPoints, batchNumber);
-        printf("Confidence interval for E(Ts_normal) : %6.6f +/- %6.6f\n", results[0], results[1]);
         sprintf(actualValue, "%6.6f +/- %6.6f", results[0], results[1]);
         writeCSVLine(f, "Global Normal Response Time", actualValue);
+        printf("Global Normal response time : %6.6f +/- %6.6f sec\n", results[0], results[1]);
         free(dataPoints);
         free(results);
-        
+
+        // Rho
+        for (int j = 0; j < numCenters; j++){
+            dataPoints = malloc(batchNumber * sizeof(double));
+            for (int i = 0; i < batchNumber; i++){
+                dataPoints[i] = simResults[i].ro[j];
+            }
+            results = welford(confidence, dataPoints, batchNumber);
+            printf("Rho in the center %d : %6.6f +/- %6.6f jobs\n", j + 1, results[0], results[1]);
+            sprintf(statName, "Rho in the %s center", centerNames[j]);
+            sprintf(actualValue, "%6.6f +/- %6.6f", results[0], results[1]);
+            writeCSVLine(f, statName, actualValue);
+            free(results);
+            free(dataPoints);
+        }
+
         fclose(f);
     }
 }
@@ -1967,6 +1979,7 @@ void handleMachineLearningArrival(machineLearningCenter *mlCenter, event_list *e
         mlCenter->lastArrivalTime = simulationTime;
         mlCenter->jobs++;
         mlCenter->lastEventTime = simulationTime;
+
         // We can handle this job
         termination *terr = malloc(sizeof(termination));
         terr->center = CENTER_ML;
