@@ -5,8 +5,9 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
+ 
 
-# Make data base, printed on Mon Aug 22 14:00:16 2022
+# Make data base, printed on Mon Aug 22 15:49:05 2022
 
 # Variables
 
@@ -119,6 +120,7 @@ MAKECMDGOALS := all
 # environment
 SHLVL = 0
 # environment
+ 
 MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
@@ -205,6 +207,7 @@ XDG_GREETER_DATA_DIR = /var/lib/lightdm/data/andrea
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
 # environment
+ 
 XDG_MENU_PREFIX = xfce-
 # environment
 GDMSESSION = lightdm-xsession
@@ -230,7 +233,7 @@ GDMSESSION = lightdm-xsession
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-22 13:59:14.183620335
+#  Last modified 2022-08-22 15:48:39.285714612
 #  File has been updated.
 #  Successfully updated.
 
@@ -266,7 +269,7 @@ all:
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/11=9%
 #  recipe to execute (from 'Makefile', line 3):
-	gcc -g -Wall -Wextra  lib/rngs.c lib/rvgs.c lib/rvms.c src/centers.c src/job.c src/events_queue.c src/verify.c src/estimations.c src/handle_events.c src/stats.c src/main.c -lm -o simulation
+	gcc -g lib/rngs.c lib/rvgs.c lib/rvms.c src/centers.c src/job.c src/events_queue.c src/verify.c src/estimations.c src/handle_events.c src/stats.c src/main.c -lm -o simulation
 
 # Not a target:
 .SUFFIXES:
@@ -277,7 +280,6 @@ all:
 remove:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 6):
 	rm simulation
@@ -296,6 +298,6 @@ remove:
 # strcache performance: lookups = 30 / hit rate = 26%
 # hash-table stats:
 # Load=22/8192=0%, Rehash=0, Collisions=0/30=0%
-# Finished Make data base on Mon Aug 22 14:00:16 2022
+# Finished Make data base on Mon Aug 22 15:49:05 2022
 
  

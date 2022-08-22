@@ -110,11 +110,9 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
     double probabilityOfTimeoutNormal = round(100 * ((double)normalCenter->numberOfTimeouts / normalCenter->index)) / 100;
     double probabilityOfTimeoutReliable = round(100 * ((double)reliableCenter->numberOfTimeouts / reliableCenter->index)) / 100;
 
-    double p1 = (double)premiumCenter->numberOfTimeouts / (reliableCenter->index);
-
     double expectedTimeoutPremium = round(100 * exp(-(double)TIMEOUT / PREMIUM_MEAN_SERVICE_TIME)) / 100;
     double expectedTimeoutNormal = round(100 * exp(-(double)TIMEOUT / NORMAL_MEAN_SERVICE_TIME)) / 100;
-    double expectedTimeoutReliable = round(100 * exp(-(double)TIMEOUT_RELIABLE / PREMIUM_MEAN_SERVICE_TIME)) / 100;
+    double expectedTimeoutReliable = round(100 * exp(-(double)TIMEOUT_RELIABLE / RELIABLE_MEAN_SERVICE_TIME)) / 100;
     if (((probabilityOfTimeoutPremium == round(100 * (expectedTimeoutPremium + 0.01)) / 100) || (probabilityOfTimeoutPremium == round(100 * (expectedTimeoutPremium - 0.01)) / 100) || (probabilityOfTimeoutPremium == expectedTimeoutPremium)) == 0)
     {
         printf("Verify that P(Job is timed out| Job is in the premium center) = %6.2f\n", expectedTimeoutPremium);
@@ -127,6 +125,13 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
         printf("Verify that P(Job is timed out| Job is in the normal center) = %6.2f\n", expectedTimeoutNormal);
         printf("Probability computed = %6.2f\n", probabilityOfTimeoutNormal);
         printf("Condition is satisfied: %d\n", (probabilityOfTimeoutNormal == expectedTimeoutNormal + 0.01) || (probabilityOfTimeoutNormal == expectedTimeoutNormal - 0.01) || (probabilityOfTimeoutNormal == expectedTimeoutNormal));
+        exit(EXIT_FAILURE);
+    }
+    if (((probabilityOfTimeoutReliable == round(100 * (expectedTimeoutReliable + 0.01)) / 100) || (probabilityOfTimeoutReliable == round(100 * (expectedTimeoutReliable - 0.01)) / 100) || (probabilityOfTimeoutReliable == expectedTimeoutReliable)) == 0)
+    {
+        printf("Verify that P(Job is timed out| Job is in the reliable center) = %6.2f\n", expectedTimeoutReliable);
+        printf("Probability computed = %6.2f\n", probabilityOfTimeoutReliable);
+        printf("Condition is satisfied: %d\n", (probabilityOfTimeoutReliable == expectedTimeoutReliable + 0.01) || (probabilityOfTimeoutReliable == expectedTimeoutReliable - 0.01) || (probabilityOfTimeoutReliable == expectedTimeoutReliable));
         exit(EXIT_FAILURE);
     }
     // Verify that number of jobs in input is equals to number of jobs analyzed + number of jobs timed out

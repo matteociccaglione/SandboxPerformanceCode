@@ -30,8 +30,7 @@ int isEmptyList(event_list ev)
 
 void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, premiumAnalysisCenter *premiumCenter, reliableAnalysisCenter *reliableCenter, machineLearningCenter *mlCenter);
 
-digestCenter initializeDigest()
-{
+digestCenter initializeDigest(){
     // Digest center initialization
     digestCenter digestCenter;
     digestCenter.area = 0.0;
@@ -48,8 +47,8 @@ digestCenter initializeDigest()
     digestCenter.serviceArea = 0.0;
     return digestCenter;
 }
-premiumAnalysisCenter initializePremium()
-{
+
+premiumAnalysisCenter initializePremium(){
     premiumAnalysisCenter premiumAnalysisCenter;
     premiumAnalysisCenter.area = 0.0;
     premiumAnalysisCenter.queueArea = 0.0;
@@ -66,8 +65,7 @@ premiumAnalysisCenter initializePremium()
     return premiumAnalysisCenter;
 }
 
-normalAnalysisCenter initializeNormal()
-{
+normalAnalysisCenter initializeNormal(){
     normalAnalysisCenter normalAnalysisCenter;
     // Normal center initialization
     normalAnalysisCenter.area = 0.0;
@@ -85,8 +83,7 @@ normalAnalysisCenter initializeNormal()
     return normalAnalysisCenter;
 }
 
-reliableAnalysisCenter initializeReliable()
-{
+reliableAnalysisCenter initializeReliable(){
     reliableAnalysisCenter reliableAnalysisCenter;
     // Reliable center initialization
     reliableAnalysisCenter.area = 0.0;
@@ -118,8 +115,8 @@ reliableAnalysisCenter initializeReliable()
     reliableAnalysisCenter.jobAnalyzed = 0;
     return reliableAnalysisCenter;
 }
-machineLearningCenter initializeMl()
-{
+
+machineLearningCenter initializeMl(){
     machineLearningCenter ml;
     ml.jobs = 0;
     ml.index = 0;
@@ -133,6 +130,7 @@ machineLearningCenter initializeMl()
     ml.lastArrivalTime = 0.0;
     return ml;
 }
+
 event_list handleArrival(digestCenter *digestCenter, normalAnalysisCenter *normalAnalysisCenter, premiumAnalysisCenter *premiumAnalysisCenter, reliableAnalysisCenter *reliableAnalysisCenter, machineLearningCenter *mlCenter, event_list events)
 {
     switch (events.arrivals->center)
@@ -741,7 +739,6 @@ int main()
         // the method of autocorrelation < 0.2 has been used to have almost independent batches
         int batchNumber = 64;   // k
         int batchSize = 10000;   // b
-        int lag = 1;            // j
         double confidence = 0.95;
         printf("Infinite Horizon Simulation\n\n");
         printf("One long run made of %d batches of %d jobs each\n", batchNumber, batchSize);
@@ -766,7 +763,6 @@ int main()
         for(int i = 0; i < batchNumber; i++){
             dataPoints[i] = simResults[i].globalResponseTime;
         }
-        double autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
         double *results;
         results = welford(confidence, dataPoints, batchNumber);
         sprintf(actualValue, "%6.6f +/- %6.6f", results[0], results[1]);
@@ -780,7 +776,6 @@ int main()
         for(int i = 0; i < batchNumber; i++){
             dataPoints[i] = simResults[i].globalPremiumResponseTime;
         }
-        autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
         results = welford(confidence, dataPoints, batchNumber);
         sprintf(actualValue, "%6.6f +/- %6.6f", results[0], results[1]);
         writeCSVLine(f, "Global Premium Response Time", actualValue);
@@ -793,7 +788,6 @@ int main()
         for(int i = 0; i < batchNumber; i++){
             dataPoints[i] = simResults[i].globalNormalResponseTime;
         }
-        autoCorrelation = autocorrelation(dataPoints, batchNumber, lag);
         results = welford(confidence, dataPoints, batchNumber);
         sprintf(actualValue, "%6.6f +/- %6.6f", results[0], results[1]);
         writeCSVLine(f, "Global Normal Response Time", actualValue);
