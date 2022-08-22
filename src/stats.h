@@ -1,7 +1,9 @@
 #ifndef __stats_h__
     #define __stats_h__
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "centers.h"
+
 typedef struct __stats{
     int numJobs; // number of processed jobs
     int numNormalJobs; // number of processed jobs sumbitted by Normal users
@@ -17,6 +19,7 @@ typedef struct __stats{
     double ro[5];
     double numOfTimeouts[3]; // Num of timeouts in the normal, premium and reliable center
     double numOfBypass;
+    double bypassPercentage;
     double globalResponseTime;  // response time for a job
     double globalPremiumResponseTime; // response time for a preium job
     double globalNormalResponseTime; // response time for a normal job
@@ -39,5 +42,8 @@ typedef struct __avgStats{
     double serviceTime[4]; // avg service time in the four centers
     double numOfTimeouts[3]; // Num of timeouts in the last 3 centers
 }avgStats;
+
+
+stats computeStatistics(digestCenter digestCenter, normalAnalysisCenter normalAnalysisCenter, premiumAnalysisCenter premiumAnalysisCenter, reliableAnalysisCenter reliableAnalysisCenter, machineLearningCenter mlCenter, char *filename, int runNumber, int simulationTime);
 
 #endif

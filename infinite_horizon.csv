@@ -1,9 +1,9 @@
 Statistic, Analytical result, Experimental result
-Global Response Time, , 132.555534 +/- 3.813763
-Global Premium Response Time, , 125.281333 +/- 3.800678
-Global Normal Response Time, , 149.528023 +/- 3.981692
-Rho in the digest center, , 0.971571 +/- 0.003801
-Rho in the normal center, , 0.849001 +/- 0.005315
-Rho in the premium center, , 0.879885 +/- 0.004920
-Rho in the reliable center, , 0.683214 +/- 0.009705
-Rho in the ml center, , 0.965998 +/- 0.000341
+Global Response Time, , 132.491892 +/- 3.817582
+Global Premium Response Time, , 125.232849 +/- 3.798129
+Global Normal Response Time, , 149.430488 +/- 3.977444
+Rho in the digest center, , 0.971569 +/- 0.003801
+Rho in the normal center, , 0.846106 +/- 0.005991
+Rho in the premium center, , 0.879950 +/- 0.004806
+Rho in the reliable center, , 0.683238 +/- 0.009732
+Rho in the ml center, , 0.966000 +/- 0.000339

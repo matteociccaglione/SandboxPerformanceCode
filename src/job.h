@@ -23,6 +23,8 @@ typedef struct __job_queue{
     Job job;
     struct __job_queue *next;
 }job_queue;
+
 void insertQueue(job_queue **queue, job_queue *node);
 job_queue* popQueue(job_queue **queue);
+int sizeQueue(job_queue *queue);
 #endif
