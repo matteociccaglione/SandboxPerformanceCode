@@ -1,3 +1,18 @@
+/**
+ * @file main.c
+ * @author a. Pepe - M. Ciccaglione
+ * @brief This is the main file of the Sandbox Performance simulation project, a modelized sandbox system
+ * for automatic malware analysis. Here is contained the starting point of the program,
+ * for both finite horizon simulation and infinite horizon simulation.
+ * Statistics recovered from the system simulation are saved on different files in the same 
+ * directory of this file. 
+ * @version 1.0
+ * @date 2022-08-23
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
+
 #include "events_queue.h"
 #include "../lib/rngs.h"
 #include "../lib/rvgs.h"
@@ -13,23 +28,7 @@
 #define START 0.0
 double simulationTime = START;
 
-/**
- * @brief This function is used to determine if the list of the events is empty,
- * in order to stop the simulation run.
- *
- * @param ev The event_list struct containing the events
- * @return int 0 if there are still events to be processed; 1 otherwise (if the lists are empty)
- */
-int isEmptyList(event_list ev)
-{
-    if (ev.arrivals == NULL && ev.terminations == NULL)
-        return 1;
-    return 0;
-}
-
-
-void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, premiumAnalysisCenter *premiumCenter, reliableAnalysisCenter *reliableCenter, machineLearningCenter *mlCenter);
-
+// Functions to initialize structs where to recover statistics for each center of the model
 digestCenter initializeDigest(){
     // Digest center initialization
     digestCenter digestCenter;
@@ -131,6 +130,19 @@ machineLearningCenter initializeMl(){
     return ml;
 }
 
+/**
+ * @brief This function is used to handle an event of type ARRIVAL. It distinguishes at which center the event is happening,
+ * updates the time integrated areas for jobs in the center, jobs in service and jobs in queue, and then triggers the handling
+ * for the specific center. 
+ * 
+ * @param digestCenter pointer to the digestCenter struct
+ * @param normalAnalysisCenter pointer to the normalAnalysisCenter struct
+ * @param premiumAnalysisCenter pointer to the premiumAnalysisCenter struct
+ * @param reliableAnalysisCenter pointer to the reliableAnalysisCenter struct
+ * @param mlCenter pointer to the mlCenter struct
+ * @param events list of the simulation events
+ * @return event_list Returns the updated list of events
+ */
 event_list handleArrival(digestCenter *digestCenter, normalAnalysisCenter *normalAnalysisCenter, premiumAnalysisCenter *premiumAnalysisCenter, reliableAnalysisCenter *reliableAnalysisCenter, machineLearningCenter *mlCenter, event_list events)
 {
     switch (events.arrivals->center)
@@ -178,6 +190,19 @@ event_list handleArrival(digestCenter *digestCenter, normalAnalysisCenter *norma
     return events;
 }
 
+/**
+ * @brief This function is used to handle an event of type TERMINATION. It distinguishes at which center the event is happening,
+ * updates the time integrated areas for jobs in the center, jobs in service and jobs in queue, and then triggers the handling
+ * for the specific center. 
+ * 
+ * @param digestCenter pointer to the digestCenter struct
+ * @param normalAnalysisCenter pointer to the normalAnalysisCenter struct
+ * @param premiumAnalysisCenter pointer to the premiumAnalysisCenter struct
+ * @param reliableAnalysisCenter pointer to the reliableAnalysisCenter struct
+ * @param mlCenter pointer to the mlCenter struct
+ * @param events list of the simulation events
+ * @return event_list Returns the updated list of events
+ */
 event_list handleTermination(digestCenter *digestCenter, normalAnalysisCenter *normalAnalysisCenter, premiumAnalysisCenter *premiumAnalysisCenter, reliableAnalysisCenter *reliableAnalysisCenter, machineLearningCenter *mlCenter, event_list events)
 {
     switch (events.terminations->center)
@@ -217,43 +242,62 @@ event_list handleTermination(digestCenter *digestCenter, normalAnalysisCenter *n
     case CENTER_ML:
         mlCenter->area += (events.terminations->time - mlCenter->lastEventTime) * mlCenter->jobs;
         mlCenter->serviceArea += (events.terminations->time - mlCenter->lastEventTime) * mlCenter->jobs;
-        simulationTime = handleMachineLearningTermination(mlCenter, &events, simulationTime);
+        simulationTime = handleMachineLearningTermination(mlCenter, &events, digestCenter, simulationTime);
     }
     return events;
 }
 
 
-
+/**
+ * @brief This function implements the Infinite Horizon Simulation of the system.
+ * Mean values of the statistics and their 95% confidence intervals are computed using
+ * the method of the batch means. 
+ * The function takes as parameters the number of batches required for the simulation and the 
+ * number of jobs to be processed in each batch. It also takes in input a string representing 
+ * the filename of the file where to save the results.
+ * 
+ * @param batchNumber Number of batches of the simulation
+ * @param batchSize Size of a batch, expressed in number of jobs
+ * @param filename Filename of the file where to save the results
+ * @return stats* Returns a pointer to a an array of stats struct, each of them containing the recovered statistics for a batch
+ */
 stats *infiniteHorizonSimulation(int batchNumber, int batchSize, char *filename)
 {
-    int nBatch = 0;
-    int jobsInBatch = 0;
-    simulationTime = START;
-    double batchTime = 0.0;                                               // set the initial value of the simulation clock
-    event_list events;                                                    // struct that contains the event lists of the simulation
-    digestCenter digestCenter = initializeDigest();                       // struct containing info on the Digest Center during the simulation
-    normalAnalysisCenter normalAnalysisCenter = initializeNormal();       // struct containing info on the Normal Analysis Center during the simulation
-    premiumAnalysisCenter premiumAnalysisCenter = initializePremium();    // struct containing info on the Premium Analysis Center during the simulation
-    reliableAnalysisCenter reliableAnalysisCenter = initializeReliable(); // struct containing info on the Reliable Analysis Center during the simulation
-    machineLearningCenter mlCenter = initializeMl();
+    int nBatch = 0;                                                         // batch counter
+    int jobsInBatch = 0;                                                    // job counter
+    simulationTime = START;                                                 // global simulation time, mantained over batches
+    double batchTime = START;                                               // simulation time duration of the single batch
+    event_list events;                                                      // struct that contains the event lists of the simulation
+    digestCenter digestCenter = initializeDigest();                         // struct containing info on the Digest Center during the simulation
+    normalAnalysisCenter normalAnalysisCenter = initializeNormal();         // struct containing info on the Normal Analysis Center during the simulation
+    premiumAnalysisCenter premiumAnalysisCenter = initializePremium();      // struct containing info on the Premium Analysis Center during the simulation
+    reliableAnalysisCenter reliableAnalysisCenter = initializeReliable();   // struct containing info on the Reliable Analysis Center during the simulation
+    machineLearningCenter mlCenter = initializeMl();                        // struct containing info on the ML Center during the simulation
+    
     // Initialize event lists
-    events.arrivals = NULL;               // list of arrivals
-    events.terminations = NULL;           // list of terminations
-    PlantSeeds(123456789);                // seeds for RNGS
-    insertList(&events, getArrival(simulationTime), 0); // generate the first arrival and put it in the list of events
-    stats *allStatistics = malloc(sizeof(stats) * batchNumber);
+    events.arrivals = NULL;                                                 // list of arrivals
+    events.terminations = NULL;                                             // list of terminations
+    PlantSeeds(123456789);                                                  // plant seeds for RNGS
+
+    insertList(&events, getArrival(simulationTime), 0);                     // generate the first arrival and put it in the list of events
+    stats *allStatistics = malloc(sizeof(stats) * batchNumber);             // allocate a stats struct for each batch
+
+    // loop until the desired number of batches is reached 
     while (nBatch < batchNumber)
     {
+        // if the next event is an arrival
         if (nextEvent(events) == 0)
         {         
             if (events.arrivals->center == CENTER_DIGEST)
             {
+                // the jobs in a batch are counted as jobs entering the system, so entering the Digest Center
                 jobsInBatch++;
             }
                       
-            // distinguish the center that has to process the arrival event
+            // determine the center that has to process the arrival event
             events = handleArrival(&digestCenter, &normalAnalysisCenter, &premiumAnalysisCenter, &reliableAnalysisCenter, &mlCenter, events);
 
+            // if the batch size has been reached, we need to compute statistics for the batch and move on to the next one
             if (jobsInBatch == batchSize)
             {
                 // Compute statistics
@@ -308,9 +352,9 @@ stats *infiniteHorizonSimulation(int batchNumber, int batchSize, char *filename)
                     printf("Batch %d DONE\n", nBatch+1);
                 }
 
-                nBatch++;
-                batchTime = simulationTime;
-                jobsInBatch = 0;
+                nBatch++;                                                   // A batch has been completed
+                batchTime = simulationTime;                                 // Ending time of the batch, starting time of the next batch
+                jobsInBatch = 0;                                            // Reset the number of processed jobs in the batch
             }
             
         }
@@ -324,7 +368,8 @@ stats *infiniteHorizonSimulation(int batchNumber, int batchSize, char *filename)
 }
 
 /**
- * @brief This function is used to do a single simulation run of the system.
+ * @brief This function is used to do a single simulation run of the system and is used
+ * in Finite Horizon Simulation with the iterations method. It implements a single iteration. 
  *
  * @param runNumber The progressive ID of the simulation run
  * @param filename Filename of the file where to save statistics
@@ -334,35 +379,39 @@ stats oneTimeSimulation(int runNumber, char *filename)
 {
 
     // Initial setup
-    simulationTime = START;                                               // set the initial value of the simulation clock
-    double sampleTime = START;                                            // local variable used to periodically sample response times
-    double *sampleResponseTime = malloc(320 * sizeof(double));
-    int sampleIndex = 0;
-    event_list events;                                                    // struct that contains the event lists of the simulation
-    digestCenter digestCenter = initializeDigest();                       // struct containing info on the Digest Center during the simulation
-    normalAnalysisCenter normalAnalysisCenter = initializeNormal();       // struct containing info on the Normal Analysis Center during the simulation
-    premiumAnalysisCenter premiumAnalysisCenter = initializePremium();    // struct containing info on the Premium Analysis Center during the simulation
-    reliableAnalysisCenter reliableAnalysisCenter = initializeReliable(); // struct containing info on the Reliable Analysis Center during the simulation
-    machineLearningCenter mlCenter = initializeMl();
+    simulationTime = START;                                                 // set the initial value of the simulation clock
+    double sampleTime = START;                                              // local variable used to periodically sample response times, in order to perform a transient study
+    double *sampleResponseTime = malloc(350 * sizeof(double));              // allocate enough space to store the samples
+    int sampleIndex = 0;                                                    // sample counter
+    event_list events;                                                      // struct that contains the event lists of the simulation
+    digestCenter digestCenter = initializeDigest();                         // struct containing info on the Digest Center during the simulation
+    normalAnalysisCenter normalAnalysisCenter = initializeNormal();         // struct containing info on the Normal Analysis Center during the simulation
+    premiumAnalysisCenter premiumAnalysisCenter = initializePremium();      // struct containing info on the Premium Analysis Center during the simulation
+    reliableAnalysisCenter reliableAnalysisCenter = initializeReliable();   // struct containing info on the Reliable Analysis Center during the simulation
+    machineLearningCenter mlCenter = initializeMl();                        // struct containing info on the ML Center during the simulation
+
     // Initialize event lists
-    events.arrivals = NULL;               // list of arrivals
-    events.terminations = NULL;           // list of terminations
-    PlantSeeds(123456789 + runNumber);    // seeds for RNGS
-    insertList(&events, getArrival(simulationTime), 0); // generate the first arrival and put it in the list of events
+    events.arrivals = NULL;                                                 // list of arrivals
+    events.terminations = NULL;                                             // list of terminations
+    PlantSeeds(123456789 + runNumber);                                      // plant seeds for RNGS; the run ID is used to plant different seeds in different runs
+    insertList(&events, getArrival(simulationTime), 0);                     // generate the first arrival and put it in the list of events
+
 
     // Run the simulation until the simulation time is greater or equal of the defined observation period.
-    // If so, continue the simulation until the lists of events are completely processed and become empty
+    // If so, continue the simulation until the lists of events are completely processed and become empty,
+    // in order to end the simulation with the system in the same status of the beginning of the simulation (empty).
     while (simulationTime < OBSERVATION_PERIOD || !(isEmptyList(events)))
     {
-        double eventTime;
+        double eventTime;                                                   // time of the next event
         if(nextEvent(events) == 0){
             eventTime = events.arrivals->time;
         }else{
             eventTime = events.terminations->time;
         }
 
-        // sample response times every 5 minutes
+        // let's sample the global response time every 5 minutes
         if (eventTime - sampleTime > 5*60){
+            // compute response time for each center
             double digestResponseTime = digestCenter.area/digestCenter.index;
             double normalResponseTime = normalAnalysisCenter.area/normalAnalysisCenter.index;
             double premiumResponseTime = premiumAnalysisCenter.area/premiumAnalysisCenter.index;
@@ -380,8 +429,9 @@ stats oneTimeSimulation(int runNumber, char *filename)
                 reliableResponseTime = 0.0;
             }
             
-
+            // compute global response time
             double globalResponseTime = digestResponseTime + normalResponseTime * (double)normalAnalysisCenter.index / digestCenter.index + premiumResponseTime * (double)premiumAnalysisCenter.index / digestCenter.index + reliableResponseTime * ((double)(premiumAnalysisCenter.numberOfTimeouts + normalAnalysisCenter.numberOfTimeouts) / digestCenter.index);
+            // if we also have the ML Center, let's update the global response time
             if (IMPROVEMENT){
                 double mlResponseTime = mlCenter.area / mlCenter.index;
                 if (mlCenter.index == 0){
@@ -390,6 +440,7 @@ stats oneTimeSimulation(int runNumber, char *filename)
                 globalResponseTime = digestResponseTime + normalResponseTime * (double)normalAnalysisCenter.index / digestCenter.index + premiumResponseTime * (double)premiumAnalysisCenter.index / digestCenter.index + reliableResponseTime * ((double)(premiumAnalysisCenter.numberOfTimeouts + normalAnalysisCenter.numberOfTimeouts) / digestCenter.index) + mlResponseTime * ((double)mlCenter.index / digestCenter.index);
             }          
 
+            // save the sampled value
             sampleResponseTime[sampleIndex] = globalResponseTime;
             sampleIndex++;
             sampleTime = eventTime;
@@ -398,24 +449,35 @@ stats oneTimeSimulation(int runNumber, char *filename)
         // next event is an arrival
         if (nextEvent(events) == 0)
         {
-            // distinguish the center that has to process the arrival event
+            // determine the center that has to process the arrival event
             events = handleArrival(&digestCenter, &normalAnalysisCenter, &premiumAnalysisCenter, &reliableAnalysisCenter, &mlCenter, events);
             
         }
+        // Next event is a termination
         else
         {
-            // Next event is a termination
+            // determine the center that has to process the termination event
             events = handleTermination(&digestCenter, &normalAnalysisCenter, &premiumAnalysisCenter, &reliableAnalysisCenter, &mlCenter, events);
         }
-    }
+    }//end while loop
 
-    // struct used to contain statistics
+    // iterations done; now let's compute mean values and confidence intervals for the statistics
     stats statistics = computeStatistics(digestCenter, normalAnalysisCenter, premiumAnalysisCenter, reliableAnalysisCenter, mlCenter, filename, runNumber, simulationTime);
     statistics.samplesResponseTime = sampleResponseTime;
     statistics.sampleArraySize = sampleIndex + 1;
     return statistics;
 }
 
+/**
+ * @brief This function is used to write a line into a file (supposed to be in .csv format).
+ * The line is a comma separated string made of 3 pieces: the name od the statistic, a blank string
+ * where the analytical value for that statistic should be written, the experimental value of that statistic 
+ * with the interval estimation.
+ * 
+ * @param file Filename 
+ * @param statName Name of the statistic
+ * @param actualValue String with mean value +/- confidence interval
+ */
 void writeCSVLine(FILE *file, char *statName, char *actualValue)
 {
     fprintf(file, "%s, %s, %s\n",
@@ -426,19 +488,21 @@ void writeCSVLine(FILE *file, char *statName, char *actualValue)
 
 /**
  * @brief The main function. It starts the simulation.
- *
- * @return int
+ * To run the simulation on the original or improved sytem, or to choose between Finite Horizon
+ * and Infinite Horizon simulation, go check the "config.h" file and set the desired values.
  */
 int main()
 {
     char *centerNames[5] = {"digest", "normal", "premium", "reliable", "ml"};
-    FILE *f = fopen("simulation_stats.csv", "w+");
-    FILE *estimations = fopen("interval_estimation.csv", "w+");
+    FILE *f = fopen("simulation_stats.csv", "w+");                                                      // file containing stats for each batch or run
+    FILE *estimations = fopen("interval_estimation.csv", "w+");                                         // file containing interval estimations for stats
     fprintf(estimations, "Statistic, Analytical result, Experimental result\n");
     stats statistics[ITERATIONS];
     int nCenters = 4;
     if (IMPROVEMENT)
         nCenters = 5;
+    
+    // write headers of the csv files
     if (IMPROVEMENT)
     {
         fprintf(f, "#RUN,Digest Matching, Service time Digest, Service time Normal, Service time Premium, Service time Reliable,Service time ML,Response time Digest, Response time Normal, Response time Premium, Response time Reliable, Response time ML, Wait time Digest, Wait time Normal, Wait time Premium, Wait time Reliable,Interarrival time Digest, Interarrival time Normal, Interarrival time Premium, Interarrival time Reliable,Interarrival time ML, Avg num of jobs Digest, Avg num of jobs Normal, Avg num of jobs Premium, Avg num of jobs Reliable, Avg num of jobs ML, Num of timeouts Normal, Num of timeouts Premium, Num of timeouts Reliable, Num of bypass, Global Response Time, Global Premium Response Time, Global Normal Response Time, Percentage of Failure, Rho Digest, Rho Normal, Rho Premium, Rho Reliable, Rho ML\n");
@@ -446,9 +510,12 @@ int main()
     else
         fprintf(f, "#RUN,Digest Matching, Service time Digest, Service time Normal, Service time Premium, Service time Reliable,Response time Digest, Response time Normal, Response time Premium, Response time Reliable, Wait time Digest, Wait time Normal, Wait time Premium, Wait time Reliable,Interarrival time Digest, Interarrival time Normal, Interarrival time Premium, Interarrival time Reliable, Avg num of jobs Digest, Avg num of jobs Normal, Avg num of jobs Premium, Avg num of jobs Reliable, Num of timeouts Normal, Num of timeouts Premium, Num of timeouts Reliable, Global Response Time, Global Premium Response Time, Global Normal Response Time, Percentage of Failure, Rho Digest, Rho Normal, Rho Premium, Rho Reliable\n");
     fclose(f);
+
+    // FINITE HORIZON SIMULATION
     if (FINITE_HORIZON)
     {
         printf("Finite Horizon simulation with %d runs\n\n", ITERATIONS);
+        // Let's execute several runs of the simulation, using different seeds
         for (int i = 0; i < ITERATIONS; i++)
         {
             statistics[i] = oneTimeSimulation(i, "simulation_stats.csv");
@@ -459,12 +526,16 @@ int main()
         }
 
         // Calculate mean values of the statistics recovered through the ITERATIONS runs
-        double confidence = 0.95;
+        double confidence = 0.95;                                                           // Interval estimation with confidence level of 95%
         double array[ITERATIONS];
         double *results;
-        double **confidenceIntervals = malloc(sizeof(double *) * 27);
+        double **confidenceIntervals = malloc(sizeof(double *) * 40);
         char *actualValue = malloc(60 * sizeof(char));
         char *statName = malloc(100 * sizeof(char));
+
+
+        // Print out the results: mean values and confidence intervals, computed using Welford's Algorithm
+        // Results are also saved in a CSV file
         printf("\n\nConfidence intervals:\n\n");
         // num jobs
         for (int i = 0; i < ITERATIONS; i++)
@@ -700,8 +771,8 @@ int main()
 
 
 
-        // TRANSIENT STUDY : sample statistics every 5 minutes of simulation time
-        // calculate mean value, upper and lower bounds for response time global
+        // TRANSIENT STUDY : sample statistics every 5 minutes of simulation time.
+        // Compute mean value, upper and lower bounds for global response time, with 95% of confidence
         FILE *transient = fopen("transient.csv", "w+");
         fprintf(transient, "Minutes, Mean, Upper, Lower\n");
         int minSize = (int) INFINITY;
@@ -716,6 +787,8 @@ int main()
         double lower[minSize];
 
         double dataset[ITERATIONS];
+
+        // compute confidence interval for each sample time (e.g. for all samples done at the minute 5 of the several simulation runs)
         for (int k = 0; k < minSize; k++){
             for (int j = 0; j < ITERATIONS; j++){
                 // build a dataset for each sample time
@@ -734,16 +807,17 @@ int main()
         fclose(transient);      
     }
     else{
-        // INFINITE HORIZON
+        // INFINITE HORIZON SIMULATION
 
-        // the method of autocorrelation < 0.2 has been used to have almost independent batches
-        int batchNumber = 64;   // k
-        int batchSize = 10000;   // b
-        double confidence = 0.95;
+        // the method of autocorrelation < 0.2 has been used to select the batch size in order to have almost independent batches
+        int batchNumber = 64;                                               // k
+        int batchSize = 10000;                                              // b
+        double confidence = 0.95;                                           // 95% confidence level 
         printf("Infinite Horizon Simulation\n\n");
         printf("One long run made of %d batches of %d jobs each\n", batchNumber, batchSize);
 
 
+        // Run the infinite horizon simulation
         stats *simResults = infiniteHorizonSimulation(batchNumber, batchSize, "simulation_stats.csv");
         char *filename = "infinite_horizon.csv";
 
@@ -756,9 +830,10 @@ int main()
         if (IMPROVEMENT)
             numCenters = 5;
 
-
+        // Print out the desired statistics and save them also on a file
+        // Welford's Algorithm is used to compute confidence intervals
         printf("\n\nRecovered Statistics\n\n");
-        // global response times
+        // Global response times
         double *dataPoints = malloc(batchNumber * sizeof(double));
         for(int i = 0; i < batchNumber; i++){
             dataPoints[i] = simResults[i].globalResponseTime;
@@ -771,7 +846,7 @@ int main()
         free(dataPoints);
         free(results);
 
-        // premium global response time
+        // Premium global response time
         dataPoints = malloc(batchNumber * sizeof(double));
         for(int i = 0; i < batchNumber; i++){
             dataPoints[i] = simResults[i].globalPremiumResponseTime;
@@ -783,7 +858,7 @@ int main()
         free(dataPoints);
         free(results);
 
-        // normal global response time
+        // Normal global response time
         dataPoints = malloc(batchNumber * sizeof(double));
         for(int i = 0; i < batchNumber; i++){
             dataPoints[i] = simResults[i].globalNormalResponseTime;
@@ -795,7 +870,7 @@ int main()
         free(dataPoints);
         free(results);
 
-        // Rho
+        // Utilizations (rho)
         for (int j = 0; j < numCenters; j++){
             dataPoints = malloc(batchNumber * sizeof(double));
             for (int i = 0; i < batchNumber; i++){
@@ -810,7 +885,7 @@ int main()
             free(dataPoints);
         }
 
-        // bypass percentage
+        // Bypass percentage
         dataPoints = malloc(batchNumber * sizeof(double));
         for(int i = 0; i < batchNumber; i++){
             dataPoints[i] = simResults[i].bypassPercentage;

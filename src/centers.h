@@ -1,14 +1,15 @@
 /**
  * @file centers.h
  * @author A. Pepe - M. Ciccaglione
- * @version 0.1
+ * @version 1.0
  * @date 2022-07-31
  * 
  * @copyright Copyright (c) 2022
  * 
- * This file contains all data structures used to maintain status information of the 
+ * @brief This file contains all data structures used to maintain status information of the 
  * system's centers during the simulation.
  */
+
 #ifndef __centers_h__
     #define __centers_h__
 #include "config.h"
