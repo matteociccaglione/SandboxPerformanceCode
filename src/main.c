@@ -1,6 +1,6 @@
 /**
  * @file main.c
- * @author a. Pepe - M. Ciccaglione
+ * @author A. Pepe - M. Ciccaglione
  * @brief This is the main file of the Sandbox Performance simulation project, a modelized sandbox system
  * for automatic malware analysis. Here is contained the starting point of the program,
  * for both finite horizon simulation and infinite horizon simulation.
