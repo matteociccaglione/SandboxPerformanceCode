@@ -1,22 +1,44 @@
+/**
+ * @file verify.c
+ * @author A. Pepe - M. Ciccaglione
+ * @version 1.0
+ * @date 2022-08-25
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ * @brief This file contains the implementation of the function used to perform verification of a simulation run.
+ */
 #include "verify.h"
 #include "math.h"
 
 /**
- * @brief This function is used to do the VERIFICATION of the system.
- * By carrying out consistency checks between the measured values. This function must be followed after each finite horizon simulation run.
- * If a consistency check skips the function it stops the simulation showing the error presented.
- *  The checks done are:
- *          - Check that service time = wait time (queue) + service time, for each center and for the two separate queues of the reliable center
- *          - Check
- *
- * @param digestCenter
- * @param normalCenter
- * @param premiumCenter
- * @param reliableCenter
+ * @brief This function is used to do the VERIFICATION of the system, by carrying out consistency checks between the measured values.
+ * This function must be followed after each finite horizon simulation run.
+ * If a consistency check does not pass, the entire simulation will be interrupted and the verification error will be shown.
+ * 
+ * The consistency checks are:
+ *          - Check that response time = wait time (queue) + service time, for each center
+ *          - Check that routing probabilities respect the configured values
+ *          - Check that the digest matching probability reaches the expected final value (configured in configuration file)
+ *          - Check that percentage of jobs in timeout in normal, premium and reliable analysis centers match the probability that the exponential random variable of the service time is greater of the timeout
+ *          - Check that jobs in input = jobs in timeout + jobs analyzed with success, for each center
+ *          - For each center, check the validity of the Little's Law: E(N) = lambda * E(Ts)
+ * 
+ * In the improved model, the following consistency check are added:
+ *          - Check that the Little's Law is valid also for the ML center
+ *          - Check that the utilization of the ML center is equal to the average percentage of busy servers (average number of jobs in the center / number of servers)
+ * 
+ * @param digestCenter Pointer to digestCenter struct, containing the data of the simulation
+ * @param normalCenter Pointer to normalAnalysisCenter struct, containing the data of the simulation
+ * @param premiumCenter Pointer to premiumAnalysisCenter struct, containing the data of the simulation
+ * @param reliableCenter Pointer to reliableAnalysisCenter struct, containing the data of the simulation
+ * @param mlCenter Pointer to machineLearningCenter struct, containing the data of the simulation
  */
 void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, premiumAnalysisCenter *premiumCenter, reliableAnalysisCenter *reliableCenter, machineLearningCenter *mlCenter)
 {
 
+    // Check that E(Ts) = E(Tq) + E(Si)
+    // digest center
     double responseTime = digestCenter->area / digestCenter->index;
     double waitTime = digestCenter->queueArea / digestCenter->index;
     double serviceTime = digestCenter->serviceArea / digestCenter->index;
@@ -27,6 +49,8 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
         printf("Condition is satisfied: %d\n", round(1000000 * responseTime) / 1000000 == round(1000000 * (waitTime + serviceTime)) / 1000000);
         exit(EXIT_FAILURE);
     }
+
+    // normal analysis center
     responseTime = normalCenter->area / normalCenter->index;
     waitTime = normalCenter->queueArea / normalCenter->index;
     serviceTime = normalCenter->serviceArea / normalCenter->index;
@@ -37,6 +61,8 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
         printf("Condition is satisfied: %d\n", round(1000000 * responseTime) / 1000000 == round(1000000 * (waitTime + serviceTime)) / 1000000);
         exit(EXIT_FAILURE);
     }
+
+    // premium analysis center
     responseTime = premiumCenter->area / premiumCenter->index;
     waitTime = premiumCenter->queueArea / premiumCenter->index;
     serviceTime = premiumCenter->serviceArea / premiumCenter->index;
@@ -47,6 +73,8 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
         printf("Condition is satisfied: %d\n", round(1000000 * responseTime) / 1000000 == round(1000000 * (waitTime + serviceTime)) / 1000000);
         exit(EXIT_FAILURE);
     }
+
+    // reliable analysis center
     responseTime = reliableCenter->area / reliableCenter->index;
     waitTime = reliableCenter->queueArea / reliableCenter->index;
     serviceTime = reliableCenter->serviceArea / reliableCenter->index;
@@ -57,6 +85,8 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
         printf("Condition is satisfied: %d\n", round(1000000 * responseTime) / 1000000 == round(1000000 * (waitTime + serviceTime)) / 1000000);
         exit(EXIT_FAILURE);
     }
+
+    // high priority queue check
     responseTime = reliableCenter->areaPremium / reliableCenter->premiumIndex;
     waitTime = reliableCenter->queueAreaPremium / reliableCenter->premiumIndex;
     serviceTime = reliableCenter->serviceAreaPremium / reliableCenter->premiumIndex;
@@ -67,6 +97,8 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
         printf("Condition is satisfied: %d\n", round(1000000 * responseTime) / 1000000 == round(1000000 * (waitTime + serviceTime)) / 1000000);
         exit(EXIT_FAILURE);
     }
+
+    // low priority queue check
     responseTime = reliableCenter->areaNormal / reliableCenter->normalIndex;
     waitTime = reliableCenter->queueAreaNormal / reliableCenter->normalIndex;
     serviceTime = reliableCenter->serviceAreaNormal / reliableCenter->normalIndex;
@@ -79,8 +111,8 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
         exit(EXIT_FAILURE);
     }
 
-    // Verify routing probabilities
 
+    // Verify routing probabilities
     double probabilityPremium = round(100 * (double)digestCenter->indexPremium / digestCenter->index) / 100;
     double probabilityNormal = round(100 * ((double)digestCenter->index - digestCenter->indexPremium) / digestCenter->index) / 100;
 
@@ -98,6 +130,8 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
         printf("Condition is satisfied: %d\n", probabilityNormal == round(100 * (1 - PROBABILITY_PREMIUM)) / 100);
         exit(EXIT_FAILURE);
     }
+
+    // Check digest matching probability
     double probabilityDigestMatching = round(100 * (double)digestCenter->digestMatching / digestCenter->index) / 100;
     if (!(probabilityDigestMatching == FINAL_DIGEST_MATCHING_PROB))
     {
@@ -106,6 +140,8 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
         printf("Condition is satisfied: %d\n", probabilityDigestMatching == FINAL_DIGEST_MATCHING_PROB);
         exit(EXIT_FAILURE);
     }
+
+    // Check probability of timeouts
     double probabilityOfTimeoutPremium = round(100 * ((double)premiumCenter->numberOfTimeouts / premiumCenter->index)) / 100;
     double probabilityOfTimeoutNormal = round(100 * ((double)normalCenter->numberOfTimeouts / normalCenter->index)) / 100;
     double probabilityOfTimeoutReliable = round(100 * ((double)reliableCenter->numberOfTimeouts / reliableCenter->index)) / 100;
@@ -134,6 +170,8 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
         printf("Condition is satisfied: %d\n", (probabilityOfTimeoutReliable == expectedTimeoutReliable + 0.01) || (probabilityOfTimeoutReliable == expectedTimeoutReliable - 0.01) || (probabilityOfTimeoutReliable == expectedTimeoutReliable));
         exit(EXIT_FAILURE);
     }
+
+
     // Verify that number of jobs in input is equals to number of jobs analyzed + number of jobs timed out
     int numberOfInput = digestCenter->index;
     int numberOfProcessed = premiumCenter->index - premiumCenter->numberOfTimeouts + normalCenter->index - normalCenter->numberOfTimeouts + digestCenter->digestMatching + reliableCenter->jobAnalyzed;
@@ -148,6 +186,8 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
         }
     }
 
+    // Check validity of Little's Law
+    // digest center
     double lambda = round(1000000 * (1 / digestCenter->interarrivalTime * digestCenter->index)) / 1000000;
     serviceTime = round(1000000 * (digestCenter->area / digestCenter->index)) / 1000000;
     double eN = round(1000000 * (double)digestCenter->area / digestCenter->interarrivalTime) / 1000000;
@@ -160,6 +200,8 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
         printf("Condition is not satisfied\n");
         exit(EXIT_FAILURE);
     }
+    
+    // normal analysis center
     lambda = round(1000000 * (1 / normalCenter->interarrivalTime * normalCenter->index)) / 1000000;
     serviceTime = round(1000000 * (normalCenter->area / normalCenter->index)) / 1000000;
     eN = round(1000000 * (double)normalCenter->area / normalCenter->interarrivalTime) / 1000000;
@@ -172,6 +214,8 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
         printf("Condition is not satisfied\n");
         exit(EXIT_FAILURE);
     }
+
+    // premium analysis center
     lambda = round(1000000 * (1 / premiumCenter->interarrivalTime * premiumCenter->index)) / 1000000;
     serviceTime = round(1000000 * (premiumCenter->area / premiumCenter->index)) / 1000000;
     eN = round(1000000 * (double)premiumCenter->area / premiumCenter->interarrivalTime) / 1000000;
@@ -184,6 +228,8 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
         printf("Condition is not satisfied\n");
         exit(EXIT_FAILURE);
     }
+
+    // reliable analysis center
     lambda = round(1000000 * (1 / reliableCenter->interarrivalTime * reliableCenter->index)) / 1000000;
     serviceTime = round(1000000 * (reliableCenter->area / reliableCenter->index)) / 1000000;
     eN = round(1000000 * (double)reliableCenter->area / reliableCenter->interarrivalTime) / 1000000;
@@ -198,6 +244,7 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
     }
     if (IMPROVEMENT)
     {
+        // ML center
         lambda = round(1000000 * (1 / mlCenter->interarrivalTime * mlCenter->index)) / 1000000;
         serviceTime = round(1000000 * (mlCenter->area / mlCenter->index)) / 1000000;
         eN = round(1000000 * (double)mlCenter->area / mlCenter->interarrivalTime) / 1000000;
@@ -211,9 +258,8 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
             exit(EXIT_FAILURE);
         }
 
-        // verify that utilization of no queue multi-server center is equal to avg number of busy servers / total number of servers
-        // rho = lambda * E(S)
-        double rhoMl = (mlCenter->serviceArea/mlCenter->index) / (N_ML * mlCenter->interarrivalTime / mlCenter->index);
+        // verify that utilization of no queue multi-server center is equal to average number of busy servers / total number of servers
+        double rhoMl = (mlCenter->serviceArea/mlCenter->index) / (N_ML * mlCenter->interarrivalTime / mlCenter->index);     // rho = lambda * E(S)
         rhoMl = round (10000 * rhoMl) / 10000;
         if (! (rhoMl == round(10000 * (eN/N_ML))/10000)){
             printf("Verify that rho is valid for machine learning center\n");

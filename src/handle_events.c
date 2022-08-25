@@ -273,7 +273,6 @@ double handleDigestTermination(digestCenter *digestCenter, event_list *ev, doubl
             // new arrival to the ML Center
             SelectStream(MEAN_SERVICE_TIME_ML_STREAM);
             arrival *ar = malloc(sizeof(arrival));
-            ar->job.type = term->job.type;
             ar->job.userType = term->job.userType;
             ar->job.serviceTime = Exponential(ML_MEAN_SERVICE_TIME);    // generate service time
 
@@ -296,14 +295,12 @@ double handleDigestTermination(digestCenter *digestCenter, event_list *ev, doubl
                 ar->center = CENTER_PREMIUM;
                 SelectStream(MEAN_SERVICE_TIME_PREMIUM_STREAM);
                 ar->job.serviceTime = Exponential(PREMIUM_MEAN_SERVICE_TIME);   // generate service time
-                ar->job.type = term->job.type;
                 ar->job.userType = term->job.userType;
                 break;
             case NORMAL:
                 ar->center = CENTER_NORMAL;
                 SelectStream(MEAN_SERVICE_TIME_NORMAL_STREAM);
                 ar->job.serviceTime = Exponential(NORMAL_MEAN_SERVICE_TIME);    // generate service time
-                ar->job.type = term->job.type;
                 ar->job.userType = term->job.userType;
                 break;
             }

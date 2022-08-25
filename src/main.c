@@ -755,7 +755,7 @@ int main()
         {
             for (int i = 0; i < ITERATIONS; i++)
             {
-                array[i] = (double)statistics[i].ro[j];
+                array[i] = (double)statistics[i].rho[j];
             }
             results = welford(confidence, array, ITERATIONS);
             confidenceIntervals[3] = results;
@@ -874,7 +874,7 @@ int main()
         for (int j = 0; j < numCenters; j++){
             dataPoints = malloc(batchNumber * sizeof(double));
             for (int i = 0; i < batchNumber; i++){
-                dataPoints[i] = simResults[i].ro[j];
+                dataPoints[i] = simResults[i].rho[j];
             }
             results = welford(confidence, dataPoints, batchNumber);
             printf("Rho in the center %d : %6.6f +/- %6.6f jobs\n", j + 1, results[0], results[1]);

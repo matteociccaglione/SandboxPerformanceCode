@@ -29,8 +29,6 @@ arrival *getArrival(double simulationTime)
     event->center = CENTER_DIGEST;                                          // the arrival can only be to the digest calculation center
     SelectStream(USER_PROBABILITY_STREAM);
     event->job.userType = Bernoulli(PROBABILITY_PREMIUM);                   // randomly choose if the job is from a Premium or a Normal user
-    SelectStream(MALWARE_PROBABILITY_STREAM);
-    event->job.type = Bernoulli(PROBABILITY_MALWARE);                       // randomly choose if the job is a malware or not
     SelectStream(DIGEST_SERVICE_TIME_STREAM);
     event->job.serviceTime = Exponential(DIGEST_MEAN_SERVICE_TIME);         // generate the service time for the digest calculation
     return event;
