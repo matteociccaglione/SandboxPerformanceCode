@@ -261,7 +261,9 @@ void verify(digestCenter *digestCenter, normalAnalysisCenter *normalCenter, prem
         // verify that utilization of no queue multi-server center is equal to average number of busy servers / total number of servers
         double rhoMl = (mlCenter->serviceArea/mlCenter->index) / (N_ML * mlCenter->interarrivalTime / mlCenter->index);     // rho = lambda * E(S)
         rhoMl = round (10000 * rhoMl) / 10000;
-        if (! (rhoMl == round(10000 * (eN/N_ML))/10000)){
+        experimental = round(10000 * (eN/N_ML))/10000;
+        condition = (rhoMl == experimental) || (rhoMl == experimental + 0.0001) || (rhoMl == experimental - 0.0001);
+        if (! condition){
             printf("Verify that rho is valid for machine learning center\n");
             printf("rho = E(N)/N_ML : %6.4f = %6.4f / %d = %6.4f\n", rhoMl, eN, N_ML, round(10000 * (eN/N_ML))/10000);
             printf("Condition is not satisfied\n");
